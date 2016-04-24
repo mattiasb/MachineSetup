@@ -4,22 +4,20 @@
     version: "{{ ansible_distribution_major_version }}"
   tasks:
     - name: Setup RPMFusion
-      block:
-        - dnf:
-            name={{ item }}
-            state=present
-            disable_gpg_check=yes
-          with_items:
-            - http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ version }}.noarch.rpm
-            - http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ version }}.noarch.rpm
+      dnf:
+        name={{ item }}
+        state=present
+        disable_gpg_check=yes
+      with_items:
+        - http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ version }}.noarch.rpm
+        - http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ version }}.noarch.rpm
       tags:
-        system
-        rpmfusion
+        - system
+        - rpmfusion
       become: yes
       become_user: root
 
-    - name: Setup COPR repositories
-      block:
+    - block:
         - command: dnf copr enable -y fabiand/rust-binary
           args:
             creates: /etc/yum.repos.d/_copr_fabiand-rust-binary.repo
@@ -27,8 +25,8 @@
           args:
             creates: /etc/yum.repos.d/fedora-spotify.repo
       tags:
-        system
-        coprs
+        - system
+        - coprs
       become: yes
       become_user: root
 
@@ -111,8 +109,8 @@
           - tmux
           - yelp-tools
       tags:
-        system
-        packages
+        - system
+        - packages
       become: yes
       become_user: root
 
@@ -127,8 +125,8 @@
       become: yes
       become_user: root
       tags:
-        system
-        external-packages
+        - system
+        - external-packages
 
     # - tags: [python-packages]
     #   block:
