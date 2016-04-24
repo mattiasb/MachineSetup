@@ -3,7 +3,8 @@
   vars:
     version: "{{ ansible_distribution_major_version }}"
   tasks:
-    - block:
+    - name: Setup RPMFusion
+      block:
         - dnf:
             name={{ item }}
             state=present
@@ -17,7 +18,8 @@
       become: yes
       become_user: root
 
-    - block:
+    - name: Setup COPR repositories
+      block:
         - command: dnf copr enable -y fabiand/rust-binary
           args:
             creates: /etc/yum.repos.d/_copr_fabiand-rust-binary.repo
@@ -30,7 +32,8 @@
       become: yes
       become_user: root
 
-    - block:
+    - name: Install Fedora Packages
+      block:
         - dnf:
             name={{ item }}
             state=present
@@ -113,7 +116,8 @@
       become: yes
       become_user: root
 
-    - block:
+    - name: Install Google Chrome
+      block:
         - dnf:
             name={{ item }}
             state=present
