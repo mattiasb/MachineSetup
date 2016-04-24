@@ -1,0 +1,169 @@
+---
+- hosts: localhost
+  vars:
+    version: {{ ansible_distribution_major_version }}
+  tasks:
+
+    - tags:
+        system
+        rpmfusion
+      block:
+        become: yes
+        become_user: root
+        - dnf:
+            name={{ item }}
+            state=present
+            disable_gpg_check=yes
+          with_items:
+            - http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ version }}.noarch.rpm
+            - http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ version }}.noarch.rpm
+  
+    - tags:
+        system
+        coprs
+      block:
+        become: yes
+        become_user: root
+        - command: dnf copr enable -y fabiand/rust-binary
+          args:
+            creates: /etc/yum.repos.d/_copr_fabiand-rust-binary.repo
+        - command: dnf config-manager --add-repo=http://negativo17.org/repos/fedora-spotify.repo
+          args:
+            creates: /etc/yum.repos.d/fedora-spotify.repo
+
+    - tags:
+        system
+        packages
+      block:
+        become: yes
+        become_user: root
+        - dnf:
+            name={{ item }}
+            state=present
+          with_items:
+            - bijiben
+            - cabal-install
+            - clang-devel
+            - cmake
+            - ctags-etags
+            - corebird
+            - docbook-dtds
+            - docbook-style-xsl
+            - docker-io
+            - emacs
+            - epiphany
+            - feedreader
+            - gimp
+            - git
+            - git-bz
+            - gitflow
+            - gitg
+            - glade
+            - gnome-calendar
+            - gnome-common
+            - gnome-maps
+            - gnome-photos
+            - gnome-tweak-tool
+            - golang
+            - golang-godoc
+            - gperf
+            - gstreamer1-libav
+            - gstreamer1-plugins-bad-freeworld
+            - gstreamer1-plugins-ugly
+            - gstreamer1-vaapi
+            - gtk3-devel-docs
+            - hunspell-sv
+            - intltool
+            - lua-devel
+            - lua-filesystem
+            - luarocks
+            - llvm-devel
+            - llvm-static
+            - meld
+            - mercurial
+            - maven
+            - npm
+            - nautilus-open-terminal
+            - ncurses-devel
+            - nuntius
+            - p7zip-plugins
+            - pandoc
+            - perl-open
+            - pylint
+            - python-pip
+            - python-rope
+            - python-ipython
+            - python-jedi
+            - python-flake8
+            - python-importmagic
+            - python-autopep8
+            - remmina
+            - remmina-plugins-gnome
+            - remmina-plugins-rdp
+            - remmina-plugins-vnc
+            - remmina
+            - rpmdevtools
+            - rpmlint
+            - ruby
+            - ruby-irb
+            - rust-binary
+            - ShellCheck
+            - spotify-client
+            - tig
+            - transmission-remote-gtk
+            - tmux
+            - yelp-tools
+
+    - tags:
+        system
+        external-packages
+      block:
+        become: yes
+        become_user: root
+        - dnf:
+            name={{ item }}
+            state=present
+            disable_gpg_check=yes
+          with_items:
+            - https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
+
+    - tags: [python-packages]
+      block:
+      - pip: name=docker-compose
+
+  # - tags: [sbt]
+  #   block:
+  #   - apt_key: keyserver=hkp://keyserver.ubuntu.com:80 id=642AC823
+  #   - apt_repository: repo='deb https://dl.bintray.com/sbt/debian /'
+  #   - apt: name=sbt update_cache=yes
+
+  # - tags: [amm]
+  #   block:
+  #   - get_url:  url=https://git.io/vafIQ dest=/usr/local/bin/amm
+  #   - file: path=/usr/local/bin/amm mode=u+x,g+x,o+x
+
+  # - tags: [intellij]
+  #   block:
+  #   - unarchive: src=https://download.jetbrains.com/idea/ideaIC-2016.1.tar.gz dest=/var/lib/ copy=no creates=/var/lib/idea-IC-145.258.11/
+
+  # - tags: [fish]
+  #   block:
+  #   - apt_repository: repo=ppa:fish-shell/release-2
+  #   - apt: name=fish update_cache=yes
+  #   - user: name=tobias shell=/usr/bin/fish
+
+  # - tags: [hub]
+  #   block:
+  #   - unarchive: src=https://github.com/github/hub/releases/download/v2.2.3/hub-linux-amd64-2.2.3.tgz dest=/tmp copy=no creates=/tmp/hub-linux-amd64-2.2.3
+  #   - command: /tmp/hub-linux-amd64-2.2.3/install creates=/usr/local/bin/hub
+
+  # - tags: [gnome-shell]
+  #   block:
+  #   - apt: name=gnome-shell
+  #   - apt_repository: repo=ppa:ne0sight/chrome-gnome-shell
+  #   - apt: name=chrome-gnome-shell update_cache=yes
+
+  # - tags: [grub-customizer]
+  #   block:
+  #   - apt_repository: repo=ppa:danielrichter2007/grub-customizer validate_certs=no
+  #   - apt: name=grub-customizer update_cache=yes
