@@ -30,89 +30,89 @@
       become: yes
       become_user: root
 
-    - name: Install Fedora Packages
-      block:
-        - dnf:
-            name={{ item }}
-            state=present
-          with_items:
-          - bijiben
-          - cabal-install
-          - clang-devel
-          - cmake
-          - ctags-etags
-          - corebird
-          - docbook-dtds
-          - docbook-style-xsl
-          - docker-io
-          - emacs
-          - epiphany
-          - feedreader
-          - gimp
-          - git
-          - git-bz
-          - gitflow
-          - gitg
-          - glade
-          - gnome-calendar
-          - gnome-common
-          - gnome-maps
-          - gnome-photos
-          - gnome-tweak-tool
-          - golang
-          - golang-godoc
-          - gperf
-          - gstreamer1-libav
-          - gstreamer1-plugins-bad-freeworld
-          - gstreamer1-plugins-ugly
-          - gstreamer1-vaapi
-          - gtk3-devel-docs
-          - hunspell-sv
-          - intltool
-          - lua-devel
-          - lua-filesystem
-          - luarocks
-          - llvm-devel
-          - llvm-static
-          - meld
-          - mercurial
-          - maven
-          - npm
-          - nautilus-open-terminal
-          - ncurses-devel
-          - nuntius
-          - p7zip-plugins
-          - pandoc
-          - perl-open
-          - pylint
-          - python-pip
-          - python-rope
-          - python-ipython
-          - python-jedi
-          - python-flake8
-          - python-importmagic
-          - python-autopep8
-          - remmina
-          - remmina-plugins-gnome
-          - remmina-plugins-rdp
-          - remmina-plugins-vnc
-          - remmina
-          - rpmdevtools
-          - rpmlint
-          - ruby
-          - ruby-irb
-          - rust-binary
-          - ShellCheck
-          - spotify-client
-          - tig
-          - transmission-remote-gtk
-          - tmux
-          - yelp-tools
-      tags:
-        - system
-        - packages
-      become: yes
-      become_user: root
+    # - name: Install Fedora Packages
+    #   block:
+    #     - dnf:
+    #         name={{ item }}
+    #         state=present
+    #       with_items:
+    #       - bijiben
+    #       - cabal-install
+    #       - clang-devel
+    #       - cmake
+    #       - ctags-etags
+    #       - corebird
+    #       - docbook-dtds
+    #       - docbook-style-xsl
+    #       - docker-io
+    #       - emacs
+    #       - epiphany
+    #       - feedreader
+    #       - gimp
+    #       - git
+    #       - git-bz
+    #       - gitflow
+    #       - gitg
+    #       - glade
+    #       - gnome-calendar
+    #       - gnome-common
+    #       - gnome-maps
+    #       - gnome-photos
+    #       - gnome-tweak-tool
+    #       - golang
+    #       - golang-godoc
+    #       - gperf
+    #       - gstreamer1-libav
+    #       - gstreamer1-plugins-bad-freeworld
+    #       - gstreamer1-plugins-ugly
+    #       - gstreamer1-vaapi
+    #       - gtk3-devel-docs
+    #       - hunspell-sv
+    #       - intltool
+    #       - lua-devel
+    #       - lua-filesystem
+    #       - luarocks
+    #       - llvm-devel
+    #       - llvm-static
+    #       - meld
+    #       - mercurial
+    #       - maven
+    #       - npm
+    #       - nautilus-open-terminal
+    #       - ncurses-devel
+    #       - nuntius
+    #       - p7zip-plugins
+    #       - pandoc
+    #       - perl-open
+    #       - pylint
+    #       - python-pip
+    #       - python-rope
+    #       - python-ipython
+    #       - python-jedi
+    #       - python-flake8
+    #       - python-importmagic
+    #       - python-autopep8
+    #       - remmina
+    #       - remmina-plugins-gnome
+    #       - remmina-plugins-rdp
+    #       - remmina-plugins-vnc
+    #       - remmina
+    #       - rpmdevtools
+    #       - rpmlint
+    #       - ruby
+    #       - ruby-irb
+    #       - rust-binary
+    #       - ShellCheck
+    #       - spotify-client
+    #       - tig
+    #       - transmission-remote-gtk
+    #       - tmux
+    #       - yelp-tools
+    #   tags:
+    #     - system
+    #     - packages
+    #   become: yes
+    #   become_user: root
 
     - name: Install Google Chrome
       block:
