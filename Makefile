@@ -6,6 +6,6 @@ install:
 	ansible-playbook -i "localhost," -c local fedora-desktop.yml
 
 deps:
-	sudo dnf groupinstall 'Development Tools'
-	sudo dnf install python-pip python-dnf
+	sudo dnf groupinstall -by 'Development Tools'
+	sudo dnf install -by python-pip python-dnf
 	pip install --user ansible
