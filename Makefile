@@ -7,5 +7,5 @@ install:
 
 deps:
 	sudo dnf groupinstall -by 'Development Tools'
-	sudo dnf install -by ansible
+	sudo dnf install -by ansible python2-dnf
 	pip install --upgrade --user ansible
