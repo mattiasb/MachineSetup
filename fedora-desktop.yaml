@@ -8,8 +8,7 @@
       become: yes
       become_user: root
       block:
-        - name: Setup RPMFusion
-          tags: [rpmfusion]
+        - tags: [rpmfusion]
           dnf:
             name: "{{ item }}"
             state: present
@@ -17,8 +16,8 @@
           with_items:
             - http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ version }}.noarch.rpm
             - http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ version }}.noarch.rpm
-        - name: Setup Coprs
-          tags: [coprs]
+
+        - tags: [coprs]
           block:
             - command: dnf copr enable -y fabiand/rust-binary
               args:
@@ -26,8 +25,8 @@
             - command: dnf config-manager --add-repo=http://negativo17.org/repos/fedora-spotify.repo
               args:
                 creates: /etc/yum.repos.d/fedora-spotify.repo
-        - name: Install Packages
-          tags: [packages]
+
+        - tags: [packages]
           dnf:
             name: "{{ item }}"
             state: present
@@ -104,14 +103,15 @@
             - transmission-remote-gtk
             - tmux
             - yelp-tools
-        - dnf:
+
+        - tags: [external-packages]
+          dnf:
             name: "{{ item }}"
             state: present
             disable_gpg_check: yes
           with_items:
             - https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
-          tags:
-            - external-packages
+
 
   # - tags: [python-packages]
   #   block:
