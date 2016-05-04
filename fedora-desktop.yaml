@@ -7,8 +7,7 @@
       become: yes
       become_user: root
       block:
-        - name: Setup RPMFusion
-          tags: [rpmfusion]
+        - tags: [rpmfusion]
           dnf:
             name: "{{ item }}"
             state: present
@@ -16,8 +15,7 @@
           with_items:
             - http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ version }}.noarch.rpm
             - http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ version }}.noarch.rpm
-        - name: Setup Coprs
-          tags: [coprs]
+        - tags: [coprs]
           block:
             - command: dnf copr enable -y fabiand/rust-binary
               args:
@@ -25,8 +23,7 @@
             - command: dnf config-manager --add-repo=http://negativo17.org/repos/fedora-spotify.repo
               args:
                 creates: /etc/yum.repos.d/fedora-spotify.repo
-        - name: Install Packages
-          tags: [packages]
+        - tags: [packages]
           dnf:
             name: "{{ item }}"
             state: present
