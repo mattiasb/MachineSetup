@@ -24,8 +24,3 @@ deps:
 				sshpass
 
 	pip install --user ansible
-
-# 				openssl-devel		\
-#				python-devel		\
-#				libffi-devel		\
-#				redhat-rpm-config
