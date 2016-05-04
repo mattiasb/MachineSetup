@@ -21,8 +21,11 @@ deps:
 				python-paramiko		\
 				python-pyasn1		\
 				pytz			\
-				sshpass			\
-				libffi-devel		\
-				redhat-rpm-config
+				sshpass
 
-	pip install --upgrade --user ansible
+	pip install --user ansible
+
+# 				openssl-devel		\
+#				python-devel		\
+#				libffi-devel		\
+#				redhat-rpm-config
