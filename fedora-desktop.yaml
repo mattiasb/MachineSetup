@@ -6,7 +6,7 @@
     version: "{{ ansible_distribution_major_version }}"
   tasks:
     - name: Setup RPMFusion
-      tags: [rpmfusion]
+      tags: [repos, rpmfusion-repo]
       dnf:
         name: "{{ item }}"
         state: present
@@ -15,15 +15,17 @@
         - http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ version }}.noarch.rpm
         - http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ version }}.noarch.rpm
 
-    - name: Setup Coprs
-      tags: [coprs]
-      block:
-        - command: dnf copr enable -y fabiand/rust-binary
-          args:
-            creates: /etc/yum.repos.d/_copr_fabiand-rust-binary.repo
-        - command: dnf config-manager --add-repo=http://negativo17.org/repos/fedora-spotify.repo
-          args:
-            creates: /etc/yum.repos.d/fedora-spotify.repo
+    - name: Setup Rust Copr
+      tags: [repos, rust-repo]
+      command: dnf copr enable -y fabiand/rust-binary
+      args:
+        creates: /etc/yum.repos.d/_copr_fabiand-rust-binary.repo
+
+    - name: Setup Spotify Repo
+      tags: [repos, spotify-repo]
+      command: dnf config-manager --add-repo=http://negativo17.org/repos/fedora-spotify.repo
+      args:
+        creates: /etc/yum.repos.d/fedora-spotify.repo
 
     - name: Install Packages
       tags: [packages]
@@ -111,8 +113,7 @@
         disable_gpg_check: yes
       with_items:
         - https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
-      tags:
-        - external-packages
+      tags: [packages, external-packages]
 
   # - tags: [python-packages]
   #   block:
