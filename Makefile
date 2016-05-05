@@ -3,7 +3,11 @@
 all: deps install
 
 install:
-	ansible-playbook -i "localhost," -c local ./fedora-desktop.yaml
+	ansible-playbook				\
+		-i "localhost," 			\
+		-c local				\
+		--ask-become-pass			\
+		./fedora-desktop.yaml
 
 deps:
 	sudo dnf groupinstall -by 'Development Tools'
