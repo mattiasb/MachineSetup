@@ -7,7 +7,7 @@ install:
 		-i "localhost," 			\
 		-c local				\
 		--ask-become-pass			\
-		./fedora-desktop.yaml
+		./fedora-desktop-system.yaml
 
 deps:
 	sudo dnf groupinstall -by 'Development Tools'
