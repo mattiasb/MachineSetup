@@ -1,113 +1,118 @@
 ---
 - hosts: localhost
+  become: yes
+  become_user: root
   vars:
     version: "{{ ansible_distribution_major_version }}"
   tasks:
-    - tags: [system]
-      become: yes
-      become_user: root
+    - name: Setup RPMFusion
+      tags: [rpmfusion]
+      dnf:
+        name: "{{ item }}"
+        state: present
+        disable_gpg_check: yes
+      with_items:
+        - http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ version }}.noarch.rpm
+        - http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ version }}.noarch.rpm
+
+    - name: Setup Coprs
+      tags: [coprs]
       block:
-        - tags: [rpmfusion]
-          dnf:
-            name: "{{ item }}"
-            state: present
-            disable_gpg_check: yes
-          with_items:
-            - http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ version }}.noarch.rpm
-            - http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ version }}.noarch.rpm
-        - tags: [coprs]
-          block:
-            - command: dnf copr enable -y fabiand/rust-binary
-              args:
-                creates: /etc/yum.repos.d/_copr_fabiand-rust-binary.repo
-            - command: dnf config-manager --add-repo=http://negativo17.org/repos/fedora-spotify.repo
-              args:
-                creates: /etc/yum.repos.d/fedora-spotify.repo
-        - tags: [packages]
-          dnf:
-            name: "{{ item }}"
-            state: present
-          with_items:
-            - bijiben
-            - cabal-install
-            - clang-devel
-            - cmake
-            - ctags-etags
-            - corebird
-            - docbook-dtds
-            - docbook-style-xsl
-            - docker-io
-            - emacs
-            - epiphany
-            - feedreader
-            - gimp
-            - git
-            - git-bz
-            - gitflow
-            - gitg
-            - glade
-            - gnome-calendar
-            - gnome-common
-            - gnome-maps
-            - gnome-photos
-            - gnome-tweak-tool
-            - golang
-            - golang-godoc
-            - gperf
-            - gstreamer1-libav
-            - gstreamer1-plugins-bad-freeworld
-            - gstreamer1-plugins-ugly
-            - gstreamer1-vaapi
-            - gtk3-devel-docs
-            - hunspell-sv
-            - intltool
-            - lua-devel
-            - lua-filesystem
-            - luarocks
-            - llvm-devel
-            - llvm-static
-            - meld
-            - mercurial
-            - maven
-            - npm
-            - nautilus-open-terminal
-            - ncurses-devel
-            - nuntius
-            - p7zip-plugins
-            - pandoc
-            - perl-open
-            - pylint
-            - python-pip
-            - python-rope
-            - python-ipython
-            - python-jedi
-            - python-flake8
-            - python-importmagic
-            - python-autopep8
-            - remmina
-            - remmina-plugins-gnome
-            - remmina-plugins-rdp
-            - remmina-plugins-vnc
-            - remmina
-            - rpmdevtools
-            - rpmlint
-            - ruby
-            - ruby-irb
-            - rust-binary
-            - ShellCheck
-            - spotify-client
-            - tig
-            - transmission-remote-gtk
-            - tmux
-            - yelp-tools
-        - dnf:
-            name: "{{ item }}"
-            state: present
-            disable_gpg_check: yes
-          with_items:
-            - https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
-          tags:
-            - external-packages
+        - command: dnf copr enable -y fabiand/rust-binary
+          args:
+            creates: /etc/yum.repos.d/_copr_fabiand-rust-binary.repo
+        - command: dnf config-manager --add-repo=http://negativo17.org/repos/fedora-spotify.repo
+          args:
+            creates: /etc/yum.repos.d/fedora-spotify.repo
+
+    - name: Install Packages
+      tags: [packages]
+      dnf:
+        name: "{{ item }}"
+        state: present
+      with_items:
+        - bijiben
+        - cabal-install
+        - clang-devel
+        - cmake
+        - ctags-etags
+        - corebird
+        - docbook-dtds
+        - docbook-style-xsl
+        - docker-io
+        - emacs
+        - epiphany
+        - feedreader
+        - gimp
+        - git
+        - git-bz
+        - gitflow
+        - gitg
+        - glade
+        - gnome-calendar
+        - gnome-common
+        - gnome-maps
+        - gnome-photos
+        - gnome-tweak-tool
+        - golang
+        - golang-godoc
+        - gperf
+        - gstreamer1-libav
+        - gstreamer1-plugins-bad-freeworld
+        - gstreamer1-plugins-ugly
+        - gstreamer1-vaapi
+        - gtk3-devel-docs
+        - hunspell-sv
+        - intltool
+        - lua-devel
+        - lua-filesystem
+        - luarocks
+        - llvm-devel
+        - llvm-static
+        - meld
+        - mercurial
+        - maven
+        - npm
+        - nautilus-open-terminal
+        - ncurses-devel
+        - nuntius
+        - p7zip-plugins
+        - pandoc
+        - perl-open
+        - pylint
+        - python-pip
+        - python-rope
+        - python-ipython
+        - python-jedi
+        - python-flake8
+        - python-importmagic
+        - python-autopep8
+        - remmina
+        - remmina-plugins-gnome
+        - remmina-plugins-rdp
+        - remmina-plugins-vnc
+        - remmina
+        - rpmdevtools
+        - rpmlint
+        - ruby
+        - ruby-irb
+        - rust-binary
+        - ShellCheck
+        - spotify-client
+        - tig
+        - transmission-remote-gtk
+        - tmux
+        - yelp-tools
+
+    - name: Install Chrome
+      dnf:
+        name: "{{ item }}"
+        state: present
+        disable_gpg_check: yes
+      with_items:
+        - https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
+      tags:
+        - external-packages
 
   # - tags: [python-packages]
   #   block:
