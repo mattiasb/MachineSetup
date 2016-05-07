@@ -120,3 +120,12 @@
       with_items:
         - https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
       tags: [packages, external-packages]
+
+    - name: Setup JHBuild Install dir
+      file:
+        path: /opt/gnome
+        owner: root
+        group: wheel
+        mode: 0775
+        state: directory
+      tags: [jhbuild]
