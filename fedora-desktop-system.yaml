@@ -38,6 +38,7 @@
         name: "{{ item }}"
         state: present
       with_items:
+        - "@Development tools"
         - bijiben
         - cabal-install
         - clang-devel
