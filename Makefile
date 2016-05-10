@@ -7,7 +7,7 @@ ANSIBLE=/usr/bin/ansible
 $(ANSIBLE):
 	sudo dnf install -by ansible
 
-install: system user
+install: system-install user-install
 
 system-install: $(ANSIBLE)
 	ansible-playbook -i "localhost," -c local --ask-become-pass ./fedora-desktop-system.yaml
