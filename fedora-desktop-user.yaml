@@ -18,6 +18,7 @@
       git:
         repo: "{{ gh_mattiasb }}/.local-bin.git"
         dest: "{{ ansible_user_dir }}/.local/bin"
+        version: master
 
     - name: Init Config Git Directory
       tags:
@@ -46,6 +47,7 @@
       git:
         repo: "{{ gh_mattiasb }}/.emacs.d.git"
         dest: "{{ ansible_user_dir }}/.emacs.d"
+        version: master
       register: fetch_emacs_config
 
     - name: Link Configuration files
@@ -176,6 +178,7 @@
       git:
         repo: https://git.gnome.org/browse/jhbuild
         dest: "{{ gnome_src }}/jhbuild/"
+        version: master
       register: fetch_jhbuild
 
     - name: Update JHBuild
