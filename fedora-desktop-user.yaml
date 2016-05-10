@@ -151,6 +151,10 @@
       environment:
         CARGO_HOME: "{{ install_prefix }}/share/cargo"
         CARGO_INSTALL_ROOT: "{{ install_prefix }}/"
+      args:
+        creates:
+          - "{{ install_prefix }}/bin/rustfmt"
+          - "{{ install_prefix }}/bin/cargo"
 
     - name: Setup rpmdev
       tags:
