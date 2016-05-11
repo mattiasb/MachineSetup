@@ -1,0 +1,21 @@
+---
+- name: Fetch {{ name | default(tag) }}
+  tags:
+    - fetch
+    - "{{ tag }}"
+  git:
+    repo: "{{ repo }}"
+    dest: "{{ dest }}"
+    version: master
+  register: fetch
+
+- name: Update {{ name | default(tag) }}
+  tags:
+    - update
+    - "{{ tag }}"
+  command: "{{ item }}"
+  with_items: "{{ commands }}"
+  args:
+    chdir: "{{ dest }}"
+    creates: "{{ creates | default(omit) }}"
+  when: fetch.changed

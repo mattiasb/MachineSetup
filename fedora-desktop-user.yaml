@@ -7,7 +7,7 @@
     code_dir: "{{ ansible_user_dir }}/Code"
     gnome_src: "{{ code_dir }}/gnome/src"
     gnome_build: "{{ code_dir }}/gnome/build"
-    gh_mattiasb: https://github.com/mattiasb
+    gh_mattiasb: git@github.com:mattiasb
 
   tasks:
     - name: Fetch .local/bin
@@ -39,16 +39,6 @@
         dest: "{{ config_prefix }}"
         version: master
       register: fetch_config
-
-    - name: Fetch Emacs Config
-      tags:
-        - fetch
-        - emacs-config
-      git:
-        repo: "{{ gh_mattiasb }}/.emacs.d.git"
-        dest: "{{ ansible_user_dir }}/.emacs.d"
-        version: master
-      register: fetch_emacs_config
 
     - name: Link Configuration files
       tags:
@@ -148,13 +138,11 @@
       with_items:
         - racer
         - rustfmt
+      args:
+        creates: "{{ install_prefix }}/bin/{{ item }}"
       environment:
         CARGO_HOME: "{{ install_prefix }}/share/cargo"
         CARGO_INSTALL_ROOT: "{{ install_prefix }}/"
-      args:
-        creates:
-          - "{{ install_prefix }}/bin/rustfmt"
-          - "{{ install_prefix }}/bin/cargo"
 
     - name: Setup rpmdev
       tags:
@@ -175,57 +163,41 @@
         - "{{ gnome_build }}"
         - "{{ gnome_src }}"
 
-    - name: Fetch JHBuild
-      tags:
-        - fetch
-        - jhbuild
-      git:
-        repo: https://git.gnome.org/browse/jhbuild
-        dest: "{{ gnome_src }}/jhbuild/"
-        version: master
-      register: fetch_jhbuild
+    - include: fetch_install.yml
+      vars:
+        tag: jhbuild
+        repo: "https://git.gnome.org/browse/jhbuild"
+        dest: "{{ gnome_src }}/jhbuild"
+        commands:
+          - ./autogen.sh --prefix={{ install_prefix }}
+          - make
+          - make install
 
-    - name: Update JHBuild
-      tags:
-        - update
-        - jhbuild
-      command: "{{ item }}"
-      with_items:
-        - "./autogen.sh --prefix={{ install_prefix }}"
-        - make
-        - make install
-      args:
-        chdir: "{{ gnome_src }}/jhbuild/"
-      when: fetch_jhbuild.changed
+    - include: fetch_install.yml
+      vars:
+        tag: emacs
+        repo: "{{ gh_mattiasb }}/.emacs.d.git"
+        dest: "{{ ansible_user_dir }}/.emacs.d"
+        commands:
+          - make
 
-    - name: Update Emacs Config
-      tags:
-        - update
-        - emacs-config
-      command: make update
-      args:
-        chdir: "{{ ansible_user_dir }}/.emacs.d"
-      when: fetch_emacs_config.changed
-
-    - name: Fetch git-fpaste
-      tags:
-        - fetch
-        - git-fpaste
-      git:
+    - include: fetch_install.yml
+      vars:
+        tag: git-fpaste
         repo: "{{ gh_mattiasb }}/git-fpaste.git"
         dest: "{{ code_dir }}/Projects/git-fpaste"
-        version: master
-        update: yes
-      register: fetch_git_fpaste
+        creates: "{{ install_prefix }}/bin/git-fpaste"
+        commands:
+          - make user-install
 
-    - name: Install git-fpaste
-      tags:
-        - install
-        - git-fpaste
-      command: make user-install
-      args:
-        chdir: "{{ code_dir }}/Projects/git-fpaste"
-      when: fetch_git_fpaste.changed
-
+    - include: fetch_install.yml
+      vars:
+        tag: git-wip
+        repo: "{{ gh_mattiasb }}/git-wip.git"
+        dest: "{{ code_dir }}/Projects/git-wip"
+        creates: "{{ install_prefix }}/bin/git-wip"
+        commands:
+          - make user-install
+      
     ## TODO:
     #  - Install RTags
