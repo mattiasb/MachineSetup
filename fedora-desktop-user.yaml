@@ -192,6 +192,15 @@
 
     - include: fetch_install.yml
       vars:
+        tag: git-each
+        repo: git@github.com:tobias-johansson/git-each.git
+        dest: "{{ code_dir }}/Projects/git-each"
+        creates: "{{ install_prefix }}/bin/git-each"
+        commands:
+          - make user-install
+
+    - include: fetch_install.yml
+      vars:
         tag: git-wip
         repo: "{{ gh_mattiasb }}/git-wip.git"
         dest: "{{ code_dir }}/Projects/git-wip"
