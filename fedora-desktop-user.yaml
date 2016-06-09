@@ -106,7 +106,7 @@
         - update
         - packages
         - go
-      command: go get {{ item }}
+      command: go get -u {{ item }}
       with_items:
         - github.com/nsf/gocode
         - github.com/dougm/goflymake
