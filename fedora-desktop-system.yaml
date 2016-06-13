@@ -8,7 +8,9 @@
 
     - name: Install ansible module deps
       tags: [ansible-deps, packages]
-      command: dnf install -by python2-dnf
+      dnf:
+        name: python2-dnf
+        state: present
 
     - name: Setup RPMFusion
       tags: [repos, rpmfusion-repo]
