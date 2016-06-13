@@ -80,13 +80,14 @@
         - meld
         - mercurial
         - maven
-        - npm
+        - nodejs
         - nautilus-open-terminal
         - ncurses-devel
         - nuntius
         - p7zip-plugins
         - pandoc
         - perl-open
+        - perl-Errno
         - pylint
         - python-pip
         - python-rope
