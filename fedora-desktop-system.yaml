@@ -28,6 +28,12 @@
       args:
         creates: /etc/yum.repos.d/_copr_fabiand-rust-binary.repo
 
+    - name: Setup gnome-twitch Repo
+      tags: [repos, gnome-twitch-repo]
+      command: dnf copr enable -y ippytraxx/gnome-twitch
+      args:
+        creates: /etc/yum.repos.d/_copr_ippytraxx-gnome-twitch.repo
+
     - name: Setup Spotify Repo
       tags: [repos, spotify-repo]
       command: dnf config-manager --add-repo=http://negativo17.org/repos/fedora-spotify.repo
@@ -64,13 +70,13 @@
         - gnome-maps
         - gnome-photos
         - gnome-tweak-tool
+        - gnome-twitch
         - golang
         - golang-godoc
         - gperf
         - gstreamer1-libav
         - gstreamer1-plugins-bad-freeworld
         - gstreamer1-plugins-ugly
-        - gstreamer1-vaapi
         - gtk3-devel-docs
         - flatpak
         - flatpak-builder
