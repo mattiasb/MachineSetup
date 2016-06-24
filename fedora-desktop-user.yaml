@@ -214,6 +214,102 @@
         creates: "{{ install_prefix }}/bin/git-wip"
         commands:
           - make user-install
-      
-    ## TODO:
-    #  - Install RTags
+
+    - name: GNOME settings
+      tags:
+        - gnome-settings
+      command: gsettings set {{ item.schema }} {{ item.key }} "{{ item.value }}"
+      with_items:
+        - schema: org.baedert.corebird
+          key: accel-compose-tweet
+          value: "'C'"
+        - schema: org.baedert.corebird
+          key: round-avatars
+          value: "false"
+        - schema: org.gnome.Terminal.Legacy.Settings
+          key: theme-variant
+          value: "'system'"
+        - schema: org.gnome.desktop.interface
+          key: gtk-key-theme
+          value: "'Emacs'"
+        - schema: org.gnome.desktop.peripherals.touchpad
+          key: tap-to-click
+          value: "true"
+        - schema: org.gnome.desktop.wm.keybindings
+          key: move-to-workspace-1
+          value: "['<Super>F1']"
+        - schema: org.gnome.desktop.wm.keybindings
+          key: move-to-workspace-2
+          value: "['<Super>F2']"
+        - schema: org.gnome.desktop.wm.keybindings
+          key: move-to-workspace-3
+          value: "['<Super>F3']"
+        - schema: org.gnome.desktop.wm.keybindings
+          key: move-to-workspace-4
+          value: "['<Super>F4']"
+        - schema: org.gnome.desktop.wm.keybindings
+          key: move-to-workspace-5
+          value: "['<Super>F5']"
+        - schema: org.gnome.desktop.wm.keybindings
+          key: move-to-workspace-6
+          value: "['<Super>F6']"
+        - schema: org.gnome.desktop.wm.keybindings
+          key: move-to-workspace-7
+          value: "['<Super>F7']"
+        - schema: org.gnome.desktop.wm.keybindings
+          key: move-to-workspace-8
+          value: "['<Super>F8']"
+        - schema: org.gnome.desktop.wm.keybindings
+          key: move-to-workspace-9
+          value: "['<Super>F9']"
+        - schema: org.gnome.desktop.wm.keybindings
+          key: panel-run-dialog
+          value: "['<Super>r']"
+        - schema: org.gnome.desktop.wm.keybindings
+          key: switch-to-workspace-1
+          value: "['<Super>1']"
+        - schema: org.gnome.desktop.wm.keybindings
+          key: switch-to-workspace-2
+          value: "['<Super>2']"
+        - schema: org.gnome.desktop.wm.keybindings
+          key: switch-to-workspace-3
+          value: "['<Super>3']"
+        - schema: org.gnome.desktop.wm.keybindings
+          key: switch-to-workspace-4
+          value: "['<Super>4']"
+        - schema: org.gnome.desktop.wm.keybindings
+          key: switch-to-workspace-5
+          value: "['<Super>5']"
+        - schema: org.gnome.desktop.wm.keybindings
+          key: switch-to-workspace-6
+          value: "['<Super>6']"
+        - schema: org.gnome.desktop.wm.keybindings
+          key: switch-to-workspace-7
+          value: "['<Super>7']"
+        - schema: org.gnome.desktop.wm.keybindings
+          key: switch-to-workspace-8
+          value: "['<Super>8']"
+        - schema: org.gnome.desktop.wm.keybindings
+          key: switch-to-workspace-9
+          value: "['<Super>9']"
+        - schema: org.gnome.desktop.wm.preferences
+          key: action-middle-click-titlebar
+          value: "'lower'"
+        - schema: org.gnome.nautilus.preferences
+          key: click-policy
+          value: "'single'"
+        - schema: org.gnome.settings-daemon.plugins.media-keys
+          key: home
+          value: "'<Super>f'"
+        - schema: org.gnome.settings-daemon.plugins.media-keys
+          key: www
+          value: "'<Super>w'"
+        - schema: org.gnome.shell
+          key: favorite-apps
+          value: "['firefox.desktop','evolution.desktop','spotify.desktop','org.baedert.corebird.desktop','org.gnome.Maps.desktop','org.gnome.Nautilus.desktop','org.gnome.Calendar.desktop','emacs.desktop','org.gnome.Software.desktop']"
+        - schema: org.gnome.shell.app-switcher
+          key: current-workspace-only
+          value: "true"
+        - schema: org.gnome.shell.calendar
+          key: show-weekdate
+          value: "true"
