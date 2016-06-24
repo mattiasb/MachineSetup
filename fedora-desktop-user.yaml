@@ -1,4 +1,9 @@
 ---
+# Workaround for: https://github.com/ansible/ansible/issues/14655
+- hosts: localhost
+  tasks:
+    - command: echo
+
 - hosts: localhost
   vars:
     version: "{{ ansible_distribution_major_version }}"
@@ -8,6 +13,8 @@
     gnome_src: "{{ code_dir }}/gnome/src"
     gnome_build: "{{ code_dir }}/gnome/build"
     gh_mattiasb: git@github.com:mattiasb
+  environment:
+    PATH: "{{ ansible_env.PATH }}:{{ ansible_user_dir }}/.local/bin/"
 
   tasks:
     - name: Fetch .local/bin
