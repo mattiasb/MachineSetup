@@ -25,7 +25,18 @@
       git:
         repo: "{{ gh_mattiasb }}/.local-bin.git"
         dest: "{{ ansible_user_dir }}/.local/bin"
+        accept_hostkey: yes
         version: master
+
+    # Needed if we haven't logged in to the desktop session yet, and
+    # thus doesn't have a .config dir yet
+    - name: Init Config Directory
+      tags:
+        - setup
+        - config
+      file:
+        path: "{{ config_prefix }}"
+        state: directory
 
     - name: Init Config Git Directory
       tags:
