@@ -9,6 +9,15 @@
     version: master
   register: fetch
 
+- name: Create Build-dir for {{ name | default(tag) }}
+  tags:
+    - build-dir
+    - "{{ tag }}"
+  file:
+    path: "{{ build_dir }}"
+    state: directory
+  when: build_dir is defined
+
 - name: Update {{ name | default(tag) }}
   tags:
     - update
@@ -16,6 +25,6 @@
   command: "{{ item }}"
   with_items: "{{ commands }}"
   args:
-    chdir: "{{ dest }}"
+    chdir: "{{ build_dir | default(dest) }}"
     creates: "{{ creates | default(omit) }}"
   when: fetch.changed
