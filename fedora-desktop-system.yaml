@@ -47,7 +47,6 @@
         state: present
       with_items:
         - "@Development tools"
-        - bijiben
         - cabal-install
         - clang-devel
         - cmake
@@ -93,7 +92,6 @@
         - nodejs
         - nautilus-open-terminal
         - ncurses-devel
-        - nuntius
         - p7zip-plugins
         - pandoc
         - perl-open
@@ -106,7 +104,6 @@
         - python-flake8
         - python-importmagic
         - python-autopep8
-        - remmina
         - remmina-plugins-gnome
         - remmina-plugins-rdp
         - remmina-plugins-vnc
