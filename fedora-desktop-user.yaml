@@ -188,7 +188,7 @@
         dest: "{{ gnome_src }}/jhbuild"
         commands:
           - ./autogen.sh --prefix={{ install_prefix }}
-          - make
+          - make -j {{ ansible_processor_vcpus }}
           - make install
 
     - include: fetch_install.yml
