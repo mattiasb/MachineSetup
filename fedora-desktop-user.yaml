@@ -107,6 +107,8 @@
         - yasel
       environment:
         NPM_CONFIG_USERCONFIG: "{{ config_prefix }}/npm/config"
+      args:
+        creates: "{{ install_prefix }}/bin/yasel"
 
     - name: Update LUA Packages
       tags:
@@ -118,6 +120,8 @@
         LUAROCKS_CONFIG: "{{ config_prefix }}/luarocks/config.lua"
       with_items:
         - luacheck
+      args:
+        creates: "{{ install_prefix }}/bin/luacheck"
 
     - name: Update go Packages
       tags:
@@ -133,6 +137,8 @@
       environment:
         GOBIN: "{{ install_prefix }}/bin"
         GOPATH: "{{ ansible_user_dir }}/Code/go:/usr/share/gocode"
+      args:
+        creates: "{{ install_prefix }}/bin/pt"
 
     - name: Update Python Packages
       tags:
@@ -161,6 +167,8 @@
       environment:
         CARGO_HOME: "{{ install_prefix }}/share/cargo"
         CARGO_INSTALL_ROOT: "{{ install_prefix }}/"
+      args:
+        creates: "{{ install_prefix }}/bin/racer"
 
     - name: Setup rpmdev
       tags:
