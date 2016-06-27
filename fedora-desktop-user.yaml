@@ -245,6 +245,8 @@
           - cmake -DCMAKE_INSTALL_PREFIX:PATH="{{ install_prefix }}" ..
           - make -j {{ ansible_processor_vcpus }}
           - make install
+          - systemctl --user enable rdm.socket
+          - systemctl --user start rdm.socket
 
     - name: GNOME settings
       tags:
