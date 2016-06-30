@@ -115,6 +115,7 @@
         - rust-binary
         - ShellCheck
         - spotify-client
+        - the_silver_searcher
         - tig
         - transmission-remote-gtk
         - tmux
