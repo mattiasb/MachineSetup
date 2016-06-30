@@ -133,12 +133,11 @@
         - github.com/nsf/gocode
         - github.com/dougm/goflymake
         - github.com/rogpeppe/godef
-        - github.com/monochromegane/the_platinum_searcher/...
       environment:
         GOBIN: "{{ install_prefix }}/bin"
         GOPATH: "{{ ansible_user_dir }}/Code/go:/usr/share/gocode"
       args:
-        creates: "{{ install_prefix }}/bin/pt"
+        creates: "{{ install_prefix }}/bin/gocode"
 
     - name: Update Python Packages
       tags:
