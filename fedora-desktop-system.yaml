@@ -54,6 +54,7 @@
         - corebird
         - docbook-dtds
         - docbook-style-xsl
+        - docker-compose
         - docker-io
         - emacs
         - epiphany
