@@ -12,6 +12,10 @@
         name: python2-dnf
         state: present
 
+    - name: Turn off SELinux
+      selinux:
+        state: disabled
+
     - name: Setup RPMFusion
       tags: [repos, rpmfusion-repo]
       dnf:

@@ -4,9 +4,13 @@ all: install
 
 ANSIBLE=/usr/bin/ansible
 PYTHON_DNF=/usr/lib/python2.7/site-packages/dnf
+PYTHON_SELINUX=/usr/lib64/python2.7/site-packages/selinux
 
 $(PYTHON_DNF):
 	sudo dnf install -by python2-dnf
+
+$(PYTHON_SELINUX):
+	sudo dnf install -by libselinux-python
 
 $(ANSIBLE):
 	sudo dnf install -by ansible
