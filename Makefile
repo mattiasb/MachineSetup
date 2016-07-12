@@ -17,7 +17,7 @@ $(ANSIBLE):
 
 install: system-install user-install
 
-system-install: $(ANSIBLE) $(PYTHON_DNF)
+system-install: $(ANSIBLE) $(PYTHON_DNF) $(PYTHON_SELINUX)
 	ansible-playbook -i "localhost," -c local --ask-become-pass ./fedora-desktop-system.yaml
 
 user-install: $(ANSIBLE)
