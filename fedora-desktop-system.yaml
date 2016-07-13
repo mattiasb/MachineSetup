@@ -10,7 +10,7 @@
       selinux:
         state: disabled
 
-    - name: Setup RPMFusion
+    - name: Enabling RPMFusion repos
       tags: [repos, rpmfusion-repo]
       dnf:
         name: "{{ item }}"
@@ -20,23 +20,31 @@
         - http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ version }}.noarch.rpm
         - http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ version }}.noarch.rpm
 
-    - name: Setup Rust Copr
+    - name: Enabling copr repos [Rust, gnome-twitch]
       tags: [repos, rust-repo]
-      command: dnf copr enable -y fabiand/rust-binary
+      command: dnf copr enable -y {{ item }}
       args:
-        creates: /etc/yum.repos.d/_copr_fabiand-rust-binary.repo
+        creates: /etc/yum.repos.d/_copr_{{ item | replace("/", "-") }}.repo
+      with_items:
+        - fabiand/rust-binary
+        - ippytraxx/gnome-twitch
 
-    - name: Setup gnome-twitch Repo
-      tags: [repos, gnome-twitch-repo]
-      command: dnf copr enable -y ippytraxx/gnome-twitch
+    - name: Enabling custom repos [Spotify, Chrome, Skype]
+      tags:
+        - repos
+        - spotify-repo
+        - chrome-repo
+        - skype-repo
+      command: dnf config-manager --add-repo={{ item.path | default(repos) }}/{{ item.repo }}
       args:
-        creates: /etc/yum.repos.d/_copr_ippytraxx-gnome-twitch.repo
-
-    - name: Setup Spotify Repo
-      tags: [repos, spotify-repo]
-      command: dnf config-manager --add-repo=http://negativo17.org/repos/fedora-spotify.repo
-      args:
-        creates: /etc/yum.repos.d/fedora-spotify.repo
+        creates: /etc/yum.repos.d/{{ item.repo }}
+      with_items:
+        - path: http://negativo17.org/repos/
+          repo: fedora-spotify.repo
+        - path: repos/
+          repo: google-chrome.repo
+        - path: repos/
+          repo: skype-stable.repo
 
     - name: Install Packages
       tags: [packages]
@@ -57,6 +65,8 @@
         - emacs
         - epiphany
         - feedreader
+        - google-chrome-stable
+        - spotify-client
         - gimp
         - git
         - git-bz
@@ -113,6 +123,7 @@
         - ruby-irb
         - rust-binary
         - ShellCheck
+        - skypeforlinux
         - systemd-container
         - spotify-client
         - the_silver_searcher
@@ -121,15 +132,6 @@
         - tmux
         - virt-manager
         - yelp-tools
-
-    - name: Install Chrome
-      dnf:
-        name: "{{ item }}"
-        state: present
-        disable_gpg_check: yes
-      with_items:
-        - https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
-      tags: [packages, external-packages]
 
     - name: Setup JHBuild Install dir
       file:
