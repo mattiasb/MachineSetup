@@ -245,6 +245,18 @@
           - systemctl --user enable rdm.socket
           - systemctl --user start rdm.socket
 
+    - include: fetch_install.yml
+      vars:
+        tag: bear
+        repo: git@github.com:rizsotto/Bear.git
+        dest: "{{ code_dir }}/github/rizsotto/bear"
+        build_dir: "{{ code_dir }}/github/rizsotto/bear/build"
+        creates: "{{ install_prefix }}/bin/bear"
+        commands:
+          - cmake -DCMAKE_INSTALL_PREFIX:PATH="{{ install_prefix }}" ..
+          - make -j {{ ansible_processor_vcpus }}
+          - make install
+
     - name: GNOME settings
       tags:
         - gnome-settings
