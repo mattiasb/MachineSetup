@@ -263,9 +263,6 @@
       command: gsettings set {{ item.schema }} {{ item.key }} "{{ item.value }}"
       with_items:
         - schema: org.baedert.corebird
-          key: accel-compose-tweet
-          value: "'C'"
-        - schema: org.baedert.corebird
           key: round-avatars
           value: "false"
         - schema: org.gnome.Terminal.Legacy.Settings
