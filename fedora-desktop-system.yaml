@@ -46,6 +46,19 @@
         - path: repos/
           repo: skype-stable.repo
 
+    - name: Uninstall Packages
+      tags: [packages]
+      dnf:
+        name: "{{ item }}"
+        state: absent
+      with_items:
+        - shotwell
+        - rhythmbox
+        - libreoffice-writer
+        - libreoffice-impress
+        - libreoffice-calc
+        - libreoffice-draw
+          
     - name: Install Packages
       tags: [packages]
       dnf:
