@@ -217,7 +217,7 @@
       vars:
         tag: git-each
         repo: git@github.com:tobias-johansson/git-each.git
-        dest: "{{ code_dir }}/Projects/git-each"
+        dest: "{{ code_dir }}/github/git-each"
         creates: "{{ install_prefix }}/bin/git-each"
         commands:
           - make user-install
