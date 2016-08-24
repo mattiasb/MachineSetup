@@ -54,10 +54,6 @@
       with_items:
         - shotwell
         - rhythmbox
-        - libreoffice-writer
-        - libreoffice-impress
-        - libreoffice-calc
-        - libreoffice-draw
           
     - name: Install Packages
       tags: [packages]
