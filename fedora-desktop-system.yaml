@@ -104,6 +104,7 @@
         - llvm-static
         - meld
         - mercurial
+        - meson
         - maven
         - nodejs
         - nautilus-open-terminal
