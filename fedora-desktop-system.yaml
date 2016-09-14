@@ -35,16 +35,14 @@
         - spotify-repo
         - chrome-repo
         - skype-repo
-      command: dnf config-manager --add-repo={{ item.path | default(repos) }}/{{ item.repo }}
+      command: dnf config-manager --add-repo={{ item.url | default("repos") }}/{{ item.repo }}
       args:
         creates: /etc/yum.repos.d/{{ item.repo }}
       with_items:
-        - path: http://negativo17.org/repos/
+        - url: http://negativo17.org/repos/
           repo: fedora-spotify.repo
-        - path: repos/
-          repo: google-chrome.repo
-        - path: repos/
-          repo: skype-stable.repo
+        - repo: google-chrome.repo
+        - repo: skype-stable.repo
 
     - name: Uninstall Packages
       tags: [packages]
