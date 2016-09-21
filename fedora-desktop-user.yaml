@@ -187,6 +187,7 @@
         - "{{ gnome_src }}"
 
     - include: fetch_install.yml
+      static: no
       vars:
         tag: jhbuild
         repo: "https://git.gnome.org/browse/jhbuild"
@@ -197,6 +198,7 @@
           - make install
 
     - include: fetch_install.yml
+      static: no
       vars:
         tag: emacs
         repo: "{{ gh_mattiasb }}/.emacs.d.git"
@@ -205,6 +207,7 @@
           - make
 
     - include: fetch_install.yml
+      static: no
       vars:
         tag: git-fpaste
         repo: "{{ gh_mattiasb }}/git-fpaste.git"
@@ -214,6 +217,7 @@
           - make user-install
 
     - include: fetch_install.yml
+      static: no
       vars:
         tag: git-each
         repo: git@github.com:tobias-johansson/git-each.git
@@ -223,6 +227,7 @@
           - make user-install
 
     - include: fetch_install.yml
+      static: no
       vars:
         tag: git-wip
         repo: "{{ gh_mattiasb }}/git-wip.git"
@@ -232,6 +237,7 @@
           - make user-install
 
     - include: fetch_install.yml
+      static: no
       vars:
         tag: rtags
         repo: git@github.com:Andersbakken/rtags.git
@@ -246,6 +252,7 @@
           - systemctl --user start rdm.socket
 
     - include: fetch_install.yml
+      static: no
       vars:
         tag: bear
         repo: git@github.com:rizsotto/Bear.git
