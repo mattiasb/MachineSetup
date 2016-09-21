@@ -20,14 +20,14 @@
         - http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ version }}.noarch.rpm
         - http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ version }}.noarch.rpm
 
-    - name: Enabling copr repos [Rust, gnome-twitch]
-      tags: [repos, rust-repo]
-      command: dnf copr enable -y {{ item }}
-      args:
-        creates: /etc/yum.repos.d/_copr_{{ item | replace("/", "-") }}.repo
-      with_items:
-        - fabiand/rust-binary
-        - ippytraxx/gnome-twitch
+    # - name: Enabling copr repos [Rust, gnome-twitch]
+    #   tags: [repos, rust-repo]
+    #   command: dnf copr enable -y {{ item }}
+    #   args:
+    #     creates: /etc/yum.repos.d/_copr_{{ item | replace("/", "-") }}.repo
+    #   with_items:
+    #     - fabiand/rust-binary
+    #     - ippytraxx/gnome-twitch
 
     - name: Enabling custom repos [Spotify, Chrome, Skype]
       tags:
@@ -61,6 +61,7 @@
       with_items:
         - "@Development tools"
         - cabal-install
+        - cargo
         - clang-devel
         - cmake
         - ctags-etags
@@ -85,7 +86,6 @@
         - gnome-maps
         - gnome-photos
         - gnome-tweak-tool
-        - gnome-twitch
         - golang
         - golang-godoc
         - gperf
@@ -129,7 +129,7 @@
         - rpmlint
         - ruby
         - ruby-irb
-        - rust-binary
+        - rust
         - ShellCheck
         - skypeforlinux
         - systemd-container
