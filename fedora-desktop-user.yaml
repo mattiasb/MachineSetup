@@ -161,6 +161,7 @@
       with_items:
         - racer
         - rustfmt
+        - ripgrep
       args:
         creates: "{{ install_prefix }}/bin/{{ item }}"
       environment:
