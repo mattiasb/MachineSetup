@@ -114,6 +114,21 @@
         apps:
           - name: org.gnome.Maps
 
+    - include: flatpak.yml
+      static: no
+      vars:
+        remote: gnome-nightly-apps
+        key: https://sdk.gnome.org/nightly/keys/nightly.gpg
+        repo: https://sdk.gnome.org/nightly/repo-apps/
+        runtimes: []
+        apps:
+          - name: org.gnome.Builder
+          - name: org.gnome.Calendar
+          - name: org.gnome.Epiphany
+          - name: org.gnome.Games
+          - name: org.gnome.Maps
+          - name: org.gnome.News
+
     - name: Update NPM Packages
       tags:
         - update
