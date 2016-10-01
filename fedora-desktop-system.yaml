@@ -106,7 +106,7 @@
         - mercurial
         - meson
         - maven
-        - nodejs
+        - npm
         - nautilus-open-terminal
         - ncurses-devel
         - p7zip-plugins
