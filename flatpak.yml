@@ -1,0 +1,42 @@
+---
+- name: "Flatpak: Fetch key for {{ remote }}"
+  get_url:
+    url: "{{ key }}"
+    dest: "{{ ansible_user_dir }}/Downloads/flatpak-remote-{{ remote }}.gpg"
+    mode: 0400
+
+- command: "flatpak remote-list --user"
+  register: flatpak_remotes
+- command:  echo "{{ flatpak_remotes.stdout | regex_replace(' *','') }}"
+  register: flatpak_remotes
+
+- name: "Flatpak: Add {{ remote }} remote"
+  command: >
+    flatpak remote-add
+    --user
+    --gpg-import={{ ansible_user_dir }}/Downloads/flatpak-remote-{{ remote }}.gpg
+    {{ remote }}
+    {{ repo }}
+  when: remote not in flatpak_remotes.stdout_lines
+
+- name: "Flatpak: Install runtimes"
+  command: >
+    flatpak install
+    --user
+    {{ remote }}
+    {{ item.name }}
+    {{ item.version | default('') }}
+  args:
+    creates: "{{ install_prefix }}/share/flatpak/runtime/{{ item.name }}/"
+  with_items: "{{ runtimes }}"
+
+- name: "Flatpak: Install apps"
+  command: >
+    flatpak install
+    --user
+    {{ remote }}
+    {{ item.name }}
+    {{ item.version | default('') }}
+  args:
+    creates: "{{ install_prefix }}/share/flatpak/app/{{ item.name }}/"
+  with_items: "{{ apps }}"

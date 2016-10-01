@@ -91,6 +91,28 @@
           dest: .rpmmacros
           state: link
 
+    - include: flatpak.yml
+      static: no
+      vars:
+        remote: gnome
+        key: https://sdk.gnome.org/keys/gnome-sdk.gpg
+        repo: https://sdk.gnome.org/repo/
+        apps: []
+        runtimes:
+          - name: org.gnome.Platform
+            version: 3.22
+
+    - include: flatpak.yml
+      static: no
+      vars:
+        remote: gnome-apps
+        key: https://sdk.gnome.org/keys/gnome-sdk.gpg
+        repo: https://sdk.gnome.org/repo-apps/
+        runtimes: []
+        apps:
+          - name: org.gnome.Nautilus
+          - name: org.gnome.Maps
+
     - name: Update NPM Packages
       tags:
         - update
