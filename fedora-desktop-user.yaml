@@ -101,6 +101,8 @@
         runtimes:
           - name: org.gnome.Platform
             version: 3.22
+          - name: org.gnome.Sdk
+            version: 3.22
 
     - include: flatpak.yml
       static: no
