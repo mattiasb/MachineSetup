@@ -157,13 +157,14 @@
         - update
         - packages
         - rust
-      command: cargo install {{ item }}
+      command: cargo install {{ item.pkg }}
       with_items:
-        - racer
-        - rustfmt
-        - ripgrep
+        - pkg: racer
+        - pkg: rustfmt
+        - pkg: ripgrep
+          bin: rg
       args:
-        creates: "{{ install_prefix }}/bin/{{ item }}"
+        creates: "{{ install_prefix }}/bin/{{ item.bin | default(item.pkg) }}"
       environment:
         CARGO_HOME: "{{ install_prefix }}/share/cargo"
         CARGO_INSTALL_ROOT: "{{ install_prefix }}/"
