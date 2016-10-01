@@ -110,7 +110,6 @@
         repo: https://sdk.gnome.org/repo-apps/
         runtimes: []
         apps:
-          - name: org.gnome.Nautilus
           - name: org.gnome.Maps
 
     - name: Update NPM Packages
