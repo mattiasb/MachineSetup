@@ -25,9 +25,9 @@
     --user
     {{ remote }}
     {{ item.name }}
-    {{ item.version | default('') }}
+    {{ version }}
   args:
-    creates: "{{ install_prefix }}/share/flatpak/runtime/{{ item.name }}/"
+    creates: "{{ install_prefix }}/share/flatpak/runtime/{{ item.name }}/x86_64/{{ version }}/"
   with_items: "{{ runtimes }}"
 
 - name: "Flatpak: Install apps"
@@ -36,7 +36,7 @@
     --user
     {{ remote }}
     {{ item.name }}
-    {{ item.version | default('') }}
+    {{ version }}
   args:
-    creates: "{{ install_prefix }}/share/flatpak/app/{{ item.name }}/"
+    creates: "{{ install_prefix }}/share/flatpak/app/{{ item.name }}/x86_64/{{ version }}/"
   with_items: "{{ apps }}"

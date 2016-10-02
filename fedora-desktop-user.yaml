@@ -97,10 +97,10 @@
         remote: gnome
         key: https://sdk.gnome.org/keys/gnome-sdk.gpg
         repo: https://sdk.gnome.org/repo/
+        version: 3.22
         apps: []
         runtimes:
           - name: org.gnome.Platform
-            version: 3.22
           - name: org.gnome.Sdk
             version: 3.22
 
@@ -110,6 +110,7 @@
         remote: gnome-apps
         key: https://sdk.gnome.org/keys/gnome-sdk.gpg
         repo: https://sdk.gnome.org/repo-apps/
+        version: stable
         runtimes: []
         apps:
           - name: org.gnome.Maps
@@ -117,9 +118,21 @@
     - include: flatpak.yml
       static: no
       vars:
+        remote: gnome-nightly
+        key: https://sdk.gnome.org/nightly/keys/nightly.gpg
+        repo: https://sdk.gnome.org/nightly/repo/
+        version: master
+        apps: []
+        runtimes:
+          - name: org.gnome.Platform
+
+    - include: flatpak.yml
+      static: no
+      vars:
         remote: gnome-nightly-apps
         key: https://sdk.gnome.org/nightly/keys/nightly.gpg
         repo: https://sdk.gnome.org/nightly/repo-apps/
+        version: master
         runtimes: []
         apps:
           - name: org.gnome.Builder
