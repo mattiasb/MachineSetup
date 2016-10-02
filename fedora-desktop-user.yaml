@@ -12,6 +12,7 @@
     code_dir: "{{ ansible_user_dir }}/Code"
     gnome_src: "{{ code_dir }}/gnome/src"
     gnome_build: "{{ code_dir }}/gnome/build"
+    flatpak_local_repo: "{{ install_prefix }}/share/flatpak-local-repo/"
     gh_mattiasb: git@github.com:mattiasb
   environment:
     PATH: "{{ ansible_env.PATH }}:{{ ansible_user_dir }}/.local/bin/"
@@ -141,6 +142,30 @@
           - name: org.gnome.Games
           - name: org.gnome.Maps
           - name: org.gnome.News
+
+    - include: fetch_install.yml
+      static: no
+      vars:
+        tag: gnome-twitch
+        repo: "{{ gh_mattiasb }}/gnome-twitch.git"
+        ref: "feature/flatpak"
+        dest: "{{ gnome_src }}/github/vinszent/gnome-twitch"
+        commands:
+          - >
+            flatpak-builder --repo={{ flatpak_local_repo }}
+                            --force-clean
+                            flatpak
+                            com.vinszent.GnomeTwitch.json
+
+    - include: flatpak.yml
+      static: no
+      vars:
+        remote: flatpak-local-repo
+        repo: "{{ flatpak_local_repo }}"
+        version: stable
+        runtimes: []
+        apps:
+          - name: com.vinszent.GnomeTwitch
 
     - name: Update NPM Packages
       tags:
