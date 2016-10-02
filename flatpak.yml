@@ -4,6 +4,7 @@
     url: "{{ key }}"
     dest: "{{ ansible_user_dir }}/Downloads/flatpak-remote-{{ remote }}.gpg"
     mode: 0400
+  when: key is defined
 
 - command: "flatpak remote-list --user"
   register: flatpak_remotes
@@ -14,7 +15,12 @@
   command: >
     flatpak remote-add
     --user
-    --gpg-import={{ ansible_user_dir }}/Downloads/flatpak-remote-{{ remote }}.gpg
+    {{ (key is defined)
+       | ternary('--gpg-import=%s/Downloads/flatpak-remote-%s.gpg',
+                 '--no-gpg-verify%s%s')
+       | format((key is defined) | ternary(ansible_user_dir, ''),
+                (key is defined) | ternary(remote,           ''))
+    }}
     {{ remote }}
     {{ repo }}
   when: remote not in flatpak_remotes.stdout_lines
