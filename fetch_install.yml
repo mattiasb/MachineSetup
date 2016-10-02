@@ -6,7 +6,7 @@
   git:
     repo: "{{ repo }}"
     dest: "{{ dest }}"
-    version: master
+    version: "{{ ref | default('master') }}"
   register: fetch
 
 - name: Create Build-dir for {{ name | default(tag) }}
