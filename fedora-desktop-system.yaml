@@ -60,12 +60,13 @@
         state: present
       with_items:
         - "@Development tools"
+        - ShellCheck
         - cabal-install
         - cargo
         - clang-devel
         - cmake
-        - ctags-etags
         - corebird
+        - ctags-etags
         - docbook-dtds
         - docbook-style-xsl
         - docker-compose
@@ -73,8 +74,8 @@
         - emacs
         - epiphany
         - feedreader
-        - google-chrome-stable
-        - spotify-client
+        - flatpak
+        - flatpak-builder
         - gimp
         - git
         - git-bz
@@ -88,56 +89,54 @@
         - gnome-tweak-tool
         - golang
         - golang-godoc
+        - google-chrome-stable
         - gperf
         - gstreamer1-libav
         - gstreamer1-plugins-bad-freeworld
         - gstreamer1-plugins-ugly
         - gtk3-devel-docs
-        - flatpak
-        - flatpak-builder
         - hunspell-sv
         - intltool
+        - llvm-devel
+        - llvm-static
         - lua-devel
         - lua-filesystem
         - luarocks
-        - llvm-devel
-        - llvm-static
+        - maven
         - meld
         - mercurial
         - meson
-        - maven
-        - npm
         - nautilus-open-terminal
         - ncurses-devel
+        - npm
         - p7zip-plugins
         - pandoc
-        - perl-open
         - perl-Errno
+        - perl-open
         - pylint
-        - python-pip
-        - python-rope
-        - python-ipython
-        - python-jedi
+        - python-autopep8
         - python-flake8
         - python-importmagic
-        - python-autopep8
+        - python-ipython
+        - python-jedi
+        - python-pip
+        - python-rope
+        - remmina
         - remmina-plugins-gnome
         - remmina-plugins-rdp
         - remmina-plugins-vnc
-        - remmina
         - rpmdevtools
         - rpmlint
         - ruby
         - ruby-irb
         - rust
-        - ShellCheck
         - skypeforlinux
-        - systemd-container
         - spotify-client
+        - systemd-container
         - the_silver_searcher
         - tig
-        - transmission-remote-gtk
         - tmux
+        - transmission-remote-gtk
         - virt-manager
         - yelp-tools
 
