@@ -106,6 +106,7 @@
         - meld
         - mercurial
         - meson
+        - moreutils
         - nautilus-open-terminal
         - ncurses-devel
         - npm
