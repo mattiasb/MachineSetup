@@ -131,6 +131,7 @@
         - ruby
         - ruby-irb
         - rust
+        - sbt
         - skypeforlinux
         - spotify-client
         - systemd-container
