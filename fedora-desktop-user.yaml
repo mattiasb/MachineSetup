@@ -148,13 +148,14 @@
       vars:
         tag: gnome-twitch
         repo: "{{ gh_mattiasb }}/gnome-twitch.git"
-        ref: "feature/flatpak"
+        ref: "feature/flatpak2"
         dest: "{{ gnome_src }}/github/vinszent/gnome-twitch"
+        build_dir: "{{ gnome_src }}/github/vinszent/gnome-twitch/data/packages/flatpak/"
         commands:
           - >
             flatpak-builder --repo={{ flatpak_local_repo }}
                             --force-clean
-                            flatpak
+                            app
                             com.vinszent.GnomeTwitch.json
 
     - include: flatpak.yml
