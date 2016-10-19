@@ -116,10 +116,10 @@
         - perl-open
         - pylint
         - python-autopep8
-        - python-flake8
         - python-importmagic
         - python-ipython
         - python-jedi
+        - python-pep8
         - python-pip
         - python-rope
         - remmina
