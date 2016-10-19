@@ -226,7 +226,14 @@
         extra_args: --user
         state: latest
       with_items:
+        - autopep8
+        - flake8
         - git-spindle
+        - ipdb
+        - ipython
+        - jedi
+        - importmagic
+        - rope
         - scan-build
 
     - name: Update Rust Packages
