@@ -61,7 +61,6 @@
       with_items:
         - "@Development tools"
         - ShellCheck
-        - bashdb
         - cabal-install
         - cargo
         - clang-devel
