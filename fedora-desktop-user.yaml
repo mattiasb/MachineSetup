@@ -442,6 +442,3 @@
         - schema: org.gnome.shell.app-switcher
           key: current-workspace-only
           value: "true"
-        - schema: org.gnome.shell.calendar
-          key: show-weekdate
-          value: "true"
