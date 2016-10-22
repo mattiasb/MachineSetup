@@ -149,8 +149,8 @@
         tag: gnome-twitch
         repo: "{{ gh_mattiasb }}/gnome-twitch.git"
         ref: "feature/flatpak2"
-        dest: "{{ gnome_src }}/github/vinszent/gnome-twitch"
-        build_dir: "{{ gnome_src }}/github/vinszent/gnome-twitch/data/packages/flatpak/"
+        dest: "{{ code_dir }}/github/vinszent/gnome-twitch"
+        build_dir: "{{ code_dir }}/github/vinszent/gnome-twitch/data/packages/flatpak/"
         commands:
           - >
             flatpak-builder --repo={{ flatpak_local_repo }}
