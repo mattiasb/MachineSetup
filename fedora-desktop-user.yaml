@@ -152,6 +152,7 @@
         dest: "{{ code_dir }}/github/vinszent/gnome-twitch"
         build_dir: "{{ code_dir }}/github/vinszent/gnome-twitch/data/packages/flatpak/"
         commands:
+          - git reset HEAD^ --hard
           - >
             flatpak-builder --repo={{ flatpak_local_repo }}
                             --force-clean
