@@ -14,6 +14,7 @@
     gnome_build: "{{ code_dir }}/gnome/build"
     flatpak_local_repo: "{{ install_prefix }}/share/flatpak-local-repo/"
     gh_mattiasb: git@github.com:mattiasb
+    gl_mattiasb: git@gitlab.com:mattiasb
   environment:
     PATH: "{{ ansible_env.PATH }}:{{ ansible_user_dir }}/.local/bin/"
 
@@ -91,6 +92,17 @@
         - src: rpm/macros
           dest: .rpmmacros
           state: link
+
+    - name: Fetch mtg-decks
+      tags:
+        - fetch
+        - update
+        - mtg-decks
+      git:
+        repo: "{{ gl_mattiasb }}/mtg-decks.git"
+        dest: "{{ ansible_user_dir }}/Documents/Magic/decks"
+        accept_hostkey: yes
+        version: master
 
     - include: flatpak.yml
       static: no
