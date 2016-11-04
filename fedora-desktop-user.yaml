@@ -159,8 +159,7 @@
       static: no
       vars:
         tag: gnome-twitch
-        repo: "{{ gh_mattiasb }}/gnome-twitch.git"
-        ref: "feature/flatpak2"
+        repo: git@github.com:vinszent/gnome-twitch.git
         dest: "{{ code_dir }}/github/vinszent/gnome-twitch"
         build_dir: "{{ code_dir }}/github/vinszent/gnome-twitch/data/packages/flatpak/"
         commands:
