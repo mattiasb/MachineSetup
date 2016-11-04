@@ -93,6 +93,12 @@
           dest: .rpmmacros
           state: link
 
+        - dest: .inputrc
+          state: absent
+        - src: inputrc
+          dest: .inputrc
+          state: link
+
     - name: Fetch mtg-decks
       tags:
         - fetch
