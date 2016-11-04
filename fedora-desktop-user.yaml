@@ -249,6 +249,16 @@
         - rope
         - scan-build
 
+    - name: Get Rust source
+      tags:
+        - fetch
+        - rust-src
+      git:
+        repo: git@github.com:rust-lang/rust.git
+        dest: "{{ code_dir }}/rust-lang/rust"
+        accept_hostkey: yes
+        version: 1.12.1
+
     - name: Update Rust Packages
       tags:
         - update
