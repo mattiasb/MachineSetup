@@ -20,14 +20,13 @@
         - http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ version }}.noarch.rpm
         - http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ version }}.noarch.rpm
 
-    # - name: Enabling copr repos [Rust, gnome-twitch]
-    #   tags: [repos, rust-repo]
-    #   command: dnf copr enable -y {{ item }}
-    #   args:
-    #     creates: /etc/yum.repos.d/_copr_{{ item | replace("/", "-") }}.repo
-    #   with_items:
-    #     - fabiand/rust-binary
-    #     - ippytraxx/gnome-twitch
+    - name: Enabling copr repos
+      tags: [repos, copr]
+      command: dnf copr enable -y {{ item }}
+      args:
+        creates: /etc/yum.repos.d/_copr_{{ item | replace("/", "-") }}.repo
+      with_items:
+        - mystro256/gnome-redshift
 
     - name: Enabling custom repos [Spotify, Chrome, Skype]
       tags:
@@ -86,6 +85,7 @@
         - gnome-common
         - gnome-maps
         - gnome-photos
+        - gnome-shell-extension-redshift
         - gnome-tweak-tool
         - golang
         - golang-godoc
