@@ -81,6 +81,7 @@
         - gitflow
         - gitg
         - glade
+        - gnome-books
         - gnome-calendar
         - gnome-common
         - gnome-maps
@@ -132,6 +133,7 @@
         - tig
         - tmux
         - transmission-remote-gtk
+        - unrar
         - virt-manager
         - yelp-tools
 
