@@ -116,6 +116,7 @@
         - perl-Errno
         - perl-open
         - python-pip
+        - python-devel
         - remmina
         - remmina-plugins-gnome
         - remmina-plugins-rdp
