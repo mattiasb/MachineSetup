@@ -2,7 +2,20 @@
 # Workaround for: https://github.com/ansible/ansible/issues/14655
 - hosts: localhost
   tasks:
-    - command: echo
+    - command: "flatpak remote-list --user"
+      register: flatpak_remotes
+    - set_fact:
+        flatpak_remotes: >
+          {{ flatpak_remotes.stdout_lines
+            | regex_replace(' *','') }}
+
+    - command: "flatpak list --user --show-details"
+      register: flatpak_apps
+    - set_fact:
+        flatpak_apps: >
+          {{ flatpak_apps.stdout_lines
+           | map('regex_replace', '^(\S+).*$','\1')
+           | list }}
 
 - hosts: localhost
   vars:
@@ -12,7 +25,6 @@
     code_dir: "{{ ansible_user_dir }}/Code"
     gnome_src: "{{ code_dir }}/gnome/src"
     gnome_build: "{{ code_dir }}/gnome/build"
-    flatpak_local_repo: "{{ install_prefix }}/share/flatpak-local-repo/"
     gh_mattiasb: git@github.com:mattiasb
     gl_mattiasb: git@gitlab.com:mattiasb
   environment:
@@ -110,81 +122,52 @@
         accept_hostkey: yes
         version: master
 
-    - include: flatpak.yml
-      static: no
-      vars:
-        remote: gnome
-        key: https://sdk.gnome.org/keys/gnome-sdk.gpg
-        repo: https://sdk.gnome.org/repo/
-        version: 3.22
-        apps: []
-        runtimes:
-          - name: org.gnome.Platform
-          - name: org.gnome.Sdk
-            version: 3.22
+    - name: Add Flatpak remotes
+      tags:
+        - flatpak
+        - repos
+        - install
+      command: "flatpak --user remote-add --from {{ item.remote }} {{ item.url }}"
+      with_items:
+        - remote: gnome
+          url: https://sdk.gnome.org/gnome.flatpakrepo
+        - remote: gnome-apps
+          url: https://sdk.gnome.org/gnome-apps.flatpakrepo
+        - remote: gnome-nightly
+          url: https://sdk.gnome.org/gnome-nightly.flatpakrepo
+        - remote: gnome-apps-nightly
+          url: https://sdk.gnome.org/gnome-apps-nightly.flatpakrepo
+      when: item.remote not in flatpak_remotes
 
-    - include: flatpak.yml
-      static: no
-      vars:
-        remote: gnome-apps
-        key: https://sdk.gnome.org/keys/gnome-sdk.gpg
-        repo: https://sdk.gnome.org/repo-apps/
-        version: stable
-        runtimes: []
-        apps:
-          - name: org.gnome.Maps
+    - name: Install Flatpak apps
+      tags:
+        - flatpak
+        - apps
+        - install
+      command: "flatpak install -y --user {{ item.repo }} {{ item.name }}"
+      with_items:
+        - name: org.gnome.Games/x86_64/stable
+          repo: gnome-apps
+        - name: org.gnome.Games/x86_64/master
+          repo: gnome-apps-nightly
+        - name: org.gnome.Maps/x86_64/stable
+          repo: gnome-apps
+        - name: org.gnome.Maps/x86_64/master
+          repo: gnome-apps-nightly
+        - name: org.gnome.Epiphany/x86_64/master
+          repo: gnome-apps-nightly
+      when: item.name not in flatpak_apps
 
-    - include: flatpak.yml
-      static: no
-      vars:
-        remote: gnome-nightly
-        key: https://sdk.gnome.org/nightly/keys/nightly.gpg
-        repo: https://sdk.gnome.org/nightly/repo/
-        version: master
-        apps: []
-        runtimes:
-          - name: org.gnome.Platform
-
-    - include: flatpak.yml
-      static: no
-      vars:
-        remote: gnome-nightly-apps
-        key: https://sdk.gnome.org/nightly/keys/nightly.gpg
-        repo: https://sdk.gnome.org/nightly/repo-apps/
-        version: master
-        runtimes: []
-        apps:
-          - name: org.gnome.Builder
-          - name: org.gnome.Calendar
-          - name: org.gnome.Epiphany
-          - name: org.gnome.Games
-          - name: org.gnome.Maps
-          - name: org.gnome.News
-
-    - include: fetch_install.yml
-      static: no
-      vars:
-        tag: gnome-twitch
-        repo: git@github.com:vinszent/gnome-twitch.git
-        dest: "{{ code_dir }}/github/vinszent/gnome-twitch"
-        build_dir: "{{ code_dir }}/github/vinszent/gnome-twitch/data/packages/flatpak/"
-        commands:
-          - git reset HEAD^ --hard
-          - >
-            flatpak-builder --repo={{ flatpak_local_repo }}
-                            --force-clean
-                            app
-                            com.vinszent.GnomeTwitch.json
-
-    - include: flatpak.yml
-      static: no
-      vars:
-        remote: flatpak-local-repo
-        repo: "{{ flatpak_local_repo }}"
-        version: stable
-        runtimes: []
-        apps:
-          - name: com.vinszent.GnomeTwitch
+    - name: Install Flatpak apps (via refs)
+      tags:
+        - flatpak
+        - apps
+        - install
+      command: "flatpak install --user --from {{ item.url }}"
+      with_items:
+        - url: https://dl.tingping.se/flatpak/gnome-twitch.flatpakref
+          name: com.vinszent.GnomeTwitch/x86_64/master
+      when: item.name not in flatpak_apps
 
     - name: Update NPM Packages
       tags:
