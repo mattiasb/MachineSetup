@@ -17,6 +17,11 @@
            | map('regex_replace', '^(\S+).*$','\1')
            | list }}
 
+    - command: "rustc --version"
+      register: rustc_version
+    - set_fact:
+        rustc_version: "{{ rustc_version.stdout.split(' ')[1] }}"
+
 - hosts: localhost
   vars:
     version: "{{ ansible_distribution_major_version }}"
@@ -245,7 +250,7 @@
         repo: git@github.com:rust-lang/rust.git
         dest: "{{ code_dir }}/github/rust-lang/rust"
         accept_hostkey: yes
-        version: 1.12.1
+        version: "{{ rustc_version }}"
 
     - name: Update Rust Packages
       tags:
