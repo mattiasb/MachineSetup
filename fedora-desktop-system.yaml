@@ -60,6 +60,7 @@
       with_items:
         - "@Development tools"
         - ShellCheck
+        - bison
         - cabal-install
         - cargo
         - clang-devel
@@ -96,6 +97,7 @@
         - gstreamer1-plugins-bad-freeworld
         - gstreamer1-plugins-ugly
         - gtk3-devel-docs
+        - flex
         - hunspell-sv
         - intltool
         - llvm-devel
@@ -117,6 +119,8 @@
         - perl-open
         - python-pip
         - python-devel
+        - python3-devel
+        - ragel
         - remmina
         - remmina-plugins-gnome
         - remmina-plugins-rdp
@@ -136,6 +140,7 @@
         - transmission-remote-gtk
         - unrar
         - virt-manager
+        - webkitgtk4-devel
         - yelp-tools
 
     - name: Setup JHBuild Install dir
