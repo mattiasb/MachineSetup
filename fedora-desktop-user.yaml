@@ -21,10 +21,17 @@
       register: rustc_version
     - set_fact:
         rustc_version: "{{ rustc_version.stdout.split(' ')[1] }}"
+
     - command: pandoc --bash-completion
       register: pandoc_bash_completion
+    - command: npm completion
+      register: npm_bash_completion
     - set_fact:
-        pandoc_bash_completion: "{{ pandoc_bash_completion.stdout }}" 
+        bash_completion:
+          - name: npm
+            content: "{{ npm_bash_completion.stdout }}"
+          - name: pandoc
+            content: "{{ pandoc_bash_completion.stdout }}"
         
 - hosts: localhost
   vars:
@@ -126,8 +133,9 @@
         - bash
         - completion
       copy:
-        content: "{{ pandoc_bash_completion }}"
-        dest: "{{ config_prefix }}/bash_completion.d/pandoc"
+        content: "{{ item.content }}"
+        dest: "{{ config_prefix }}/bash_completion.d/{{ item.name }}"
+      with_items: "{{ bash_completion }}"
 
     - name: Fetch mtg-decks
       tags:
