@@ -172,6 +172,10 @@
         - install
       command: "flatpak install -y --user {{ item.repo }} {{ item.name }}"
       with_items:
+        - name: org.gnome.Builder/x86_64/master
+          repo: gnome-apps-nightly
+        - name: org.gnome.Builder/x86_64/stable
+          repo: gnome-apps
         - name: org.gnome.Games/x86_64/stable
           repo: gnome-apps
         - name: org.gnome.Games/x86_64/master
