@@ -1,5 +1,5 @@
 ---
-# Workaround for: https://github.com/ansible/ansible/issues/14655
+# Set up facts
 - hosts: localhost
   tasks:
     - command: "flatpak remote-list --user"
