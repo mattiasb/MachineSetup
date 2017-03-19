@@ -28,18 +28,15 @@
       with_items:
         - mystro256/gnome-redshift
 
-    - name: Enabling custom repos [Spotify, Chrome, Skype]
+    - name: Enabling custom repos [Chrome, Skype]
       tags:
         - repos
-        - spotify-repo
         - chrome-repo
         - skype-repo
       command: dnf config-manager --add-repo={{ item.url | default("repos") }}/{{ item.repo }}
       args:
         creates: /etc/yum.repos.d/{{ item.repo }}
       with_items:
-        - url: http://negativo17.org/repos/
-          repo: fedora-spotify.repo
         - repo: google-chrome.repo
         - repo: skype-stable.repo
 

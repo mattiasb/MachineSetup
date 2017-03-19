@@ -193,12 +193,14 @@
         - flatpak
         - apps
         - install
-      command: "flatpak install --user --from {{ item.url }}"
+      command: "flatpak install -y --user --from {{ item.url }}"
       with_items:
         - url: https://dl.tingping.se/flatpak/gnome-twitch.flatpakref
           name: com.vinszent.GnomeTwitch/x86_64/master
         - url: https://flatpak.perezdecastro.org/revolt.flatpakref
           name: org.perezdecastro.Revolt/x86_64/master
+        - url: https://s3.amazonaws.com/alexlarsson/spotify-repo/spotify.flatpakref
+          name: com.spotify.Client
       when: item.name not in flatpak_apps
 
     - name: Update NPM Packages
