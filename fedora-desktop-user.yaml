@@ -43,6 +43,18 @@
     gnome_build: "{{ code_dir }}/gnome/build"
     gh_mattiasb: git@github.com:mattiasb
     gl_mattiasb: git@gitlab.com:mattiasb
+    pip_modules:
+        - autopep8
+        - epc
+        - flake8
+        - git-spindle
+        - ipdb
+        - ipython
+        - isort
+        - jedi
+        - importmagic
+        - rope
+        - scan-build
   environment:
     PATH: "{{ ansible_env.PATH }}:{{ ansible_user_dir }}/.local/bin/"
 
@@ -251,26 +263,29 @@
       args:
         creates: "{{ install_prefix }}/bin/gocode"
 
-    - name: Update Python Packages
+    - name: Update Python 2 Packages
       tags:
         - update
         - packages
-        - python
+        - python2
       pip:
         name: "{{ item }}"
         extra_args: --user
         state: latest
-      with_items:
-        - autopep8
-        - flake8
-        - git-spindle
-        - ipdb
-        - ipython
-        - isort
-        - jedi
-        - importmagic
-        - rope
-        - scan-build
+        executable: pip2
+      with_items: "{{ pip_modules }}"
+
+    - name: Update Python 3 Packages
+      tags:
+        - update
+        - packages
+        - python3
+      pip:
+        name: "{{ item }}"
+        extra_args: --user
+        state: latest
+        executable: pip3
+      with_items: "{{ pip_modules }}"
 
     - name: Get Rust source
       tags:
