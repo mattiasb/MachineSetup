@@ -212,7 +212,7 @@
         - url: https://flatpak.perezdecastro.org/revolt.flatpakref
           name: org.perezdecastro.Revolt/x86_64/master
         - url: https://s3.amazonaws.com/alexlarsson/spotify-repo/spotify.flatpakref
-          name: com.spotify.Client
+          name: com.spotify.Client/x86_64/master
       when: item.name not in flatpak_apps
 
     - name: Update NPM Packages
