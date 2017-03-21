@@ -497,9 +497,6 @@
         - schema: org.gnome.settings-daemon.plugins.media-keys
           key: www
           value: "'<Super>w'"
-        - schema: org.gnome.shell
-          key: favorite-apps
-          value: "['firefox.desktop','evolution.desktop','spotify.desktop','org.baedert.corebird.desktop','org.gnome.Maps.desktop','org.gnome.Nautilus.desktop','org.gnome.Calendar.desktop','emacs.desktop','org.gnome.Software.desktop']"
         - schema: org.gnome.shell.app-switcher
           key: current-workspace-only
           value: "true"
