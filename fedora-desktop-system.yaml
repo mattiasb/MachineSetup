@@ -129,6 +129,7 @@
         - unrar
         - virt-manager
         - webkitgtk4-devel
+        - yamllint
         - yelp-tools
 
     - name: Setup JHBuild Install dir
