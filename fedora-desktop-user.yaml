@@ -32,7 +32,7 @@
             content: "{{ npm_bash_completion.stdout }}"
           - name: pandoc
             content: "{{ pandoc_bash_completion.stdout }}"
-        
+
 - hosts: localhost
   vars:
     version: "{{ ansible_distribution_major_version }}"
@@ -44,17 +44,17 @@
     gh_mattiasb: git@github.com:mattiasb
     gl_mattiasb: git@gitlab.com:mattiasb
     pip_modules:
-        - autopep8
-        - epc
-        - flake8
-        - git-spindle
-        - ipdb
-        - ipython
-        - isort
-        - jedi
-        - importmagic
-        - rope
-        - scan-build
+      - autopep8
+      - epc
+      - flake8
+      - git-spindle
+      - ipdb
+      - ipython
+      - isort
+      - jedi
+      - importmagic
+      - rope
+      - scan-build
   environment:
     PATH: "{{ ansible_env.PATH }}:{{ ansible_user_dir }}/.local/bin/"
 
@@ -67,7 +67,7 @@
       git:
         repo: "{{ gh_mattiasb }}/.local-bin.git"
         dest: "{{ ansible_user_dir }}/.local/bin"
-        accept_hostkey: yes
+        accept_hostkey: true
         version: master
 
     # Needed if we haven't logged in to the desktop session yet, and
@@ -157,7 +157,7 @@
       git:
         repo: "{{ gl_mattiasb }}/mtg-decks.git"
         dest: "{{ ansible_user_dir }}/Documents/Magic/decks"
-        accept_hostkey: yes
+        accept_hostkey: true
         version: master
 
     - name: Add Flatpak remotes
@@ -165,7 +165,10 @@
         - flatpak
         - repos
         - install
-      command: "flatpak --user remote-add --from {{ item.remote }} {{ item.url }}"
+      command: >
+        flatpak --user remote-add
+                --from {{ item.remote }}
+                {{ item.url }}
       with_items:
         - remote: gnome
           url: https://sdk.gnome.org/gnome.flatpakrepo
@@ -211,7 +214,8 @@
           name: com.vinszent.GnomeTwitch/x86_64/master
         - url: https://flatpak.perezdecastro.org/revolt.flatpakref
           name: org.perezdecastro.Revolt/x86_64/master
-        - url: https://s3.amazonaws.com/alexlarsson/spotify-repo/spotify.flatpakref
+        - url: "https://s3.amazonaws.com/alexlarsson\
+                /spotify-repo/spotify.flatpakref"
           name: com.spotify.Client/x86_64/master
       when: item.name not in flatpak_apps
 
@@ -294,7 +298,7 @@
       git:
         repo: git@github.com:rust-lang/rust.git
         dest: "{{ code_dir }}/github/rust-lang/rust"
-        accept_hostkey: yes
+        accept_hostkey: true
         version: "{{ rustc_version }}"
 
     - name: Update Rust Packages
@@ -334,7 +338,7 @@
         - "{{ gnome_src }}"
 
     - include: fetch_install.yml
-      static: no
+      static: false
       vars:
         tag: jhbuild
         repo: "https://git.gnome.org/browse/jhbuild"
@@ -345,7 +349,7 @@
           - make install
 
     - include: fetch_install.yml
-      static: no
+      static: false
       vars:
         tag: emacs
         repo: "{{ gh_mattiasb }}/.emacs.d.git"
@@ -354,7 +358,7 @@
           - make
 
     - include: fetch_install.yml
-      static: no
+      static: false
       vars:
         tag: git-fpaste
         repo: "{{ gh_mattiasb }}/git-fpaste.git"
@@ -364,7 +368,7 @@
           - make user-install
 
     - include: fetch_install.yml
-      static: no
+      static: false
       vars:
         tag: git-each
         repo: git@github.com:tobias-johansson/git-each.git
@@ -374,7 +378,7 @@
           - make user-install
 
     - include: fetch_install.yml
-      static: no
+      static: false
       vars:
         tag: git-wip
         repo: "{{ gh_mattiasb }}/git-wip.git"
@@ -384,7 +388,7 @@
           - make user-install
 
     - include: fetch_install.yml
-      static: no
+      static: false
       vars:
         tag: rtags
         repo: git@github.com:Andersbakken/rtags.git
@@ -399,7 +403,7 @@
           - systemctl --user start rdm.socket
 
     - include: fetch_install.yml
-      static: no
+      static: false
       vars:
         tag: bear
         repo: git@github.com:rizsotto/Bear.git

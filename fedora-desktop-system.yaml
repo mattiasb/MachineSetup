@@ -1,6 +1,6 @@
 ---
 - hosts: localhost
-  become: yes
+  become: true
   become_user: root
   vars:
     version: "{{ ansible_distribution_major_version }}"
@@ -15,17 +15,21 @@
       dnf:
         name: "{{ item }}"
         state: present
-        disable_gpg_check: yes
+        disable_gpg_check: true
       with_items:
-        - http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ version }}.noarch.rpm
-        - http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ version }}.noarch.rpm
+        - "http://download1.rpmfusion.org/free/fedora\
+           /rpmfusion-free-release-{{ version }}.noarch.rpm"
+        - "http://download1.rpmfusion.org/nonfree/fedora\
+           /rpmfusion-nonfree-release-{{ version }}.noarch.rpm"
 
     - name: Enabling custom repos [Chrome, Skype]
       tags:
         - repos
         - chrome-repo
         - skype-repo
-      command: dnf config-manager --add-repo={{ item.url | default("repos") }}/{{ item.repo }}
+      command: >
+        dnf config-manager
+          --add-repo={{ item.url | default("repos") }}/{{ item.repo }}
       args:
         creates: /etc/yum.repos.d/{{ item.repo }}
       with_items:
@@ -40,7 +44,7 @@
       with_items:
         - shotwell
         - rhythmbox
-          
+
     - name: Install Packages
       tags: [packages]
       dnf:
