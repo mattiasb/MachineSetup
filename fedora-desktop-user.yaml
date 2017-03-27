@@ -337,7 +337,7 @@
         - "{{ gnome_build }}"
         - "{{ gnome_src }}"
 
-    - include: fetch_install.yml
+    - include: fetch_install.yaml
       static: false
       vars:
         tag: jhbuild
@@ -348,7 +348,7 @@
           - make -j {{ ansible_processor_vcpus }}
           - make install
 
-    - include: fetch_install.yml
+    - include: fetch_install.yaml
       static: false
       vars:
         tag: emacs
@@ -357,7 +357,7 @@
         commands:
           - make
 
-    - include: fetch_install.yml
+    - include: fetch_install.yaml
       static: false
       vars:
         tag: git-fpaste
@@ -367,7 +367,7 @@
         commands:
           - make user-install
 
-    - include: fetch_install.yml
+    - include: fetch_install.yaml
       static: false
       vars:
         tag: git-each
@@ -377,7 +377,7 @@
         commands:
           - make user-install
 
-    - include: fetch_install.yml
+    - include: fetch_install.yaml
       static: false
       vars:
         tag: git-wip
@@ -387,7 +387,7 @@
         commands:
           - make user-install
 
-    - include: fetch_install.yml
+    - include: fetch_install.yaml
       static: false
       vars:
         tag: rtags
@@ -402,7 +402,7 @@
           - systemctl --user enable rdm.socket
           - systemctl --user start rdm.socket
 
-    - include: fetch_install.yml
+    - include: fetch_install.yaml
       static: false
       vars:
         tag: bear
