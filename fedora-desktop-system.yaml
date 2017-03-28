@@ -124,7 +124,6 @@
         - rust
         - sbt
         - skypeforlinux
-        - spotify-client
         - systemd-container
         - the_silver_searcher
         - tig
