@@ -390,21 +390,6 @@
     - include: fetch_install.yaml
       static: false
       vars:
-        tag: rtags
-        repo: git@github.com:Andersbakken/rtags.git
-        dest: "{{ code_dir }}/github/rtags"
-        build_dir: "{{ code_dir }}/github/rtags/build"
-        creates: "{{ install_prefix }}/bin/rdm"
-        commands:
-          - cmake -DCMAKE_INSTALL_PREFIX:PATH="{{ install_prefix }}" ..
-          - make -j {{ ansible_processor_vcpus }}
-          - make install
-          - systemctl --user enable rdm.socket
-          - systemctl --user start rdm.socket
-
-    - include: fetch_install.yaml
-      static: false
-      vars:
         tag: bear
         repo: git@github.com:rizsotto/Bear.git
         dest: "{{ code_dir }}/github/rizsotto/bear"
