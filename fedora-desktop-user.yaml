@@ -139,6 +139,15 @@
           dest: .inputrc
           state: link
 
+    - name: Enable systemd user units
+      systemd:
+        name: rdm.socket
+        user: true
+        enabled: true
+        no_block: true
+        daemon_reload: true
+        state: started
+
     - name: Generate bash completion files
       tags:
         - update
