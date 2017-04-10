@@ -144,7 +144,6 @@
         name: rdm.socket
         user: true
         enabled: true
-        no_block: true
         daemon_reload: true
         state: started
 
