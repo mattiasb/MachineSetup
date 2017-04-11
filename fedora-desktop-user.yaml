@@ -351,9 +351,10 @@
         tag: fonts
         repo: git@github.com:domtronn/all-the-icons.el.git
         dest: "{{ code_dir }}/github/domtronn/all-the-icons.el"
-        creates: "{{ install_prefix }}/share/fonts/all-the-icons.ttf"
-        commands:
-          - install -m 0644 -D fonts/*.ttf -t {{ install_prefix }}/share/fonts/
+        install:
+          src: fonts/*.ttf
+          dest: "{{ install_prefix }}/share/fonts/"
+          mode: "0644"
 
     - include: fetch_install.yaml
       static: false

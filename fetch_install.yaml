@@ -28,3 +28,14 @@
     chdir: "{{ build_dir | default(dest) }}"
     creates: "{{ creates | default(omit) }}"
   when: fetch.changed
+
+- name: Install {{ name | default(tag) }}
+  tags:
+    - install
+    - "{{ tag }}"
+  copy:
+    src: "{{ item }}"
+    dest: "{{ install.dest }}/{{ item }}"
+    owner: "{{ install.owner | default(omit) }}"
+    mode: "{{ install.mode | default(omit) }}"
+  with_fileglob: "{{ install.src }}"
