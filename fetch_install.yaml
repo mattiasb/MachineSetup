@@ -29,13 +29,24 @@
     creates: "{{ creates | default(omit) }}"
   when: fetch.changed
 
+- name: Create install dir {{ name | default(tag) }}
+  tags:
+    - install
+    - "{{ tag }}"
+  file:
+    path: "{{ install.dest }}/"
+    state: directory
+    mode: 0755
+  when: install is defined
+
 - name: Install {{ name | default(tag) }}
   tags:
     - install
     - "{{ tag }}"
   copy:
     src: "{{ item }}"
-    dest: "{{ install.dest }}/{{ item }}"
+    dest: "{{ install.dest }}/{{ item | basename }}"
     owner: "{{ install.owner | default(omit) }}"
-    mode: "{{ install.mode | default(omit) }}"
-  with_fileglob: "{{ install.src }}"
+    mode: "{{ install.mode | default(0644) }}"
+  with_fileglob: "{{ dest }}/{{ install.src }}"
+  when: install is defined

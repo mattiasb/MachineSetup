@@ -353,7 +353,7 @@
         dest: "{{ code_dir }}/github/domtronn/all-the-icons.el"
         install:
           src: fonts/*.ttf
-          dest: "{{ install_prefix }}/share/fonts/"
+          dest: "{{ install_prefix }}/share/fonts"
           mode: "0644"
 
     - include: fetch_install.yaml
