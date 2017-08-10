@@ -98,11 +98,13 @@
         - gstreamer1-libav
         - gstreamer1-plugins-bad-freeworld
         - gstreamer1-plugins-ugly
+        - gstreamer1-vaapi
         - gtk3-devel-docs
         - gtk-doc
         - flex
         - hunspell-sv
         - intltool
+        - libva-intel-driver
         - llvm-devel
         - llvm-static
         - lua-devel
