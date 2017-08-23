@@ -423,6 +423,9 @@
         - schema: org.gnome.desktop.peripherals.touchpad
           key: tap-to-click
           value: "true"
+        - schema: org.gnome.desktop.search-providers false
+          key: disable-external
+          value: "true"
         - schema: org.gnome.desktop.wm.keybindings
           key: move-to-workspace-1
           value: "['<Super>F1']"
