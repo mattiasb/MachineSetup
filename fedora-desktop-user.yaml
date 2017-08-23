@@ -295,7 +295,6 @@
         - jedi
         - importmagic
         - rope
-        - scan-build
 
     - name: Get Rust source
       tags:
