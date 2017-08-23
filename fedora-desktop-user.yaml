@@ -241,7 +241,7 @@
       register: result
       failed_when:
         - "'already installed' not in result.stderr"
-        - "flatpak_install_app_by_ref.rc != 0"
+        - "result.rc != 0"
       changed_when:
         - "'already installed' not in result.stderr"
       with_items:
