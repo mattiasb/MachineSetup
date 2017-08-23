@@ -1,6 +1,8 @@
 ---
 # Set up facts
 - hosts: localhost
+  vars_files:
+    - gsettings.yaml
   tasks:
     - name: Collect rustc version
       command: "rustc --version"
@@ -8,6 +10,19 @@
       changed_when: false
     - set_fact:
         rustc_version: "{{ rustc_version.stdout.split(' ')[1] }}"
+
+    - name: Collect GSettings
+      tags:
+        - gnome-settings
+      command: gsettings get {{ item.schema }} {{ item.key }}
+      register: current_gsettings
+      with_items: "{{ gsettings }}"
+      changed_when: false
+    - set_fact:
+        current_gsettings: >
+          {{ current_gsettings
+           | json_query('results[*].stdout')
+          }}
 
     - name: Collect pandoc bash completion
       command: pandoc --bash-completion
@@ -25,6 +40,8 @@
             content: "{{ pandoc_bash_completion.stdout }}"
 
 - hosts: localhost
+  vars_files:
+    - gsettings.yaml
   vars:
     version: "{{ ansible_distribution_major_version }}"
     install_prefix: "{{ ansible_user_dir }}/.local"
@@ -408,92 +425,9 @@
     - name: GNOME settings
       tags:
         - gnome-settings
-      command: gsettings set {{ item.schema }} {{ item.key }} "{{ item.value }}"
-      with_items:
-        - schema: org.baedert.corebird
-          key: round-avatars
-          value: "false"
-        - schema: org.gnome.Terminal.Legacy.Settings
-          key: theme-variant
-          value: "'system'"
-        - schema: org.gnome.desktop.interface
-          key: gtk-key-theme
-          value: "'Emacs'"
-        - schema: org.gnome.desktop.peripherals.touchpad
-          key: tap-to-click
-          value: "true"
-        - schema: org.gnome.desktop.search-providers false
-          key: disable-external
-          value: "true"
-        - schema: org.gnome.desktop.wm.keybindings
-          key: move-to-workspace-1
-          value: "['<Super>F1']"
-        - schema: org.gnome.desktop.wm.keybindings
-          key: move-to-workspace-2
-          value: "['<Super>F2']"
-        - schema: org.gnome.desktop.wm.keybindings
-          key: move-to-workspace-3
-          value: "['<Super>F3']"
-        - schema: org.gnome.desktop.wm.keybindings
-          key: move-to-workspace-4
-          value: "['<Super>F4']"
-        - schema: org.gnome.desktop.wm.keybindings
-          key: move-to-workspace-5
-          value: "['<Super>F5']"
-        - schema: org.gnome.desktop.wm.keybindings
-          key: move-to-workspace-6
-          value: "['<Super>F6']"
-        - schema: org.gnome.desktop.wm.keybindings
-          key: move-to-workspace-7
-          value: "['<Super>F7']"
-        - schema: org.gnome.desktop.wm.keybindings
-          key: move-to-workspace-8
-          value: "['<Super>F8']"
-        - schema: org.gnome.desktop.wm.keybindings
-          key: move-to-workspace-9
-          value: "['<Super>F9']"
-        - schema: org.gnome.desktop.wm.keybindings
-          key: panel-run-dialog
-          value: "['<Super>r']"
-        - schema: org.gnome.desktop.wm.keybindings
-          key: switch-to-workspace-1
-          value: "['<Super>1']"
-        - schema: org.gnome.desktop.wm.keybindings
-          key: switch-to-workspace-2
-          value: "['<Super>2']"
-        - schema: org.gnome.desktop.wm.keybindings
-          key: switch-to-workspace-3
-          value: "['<Super>3']"
-        - schema: org.gnome.desktop.wm.keybindings
-          key: switch-to-workspace-4
-          value: "['<Super>4']"
-        - schema: org.gnome.desktop.wm.keybindings
-          key: switch-to-workspace-5
-          value: "['<Super>5']"
-        - schema: org.gnome.desktop.wm.keybindings
-          key: switch-to-workspace-6
-          value: "['<Super>6']"
-        - schema: org.gnome.desktop.wm.keybindings
-          key: switch-to-workspace-7
-          value: "['<Super>7']"
-        - schema: org.gnome.desktop.wm.keybindings
-          key: switch-to-workspace-8
-          value: "['<Super>8']"
-        - schema: org.gnome.desktop.wm.keybindings
-          key: switch-to-workspace-9
-          value: "['<Super>9']"
-        - schema: org.gnome.desktop.wm.preferences
-          key: action-middle-click-titlebar
-          value: "'lower'"
-        - schema: org.gnome.nautilus.preferences
-          key: click-policy
-          value: "'single'"
-        - schema: org.gnome.settings-daemon.plugins.media-keys
-          key: home
-          value: "'<Super>f'"
-        - schema: org.gnome.settings-daemon.plugins.media-keys
-          key: www
-          value: "'<Super>w'"
-        - schema: org.gnome.shell.app-switcher
-          key: current-workspace-only
-          value: "true"
+      command: >
+        gsettings set {{ item.1.schema }}
+                      {{ item.1.key }}
+                      "{{ item.1.value }}"
+      changed_when: "current_gsettings[item.0] != item.1.value"
+      with_indexed_items: "{{ gsettings }}"
