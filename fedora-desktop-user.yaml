@@ -21,15 +21,18 @@
     - name: Collect rustc version
       command: "rustc --version"
       register: rustc_version
+      changed_when: false
     - set_fact:
         rustc_version: "{{ rustc_version.stdout.split(' ')[1] }}"
 
     - name: Collect pandoc bash completion
       command: pandoc --bash-completion
       register: pandoc_bash_completion
+      changed_when: false
     - name: Collect npm bash completion
       command: npm completion
       register: npm_bash_completion
+      changed_when: false
     - set_fact:
         bash_completion:
           - name: npm
