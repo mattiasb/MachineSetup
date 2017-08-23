@@ -178,12 +178,14 @@
         - install
       command: >
         flatpak --user remote-add
-                --if-not-exists
                 {{ item.remote }}
                 {{ item.url }}
       register: result
+      failed_when:
+        - "'already exists' not in result.stderr"
+        - "result.rc != 0"
       changed_when:
-        - "result.stdout != ''"
+        - "'already exists' not in result.stderr"
       with_items:
         - remote: gnome
           url: https://sdk.gnome.org/gnome.flatpakrepo
