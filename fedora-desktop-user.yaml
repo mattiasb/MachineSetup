@@ -286,7 +286,6 @@
         executable: pip3
       with_items:
         - autopep8
-        - epc
         - flake8
         - git-spindle
         - ipdb
@@ -294,7 +293,6 @@
         - isort
         - jedi
         - importmagic
-        - rope
 
     - name: Get Rust source
       tags:
