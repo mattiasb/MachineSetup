@@ -135,20 +135,16 @@
           dest: .inputrc
           state: link
 
-    - name: Enable rdm user socket
+    - name: Enable User services
       systemd:
-        name: rdm.socket
-        user: true
-        enabled: true
-        daemon_reload: true
-        state: started
-
-    - name: Enable emacs daemon
-      systemd:
-        name: emacs.service
+        name: "{{ item}}.service"
         user: true
         enabled: true
         state: started
+      with_items:
+        - rdm
+        - emacs
+        - powerline-daemon
 
     - name: Generate bash completion files
       tags:

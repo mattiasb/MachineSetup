@@ -122,6 +122,7 @@
         - pandoc
         - perl-Errno
         - perl-open
+        - powerline
         - python-pip
         - python-devel
         - python3-devel
