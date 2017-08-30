@@ -55,6 +55,16 @@
     PATH: "{{ ansible_env.PATH }}:{{ ansible_user_dir }}/.local/bin/"
 
   tasks:
+    - name: GNOME settings
+      tags:
+        - gnome-settings
+      command: >
+        gsettings set {{ item.1.schema }}
+                      {{ item.1.key }}
+                      "{{ item.1.value }}"
+      changed_when: "current_gsettings[item.0] != item.1.value"
+      with_indexed_items: "{{ gsettings }}"
+
     - name: Fetch .local/bin
       tags:
         - fetch
@@ -167,84 +177,6 @@
         accept_hostkey: true
         version: master
 
-    - name: Add Flatpak remotes
-      tags:
-        - flatpak
-        - repos
-        - install
-      command: >
-        flatpak --user remote-add
-                {{ item.remote }}
-                {{ item.url }}
-      register: result
-      failed_when:
-        - "'already exists' not in result.stderr"
-        - "result.rc != 0"
-      changed_when:
-        - "'already exists' not in result.stderr"
-      with_items:
-        - remote: gnome
-          url: https://sdk.gnome.org/gnome.flatpakrepo
-        - remote: gnome-apps
-          url: https://sdk.gnome.org/gnome-apps.flatpakrepo
-        - remote: gnome-nightly
-          url: https://sdk.gnome.org/gnome-nightly.flatpakrepo
-        - remote: gnome-apps-nightly
-          url: https://sdk.gnome.org/gnome-apps-nightly.flatpakrepo
-        - remote: flathub
-          url: https://flathub.org/repo/flathub.flatpakrepo
-
-    - name: Install Flatpak apps
-      tags:
-        - flatpak
-        - apps
-        - install
-      command: "flatpak install -y --user {{ item.repo }} {{ item.name }}"
-      register: result
-      changed_when:
-        - "'already installed, skipping' not in result.stderr"
-      with_items:
-        # Apps
-        - name: org.gnome.Builder
-          repo: gnome-apps
-        - name: org.gnome.Games
-          repo: gnome-apps
-        - name: org.gnome.Maps
-          repo: gnome-apps
-
-        # Apps Nightly
-        - name: org.gnome.Builder
-          repo: gnome-apps-nightly
-        - name: org.gnome.Maps
-          repo: gnome-apps-nightly
-        - name: org.gnome.Epiphany
-          repo: gnome-apps-nightly
-        - name: org.gnome.Games
-          repo: gnome-apps-nightly
-
-        # Flathub
-        - name: com.spotify.Client
-          repo: flathub
-        - name: com.vinszent.GnomeTwitch
-          repo: flathub
-        - name: org.gnome.FeedReader
-          repo: flathub
-
-    - name: Install Flatpak apps (via refs)
-      tags:
-        - flatpak
-        - apps
-        - install
-      command: "flatpak install -y --user {{ item.url }}"
-      register: result
-      failed_when:
-        - "'already installed' not in result.stderr"
-        - "result.rc != 0"
-      changed_when:
-        - "'already installed' not in result.stderr"
-      with_items:
-        - url: https://flatpak.perezdecastro.org/revolt.flatpakref
-
     - name: Update NPM Packages
       tags:
         - update
@@ -312,16 +244,6 @@
         - isort
         - jedi
         - importmagic
-
-    - name: Get Rust source
-      tags:
-        - fetch
-        - rust-src
-      git:
-        repo: git@github.com:rust-lang/rust.git
-        dest: "{{ code_dir }}/github/rust-lang/rust"
-        accept_hostkey: true
-        version: "{{ rustc_version }}"
 
     - name: Update Rust Packages
       tags:
@@ -420,12 +342,90 @@
         commands:
           - make user-install
 
-    - name: GNOME settings
+    - name: Add Flatpak remotes
       tags:
-        - gnome-settings
+        - flatpak
+        - repos
+        - install
       command: >
-        gsettings set {{ item.1.schema }}
-                      {{ item.1.key }}
-                      "{{ item.1.value }}"
-      changed_when: "current_gsettings[item.0] != item.1.value"
-      with_indexed_items: "{{ gsettings }}"
+        flatpak --user remote-add
+                {{ item.remote }}
+                {{ item.url }}
+      register: result
+      failed_when:
+        - "'already exists' not in result.stderr"
+        - "result.rc != 0"
+      changed_when:
+        - "'already exists' not in result.stderr"
+      with_items:
+        - remote: gnome
+          url: https://sdk.gnome.org/gnome.flatpakrepo
+        - remote: gnome-apps
+          url: https://sdk.gnome.org/gnome-apps.flatpakrepo
+        - remote: gnome-nightly
+          url: https://sdk.gnome.org/gnome-nightly.flatpakrepo
+        - remote: gnome-apps-nightly
+          url: https://sdk.gnome.org/gnome-apps-nightly.flatpakrepo
+        - remote: flathub
+          url: https://flathub.org/repo/flathub.flatpakrepo
+
+    - name: Install Flatpak apps
+      tags:
+        - flatpak
+        - apps
+        - install
+      command: "flatpak install -y --user {{ item.repo }} {{ item.name }}"
+      register: result
+      changed_when:
+        - "'already installed, skipping' not in result.stderr"
+      with_items:
+        # Apps
+        - name: org.gnome.Builder
+          repo: gnome-apps
+        - name: org.gnome.Games
+          repo: gnome-apps
+        - name: org.gnome.Maps
+          repo: gnome-apps
+
+        # Apps Nightly
+        - name: org.gnome.Builder
+          repo: gnome-apps-nightly
+        - name: org.gnome.Maps
+          repo: gnome-apps-nightly
+        - name: org.gnome.Epiphany
+          repo: gnome-apps-nightly
+        - name: org.gnome.Games
+          repo: gnome-apps-nightly
+
+        # Flathub
+        - name: com.spotify.Client
+          repo: flathub
+        - name: com.vinszent.GnomeTwitch
+          repo: flathub
+        - name: org.gnome.FeedReader
+          repo: flathub
+
+    - name: Install Flatpak apps (via refs)
+      tags:
+        - flatpak
+        - apps
+        - install
+      command: "flatpak install -y --user {{ item.url }}"
+      register: result
+      failed_when:
+        - "'already installed' not in result.stderr"
+        - "result.rc != 0"
+      changed_when:
+        - "'already installed' not in result.stderr"
+      with_items:
+        - url: https://flatpak.perezdecastro.org/revolt.flatpakref
+
+    - name: Get Rust source
+      tags:
+        - fetch
+        - rust-src
+      git:
+        repo: git@github.com:rust-lang/rust.git
+        dest: "{{ code_dir }}/github/rust-lang/rust"
+        accept_hostkey: true
+        version: "{{ rustc_version }}"
