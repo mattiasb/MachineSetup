@@ -225,6 +225,19 @@
       args:
         creates: "{{ install_prefix }}/bin/gocode"
 
+    - name: Update Python 2 Packages
+      tags:
+        - update
+        - packages
+        - python2
+      pip:
+        name: "{{ item }}"
+        extra_args: --user
+        state: latest
+        executable: pip2
+      with_items:
+        - git-spindle
+
     - name: Update Python 3 Packages
       tags:
         - update
@@ -238,7 +251,6 @@
       with_items:
         - autopep8
         - flake8
-        - git-spindle
         - ipdb
         - ipython
         - isort
