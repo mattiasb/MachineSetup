@@ -419,6 +419,17 @@
         - name: org.gnome.FeedReader
           repo: flathub
 
+
+    - include: fetch_install.yaml
+      static: false
+      vars:
+        tag: git-wip
+        repo: "{{ gh_mattiasb }}/spotify-2x.git"
+        dest: "{{ code_dir }}/Projects/spotify-2x"
+        creates: "{{ install_prefix }}/bin/spotify-2x"
+        commands:
+          - make user-install
+
     - name: Install Flatpak apps (via refs)
       tags:
         - flatpak
