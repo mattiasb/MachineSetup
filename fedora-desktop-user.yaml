@@ -419,11 +419,10 @@
         - name: org.gnome.FeedReader
           repo: flathub
 
-
     - include: fetch_install.yaml
       static: false
       vars:
-        tag: git-wip
+        tag: spotify
         repo: "{{ gh_mattiasb }}/spotify-2x.git"
         dest: "{{ code_dir }}/Projects/spotify-2x"
         creates: "{{ install_prefix }}/bin/spotify-2x"
