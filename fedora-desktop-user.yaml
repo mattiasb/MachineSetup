@@ -303,6 +303,8 @@
           src: fonts/*.ttf
           dest: "{{ install_prefix }}/share/fonts"
           mode: "0644"
+        commands:
+          - echo
 
     - include: fetch_install.yaml
       static: false
