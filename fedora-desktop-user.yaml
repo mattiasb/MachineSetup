@@ -453,3 +453,45 @@
         dest: "{{ code_dir }}/github/rust-lang/rust"
         accept_hostkey: true
         version: "{{ rustc_version }}"
+
+    - name: Create VPN directories
+      file:
+        path: "{{ ansible_user_dir }}/{{ item }}/pia-vpn"
+        state: directory
+      with_items:
+        - Downloads
+        - Documents
+
+    - name: Get VPN config
+      unarchive:
+        src: https://www.privateinternetaccess.com/openvpn/openvpn.zip
+        dest: "{{ ansible_user_dir }}/Downloads/pia-vpn"
+        remote_src: true
+      register: pia_vpn_zip
+
+    - name: Copy VPN cert and pem
+      copy:
+        src: "{{ ansible_user_dir }}/Downloads/pia-vpn/{{ item }}"
+        dest: "{{ ansible_user_dir }}/Documents/pia-vpn/{{ item }}"
+      with_items:
+        - ca.rsa.2048.crt
+        - crl.rsa.2048.pem
+      when: pia_vpn_zip.changed
+
+    - name: Copy VPN configurations
+      copy:
+        src: "{{ ansible_user_dir }}/Downloads/pia-vpn/{{ item }}"
+        dest: "{{ ansible_user_dir }}/Documents/pia-vpn/Pia-{{ item }}"
+      with_items:
+        - Sweden.ovpn
+      when: pia_vpn_zip.changed
+
+    - name: Remove VPN config
+      command: nmcli connection Pia-Sweden
+      when: pia_vpn_zip.changed
+
+    - name: Import VPN config
+      command: >
+        nmcli connection import type openvpn file
+        {{ ansible_user_dir }}/Documents/pia-vpn/Pia-Sweden.ovpn
+      when: pia_vpn_zip.changed
