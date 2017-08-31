@@ -487,7 +487,12 @@
       when: pia_vpn_zip.changed
 
     - name: Remove VPN config
-      command: nmcli connection Pia-Sweden
+      command: nmcli connection delete Pia-Sweden
+      register: result
+      failed_when:
+        - "'Error: unknown connection' not in result.stderr"
+        - "result.rc != 0"
+      changed_when: "'Error: unknown connection' not in result.stderr"
       when: pia_vpn_zip.changed
 
     - name: Import VPN config
