@@ -103,6 +103,7 @@
         - gtk3-devel-docs
         - gtk-doc
         - flex
+        - httpie
         - hunspell-sv
         - intltool
         - libva-intel-driver
