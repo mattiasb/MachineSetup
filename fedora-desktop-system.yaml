@@ -74,6 +74,7 @@
         - docbook-style-xsl
         - docker-compose
         - docker-io
+        - nautilus-dropbox
         - emacs
         - epiphany
         - feedreader
@@ -129,6 +130,7 @@
         - python-pip
         - python-devel
         - python3-devel
+        - python2-pygpgme
         - ragel
         - remmina
         - remmina-plugins-gnome
