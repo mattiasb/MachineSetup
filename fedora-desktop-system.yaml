@@ -109,7 +109,7 @@
         - libva-intel-driver
         - llvm-devel
         - llvm-static
-        - lpass
+        - lastpass-cli
         - lua-devel
         - lua-filesystem
         - luarocks
