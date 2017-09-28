@@ -6,6 +6,13 @@
     version: "{{ ansible_distribution_major_version }}"
   tasks:
 
+    - name: Turn off coredumps
+      sysctl:
+        name: kernel.core_pattern
+        value:
+        sysctl_file: /etc/sysctl.d/80-coredump.conf
+      notify: Reload sysctl
+
     - name: Turn off SELinux
       selinux:
         state: disabled
@@ -163,3 +170,7 @@
         mode: 0775
         state: directory
       tags: [jhbuild]
+
+  handlers:
+    - name: Reload sysctl
+      command: /lib/systemd/systemd-sysctl
