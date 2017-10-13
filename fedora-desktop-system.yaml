@@ -42,7 +42,6 @@
         creates: /etc/yum.repos.d/{{ item.repo }}
       with_items:
         - repo: google-chrome.repo
-        - repo: skype-stable.repo
 
     - name: Enabling copr repos
       tags:
@@ -152,7 +151,6 @@
         - ruby-irb
         - rust
         - sbt
-        - skypeforlinux
         - systemd-container
         - the_silver_searcher
         - tig
