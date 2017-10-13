@@ -6,6 +6,18 @@ gsettings:
   - schema: org.gnome.Terminal.Legacy.Settings
     key: theme-variant
     value: "'system'"
+  - schema: org.gnome.Terminal.Legacy.Settings
+    key: default-show-menubar
+    value: "false"
+  - schema: org.gnome.settings-daemon.plugins.color
+    key: night-light-enabled
+    value: "true"
+  - schema: org.gnome.system.locale
+    key: region
+    value: "'sv_SE.UTF-8'"
+  - schema: org.gnome.desktop.datetime
+    key: automatic-timezone
+    value: "true"
   - schema: org.gnome.desktop.interface
     key: gtk-key-theme
     value: "'Emacs'"
