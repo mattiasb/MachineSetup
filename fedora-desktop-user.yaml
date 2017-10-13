@@ -147,7 +147,7 @@
 
     - name: Enable User services
       systemd:
-        name: "{{ item}}.service"
+        name: "{{ item }}.service"
         user: true
         enabled: true
         state: started
