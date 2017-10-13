@@ -18,7 +18,7 @@
       selinux:
         state: disabled
 
-    - name: Enabling RPMFusion repos
+    - name: Enable RPMFusion repos
       tags: [repos, rpmfusion-repo]
       dnf:
         name: "{{ item }}"
@@ -30,7 +30,7 @@
         - "http://download1.rpmfusion.org/nonfree/fedora\
            /rpmfusion-nonfree-release-{{ version }}.noarch.rpm"
 
-    - name: Enabling custom repos [Chrome, Skype]
+    - name: Enable custom repos [Chrome]
       tags:
         - repos
         - chrome-repo
