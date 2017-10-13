@@ -9,7 +9,8 @@
     - name: Turn off coredumps
       sysctl:
         name: kernel.core_pattern
-        value:
+        state: present
+        value: " "
         sysctl_file: /etc/sysctl.d/80-coredump.conf
       notify: Reload sysctl
 
