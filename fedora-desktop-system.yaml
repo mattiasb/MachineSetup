@@ -71,6 +71,7 @@
       with_items:
         - "@Development tools"
         - ShellCheck
+        - asciidoc
         - bison
         - cabal-install
         - cargo
