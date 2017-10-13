@@ -43,16 +43,6 @@
       with_items:
         - repo: google-chrome.repo
 
-    - name: Enabling copr repos
-      tags:
-        - repos
-        - copr
-      command: dnf copr enable -y {{ item }}
-      args:
-        creates: /etc/yum.repos.d/_copr_{{ item | replace("/", "-") }}.repo
-      with_items:
-        - gicmo/devel
-
     - name: Uninstall Packages
       tags: [packages]
       dnf:
