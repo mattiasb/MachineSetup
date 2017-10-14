@@ -106,6 +106,7 @@
         - hunspell-sv
         - intltool
         - libva-intel-driver
+        - lftp
         - llvm-devel
         - llvm-static
         - lastpass-cli
