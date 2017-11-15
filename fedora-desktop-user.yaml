@@ -156,6 +156,14 @@
         - emacs.service
         - powerline-daemon.service
 
+    - name: Add markdown mimetype
+      tags:
+        - markdown
+      copy:
+        src: text-markdown.xml
+        dest: "{{ ansible_user_dir }}/.local/share/mime/packages/"
+      notify: Update user mime database
+
     - name: Generate bash completion files
       tags:
         - update
@@ -506,3 +514,7 @@
         nmcli connection import type openvpn file
         {{ ansible_user_dir }}/Documents/pia-vpn/Pia-Sweden.ovpn
       when: pia_vpn_zip.changed
+
+  handlers:
+    - name: Update user mime database
+      command: "update-mime-database {{ ansible_user_dir }}/.local/share/mime"
