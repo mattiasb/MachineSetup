@@ -147,14 +147,14 @@
 
     - name: Enable User services
       systemd:
-        name: "{{ item }}.service"
+        name: "{{ item }}"
         user: true
         enabled: true
         state: started
       with_items:
-        - rdm
-        - emacs
-        - powerline-daemon
+        - rtags.socket
+        - emacs.service
+        - powerline-daemon.service
 
     - name: Generate bash completion files
       tags:
