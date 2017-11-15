@@ -372,10 +372,6 @@
       changed_when:
         - "'already exists' not in result.stderr"
       with_items:
-        - remote: gnome
-          url: https://sdk.gnome.org/gnome.flatpakrepo
-        - remote: gnome-apps
-          url: https://sdk.gnome.org/gnome-apps.flatpakrepo
         - remote: gnome-nightly
           url: https://sdk.gnome.org/gnome-nightly.flatpakrepo
         - remote: gnome-apps-nightly
@@ -395,11 +391,17 @@
       with_items:
         # Apps
         - name: org.gnome.Builder
-          repo: gnome-apps
+          repo: flathub
         - name: org.gnome.Games
-          repo: gnome-apps
+          repo: flathub
         - name: org.gnome.Maps
-          repo: gnome-apps
+          repo: flathub
+        - name: com.spotify.Client
+          repo: flathub
+        - name: com.vinszent.GnomeTwitch
+          repo: flathub
+        - name: org.gnome.FeedReader
+          repo: flathub
 
         # Apps Nightly
         - name: org.gnome.Builder
@@ -410,14 +412,6 @@
           repo: gnome-apps-nightly
         - name: org.gnome.Games
           repo: gnome-apps-nightly
-
-        # Flathub
-        - name: com.spotify.Client
-          repo: flathub
-        - name: com.vinszent.GnomeTwitch
-          repo: flathub
-        - name: org.gnome.FeedReader
-          repo: flathub
 
     - include: fetch_install.yaml
       static: false
