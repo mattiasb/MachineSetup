@@ -156,12 +156,12 @@
         - emacs.service
         - powerline-daemon.service
 
-    - name: Add markdown mimetype
+    - name: Remove markdown mimetype
       tags:
         - markdown
-      copy:
-        src: text-markdown.xml
-        dest: "{{ ansible_user_dir }}/.local/share/mime/packages/"
+      file:
+        state: absent
+        dest: "{{ install_prefix }}/share/mime/packages/text-markdown.xml"
       notify: Update user mime database
 
     - name: Generate bash completion files
