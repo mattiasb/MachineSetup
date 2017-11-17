@@ -317,6 +317,19 @@
     - include: fetch_install.yaml
       static: false
       vars:
+        tag: virsh-completion
+        repo: git@github.com:LuyaoHuang/virsh-bash-completion.git
+        dest: "{{ code_dir }}/github/LuyaoHuang/virsh-bash-completion"
+        install:
+          src: virsh_bash_completion
+          dest: "{{ config_prefix }}/bash_completion.d/"
+          mode: "0644"
+        commands:
+          - echo
+
+    - include: fetch_install.yaml
+      static: false
+      vars:
         tag: jhbuild
         repo: "https://git.gnome.org/browse/jhbuild"
         dest: "{{ gnome_src }}/jhbuild"
