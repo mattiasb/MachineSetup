@@ -151,6 +151,7 @@
         - webkitgtk4-devel
         - yamllint
         - yelp-tools
+        - xmlto
 
     - name: Setup JHBuild Install dir
       file:
