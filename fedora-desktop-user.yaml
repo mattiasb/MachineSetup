@@ -152,7 +152,7 @@
         enabled: true
         state: started
       with_items:
-        - rtags.socket
+        - rdm.socket
         - emacs.service
         - powerline-daemon.service
 
