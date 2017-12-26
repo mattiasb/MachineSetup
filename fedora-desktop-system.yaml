@@ -66,7 +66,6 @@
         - cargo
         - clang-devel
         - cmake
-        - corebird
         - ctags-etags
         - docbook-dtds
         - docbook-style-xsl

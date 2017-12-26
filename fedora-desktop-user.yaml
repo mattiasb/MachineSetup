@@ -423,6 +423,8 @@
           repo: flathub
         - name: org.gnome.FeedReader
           repo: flathub
+        - name: org.baedert.corebird
+          repo: flathub
 
         # Apps Nightly
         - name: org.gnome.Builder
