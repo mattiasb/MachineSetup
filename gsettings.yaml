@@ -1,8 +1,5 @@
 ---
 gsettings:
-  - schema: org.baedert.corebird
-    key: round-avatars
-    value: "false"
   - schema: org.gnome.Terminal.Legacy.Settings
     key: theme-variant
     value: "'system'"

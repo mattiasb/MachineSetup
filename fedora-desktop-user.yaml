@@ -154,7 +154,7 @@
       with_items:
         - rdm.socket
         - emacs.service
-        - powerline-daemon.service
+        - powerline.service
 
     - name: Remove markdown mimetype
       tags:
