@@ -46,11 +46,56 @@
     version: "{{ ansible_distribution_major_version }}"
     install_prefix: "{{ ansible_user_dir }}/.local"
     config_prefix: "{{ ansible_user_dir }}/.config"
+    var_prefix: "{{ ansible_user_dir }}/.var"
     code_dir: "{{ ansible_user_dir }}/Code"
     gnome_src: "{{ code_dir }}/gnome/src"
     gnome_build: "{{ code_dir }}/gnome/build"
     gh_mattiasb: git@github.com:mattiasb
     gl_mattiasb: git@gitlab.com:mattiasb
+    flatpaks:
+      # Apps
+      - name: org.gnome.Builder
+        repo: flathub
+        gtk: true
+      - name: org.gnome.Games
+        repo: flathub
+        gtk: true
+      - name: org.gnome.Maps
+        repo: flathub
+        gtk: true
+      - name: com.spotify.Client
+        repo: flathub
+      - name: com.vinszent.GnomeTwitch
+        repo: flathub
+        gtk: true
+      - name: org.gnome.FeedReader
+        repo: flathub
+        gtk: true
+      - name: org.baedert.corebird
+        repo: flathub
+        gtk: true
+      # Apps Nightly
+      - name: org.gnome.Builder
+        repo: gnome-apps-nightly
+        gtk: true
+      - name: org.gnome.Maps
+        repo: gnome-apps-nightly
+        gtk: true
+      - name: org.gnome.Epiphany
+        repo: gnome-apps-nightly
+        gtk: true
+      - name: org.gnome.Games
+        repo: gnome-apps-nightly
+        gtk: true
+    # Names of all flatpak depending on GTK+
+    gtk_flatpak_names: >-
+        {{ flatpaks
+         | selectattr('gtk', 'defined')
+         | selectattr('gtk', 'equalto', True)
+         | map(attribute='name')
+         | list
+        }}
+
   environment:
     PATH: "{{ ansible_env.PATH }}:{{ ansible_user_dir }}/.local/bin/"
 
@@ -409,32 +454,24 @@
       register: result
       changed_when:
         - "'already installed, skipping' not in result.stderr"
-      with_items:
-        # Apps
-        - name: org.gnome.Builder
-          repo: flathub
-        - name: org.gnome.Games
-          repo: flathub
-        - name: org.gnome.Maps
-          repo: flathub
-        - name: com.spotify.Client
-          repo: flathub
-        - name: com.vinszent.GnomeTwitch
-          repo: flathub
-        - name: org.gnome.FeedReader
-          repo: flathub
-        - name: org.baedert.corebird
-          repo: flathub
+      with_items: "{{ flatpaks }}"
 
-        # Apps Nightly
-        - name: org.gnome.Builder
-          repo: gnome-apps-nightly
-        - name: org.gnome.Maps
-          repo: gnome-apps-nightly
-        - name: org.gnome.Epiphany
-          repo: gnome-apps-nightly
-        - name: org.gnome.Games
-          repo: gnome-apps-nightly
+    - name: Copy compose file to GTK+ flatpaks [1/2]
+      file:
+        path: "{{ var_prefix }}/app/{{ item }}/config/"
+        state: directory
+        recurse: true
+      with_items: "{{ gtk_flatpak_names}}"
+
+    - name: Copy compose file to GTK+ flatpaks [2/2]
+      tags:
+        - flatpak
+        - apps
+        - gtk
+      copy:
+        src: "{{ config_prefix }}/gtk-3.0/Compose"
+        dest: "{{ var_prefix }}/app/{{ item }}/config/gtk-3.0"
+      with_items: "{{ gtk_flatpak_names}}"
 
     - include: fetch_install.yaml
       static: false
