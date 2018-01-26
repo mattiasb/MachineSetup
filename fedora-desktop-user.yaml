@@ -487,8 +487,13 @@
       with_items: "{{ flatpaks }}"
 
     - name: Copy compose file to GTK+ flatpaks [1/2]
+      tags:
+        - flatpak
+        - apps
+        - gtk
+        - compose
       file:
-        path: "{{ var_prefix }}/app/{{ item }}/config/"
+        path: "{{ var_prefix }}/app/{{ item }}/config/gtk-3.0"
         state: directory
         recurse: true
       with_items: "{{ gtk_flatpak_names}}"
@@ -498,9 +503,10 @@
         - flatpak
         - apps
         - gtk
+        - compose
       copy:
         src: "{{ config_prefix }}/gtk-3.0/Compose"
-        dest: "{{ var_prefix }}/app/{{ item }}/config/gtk-3.0"
+        dest: "{{ var_prefix }}/app/{{ item }}/config/gtk-3.0/Compose"
       with_items: "{{ gtk_flatpak_names}}"
 
     - include_tasks: fetch_install.yaml
