@@ -100,6 +100,7 @@
         - gstreamer1-vaapi
         - gtk3-devel-docs
         - gtk-doc
+        - fedpkg
         - flex
         - httpie
         - hunspell-sv
