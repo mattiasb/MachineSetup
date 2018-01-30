@@ -1,8 +1,6 @@
 ---
 # Set up facts
 - hosts: localhost
-  vars_files:
-    - gsettings.yaml
   tasks:
     - name: Collect rustc version
       command: "rustc --version"
@@ -10,19 +8,6 @@
       changed_when: false
     - set_fact:
         rustc_version: "{{ rustc_version.stdout.split(' ')[1] }}"
-
-    - name: Collect GSettings
-      tags:
-        - gnome-settings
-      command: gsettings get {{ item.schema }} {{ item.key }}
-      register: current_gsettings
-      with_items: "{{ gsettings }}"
-      changed_when: false
-    - set_fact:
-        current_gsettings: >
-          {{ current_gsettings
-           | json_query('results[*].stdout')
-          }}
 
     - name: Collect pandoc bash completion
       command: pandoc --bash-completion
@@ -106,12 +91,10 @@
     - name: GNOME settings
       tags:
         - gnome-settings
-      command: >
-        gsettings set {{ item.1.schema }}
-                      {{ item.1.key }}
-                      "{{ item.1.value }}"
-      changed_when: "current_gsettings[item.0] != item.1.value"
-      with_indexed_items: "{{ gsettings }}"
+      dconf:
+        key: "{{ item.key }}"
+        value: "{{ item.value }}"
+      with_items: "{{ gsettings }}"
 
     - name: Fetch .local/bin
       tags:

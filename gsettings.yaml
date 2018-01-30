@@ -1,98 +1,66 @@
 ---
 gsettings:
-  - schema: org.gnome.Terminal.Legacy.Settings
-    key: theme-variant
+  - key: "/org/gnome/Terminal/Legacy/Settings/theme-variant"
     value: "'system'"
-  - schema: org.gnome.Terminal.Legacy.Settings
-    key: default-show-menubar
+  - key: "/org/gnome/Terminal/Legacy/Settings/default-show-menubar"
     value: "false"
-  - schema: org.gnome.settings-daemon.plugins.color
-    key: night-light-enabled
+  - key: "/org/gnome/settings-daemon/plugins/color/night-light-enabled"
     value: "true"
-  - schema: org.gnome.system.locale
-    key: region
+  - key: "/org/gnome/system/locale/region"
     value: "'sv_SE.UTF-8'"
-  - schema: org.gnome.desktop.datetime
-    key: automatic-timezone
+  - key: "/org/gnome/desktop/datetime/automatic-timezone"
     value: "true"
-  - schema: org.gnome.desktop.interface
-    key: gtk-key-theme
+  - key: "/org/gnome/desktop/interface/gtk-key-theme"
     value: "'Emacs'"
-  - schema: org.gnome.desktop.peripherals.touchpad
-    key: tap-to-click
+  - key: "/org/gnome/desktop/peripherals/touchpad/tap-to-click"
     value: "true"
-  - schema: org.gnome.desktop.search-providers
-    key: disable-external
+  - key: "/org/gnome/desktop/search-providers/disable-external"
     value: "true"
-  - schema: org.gnome.desktop.wm.keybindings
-    key: move-to-workspace-1
+  - key: "/org/gnome/desktop/wm/keybindings/move-to-workspace-1"
     value: "['<Super>F1']"
-  - schema: org.gnome.desktop.wm.keybindings
-    key: move-to-workspace-2
+  - key: "/org/gnome/desktop/wm/keybindings/move-to-workspace-2"
     value: "['<Super>F2']"
-  - schema: org.gnome.desktop.wm.keybindings
-    key: move-to-workspace-3
+  - key: "/org/gnome/desktop/wm/keybindings/move-to-workspace-3"
     value: "['<Super>F3']"
-  - schema: org.gnome.desktop.wm.keybindings
-    key: move-to-workspace-4
+  - key: "/org/gnome/desktop/wm/keybindings/move-to-workspace-4"
     value: "['<Super>F4']"
-  - schema: org.gnome.desktop.wm.keybindings
-    key: move-to-workspace-5
+  - key: "/org/gnome/desktop/wm/keybindings/move-to-workspace-5"
     value: "['<Super>F5']"
-  - schema: org.gnome.desktop.wm.keybindings
-    key: move-to-workspace-6
+  - key: "/org/gnome/desktop/wm/keybindings/move-to-workspace-6"
     value: "['<Super>F6']"
-  - schema: org.gnome.desktop.wm.keybindings
-    key: move-to-workspace-7
+  - key: "/org/gnome/desktop/wm/keybindings/move-to-workspace-7"
     value: "['<Super>F7']"
-  - schema: org.gnome.desktop.wm.keybindings
-    key: move-to-workspace-8
+  - key: "/org/gnome/desktop/wm/keybindings/move-to-workspace-8"
     value: "['<Super>F8']"
-  - schema: org.gnome.desktop.wm.keybindings
-    key: move-to-workspace-9
+  - key: "/org/gnome/desktop/wm/keybindings/move-to-workspace-9"
     value: "['<Super>F9']"
-  - schema: org.gnome.desktop.wm.keybindings
-    key: panel-run-dialog
+  - key: "/org/gnome/desktop/wm/keybindings/panel-run-dialog"
     value: "['<Super>r']"
-  - schema: org.gnome.desktop.wm.keybindings
-    key: switch-to-workspace-1
+  - key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-1"
     value: "['<Super>1']"
-  - schema: org.gnome.desktop.wm.keybindings
-    key: switch-to-workspace-2
+  - key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-2"
     value: "['<Super>2']"
-  - schema: org.gnome.desktop.wm.keybindings
-    key: switch-to-workspace-3
+  - key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-3"
     value: "['<Super>3']"
-  - schema: org.gnome.desktop.wm.keybindings
-    key: switch-to-workspace-4
+  - key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-4"
     value: "['<Super>4']"
-  - schema: org.gnome.desktop.wm.keybindings
-    key: switch-to-workspace-5
+  - key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-5"
     value: "['<Super>5']"
-  - schema: org.gnome.desktop.wm.keybindings
-    key: switch-to-workspace-6
+  - key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-6"
     value: "['<Super>6']"
-  - schema: org.gnome.desktop.wm.keybindings
-    key: switch-to-workspace-7
+  - key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-7"
     value: "['<Super>7']"
-  - schema: org.gnome.desktop.wm.keybindings
-    key: switch-to-workspace-8
+  - key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-8"
     value: "['<Super>8']"
-  - schema: org.gnome.desktop.wm.keybindings
-    key: switch-to-workspace-9
+  - key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-9"
     value: "['<Super>9']"
-  - schema: org.gnome.desktop.wm.preferences
-    key: action-middle-click-titlebar
+  - key: "/org/gnome/desktop/wm/preferences/action-middle-click-titlebar"
     value: "'lower'"
-  - schema: org.gnome.nautilus.preferences
-    key: click-policy
+  - key: "/org/gnome/nautilus/preferences/click-policy"
     value: "'single'"
-  - schema: org.gnome.settings-daemon.plugins.media-keys
-    key: home
+  - key: "/org/gnome/settings-daemon/plugins/media-keys/home"
     value: "'<Super>f'"
-  - schema: org.gnome.settings-daemon.plugins.media-keys
-    key: www
+  - key: "/org/gnome/settings-daemon/plugins/media-keys/www"
     value: "'<Super>w'"
-  - schema: org.gnome.shell.app-switcher
-    key: current-workspace-only
+  - key: "/org/gnome/shell/app-switcher/current-workspace-only"
     value: "true"
