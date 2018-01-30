@@ -102,37 +102,19 @@
       file:
         src: "{{ config_prefix }}/{{ item.src | default(omit) }}"
         dest: "{{ ansible_user_dir }}/{{ item.dest }}"
-        state: "{{ item.state }}"
+        state: link
+        force: true
       with_items:
-        - dest: .bashrc
-          state: absent
         - src: bash/rc
           dest: .bashrc
-          state: link
-
-        - dest: .bash_profile
-          state: absent
         - src: bash/profile
           dest: .bash_profile
-          state: link
-
-        - dest: .bash_logout
-          state: absent
         - src: bash/logout
           dest: .bash_logout
-          state: link
-
-        - dest: .rpmmacros
-          state: absent
         - src: rpm/macros
           dest: .rpmmacros
-          state: link
-
-        - dest: .inputrc
-          state: absent
         - src: inputrc
           dest: .inputrc
-          state: link
 
     - name: Enable User services
       systemd:
