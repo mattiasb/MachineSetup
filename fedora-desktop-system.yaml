@@ -106,6 +106,7 @@
         - hunspell-sv
         - intltool
         - libva-intel-driver
+        - libvirt-client
         - lftp
         - llvm-devel
         - llvm-static
