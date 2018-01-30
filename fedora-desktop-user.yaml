@@ -171,7 +171,9 @@
         - update
         - packages
         - npm
-      command: npm install -g {{ item }}
+      npm:
+        name: "{{ item }}"
+        global: true
       with_items:
         - eslint
         - grunt-cli
@@ -182,8 +184,6 @@
         - yasel
       environment:
         NPM_CONFIG_USERCONFIG: "{{ config_prefix }}/npm/config"
-      args:
-        creates: "{{ install_prefix }}/bin/yasel"
 
     - name: Update LUA Packages
       tags:
