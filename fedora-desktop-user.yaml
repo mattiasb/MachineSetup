@@ -255,8 +255,6 @@
       with_items:
         - pkg: racer
         - pkg: rustfmt
-        - pkg: ripgrep
-          bin: rg
       args:
         creates: "{{ install_prefix }}/bin/{{ item.bin | default(item.pkg) }}"
       environment:

@@ -79,6 +79,7 @@ packages:
   - remmina-plugins-gnome
   - remmina-plugins-rdp
   - remmina-plugins-vnc
+  - ripgrep
   - rpmdevtools
   - rpmlint
   - rtags
