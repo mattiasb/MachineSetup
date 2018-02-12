@@ -20,6 +20,20 @@
       selinux:
         state: disabled
 
+    - name: Turn off services
+      service:
+        name: "{{ item }}.service"
+        enabled: false
+        state: stopped
+      with_items:
+        - ModemManager
+        - abrtd
+        - firewalld
+        - gssproxy
+        - livesys
+        - sssd
+        - switcheroo-control
+
     - name: Enable RPMFusion repos
       tags: [repos, rpmfusion-repo]
       dnf:
