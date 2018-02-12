@@ -90,6 +90,7 @@ packages:
   - systemd-container
   - the_silver_searcher
   - tig
+  - tlp
   - tmux
   - transmission-remote-gtk
   - unrar
