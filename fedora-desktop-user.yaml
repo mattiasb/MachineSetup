@@ -373,6 +373,20 @@
         commands:
           - make user-install
 
+    - include_tasks: fetch_install.yaml
+      vars:
+        tag: cquery
+        repo: git@github.com:jacobdufault/cquery.git
+        dest: "{{ code_dir }}/github/jacobdufault/cquery"
+        creates: "{{ install_prefix }}/bin/cquery"
+        ref: v20180213
+        commands:
+          - >-
+            ./waf configure --llvm-config /usr/bin/llvm-config
+                            --prefix=/home/mattiasb/.local/
+          - ./waf build
+          - ./waf install
+
     - name: Add Flatpak remotes
       tags:
         - flatpak
