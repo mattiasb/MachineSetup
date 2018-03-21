@@ -84,6 +84,16 @@
         state: directory
       tags: [jhbuild]
 
+    - name: Setup sleep inhibitors [1/2]
+      copy:
+        src: "{{ item }}"
+        dest: /usr/lib/systemd/system-sleep/
+        owner: root
+        group: wheel
+        mode: 0755
+      with_fileglob:
+        - "./inhibitors/*.sh"
+
   handlers:
     - name: Reload sysctl
       command: /lib/systemd/systemd-sysctl
