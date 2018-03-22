@@ -125,6 +125,7 @@
       with_items:
         - rdm.socket
         - emacs.service
+        - wanderlust.service
         - powerline.service
 
     - name: Remove markdown mimetype
