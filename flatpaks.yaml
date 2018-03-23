@@ -18,6 +18,9 @@ flatpaks:
   - name: org.gnome.FeedReader
     repo: flathub
     gtk: true
+  - name: org.gnome.Fractal
+    repo: flathub
+    gtk: true
   - name: org.baedert.corebird
     repo: flathub
     gtk: true
