@@ -4,6 +4,7 @@
   become_user: root
   vars_files:
     - packages.yaml
+    - flatpaks.yaml
   vars:
     version: "{{ ansible_distribution_major_version }}"
   tasks:
@@ -74,6 +75,37 @@
         name: "{{ item }}"
         state: present
       with_items: "{{ packages }}"
+
+    - name: Add Flatpak remotes
+      tags:
+        - flatpak
+        - repos
+        - install
+      command: "flatpak remote-add {{ item.remote }} {{ item.url }}"
+      register: result
+      failed_when:
+        - "'already exists' not in result.stderr"
+        - "result.rc != 0"
+      changed_when:
+        - "'already exists' not in result.stderr"
+      with_items:
+        - remote: gnome-nightly
+          url: https://sdk.gnome.org/gnome-nightly.flatpakrepo
+        - remote: gnome-apps-nightly
+          url: https://sdk.gnome.org/gnome-apps-nightly.flatpakrepo
+        - remote: flathub
+          url: https://flathub.org/repo/flathub.flatpakrepo
+
+    - name: Install Flatpak apps
+      tags:
+        - flatpak
+        - apps
+        - install
+      command: "flatpak install -y {{ item.repo }} {{ item.name }}"
+      register: result
+      changed_when:
+        - "'already installed, skipping' not in result.stderr"
+      with_items: "{{ flatpaks }}"
 
     - name: Setup JHBuild Install dir
       file:
