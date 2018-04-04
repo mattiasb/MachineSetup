@@ -126,6 +126,14 @@
       with_fileglob:
         - "./inhibitors/*.sh"
 
+    - name: Setup groups
+      user:
+        name: mattiasb
+        groups:
+          - wheel
+          - docker
+          - libvirt
+
   handlers:
     - name: Reload sysctl
       command: /lib/systemd/systemd-sysctl
