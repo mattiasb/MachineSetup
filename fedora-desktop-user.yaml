@@ -420,21 +420,6 @@
         commands:
           - make user-install
 
-    - name: Install Flatpak apps (via refs)
-      tags:
-        - flatpak
-        - apps
-        - install
-      command: "flatpak install -y --user {{ item.url }}"
-      register: result
-      failed_when:
-        - "'already installed' not in result.stderr"
-        - "result.rc != 0"
-      changed_when:
-        - "'already installed' not in result.stderr"
-      with_items:
-        - url: https://flatpak.perezdecastro.org/revolt.flatpakref
-
     - name: Get Rust source
       tags:
         - fetch
