@@ -95,8 +95,12 @@ packages:
   - tmux
   - transmission-remote-gtk
   - unrar
+  - vagrant
+  - virt-install
   - virt-manager
+  - virt-viewer
   - webkitgtk4-devel
   - yamllint
   - yelp-tools
   - xmlto
+  - xorriso
