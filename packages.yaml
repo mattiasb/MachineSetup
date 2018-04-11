@@ -1,6 +1,7 @@
 ---
 packages:
   - "@Development tools"
+  - "@Virtualization"
   - ShellCheck
   - asciidoc
   - bison
@@ -49,7 +50,6 @@ packages:
   - intltool
   - libatomic
   - libva-intel-driver
-  - libvirt-client
   - lftp
   - llvm-devel
   - llvm-static
@@ -96,11 +96,9 @@ packages:
   - transmission-remote-gtk
   - unrar
   - vagrant
-  - virt-install
-  - virt-manager
-  - virt-viewer
   - webkitgtk4-devel
   - yamllint
   - yelp-tools
   - xmlto
   - xorriso
+
