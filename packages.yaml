@@ -58,6 +58,7 @@ packages:
   - lua-devel
   - lua-filesystem
   - luarocks
+  - makepasswd
   - maven
   - meld
   - mercurial
