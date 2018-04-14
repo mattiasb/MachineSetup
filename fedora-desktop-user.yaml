@@ -23,7 +23,6 @@
             content: "{{ npm_bash_completion.stdout }}"
           - name: pandoc
             content: "{{ pandoc_bash_completion.stdout }}"
-
 - hosts: localhost
   vars_files:
     - gsettings.yaml
@@ -146,7 +145,7 @@
         state: directory
         recurse: true
 
-    - name: Generate bash completion files [2/2]
+    - name: Generate bash completion files
       tags:
         - update
         - bash
@@ -155,6 +154,17 @@
         content: "{{ item.content }}"
         dest: "{{ lazy_bash_completion_dir }}/{{ item.name }}"
       with_items: "{{ lazy_bash_completions }}"
+
+    - name: Copy bash completion files
+      tags:
+        - update
+        - bash
+        - completion
+      copy:
+        src: "{{ item }}"
+        dest: "{{ lazy_bash_completion_dir }}"
+      with_fileglob:
+        - "bash-completion/*"
 
     - name: Fetch mtg-decks
       tags:
@@ -246,6 +256,7 @@
         - isort
         - jedi
         - importmagic
+        - git+https://gitlab.com/BuildStream/buildstream.git
 
     - name: Update Rust Packages
       tags:
