@@ -63,6 +63,7 @@
         dest: "{{ ansible_user_dir }}/.local/bin"
         accept_hostkey: true
         version: master
+        update: false
 
     # Needed if we haven't logged in to the desktop session yet, and
     # thus doesn't have a .config dir yet
@@ -92,6 +93,7 @@
         repo: "{{ gh_mattiasb }}/.config.git"
         dest: "{{ config_prefix }}"
         version: master
+        update: false
       register: fetch_config
 
     - name: Link Configuration files
@@ -176,6 +178,7 @@
         dest: "{{ ansible_user_dir }}/Documents/Magic/decks"
         accept_hostkey: true
         version: master
+        update: false
 
     - name: Update NPM Packages
       tags:
@@ -233,7 +236,6 @@
       pip:
         name: "{{ item }}"
         extra_args: --user
-        state: latest
         executable: pip2
       with_items:
         - git-spindle
@@ -246,7 +248,6 @@
       pip:
         name: "{{ item }}"
         extra_args: --user
-        state: latest
         executable: pip3
       with_items:
         - autopep8
@@ -440,6 +441,7 @@
         dest: "{{ code_dir }}/github/rust-lang/rust"
         accept_hostkey: true
         version: "{{ rustc_version }}"
+        update: false
 
     - name: Create VPN directories
       tags:
