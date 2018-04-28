@@ -190,11 +190,6 @@
         global: true
       with_items:
         - eslint
-        - grunt-cli
-        - http-server
-        - jake
-        - jscs
-        - jshint
         - yasel
       environment:
         NPM_CONFIG_USERCONFIG: "{{ config_prefix }}/npm/config"
