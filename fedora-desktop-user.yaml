@@ -33,7 +33,7 @@
     config_prefix: "{{ ansible_user_dir }}/.config"
     var_prefix: "{{ ansible_user_dir }}/.var"
     code_dir: "{{ ansible_user_dir }}/Code"
-    gh_dir: "{{ ansible_user_dir }}/Code/github"
+    gh_dir: "{{ ansible_user_dir }}/Code/github.com"
     gnome_src: "{{ code_dir }}/gnome/src"
     gnome_build: "{{ code_dir }}/gnome/build"
     gh_mattiasb: git@github.com:mattiasb
