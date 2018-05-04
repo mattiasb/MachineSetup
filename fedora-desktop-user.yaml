@@ -34,6 +34,7 @@
     var_prefix: "{{ ansible_user_dir }}/.var"
     code_dir: "{{ ansible_user_dir }}/Code"
     gh_dir: "{{ ansible_user_dir }}/Code/github.com"
+    projects_dir: "{{ gh_dir }}/mattiasb/"
     gnome_src: "{{ code_dir }}/gnome/src"
     gnome_build: "{{ code_dir }}/gnome/build"
     gh_mattiasb: git@github.com:mattiasb
@@ -357,7 +358,7 @@
       vars:
         tag: git-fpaste
         repo: "{{ gh_mattiasb }}/git-fpaste.git"
-        dest: "{{ code_dir }}/Projects/git-fpaste"
+        dest: "{{ projects_dir }}/git-fpaste"
         creates: "{{ install_prefix }}/bin/git-fpaste"
         commands:
           - make user-install
@@ -375,7 +376,7 @@
       vars:
         tag: git-wip
         repo: "{{ gh_mattiasb }}/git-wip.git"
-        dest: "{{ code_dir }}/Projects/git-wip"
+        dest: "{{ projects_dir }}/git-wip"
         creates: "{{ install_prefix }}/bin/git-wip"
         commands:
           - make user-install
@@ -384,9 +385,10 @@
       vars:
         tag: cquery
         repo: git@github.com:jacobdufault/cquery.git
-        dest: "{{ code_dir }}/github/jacobdufault/cquery"
+        dest: "{{ gh_dir }}/jacobdufault/cquery"
         creates: "{{ install_prefix }}/bin/cquery"
         ref: v20180213
+        update: false
         commands:
           - >-
             ./waf configure --llvm-config /usr/bin/llvm-config
@@ -421,7 +423,7 @@
       vars:
         tag: spotify
         repo: "{{ gh_mattiasb }}/spotify-2x.git"
-        dest: "{{ code_dir }}/Projects/spotify-2x"
+        dest: "{{ projects_dir }}/spotify-2x"
         creates: "{{ install_prefix }}/bin/spotify-2x"
         commands:
           - make user-install
@@ -432,7 +434,7 @@
         - rust-src
       git:
         repo: git@github.com:rust-lang/rust.git
-        dest: "{{ code_dir }}/github/rust-lang/rust"
+        dest: "{{ gh_dir }}/rust-lang/rust"
         accept_hostkey: true
         version: "{{ rustc_version }}"
         update: false
