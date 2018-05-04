@@ -261,9 +261,7 @@
         - packages
         - rust
       command: cargo install {{ item.pkg }}
-      with_items:
-        - pkg: racer
-        - pkg: rustfmt
+      with_items: []
       args:
         creates: "{{ install_prefix }}/bin/{{ item.bin | default(item.pkg) }}"
       environment:
