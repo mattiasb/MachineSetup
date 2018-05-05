@@ -1,0 +1,36 @@
+---
+
+## Swap ↓↓ out until https://github.com/ansible/ansible/pull/54103 is released
+
+# - name: "Flatpak : Add remotes"
+#   become: true
+#   flatpak_remote:
+#     name: "{{ item.key }}"
+#     flatpakrepo_url: "{{ item.value }}"
+#   with_dict: "{{ flatpak_remotes }}"
+
+- name: "Add remotes"
+  become: true
+  command: flatpak remote-add --if-not-exists {{ item.key }} {{ item.value }}
+  args:
+    creates: /var/lib/flatpak/repo/{{ item.key }}.trustedkeys.gpg
+  with_dict: "{{ flatpak_remotes }}"
+
+- name: "Install apps"
+  become: true
+  flatpak:
+    name: "{{ item.name }}"
+    remote: "{{ item.remote }}"
+  with_items: "{{ flatpak_apps }}"
+
+- name: "Enable compose key for Flatpaks using GTK 3"
+  include_tasks: flatpak_copy_compose.yml
+  loop_control:
+    loop_var: app
+  with_items: >-
+    {{ flatpak_apps
+     | selectattr('gtk', 'defined')
+     | selectattr('gtk', 'equalto', True)
+     | map(attribute='name')
+     | list
+    }}
