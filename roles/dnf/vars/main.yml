@@ -1,0 +1,5 @@
+---
+dnf_packages: >-
+  {{ (dnf_packages_present | zip_longest([], fillvalue='present') | list)
+   + (dnf_packages_absent  | zip_longest([], fillvalue='absent')  | list)
+  }}

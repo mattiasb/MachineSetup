@@ -1,0 +1,58 @@
+---
+- name: "dnf : Enable third-party repositories"
+  dnf:
+    name: fedora-workstation-repositories
+    state: >-
+      {{ (dnf_repos.items() | length > 0)
+       | ternary('present', 'absent')
+      }}
+
+- name: "dnf : Repos"
+  ini_file:
+    path: /etc/yum.repos.d/{{ item.key }}.repo
+    section: "{{ item.key }}"
+    option: enabled
+    value: 1
+    backup: false
+    create: false
+    no_extra_spaces: true
+  with_dict: "{{ dnf_repos }}"
+
+- name: "dnf : RPMFusion repos"
+  vars:
+    rpm:
+      - rpmfusion
+      - "{{ item.key }}"
+      - release
+      - "{{ ansible_distribution_major_version + '.noarch.rpm' }}"
+    url:
+      - https://download1.rpmfusion.org
+      - "{{ item.key }}"
+      - fedora
+      - "{{ rpm | join('-') }}"
+  dnf:
+    name: "{{ url | join('/') }}"
+    state: "{{ item.value | ternary('present', 'absent') }}"
+    disable_gpg_check: true
+  with_dict: "{{ dnf_repos_rpmfusion }}"
+
+- name: "dnf : Custom repos"
+  command: "dnf config-manager --add-repo={{ item.repo }}"
+  args:
+    creates: /etc/yum.repos.d/{{ item.repo | basename }}
+  with_items: "{{ dnf_repos_custom }}"
+
+- name: "dnf : Install Packages"
+  dnf:
+    name: "{{ dnf_packages_present }}"
+    state: present
+
+- name: "dnf : Remove Packages"
+  dnf:
+    name: "{{ dnf_packages_absent }}"
+    state: absent
+
+- name: "dnf : Update Packages"
+  dnf:
+    name: "*"
+    state: latest

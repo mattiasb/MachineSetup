@@ -1,0 +1,5 @@
+---
+dnf_repos_rpmfusion: []
+dnf_repos_custom: []
+dnf_packages_present: []
+dnf_packages_absent: []
