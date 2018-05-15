@@ -1,0 +1,29 @@
+---
+- name: "sysconf : Turn off coredumps"
+  become: true
+  sysctl:
+    name: kernel.core_pattern
+    state: present
+    value: " "
+    sysctl_file: /etc/sysctl.d/80-coredump.conf
+  notify: Reload sysctl
+
+- name: "sysconf : Turn {{ sysconf_selinux_onoff }} SELinux"
+  become: true
+  selinux:
+    state: "{{ sysconf_selinux | ternary('permissive', 'disabled') }}"
+
+- name: "sysconf : Turn on/off services"
+  become: true
+  systemd:
+    name: "{{ item.key }}.service"
+    enabled: "{{ item.value }}"
+    state: "{{ item.value | ternary('started', 'stopped') }}"
+  with_dict: "{{ sysconf_services }}"
+
+- name: "sysconf : Setup groups"
+  become: true
+  user:
+    name: "{{ item.key }}"
+    groups: "{{ item.value }}"
+  with_dict: "{{ sysconf_groups }}"
