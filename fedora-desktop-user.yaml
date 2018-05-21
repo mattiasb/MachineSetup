@@ -427,6 +427,23 @@
         commands:
           - make user-install
 
+    - include_tasks: fetch_install.yaml
+      vars:
+        tag: lastpass-cli
+        repo: git@github.com:lastpass/lastpass-cli.git
+        dest: "{{ gh_dir }}/lastpass/lastpass-cli"
+        creates: "{{ install_prefix }}/bin/lpass"
+        commands:
+          - >-
+            {{ 'cmake -GNinja'
+             + ' -DCMAKE_INSTALL_PREFIX=~/.local'
+             + ' -DBASH_COMPLETION_COMPLETIONSDIR='
+             + ' ~/.local/share/bash-completion/completions/'
+             + ' .'
+            }}
+          - ninja
+          - ninja install
+
     - name: Get Rust source
       tags:
         - fetch
