@@ -254,7 +254,6 @@
         - jedi
         - importmagic
         - yasha
-        - git+https://gitlab.com/BuildStream/buildstream.git
 
     - name: Update Rust Packages
       tags:
