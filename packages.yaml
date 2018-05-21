@@ -79,7 +79,6 @@ packages:
   - python2-psutil
   - ragel
   - remmina
-  - remmina-plugins-gnome
   - remmina-plugins-rdp
   - remmina-plugins-vnc
   - ripgrep
