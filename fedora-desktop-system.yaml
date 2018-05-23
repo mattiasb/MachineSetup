@@ -74,6 +74,11 @@
         state: present
       with_items: "{{ packages }}"
 
+    # See: https://bugzilla.redhat.com/show_bug.cgi?id=1471318
+    - name: Reinstall nss-mdns
+      tags: [packages]
+      command: dnf reinstall nss-mdns
+
     - name: Add Flatpak remotes
       tags:
         - flatpak
