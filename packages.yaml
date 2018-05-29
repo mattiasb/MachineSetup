@@ -50,6 +50,7 @@ packages:
   - hunspell-sv
   - intltool
   - libatomic
+  - libcurl-devel
   - libva-intel-driver
   - lftp
   - llvm-devel
@@ -102,4 +103,3 @@ packages:
   - yelp-tools
   - xmlto
   - xorriso
-

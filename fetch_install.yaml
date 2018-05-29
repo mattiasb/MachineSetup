@@ -28,7 +28,7 @@
   args:
     chdir: "{{ build_dir | default(dest) }}"
     creates: "{{ creates | default(omit) }}"
-  when: fetch.changed and commands is defined
+  when: commands is defined
 
 - name: Create install dir {{ name | default(tag) }}
   tags:
