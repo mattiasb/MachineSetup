@@ -248,11 +248,12 @@
       with_items:
         - autopep8
         - flake8
+        - importmagic
         - ipdb
         - ipython
         - isort
         - jedi
-        - importmagic
+        - jmespath-terminal
         - yasha
 
     - name: Update Rust Packages
