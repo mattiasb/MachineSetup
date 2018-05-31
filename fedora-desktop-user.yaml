@@ -218,6 +218,7 @@
         - github.com/nsf/gocode
         - github.com/dougm/goflymake
         - github.com/rogpeppe/godef
+        - github.com/jmespath/jp
       environment:
         GOBIN: "{{ install_prefix }}/bin"
         GOPATH: "{{ ansible_user_dir }}/Code/go:/usr/share/gocode"
