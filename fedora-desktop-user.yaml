@@ -125,9 +125,7 @@
         enabled: true
         state: started
       with_items:
-        - rdm.socket
         - emacs.service
-        - wanderlust.service
         - powerline.service
 
     - name: Remove markdown mimetype
@@ -429,23 +427,6 @@
         commands:
           - make user-install
 
-    - include_tasks: fetch_install.yaml
-      vars:
-        tag: lastpass-cli
-        repo: git@github.com:lastpass/lastpass-cli.git
-        dest: "{{ gh_dir }}/lastpass/lastpass-cli"
-        creates: "{{ install_prefix }}/bin/lpass"
-        commands:
-          - >-
-            {{ 'cmake -GNinja'
-             + ' -DCMAKE_INSTALL_PREFIX=~/.local'
-             + ' -DBASH_COMPLETION_COMPLETIONSDIR='
-             + ' ~/.local/share/bash-completion/completions/'
-             + ' .'
-            }}
-          - ninja
-          - ninja install
-
     - name: Get Rust source
       tags:
         - fetch
@@ -456,65 +437,6 @@
         accept_hostkey: true
         version: "{{ rustc_version }}"
         update: false
-
-    - name: Create VPN directories
-      tags:
-        - vpn
-      file:
-        path: "{{ ansible_user_dir }}/{{ item }}/pia-vpn"
-        state: directory
-      with_items:
-        - Downloads
-        - Documents
-
-    - name: Get VPN config
-      tags:
-        - vpn
-      unarchive:
-        src: https://www.privateinternetaccess.com/openvpn/openvpn.zip
-        dest: "{{ ansible_user_dir }}/Downloads/pia-vpn"
-        remote_src: true
-      register: pia_vpn_zip
-
-    - name: Copy VPN cert and pem
-      tags:
-        - vpn
-      copy:
-        src: "{{ ansible_user_dir }}/Downloads/pia-vpn/{{ item }}"
-        dest: "{{ ansible_user_dir }}/Documents/pia-vpn/{{ item }}"
-      with_items:
-        - ca.rsa.2048.crt
-        - crl.rsa.2048.pem
-      when: pia_vpn_zip.changed
-
-    - name: Copy VPN configurations
-      tags:
-        - vpn
-      copy:
-        src: "{{ ansible_user_dir }}/Downloads/pia-vpn/{{ item }}"
-        dest: "{{ ansible_user_dir }}/Documents/pia-vpn/Pia-{{ item }}"
-      with_items:
-        - Sweden.ovpn
-      when: pia_vpn_zip.changed
-
-    - name: Remove VPN config
-      tags:
-        - vpn
-      command: nmcli connection delete Pia-Sweden
-      register: result
-      failed_when:
-        - "'Error: unknown connection' not in result.stderr"
-        - "result.rc != 0"
-      changed_when: "'Error: unknown connection' not in result.stderr"
-      when: pia_vpn_zip.changed
-
-    - name: Import VPN config
-      tags:
-        - vpn
-      command: >
-        nmcli connection import type openvpn file
-        {{ ansible_user_dir }}/Documents/pia-vpn/Pia-Sweden.ovpn
-      when: pia_vpn_zip.changed
 
   handlers:
     - name: Update user mime database
