@@ -12,6 +12,8 @@ flatpaks:
     gtk: true
   - name: com.spotify.Client
     repo: flathub
+  - name: com.valvesoftware.Steam
+    repo: flathub
   - name: com.vinszent.GnomeTwitch
     repo: flathub
     gtk: true
