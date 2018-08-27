@@ -1,44 +1,53 @@
 ---
+flatpak_remotes:
+  - name: gnome-nightly
+    url: https://sdk.gnome.org/gnome-nightly.flatpakrepo
+  - name: gnome-apps-nightly
+    url: https://sdk.gnome.org/gnome-apps-nightly.flatpakrepo
+  - name: flathub
+    url: https://flathub.org/repo/flathub.flatpakrepo
+
 flatpaks:
   # Apps
   - name: org.gnome.Builder
-    repo: flathub
+    remote: flathub
     gtk: true
   - name: org.gnome.Games
-    repo: flathub
+    remote: flathub
     gtk: true
   - name: org.gnome.Maps
-    repo: flathub
+    remote: flathub
     gtk: true
   - name: com.spotify.Client
-    repo: flathub
+    remote: flathub
   - name: com.valvesoftware.Steam
-    repo: flathub
+    remote: flathub
   - name: com.vinszent.GnomeTwitch
-    repo: flathub
+    remote: flathub
     gtk: true
   - name: org.gnome.FeedReader
-    repo: flathub
+    remote: flathub
     gtk: true
   - name: org.gnome.Fractal
-    repo: flathub
+    remote: flathub
     gtk: true
   - name: org.baedert.corebird
-    repo: flathub
+    remote: flathub
     gtk: true
   # Apps Nightly
   - name: org.gnome.Builder
-    repo: gnome-apps-nightly
+    remote: gnome-apps-nightly
     gtk: true
   - name: org.gnome.Maps
-    repo: gnome-apps-nightly
+    remote: gnome-apps-nightly
     gtk: true
   - name: org.gnome.Epiphany
-    repo: gnome-apps-nightly
+    remote: gnome-apps-nightly
     gtk: true
   - name: org.gnome.Games
-    repo: gnome-apps-nightly
+    remote: gnome-apps-nightly
     gtk: true
+
 # Names of all flatpak depending on GTK+
 gtk_flatpak_names: >-
     {{ flatpaks
