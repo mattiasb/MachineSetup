@@ -1,5 +1,7 @@
 ---
 gsettings:
+  - key: "/org/gnome/software/show-upgrade-prerelease"
+    value: "true"
   - key: "/org/gnome/Terminal/Legacy/Settings/theme-variant"
     value: "'system'"
   - key: "/org/gnome/Terminal/Legacy/Settings/default-show-menubar"
