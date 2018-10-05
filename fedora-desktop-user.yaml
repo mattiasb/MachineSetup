@@ -192,6 +192,7 @@
       with_items:
         - eslint
         - yasel
+        - bash-language-server
       environment:
         NPM_CONFIG_USERCONFIG: "{{ config_prefix }}/npm/config"
 
