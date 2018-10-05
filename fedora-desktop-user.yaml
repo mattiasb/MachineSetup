@@ -117,6 +117,8 @@
           dest: .rpmmacros
         - src: inputrc
           dest: .inputrc
+        - src: ansible/ansible.cfg
+          dest: .ansible.cfg
 
     - name: Enable User services
       systemd:
