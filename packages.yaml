@@ -46,6 +46,7 @@ packages:
   - gtk-doc
   - fedpkg
   - flex
+  - fzf
   - httpie
   - hunspell-sv
   - intltool
