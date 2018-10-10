@@ -15,12 +15,14 @@ packages:
   - docbook-style-xsl
   - docker-compose
   - docker-io
-  - nautilus-dropbox
   - emacs
   - epiphany
+  - fedpkg
   - feedreader
   - flatpak
   - flatpak-builder
+  - flex
+  - fzf
   - gimp
   - git
   - git-bz
@@ -42,21 +44,18 @@ packages:
   - gstreamer1-plugins-bad-freeworld
   - gstreamer1-plugins-ugly
   - gstreamer1-vaapi
-  - gtk3-devel-docs
   - gtk-doc
-  - fedpkg
-  - flex
-  - fzf
+  - gtk3-devel-docs
   - httpie
   - hunspell-sv
   - intltool
+  - lastpass-cli
+  - lftp
   - libatomic
   - libcurl-devel
   - libva-intel-driver
-  - lftp
   - llvm-devel
   - llvm-static
-  - lastpass-cli
   - lua-devel
   - lua-filesystem
   - luarocks
@@ -66,6 +65,7 @@ packages:
   - mercurial
   - meson
   - moreutils
+  - nautilus-dropbox
   - nautilus-open-terminal
   - ncurses-devel
   - npm
@@ -74,11 +74,11 @@ packages:
   - perl-Errno
   - perl-open
   - powerline
-  - python-pip
   - python-devel
-  - python3-devel
-  - python2-pygpgme
+  - python-pip
   - python2-psutil
+  - python2-pygpgme
+  - python3-devel
   - ragel
   - remmina
   - remmina-plugins-rdp
@@ -101,7 +101,7 @@ packages:
   - unrar
   - vagrant
   - webkitgtk4-devel
-  - yamllint
-  - yelp-tools
   - xmlto
   - xorriso
+  - yamllint
+  - yelp-tools
