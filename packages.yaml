@@ -77,6 +77,9 @@ packages:
   - powerline
   - python-devel
   - python-pip
+  - python3-pipenv
+  - python3-devel
+  - python2-pygpgme
   - python2-psutil
   - python2-pygpgme
   - python3-devel
