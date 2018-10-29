@@ -9,6 +9,7 @@ packages:
   - cabal-install
   - cargo
   - clang-devel
+  - cloc
   - cmake
   - ctags-etags
   - docbook-dtds
