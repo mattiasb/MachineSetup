@@ -427,15 +427,6 @@
         dest: "{{ var_prefix }}/app/{{ item }}/config/gtk-3.0/Compose"
       with_items: "{{ gtk_flatpak_names}}"
 
-    - include_tasks: fetch_install.yaml
-      vars:
-        tag: spotify
-        repo: "{{ gh_mattiasb }}/spotify-2x.git"
-        dest: "{{ projects_dir }}/spotify-2x"
-        creates: "{{ install_prefix }}/bin/spotify-2x"
-        commands:
-          - make user-install
-
     - name: Get Rust source
       tags:
         - fetch
