@@ -343,6 +343,19 @@
           }}
       with_fileglob: "{{ gh_dir }}/dysosmus/ansible-completion/*.bash"
 
+    - name: Fetch ansible-vault-tools
+      git:
+        repo: git@github.com:building5/ansible-vault-tools.git
+        dest: "{{ gh_dir }}/building5/ansible-vault-tools"
+        version: "1a7c7817dd3052b077fb6809e303e46d7b711df1"
+
+    - name: Install ansible-vault-tools
+      make:
+        chdir: "{{ gh_dir }}/building5/ansible-vault-tools"
+        target: install
+        params:
+          prefix: "{{ install_prefix }}"
+
     - include_tasks: fetch_install.yaml
       vars:
         tag: jhbuild
