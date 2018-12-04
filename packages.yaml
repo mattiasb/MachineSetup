@@ -94,6 +94,7 @@ packages:
   - ruby
   - ruby-irb
   - rust
+  - sen
   - sbt
   - systemd-container
   - the_silver_searcher
