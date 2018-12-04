@@ -17,18 +17,18 @@
       command: npm completion
       register: npm_bash_completion
       changed_when: false
-    - name: Collect pipenv bash completion
-      command: pipenv --completion
-      register: pipenv_bash_completion
-      changed_when: false
+    # - name: Collect pipenv bash completion
+    #   command: pipenv --completion
+    #   register: pipenv_bash_completion
+    #   changed_when: false
     - set_fact:
         lazy_bash_completions:
           - name: npm
             content: "{{ npm_bash_completion.stdout }}"
           - name: pandoc
             content: "{{ pandoc_bash_completion.stdout }}"
-          - name: pipenv
-            content: "{{ pipenv_bash_completion.stdout }}"
+            # - name: pipenv
+            #   content: "{{ pipenv_bash_completion.stdout }}"
 - hosts: localhost
   vars_files:
     - gsettings.yaml
