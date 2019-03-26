@@ -1,0 +1,41 @@
+---
+- name: "ssh : Create ssh directories"
+  file:
+    path: "{{ ssh_privkey_path | dirname }}"
+    state: directory
+    mode: '0700'
+
+- name: "ssh : Check if ssh private key exist"
+  stat:
+    path: "{{ ssh_privkey_path }}"
+  register: _ssh_privkey
+
+- name: "ssh : Check if ssh public key exist"
+  stat:
+    path: "{{ ssh_pubkey_path }}"
+  register: _ssh_pubkey
+
+- name: "ssh : Create ssh private key"
+  no_log: true
+  copy:
+    dest: "{{ ssh_privkey_path }}"
+    content: "{{ ssh_privkey }}"
+    mode: '0600'
+    backup: true
+    force: false
+  when: _ssh_privkey.stat.exists == false
+
+- name: "ssh : Create ssh public key"
+  copy:
+    dest: "{{ ssh_pubkey_path }}"
+    content: "{{ ssh_pubkey }}"
+    mode: '0600'
+    backup: true
+    force: false
+  when: _ssh_pubkey.stat.exists == false
+
+- name: "ssh : Add known hosts"
+  known_hosts:
+    name: "{{ item.key }}"
+    key: "{{ item.key }} {{ item.value }}"
+  with_dict: "{{ ssh_known_hosts }}"
