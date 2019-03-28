@@ -1,0 +1,69 @@
+#!/usr/bin/env ansible-playbook
+---
+- hosts: "{{ lookup('pipe', 'hostname') }}"
+  become: true
+  tasks:
+    - name: "Install prerequisites"
+      dnf:
+        state: present
+        name:
+          - libselinux-python
+          - python2-psutil
+      tags: prerequisites
+
+    - name: dnf
+      import_role:
+        name: dnf
+      tags: dnf
+
+    - name: sysconf
+      import_role:
+        name: sysconf
+      tags: sysconf
+
+- hosts: "{{ lookup('pipe', 'hostname') }}"
+  tasks:
+    - name: gnome
+      import_role:
+        name: gnome
+      tags: gnome
+
+    - name: lastpass
+      import_role:
+        name: lastpass
+      tags: lastpass
+
+    - name: ssh
+      import_role:
+        name: ssh
+      tags: ssh
+
+    - name: userconf
+      import_role:
+        name: userconf
+      tags: userconf
+
+    - name: git
+      import_role:
+        name: git
+      tags: git
+
+    - name: bashcomp
+      import_role:
+        name: bashcomp
+      tags: bashcomp
+
+    - name: flatpak
+      import_role:
+        name: flatpak
+      tags: flatpak
+
+    - name: languages
+      import_role:
+        name: languages
+      tags: languages
+
+    - name: git-install
+      import_role:
+        name: git-install
+      tags: git-install
