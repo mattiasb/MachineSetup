@@ -1,0 +1,383 @@
+---
+
+## Ansible
+
+ansible_connection: local
+
+
+## DNF
+
+dnf_repos:
+  google-chrome: true
+
+dnf_repos_rpmfusion:
+  free: true
+  nonfree: true
+
+dnf_repos_custom: []
+
+dnf_packages_absent:
+  - rhythmbox
+  - shotwell
+
+dnf_packages_present:
+  - "@Development tools"
+  - "@Virtualization"
+  - ShellCheck
+  - asciidoc
+  - avahi-tools
+  - bison
+  - cabal-install
+  - cargo
+  - clang-devel
+  - cloc
+  - cmake
+  - ctags-etags
+  - docbook-dtds
+  - docbook-style-xsl
+  - docker-compose
+  - docker-io
+  - emacs
+  - epiphany
+  - fedpkg
+  - feedreader
+  - flatpak
+  - flatpak-builder
+  - flex
+  - fzf
+  - gimp
+  - git
+  - gitg
+  - glade
+  - gnome-calendar
+  - gnome-common
+  - gnome-maps
+  - gnome-photos
+  - gnome-tweak-tool
+  - golang
+  - golang-godoc
+  - google-chrome-stable
+  - gperf
+  - groovy
+  - gstreamer1-libav
+  - gstreamer1-plugins-bad-freeworld
+  - gstreamer1-plugins-ugly
+  - gstreamer1-vaapi
+  - gtk-doc
+  - gtk3-devel-docs
+  - httpie
+  - hunspell-sv
+  - intltool
+  - lastpass-cli
+  - lftp
+  - libatomic
+  - libcurl-devel
+  - libva-intel-driver
+  - llvm-devel
+  - llvm-static
+  - lua-devel
+  - lua-filesystem
+  - luarocks
+  - makepasswd
+  - maven
+  - meld
+  - mercurial
+  - meson
+  - moreutils
+  - nautilus-dropbox
+  - nautilus-open-terminal
+  - ncurses-devel
+  - npm
+  - p7zip-plugins
+  - pandoc
+  - perl-Errno
+  - perl-open
+  - powerline
+  - python-devel
+  - python-pip
+  - python3-devel
+  - ragel
+  - remmina
+  - remmina-plugins-rdp
+  - remmina-plugins-vnc
+  - ripgrep
+  - rtags
+  - ruby
+  - ruby-irb
+  - rust
+  - sbt
+  - systemd-container
+  - the_silver_searcher
+  - tig
+  - tmux
+  - tmux-powerline
+  - transmission-remote-gtk
+  - unrar
+  - vagrant
+  - webkitgtk4-devel
+  - xmlto
+  - xorriso
+  - yamllint
+  - yelp-tools
+
+
+## SysConf
+
+sysconf_selinux: false
+sysconf_coredumps: false
+
+sysconf_services:
+  firewalld: false
+  livesys: false
+
+sysconf_groups:
+  mattiasb:
+    - wheel
+    - libvirt
+    - vagrant
+
+
+######################
+
+## GNOME
+
+gnome_settings:
+  /org/gnome/Terminal/Legacy/Settings/default-show-menubar: "false"
+  /org/gnome/Terminal/Legacy/Settings/theme-variant: "'system'"
+  /org/gnome/desktop/datetime/automatic-timezone: "true"
+  /org/gnome/desktop/interface/gtk-key-theme: "'Emacs'"
+  /org/gnome/desktop/peripherals/touchpad/tap-to-click: "true"
+  /org/gnome/desktop/search-providers/disable-external: "true"
+  /org/gnome/desktop/wm/preferences/action-middle-click-titlebar: "'lower'"
+  /org/gnome/nautilus/preferences/click-policy: "'single'"
+  /org/gnome/settings-daemon/plugins/color/night-light-enabled: "true"
+  /org/gnome/shell/app-switcher/current-workspace-only: "true"
+  /org/gnome/software/show-upgrade-prerelease: "true"
+  /org/gnome/system/locale/region: "'sv_SE.UTF-8'"
+
+gnome_mediakeys:
+  home: <Super>f
+  www: <Super>w
+
+gnome_keybindings:
+  move-to-workspace-1: <Super>F1
+  move-to-workspace-2: <Super>F2
+  move-to-workspace-3: <Super>F3
+  move-to-workspace-4: <Super>F4
+  move-to-workspace-5: <Super>F5
+  move-to-workspace-6: <Super>F6
+  move-to-workspace-7: <Super>F7
+  move-to-workspace-8: <Super>F8
+  move-to-workspace-9: <Super>F9
+  panel-run-dialog: <Super>r
+  switch-to-workspace-1: <Super>1
+  switch-to-workspace-2: <Super>2
+  switch-to-workspace-3: <Super>3
+  switch-to-workspace-4: <Super>4
+  switch-to-workspace-5: <Super>5
+  switch-to-workspace-6: <Super>6
+  switch-to-workspace-7: <Super>7
+  switch-to-workspace-8: <Super>8
+  switch-to-workspace-9: <Super>9
+
+gnome_custom_keybindings:
+  - name: Calendar
+    binding: <Super>c
+    command: /bin/gnome-calendar
+  - name: Emacs
+    binding: <Super>s
+    command: /bin/emacsclient -c -s main
+  - name: Terminal
+    binding: <Super>e
+    command: /bin/gnome-terminal
+
+
+## Lastpass
+
+lastpass_login: true
+lastpass_username: "mattias.jc.bengtsson@gmail.com"
+
+
+## SSH
+
+ssh_privkey: >-
+  {{ lookup('lastpass', 'Keys/ssh-' + ansible_hostname, field='Private Key') }}
+ssh_pubkey: >-
+  {{ lookup('lastpass', 'Keys/ssh-' + ansible_hostname, field='Public Key') }}
+
+ssh_known_hosts:
+  github.com: "ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAq2A7hRGmdnm9tUDbO9IDSwBK6TbQ\
+a+PXYPCPy6rbTrTtw7PHkccKrpp0yVhp5HdEIcKr6pLlVDBfOLX9QUsyCOV0wzfjIJNlGEYsdlLJizH\
+hbn2mUjvSAHQqZETYP81eFzLQNnPHt4EVVUh7VfDESU84KezmD5QlWpXLmvU31/yMf+Se8xhHTvKSCZ\
+IFImWwoG6mbUoWf9nzpIoaSjB+weqqUUmpaaasXVal72J+UX2B+2RPW3RcT0eOzQgqlJL3RKrTJvdsj\
+E3JEAvGq3lGHSZXy28G3skua2SmVi/w4yCE6gbODqnTWlg7+wC604ydGXA8VJiS5ap43JXiUFFAaQ=="
+  gitlab.com: "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAy\
+NTYAAABBBFSMqzJeV9rUzU4kWitGjeR4PWSa29SPqJ1fVkhtj3Hw9xjLVXVYrU9QlYWrOLXBpQ6KWjb\
+jTDTdDkoohFzgbEY="
+  gitlab.gnome.org: "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbm\
+lzdHAyNTYAAABBBOfWUbO2WB8qArojiGnj+Ad51kDIza+4M7VL3VCXAt//fhqHKvbYQBcWaVw2mLg1+\
+wRIxM5zDl9ssDhNrvkEN10="
+
+## Userconf
+
+userconf_config_repo_url: git@github.com:mattiasb/.config.git
+userconf_services:
+  emacs: true
+  powerline: true
+
+userconf_dotfiles:
+  - src: bash/rc
+    dest: .bashrc
+  - src: bash/profile
+    dest: .bash_profile
+  - src: bash/logout
+    dest: .bash_logout
+  - src: inputrc
+    dest: .inputrc
+
+
+## git
+
+git_repos:
+  gitlab.com:
+    - repo: mattiasb/mtg-decks
+      dest: "{{ ansible_user_dir }}/Documents/Magic/decks"
+  github.com:
+    - repo: mattiasb/MachineSetup
+    - repo: mattiasb/mtg-deck-mode
+    - repo: mattiasb/.emacs.d
+      dest: "{{ ansible_user_dir }}/.emacs.d"
+    - repo: mattiasb/.local-bin
+      dest: "{{ ansible_user_dir }}/.local/bin"
+
+
+## Bash-completion
+
+bashcomp_commands:
+  npm: completion
+  pandoc: --bash-completion
+
+
+## Flatpak
+
+flatpak_remotes:
+  gnome-nightly: https://sdk.gnome.org/gnome-nightly.flatpakrepo
+  gnome-apps-nightly: https://sdk.gnome.org/gnome-apps-nightly.flatpakrepo
+  flathub: https://flathub.org/repo/flathub.flatpakrepo
+
+flatpak_apps:
+  # Apps
+  - name: org.gnome.Books
+    remote: flathub
+    gtk: true
+  - name: org.gnome.Builder
+    remote: flathub
+    gtk: true
+  - name: org.gnome.Games
+    remote: flathub
+    gtk: true
+  - name: org.gnome.Maps
+    remote: flathub
+    gtk: true
+  - name: com.spotify.Client
+    remote: flathub
+  - name: com.vinszent.GnomeTwitch
+    remote: flathub
+    gtk: true
+  - name: org.gnome.FeedReader
+    remote: flathub
+    gtk: true
+  - name: org.gnome.Fractal
+    remote: flathub
+    gtk: true
+  - name: org.baedert.corebird
+    remote: flathub
+    gtk: true
+  # Apps Nightly
+  - name: org.gnome.Builder
+    remote: gnome-apps-nightly
+    gtk: true
+  - name: org.gnome.Maps
+    remote: gnome-apps-nightly
+    gtk: true
+  - name: org.gnome.Epiphany
+    remote: gnome-apps-nightly
+    gtk: true
+  - name: org.gnome.Games
+    remote: gnome-apps-nightly
+    gtk: true
+
+
+## Languages
+
+languages_nodejs:
+  - eslint
+  - yasel
+
+languages_python3:
+  - BuildStream
+  - autopep8
+  - flake8
+  - git-spindle
+  - importmagic
+  - ipdb
+  - ipython
+  - isort
+  - jedi
+  - jmespath-terminal
+  - yasha
+
+languages_rust: []
+languages_lua:
+  - luacheck
+languages_go:
+  - github.com/dougm/goflymake
+  - github.com/jmespath/jp
+  - github.com/nsf/gocode
+  - github.com/rogpeppe/godef
+
+
+## GIT Install
+
+
+git_install:
+  github.com:
+    - repo: mattiasb/git-fpaste
+      version: master
+      make:
+        - user-install
+
+    - repo: mattiasb/git-wip
+      version: master
+      make:
+        - user-install
+
+    - repo: LuyaoHuang/virsh-bash-completion
+      version: 87a81d7e7d2c9518d18a8a266153e09ef9b69d6c
+      files:
+        - src: virsh_bash_completion
+          dest: "{{ bashcomp_directory }}/virsh"
+
+    - repo: dysosmus/ansible-completion
+      version: 7254afb781e5782ccbe78ba70df1e4ed845deef7
+      files:
+        - src: ansible-completion.bash
+          dest: "{{ bashcomp_directory }}/ansible"
+        - src: ansible-doc-completion.bash
+          dest: "{{ bashcomp_directory }}/ansible-doc"
+        - src: ansible-galaxy-completion.bash
+          dest: "{{ bashcomp_directory }}/ansible-galaxy"
+        - src: ansible-playbook-completion.bash
+          dest: "{{ bashcomp_directory }}/ansible-playbook"
+        - src: ansible-pull-completion.bash
+          dest: "{{ bashcomp_directory }}/ansible-pull"
+        - src: ansible-vault-completion.bash
+          dest: "{{ bashcomp_directory }}/ansible-vault"
+
+    - repo: domtronn/all-the-icons.el
+      version: master
+      files:
+        - src: fonts/
+          dest: "{{ ansible_user_dir }}/.local/share/fonts/"
+      commands:
+        - fc-cache -f -v
