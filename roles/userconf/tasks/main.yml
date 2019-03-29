@@ -1,0 +1,52 @@
+---
+- name: "userconf : Check if .config is a repository"
+  stat:
+    path: "{{ ansible_user_dir }}/.config/.git"
+  register: _userconf_config_repo_gitdir
+
+- name: "userconf : Bare clone of config repository"
+  git:
+    repo: "{{ userconf_config_repo_url }}"
+    dest: "{{ ansible_user_dir }}/.config/.git"
+    bare: true
+  when: _userconf_config_repo_gitdir.stat.exists == false
+  register: userconf_clone
+
+- name: "userconf : Remove bare status of config repository"
+  git_config:
+    scope: local
+    repo: "{{ ansible_user_dir }}/.config/"
+    name: core.bare
+    value: false
+  register: userconf_unbare
+
+- name: "userconf : Reset config repository"
+  command: git -C {{ ansible_user_dir }}/.config/ reset HEAD --hard
+  args:
+    creates: "{{ ansible_user_dir }}/.config/.gitignore"
+  when: >-
+    userconf_clone  is changed
+    and
+    userconf_unbare is changed
+
+- name: "userconf : Reload systemd"
+  systemd:
+    daemon_reload: true
+    scope: user
+
+- name: "userconf : Turn on/off services"
+  systemd:
+    name: "{{ item.key }}"
+    enabled: "{{ item.value }}"
+    scope: user
+    state: "{{ item.value | ternary('started', 'stopped') }}"
+    daemon_reload: true
+  with_dict: "{{ userconf_services }}"
+
+- name: Link Configuration files
+  file:
+    src: "{{ ansible_user_dir }}/.config/{{ item.src | default(omit) }}"
+    dest: "{{ ansible_user_dir }}/{{ item.dest }}"
+    state: link
+    force: true
+  with_items: "{{ userconf_dotfiles }}"
