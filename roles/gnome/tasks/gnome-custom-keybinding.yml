@@ -1,0 +1,15 @@
+---
+- name: "gnome : custom-keybinding : Set name"
+  dconf:
+    key: "{{ path }}/name"
+    value: "'{{ name }}'"
+
+- name: "gnome : custom-keybinding : Set binding"
+  dconf:
+    key: "{{ path }}/binding"
+    value: "'{{ binding }}'"
+
+- name: "gnome : custom-keybinding : Set command"
+  dconf:
+    key: "{{ path }}/command"
+    value: "'{{ command }}'"

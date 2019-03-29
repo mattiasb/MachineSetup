@@ -1,0 +1,5 @@
+---
+gnome_mediakeys_path: >-
+  /org/gnome/settings-daemon/plugins/media-keys
+
+gnome_ckb_path: "{{ gnome_mediakeys_path }}/custom-keybindings"

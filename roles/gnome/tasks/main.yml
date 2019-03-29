@@ -1,0 +1,42 @@
+---
+- name: "gnome : Set GSettings"
+  dconf:
+    key: "{{ item.key }}"
+    value: "{{ item.value }}"
+    state: present
+  with_dict: "{{ gnome_gsettings }}"
+
+- name: "gnome : Set keybindings"
+  dconf:
+    key: /org/gnome/desktop/wm/keybindings/{{ item.key }}
+    value: "['{{ item.value }}']"
+    state: present
+  with_dict: "{{ gnome_keybindings }}"
+
+- name: "gnome : Set media key keybindings"
+  dconf:
+    key: "{{ gnome_mediakeys_path }}/{{ item.key }}"
+    value: "'{{ item.value }}'"
+    state: present
+  with_dict: "{{ gnome_mediakeys }}"
+
+- name: "gnome : Set custom keybindings"
+  dconf:
+    key: "{{ gnome_ckb_path }}"
+    value: >-
+      {{ range(0, gnome_custom_keybindings | length)
+       | map('regex_replace', '^(.*)$', gnome_ckb_path + '/custom\1/')
+       | list
+       | to_json
+      }}
+
+- name: "gnome : Set custom keybindings"
+  vars:
+    path: "{{ gnome_ckb_path }}/custom{{ index }}"
+    name: "{{ item.name }}"
+    binding: "{{ item.binding }}"
+    command: "{{ item.command }}"
+  include_tasks: gnome-custom-keybinding.yml
+  loop: "{{ gnome_custom_keybindings }}"
+  loop_control:
+    index_var: index
