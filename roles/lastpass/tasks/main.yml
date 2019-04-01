@@ -1,0 +1,4 @@
+---
+- name: "lastpass : login"
+  import_tasks: lastpass_login.yml
+  when: lastpass_login

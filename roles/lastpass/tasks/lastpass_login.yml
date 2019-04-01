@@ -1,0 +1,12 @@
+---
+- name: "lastpass : Check if logged in"
+  command: lpass status -q
+  failed_when: lastpass_status.rc not in [0, 1]
+  changed_when: false
+  register: lastpass_status
+
+- name: "lastpass : Login"
+  command: lpass login {{ lastpass_username }}
+  changed_when: lastpass_status.rc == 1 and lastpass_login.rc == 0
+  register: lastpass_login
+  when: lastpass_login and lastpass_status.rc == 1
