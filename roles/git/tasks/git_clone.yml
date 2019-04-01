@@ -1,0 +1,16 @@
+---
+- name: "git : Clone repositories from {{ domain }}"
+  git:
+    repo: "{{ user }}@{{ domain }}:{{ repository.repo }}.git"
+    dest: "{{ repository.dest }}"
+    update: "{{ repository.sync }}"
+    version: "{{ repository.version | default(omit) }}"
+  vars:
+    defaults:
+      dest: "{{ git_clones }}/{{ domain }}/{{ clone.repo }}"
+      sync: false
+      version: master
+    repository: "{{ defaults | combine(clone) }}"
+  with_items: "{{ repositories }}"
+  loop_control:
+    loop_var: clone

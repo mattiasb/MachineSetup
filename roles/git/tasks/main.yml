@@ -1,0 +1,8 @@
+---
+- name: "git : Clone repositories"
+  include_tasks: git_clone.yml
+  vars:
+    repositories: "{{ item.value }}"
+    domain: "{{ item.key }}"
+    user: "git"
+  with_dict: "{{ git_repos }}"

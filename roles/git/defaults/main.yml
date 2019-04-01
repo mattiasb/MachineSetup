@@ -1,0 +1,3 @@
+---
+git_repos: {}
+git_clones: "{{ ansible_user_dir }}/Code"
