@@ -8,7 +8,7 @@
         state: present
         name:
           - libselinux-python
-          - python2-psutil
+          - python3-psutil
       tags: prerequisites
 
     - name: dnf
