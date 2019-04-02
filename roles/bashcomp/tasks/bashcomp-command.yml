@@ -1,0 +1,10 @@
+---
+- name: "{{ command }} : Get completion script"
+  command: "{{ command }} {{ arguments }}"
+  changed_when: false
+  register: result
+
+- name: "{{ command }} : Write completion script"
+  copy:
+    content: "{{ result.stdout }}"
+    dest: "{{ bashcomp_directory }}/{{ command }}"

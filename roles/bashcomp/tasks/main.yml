@@ -1,0 +1,12 @@
+---
+- name: Create completion script directory
+  file:
+    path: "{{ bashcomp_directory }}"
+    state: directory
+
+- name: Write scripts from command output
+  include_tasks: bashcomp-command.yml
+  vars:
+    command: "{{ item.key }}"
+    arguments: "{{ item.value }}"
+  with_dict: "{{ bashcomp_commands }}"

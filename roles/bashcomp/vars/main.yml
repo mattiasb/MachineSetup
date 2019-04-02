@@ -1,0 +1,3 @@
+---
+bashcomp_directory: >-
+  {{ ansible_user_dir }}/.local/share/bash-completion/completions
