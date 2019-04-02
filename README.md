@@ -8,9 +8,9 @@ Ansible configuration for my Fedora machines.
 
 ```shell
 $ curl https://raw.githubusercontent.com/mattiasb/MachineSetup/roles/go.sh \
-    2>/dev/null | sudo bash
+    2>/dev/null | bash
 ```
 
 ### If you're not me
 
-**Never** install stuff from the internet by doing a `curl <url> | sudo bash`.
+**Never** install stuff from the internet by doing a `curl <url> | bash`.
