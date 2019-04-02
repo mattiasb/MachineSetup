@@ -31,11 +31,9 @@ else
     case "$(sudo cat /sys/devices/virtual/dmi/id/product_uuid)" in
         4c4c4544-0054-4e10-8043-c7c04f565a31)
             sudo hostnamectl set-hostname mattiasb-dell-E6540
-            return
             ;;
         1afaa71f-393e-11e8-9379-8c164560bb35)
             sudo hostnamectl set-hostname mattiasb-lenovo-yoga920
-            return
             ;;
 
         *)
