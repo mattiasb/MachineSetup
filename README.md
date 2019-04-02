@@ -7,7 +7,7 @@ Ansible configuration for my Fedora machines.
 ### If you're me
 
 ```shell
-$ curl https://raw.githubusercontent.com/mattiasb/MachineSetup/roles/go.sh \
+$ curl https://raw.githubusercontent.com/mattiasb/MachineSetup/master/go.sh \
     2>/dev/null | bash
 ```
 
