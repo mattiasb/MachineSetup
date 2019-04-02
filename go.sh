@@ -44,4 +44,4 @@ else
     esac
 fi
 
-ansible-playbook ./site.yml --limit "$(hostname)"
+./site.yml -v
