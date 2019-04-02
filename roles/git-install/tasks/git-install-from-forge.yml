@@ -1,0 +1,17 @@
+---
+- name: "Install from repositories at {{ forge }}"
+  include_tasks: git-install-from-repo.yml
+  vars:
+    defaults:
+      files: []
+      make: []
+      commands: []
+      dest: "{{ git_clones }}/{{ forge }}/{{ repository.repo }}"
+    result: "{{ defaults | combine(repository) }}"
+    files: "{{ result.files }}"
+    make: "{{ result.make }}"
+    commands: "{{ result.commands }}"
+    repo: "{{ result.dest }}"
+  with_items: "{{ repositories }}"
+  loop_control:
+    loop_var: repository

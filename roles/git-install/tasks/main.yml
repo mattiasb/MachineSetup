@@ -1,0 +1,9 @@
+---
+- name: "Install from forges"
+  include_tasks: git-install-from-forge.yml
+  vars:
+    forge: "{{ item.key }}"
+    repositories: "{{ item.value }}"
+  with_dict: "{{ git_install }}"
+  loop_control:
+    loop_var: item

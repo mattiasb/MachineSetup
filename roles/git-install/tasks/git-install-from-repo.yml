@@ -1,0 +1,32 @@
+---
+- name: "{{ repo | basename }} : Make"
+  make:
+    chdir: "{{ repo }}"
+    target: "{{ target }}"
+  with_items: "{{ make }}"
+  changed_when: false
+  loop_control:
+    loop_var: target
+
+- name: "{{ repo | basename }} : Files : Create directories"
+  file:
+    path: "{{ file.dest | dirname }}"
+    state: directory
+  with_items: "{{ files }}"
+  loop_control:
+    loop_var: file
+
+- name: "{{ repo | basename }} : Files : Copy files"
+  copy:
+    src: "{{ repo }}/{{ file.src }}"
+    dest: "{{ file.dest }}"
+  with_items: "{{ files }}"
+  loop_control:
+    loop_var: file
+
+- name: "{{ repo | basename }} : Run commands"
+  command: "{{ command }}"
+  changed_when: false
+  with_items: "{{ commands }}"
+  loop_control:
+    loop_var: command

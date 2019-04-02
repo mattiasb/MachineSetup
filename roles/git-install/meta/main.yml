@@ -1,0 +1,5 @@
+---
+dependencies:
+  - role: git
+    vars:
+      git_repos: "{{ git_install }}"
