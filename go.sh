@@ -28,7 +28,7 @@ if [[ "$(systemd-detect-virt)" == kvm ]]; then
     sudo systemctl enable --now sshd
     sudo systemctl restart avahi-daemon
 else
-    case "$(cat /sys/devices/virtual/dmi/id/product_uuid)" in
+    case "$(sudo cat /sys/devices/virtual/dmi/id/product_uuid)" in
         4c4c4544-0054-4e10-8043-c7c04f565a31)
             sudo hostnamectl set-hostname mattiasb-dell-E6540
             return
