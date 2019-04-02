@@ -3,8 +3,7 @@
 set -e
 
 URL=https://github.com/mattiasb/MachineSetup.git
-BRANCH=roles
-# REPO_DIR="$(dirname "${HOME}/Code/${URL#https://}")/$(basename "${URL%.git}")"
+BRANCH=master
 REPO_DIR="/tmp/MachineSetup"
 
 # Install ansible (in the background)
