@@ -283,6 +283,8 @@ flatpak_apps:
   - name: org.gnome.Maps
     remote: flathub
     gtk: true
+  - name: com.valvesoftware.Steam
+    remote: flathub
   - name: com.spotify.Client
     remote: flathub
   - name: com.vinszent.GnomeTwitch
