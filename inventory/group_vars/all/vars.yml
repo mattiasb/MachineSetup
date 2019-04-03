@@ -40,6 +40,7 @@ dnf_packages_present:
   - docker-io
   - emacs
   - epiphany
+  - evolution
   - fedpkg
   - feedreader
   - flatpak
