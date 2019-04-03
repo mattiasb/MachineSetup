@@ -1,4 +1,8 @@
 ---
+- name: Expose completion directory
+  set_fact:
+    bashcomp_directory: "{{ bashcomp_directory }}"
+
 - name: Create completion script directory
   file:
     path: "{{ bashcomp_directory }}"
