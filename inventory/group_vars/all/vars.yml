@@ -145,6 +145,8 @@ sysconf_groups:
 gnome_settings:
   /org/gnome/Terminal/Legacy/Settings/default-show-menubar: "false"
   /org/gnome/Terminal/Legacy/Settings/theme-variant: "'system'"
+  /org/gnome/Weather/locations: "[<(uint32 2, <('Göteborg-Landvetter Airport', 'ESGG', false, [(1.0064732078011609, 0.21467549799530256)], @a(dd) [])>)>]"
+  /org/gnome/Weather/automatic-location: "false"
   /org/gnome/desktop/datetime/automatic-timezone: "true"
   /org/gnome/desktop/interface/gtk-key-theme: "'Emacs'"
   /org/gnome/desktop/peripherals/touchpad/tap-to-click: "true"
@@ -153,6 +155,7 @@ gnome_settings:
   /org/gnome/nautilus/preferences/click-policy: "'single'"
   /org/gnome/settings-daemon/plugins/color/night-light-enabled: "true"
   /org/gnome/shell/app-switcher/current-workspace-only: "true"
+  /org/gnome/shell/favorite-apps: "['firefox.desktop', 'com.spotify.Client.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Calendar.desktop', 'org.gnome.Maps.desktop', 'org.gnome.Books.desktop', 'transmission-remote-gtk.desktop', 'org.gnome.Terminal.desktop']"
   /org/gnome/software/show-upgrade-prerelease: "true"
   /org/gnome/system/locale/region: "'sv_SE.UTF-8'"
 
