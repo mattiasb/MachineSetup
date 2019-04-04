@@ -161,6 +161,11 @@ gnome_settings:
   /org/gnome/system/locale/region: "'sv_SE.UTF-8'"
   /org/gnome/desktop/input-sources/xkb-options: "['compose:caps']"
 
+  # This is Yoga920-specific. Try to move this out to a hostvar while avoiding
+  # duplicating the above bindings. Not sure how to do that in a non-ugly way
+  # with Ansible though.
+  /org/gnome/desktop/wm/keybindings/close: "['AudioMicMute']"
+
 gnome_mediakeys:
   home: <Super>f
   www: <Super>w
