@@ -4,7 +4,7 @@
     key: "{{ item.key }}"
     value: "{{ item.value }}"
     state: present
-  with_dict: "{{ gnome_gsettings }}"
+  with_dict: "{{ gnome_settings }}"
 
 - name: "gnome : Set keybindings"
   dconf:
