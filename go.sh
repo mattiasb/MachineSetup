@@ -6,8 +6,8 @@ URL=https://github.com/mattiasb/MachineSetup.git
 BRANCH=master
 REPO_DIR="/tmp/MachineSetup"
 
-# Install ansible (in the background)
-sudo dnf install -y ansible python
+# Install ansible
+sudo dnf install -y ansible
 
 # Clone the code
 if [ ! -d "${REPO_DIR}" ]; then
