@@ -1,4 +1,4 @@
-# MachineSetup #
+# MachineSetup
 
 Ansible configuration for my Fedora machines.
 
@@ -13,4 +13,4 @@ $ curl https://raw.githubusercontent.com/mattiasb/MachineSetup/master/go.sh \
 
 ### If you're not me
 
-**Never** install stuff from the internet by doing a `curl <url> | bash`.
+**Never** install stuff from the internet by piping curl into bash!
