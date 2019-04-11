@@ -1,6 +1,2 @@
 ---
 sysconf_selinux_onoff: "{{ sysconf_selinux | ternary( 'on', 'off' ) }}"
-sysconf_services: >-
-  {{ (sysconf_enabled_services  | zip_longest([], fillvalue=true)  | list)
-   + (sysconf_disabled_services | zip_longest([], fillvalue=false) | list)
-  }}
