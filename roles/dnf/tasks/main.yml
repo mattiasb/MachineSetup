@@ -51,8 +51,3 @@
   dnf:
     name: "{{ dnf_packages_absent }}"
     state: absent
-
-- name: "dnf : Update Packages"
-  dnf:
-    name: "*"
-    state: latest
