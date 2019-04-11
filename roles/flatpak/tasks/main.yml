@@ -1,19 +1,10 @@
 ---
 
-## Swap ↓↓ out until https://github.com/ansible/ansible/pull/54103 is released
-
-# - name: "Flatpak : Add remotes"
-#   become: true
-#   flatpak_remote:
-#     name: "{{ item.key }}"
-#     flatpakrepo_url: "{{ item.value }}"
-#   with_dict: "{{ flatpak_remotes }}"
-
-- name: "Add remotes"
+- name: "Flatpak : Add remotes"
   become: true
-  command: flatpak remote-add --if-not-exists {{ item.key }} {{ item.value }}
-  args:
-    creates: /var/lib/flatpak/repo/{{ item.key }}.trustedkeys.gpg
+  flatpak_remote:
+    name: "{{ item.key }}"
+    flatpakrepo_url: "{{ item.value }}"
   with_dict: "{{ flatpak_remotes }}"
 
 - name: "Install apps"
