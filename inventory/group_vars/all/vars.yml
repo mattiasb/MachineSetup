@@ -356,6 +356,7 @@ languages_python3:
   - isort
   - jedi
   - jmespath-terminal
+  - remarshal
   - yasha
 
 languages_rust: []
