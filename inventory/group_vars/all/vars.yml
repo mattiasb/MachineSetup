@@ -385,6 +385,11 @@ git_install:
       make:
         - user-install
 
+    - repo: tobias-johansson/git-each.git
+      version: master
+      make:
+        - user-install
+
     - repo: LuyaoHuang/virsh-bash-completion
       version: 87a81d7e7d2c9518d18a8a266153e09ef9b69d6c
       files:
