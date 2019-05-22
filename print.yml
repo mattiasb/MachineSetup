@@ -1,0 +1,15 @@
+#!/usr/bin/env ansible-playbook
+---
+- hosts: >-
+    {{ hostname
+     | default(h)
+     | default(lookup('pipe', 'hostname'))
+    }}
+  become: false
+  tasks:
+    - debug:
+        var: >-
+          {{ variable
+           | default(v)
+           | default('hostvars[inventory_hostname]')
+          }}
