@@ -188,11 +188,6 @@ gnome_settings:
   /org/gnome/system/locale/region: "'sv_SE.UTF-8'"
   /org/gnome/desktop/input-sources/xkb-options: "['compose:caps']"
 
-  # This is Yoga920-specific. Try to move this out to a hostvar while avoiding
-  # duplicating the above bindings. Not sure how to do that in a non-ugly way
-  # with Ansible though.
-  /org/gnome/desktop/wm/keybindings/close: "['AudioMicMute']"
-
 gnome_mediakeys:
   home: <Super>f
   www: <Super>w
@@ -299,54 +294,21 @@ bashcomp_commands:
 ## Flatpak
 
 flatpak_remotes:
-  gnome-nightly: https://sdk.gnome.org/gnome-nightly.flatpakrepo
-  gnome-apps-nightly: https://sdk.gnome.org/gnome-apps-nightly.flatpakrepo
   flathub: https://flathub.org/repo/flathub.flatpakrepo
 
 flatpak_apps:
   # Apps
-  - name: org.gnome.Books
-    remote: flathub
-    gtk: true
   - name: org.gnome.Builder
-    remote: flathub
-    gtk: true
-  - name: org.gnome.Games
     remote: flathub
     gtk: true
   - name: org.gnome.Maps
     remote: flathub
     gtk: true
-  - name: com.valvesoftware.Steam
-    remote: flathub
   - name: com.spotify.Client
     remote: flathub
-  - name: com.vinszent.GnomeTwitch
-    remote: flathub
-    gtk: true
-  - name: org.gnome.FeedReader
-    remote: flathub
-    gtk: true
   - name: org.gnome.Fractal
     remote: flathub
     gtk: true
-  - name: org.baedert.corebird
-    remote: flathub
-    gtk: true
-  # Apps Nightly
-  - name: org.gnome.Builder
-    remote: gnome-apps-nightly
-    gtk: true
-  - name: org.gnome.Maps
-    remote: gnome-apps-nightly
-    gtk: true
-  - name: org.gnome.Epiphany
-    remote: gnome-apps-nightly
-    gtk: true
-  - name: org.gnome.Games
-    remote: gnome-apps-nightly
-    gtk: true
-
 
 ## Languages
 

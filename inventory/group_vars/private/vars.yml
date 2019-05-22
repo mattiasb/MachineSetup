@@ -1,1 +1,38 @@
 ---
+private:
+  flatpak_remotes:
+    gnome-nightly: https://sdk.gnome.org/gnome-nightly.flatpakrepo
+    gnome-apps-nightly: https://sdk.gnome.org/gnome-apps-nightly.flatpakrepo
+  flatpak_apps:
+    # Apps
+    - name: org.gnome.Books
+      remote: flathub
+      gtk: true
+    - name: org.gnome.Games
+      remote: flathub
+      gtk: true
+    - name: com.valvesoftware.Steam
+      remote: flathub
+    # Apps Nightly
+    - name: org.gnome.Builder
+      remote: gnome-apps-nightly
+      gtk: true
+    - name: org.gnome.Maps
+      remote: gnome-apps-nightly
+      gtk: true
+    - name: org.gnome.Epiphany
+      remote: gnome-apps-nightly
+      gtk: true
+    - name: org.gnome.Games
+      remote: gnome-apps-nightly
+      gtk: true
+
+flatpak_remotes: >-
+  {{ groupvars.all.flatpak_remotes
+   | combine(private.flatpak_remotes)
+  }}
+
+flatpak_apps: >-
+  {{ groupvars.all.flatpak_apps
+   | union(private.flatpak_apps)
+  }}
