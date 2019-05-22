@@ -26,6 +26,16 @@ private:
     - name: org.gnome.Games
       remote: gnome-apps-nightly
       gtk: true
+  gnome_settings:
+    /org/gnome/shell/favorite-apps: >-
+      ['firefox.desktop',
+       'com.spotify.Client.desktop',
+       'org.gnome.Nautilus.desktop',
+       'org.gnome.Calendar.desktop',
+       'org.gnome.Maps.desktop',
+       'org.gnome.Books.desktop',
+       'transmission-remote-gtk.desktop',
+       'org.gnome.Terminal.desktop']
 
 flatpak_remotes: >-
   {{ groupvars.all.flatpak_remotes
@@ -35,4 +45,9 @@ flatpak_remotes: >-
 flatpak_apps: >-
   {{ groupvars.all.flatpak_apps
    | union(private.flatpak_apps)
+  }}
+
+gnome_settings: >-
+  {{ groupvars.all.gnome_settings
+   | combine(private.gnome_settings)
   }}
