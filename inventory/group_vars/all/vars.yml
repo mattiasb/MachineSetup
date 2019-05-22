@@ -1,5 +1,13 @@
 ---
 
+## Groupvars
+
+groupvars:
+  all: "{{ hostvars['group-all'] }}"
+  private: "{{ hostvars['group-private'] }}"
+  test: "{{ hostvars['group-test'] }}"
+  work: "{{ hostvars['group-work'] }}"
+
 ## Ansible
 
 ansible_connection: local

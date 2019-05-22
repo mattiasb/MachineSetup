@@ -1,8 +1,13 @@
+group-all
+
 [work]
 mattiasb-dell-E6540
+group-work
 
 [private]
 mattiasb-lenovo-yoga920
+group-private
 
 [test]
 machinesetup-test
+group-test
