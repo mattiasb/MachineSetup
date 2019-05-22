@@ -3,6 +3,7 @@
   command: "{{ command }} {{ arguments }}"
   changed_when: false
   register: result
+  check_mode: false
 
 - name: "{{ command }} : Write completion script"
   copy:

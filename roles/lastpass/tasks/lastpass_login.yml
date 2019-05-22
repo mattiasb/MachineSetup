@@ -4,6 +4,7 @@
   failed_when: lastpass_status.rc not in [0, 1]
   changed_when: false
   register: lastpass_status
+  check_mode: false
 
 - name: "lastpass : Login"
   command: lpass login {{ lastpass_username }}
