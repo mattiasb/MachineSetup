@@ -144,6 +144,7 @@ sysconf_services:
   firewalld: false
   livesys: false
   multipathd: false
+  docker: true
 
 sysconf_groups:
   mattiasb:
