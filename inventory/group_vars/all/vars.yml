@@ -179,6 +179,7 @@ gnome_settings:
   /org/gnome/nautilus/icon-view/default-zoom-level: "'standard'"
   /org/gnome/settings-daemon/plugins/color/night-light-enabled: "true"
   /org/gnome/shell/app-switcher/current-workspace-only: "true"
+  /org/gnome/shell/keybindings/toggle-overview: '@as []'
   /org/gnome/shell/favorite-apps: >-
       ['firefox.desktop',
        'com.spotify.Client.desktop',
