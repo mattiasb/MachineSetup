@@ -1,0 +1,5 @@
+---
+ssh_privkey: >-
+  {{ lookup('lastpass', 'Keys/ssh-mattiasb-lenovo-yoga920', field='Private Key') }}
+ssh_pubkey: >-
+  {{ lookup('lastpass', 'Keys/ssh-mattiasb-lenovo-yoga920', field='Public Key') }}
