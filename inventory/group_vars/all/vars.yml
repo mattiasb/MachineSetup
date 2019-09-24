@@ -45,7 +45,6 @@ dnf_packages_present:
   - docbook-dtds
   - docbook-style-xsl
   - docker-compose
-  - docker-io
   - emacs
   - epiphany
   - evolution
@@ -96,6 +95,7 @@ dnf_packages_present:
   - meld
   - mercurial
   - meson
+  - moby-engine
   - moreutils
   - nautilus-dropbox
   - nautilus-open-terminal
