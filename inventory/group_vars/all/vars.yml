@@ -134,6 +134,31 @@ dnf_packages_present:
   - yamllint
   - yelp-tools
 
+## Docker
+
+# TODO: Create role that helps me turn this:
+
+# docker_daemon_config:
+#   insecure-registries:
+#     - registry.example.com
+#   default-ulimits:
+#     nofile:
+#       Name: nofile
+#       Hard: 1024
+#       Soft: 1024
+
+# Into /etc/docker/daemon.json
+# {
+#     "insecure-registries" : ["registry.example.com"],
+#     "default-ulimits": {
+# 	"nofile": {
+# 	    "Name": "nofile",
+# 	    "Hard": 1024,
+# 	    "Soft": 1024
+# 	}
+#     }
+# }
+
 
 ## SysConf
 
