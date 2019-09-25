@@ -60,7 +60,6 @@ dnf_packages_present:
   - fzf
   - gimp
   - git
-  - gitg
   - glade
   - gnome-calendar
   - gnome-common
