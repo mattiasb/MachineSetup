@@ -12,7 +12,7 @@
     path: /etc/yum.repos.d/{{ item.key }}.repo
     section: "{{ item.key }}"
     option: enabled
-    value: 1
+    value: '1'
     backup: false
     create: false
     no_extra_spaces: true
