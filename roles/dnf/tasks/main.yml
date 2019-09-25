@@ -42,12 +42,12 @@
     creates: /etc/yum.repos.d/{{ item.repo | basename }}
   with_items: "{{ dnf_repos_custom }}"
 
-- name: "dnf : Install Packages"
-  dnf:
-    name: "{{ dnf_packages_present }}"
-    state: present
-
 - name: "dnf : Remove Packages"
   dnf:
     name: "{{ dnf_packages_absent }}"
     state: absent
+
+- name: "dnf : Install Packages"
+  dnf:
+    name: "{{ dnf_packages_present }}"
+    state: present
