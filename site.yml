@@ -4,11 +4,15 @@
   become: true
   tasks:
     - name: "Install prerequisites"
+      vars:
+        libselinux:
+          30: libselinux-python
+          31: python3-libselinux
       dnf:
         state: present
         name:
-          - libselinux-python
           - python3-psutil
+          - "{{ libselinux[ansible_distribution_major_version | int] }}"
       tags: prerequisites
 
     - name: dnf
