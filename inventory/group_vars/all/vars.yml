@@ -26,6 +26,8 @@ dnf_repos_rpmfusion:
 dnf_repos_custom: []
 
 dnf_packages_absent:
+  - docker
+  - docker-common
   - rhythmbox
   - shotwell
 
@@ -95,7 +97,6 @@ dnf_packages_present:
   - meld
   - mercurial
   - meson
-  - moby-engine
   - moreutils
   - nautilus-dropbox
   - nautilus-open-terminal
@@ -134,31 +135,9 @@ dnf_packages_present:
   - yamllint
   - yelp-tools
 
-## Docker
+## Containers
 
-# TODO: Create role that helps me turn this:
-
-# docker_daemon_config:
-#   insecure-registries:
-#     - registry.example.com
-#   default-ulimits:
-#     nofile:
-#       Name: nofile
-#       Hard: 1024
-#       Soft: 1024
-
-# Into /etc/docker/daemon.json
-# {
-#     "insecure-registries" : ["registry.example.com"],
-#     "default-ulimits": {
-# 	"nofile": {
-# 	    "Name": "nofile",
-# 	    "Hard": 1024,
-# 	    "Soft": 1024
-# 	}
-#     }
-# }
-
+# Create containers_conf role that lets me edit stuff in `/etc/containers`
 
 ## SysConf
 
@@ -172,7 +151,6 @@ sysconf_services:
   firewalld: false
   livesys: false
   multipathd: false
-  docker: true
 
 sysconf_groups:
   mattiasb:
