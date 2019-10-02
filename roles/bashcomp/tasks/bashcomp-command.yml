@@ -4,6 +4,8 @@
   changed_when: false
   register: result
   check_mode: false
+  environment:
+    PIPENV_SHELL: /bin/bash
 
 - name: "{{ command }} : Write completion script"
   copy:
