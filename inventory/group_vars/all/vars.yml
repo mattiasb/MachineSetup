@@ -153,6 +153,9 @@ sysconf_services:
   livesys: false
   multipathd: false
 
+sysconf_timers:
+  fstrim: true
+
 sysconf_groups:
   mattiasb:
     - wheel
