@@ -12,12 +12,14 @@
     name: "{{ languages_python }}"
     extra_args: --user
     executable: pip2
+  when: languages_python | length > 0
 
 - name: "Languages : Python 3"
   pip:
     name: "{{ languages_python3 }}"
     extra_args: --user
     executable: pip3
+  when: languages_python3 | length > 0
 
 - name: "Languages : Rust"
   command: cargo install {{ item.pkg }}
