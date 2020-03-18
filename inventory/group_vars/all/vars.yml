@@ -388,7 +388,7 @@ git_install:
           dest: "{{ bashcomp_directory }}/virsh"
 
     - repo: dysosmus/ansible-completion
-      version: 7254afb781e5782ccbe78ba70df1e4ed845deef7
+      version: ad00a6d7850a50420b3febc6a4cc387184a1a5cc
       files:
         - src: ansible-completion.bash
           dest: "{{ bashcomp_directory }}/ansible"
