@@ -2,6 +2,5 @@
 sysconf_selinux: true
 sysconf_coredumps: true
 
-sysconf_enabled_services: []
-sysconf_disabled_services: []
+sysconf_services: []
 sysconf_groups: {}
