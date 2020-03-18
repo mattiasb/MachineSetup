@@ -3,4 +3,5 @@ sysconf_selinux: true
 sysconf_coredumps: true
 
 sysconf_services: []
+sysconf_timers: []
 sysconf_groups: {}

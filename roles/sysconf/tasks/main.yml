@@ -21,6 +21,14 @@
     state: "{{ item.value | ternary('started', 'stopped') }}"
   with_dict: "{{ sysconf_services }}"
 
+- name: "sysconf : Turn on/off timers"
+  become: true
+  systemd:
+    name: "{{ item.key }}.timer"
+    enabled: "{{ item.value }}"
+    state: "{{ item.value | ternary('started', 'stopped') }}"
+  with_dict: "{{ sysconf_timers }}"
+
 - name: "sysconf : Setup groups"
   become: true
   user:
