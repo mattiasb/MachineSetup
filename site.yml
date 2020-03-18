@@ -8,6 +8,7 @@
         libselinux:
           30: libselinux-python
           31: python3-libselinux
+          32: python3-libselinux
       dnf:
         state: present
         name:
