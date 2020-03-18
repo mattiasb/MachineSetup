@@ -63,12 +63,12 @@
         name: languages
       tags: languages
 
-    - name: git-install
-      include_role:
-        name: git-install
-      tags: git-install
-
     - name: bashcomp
       include_role:
         name: bashcomp
       tags: bashcomp
+
+    - name: git-install
+      include_role:
+        name: git-install
+      tags: git-install
