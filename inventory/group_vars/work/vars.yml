@@ -10,9 +10,14 @@ Z3+WQ=='
   flatpak_apps:
     - name: com.mattermost.Desktop
       remote: flathub
+  dnf_packages_present:
+    - icedtea-web
 
 ssh_known_hosts: >-
   {{ groupvars.all.ssh_known_hosts | combine(work.ssh_known_hosts) }}
 
 flatpak_apps: >-
   {{ groupvars.all.flatpak_apps | union(work.flatpak_apps) }}
+
+dnf_packages_present: >-
+  {{ groupvars.all.dnf_packages_present | union(work.dnf_packages_present) }}
