@@ -337,6 +337,7 @@ languages_nodejs:
 languages_python3:
   - BuildStream
   - autopep8
+  - black
   - epc
   - flake8
   - git-spindle
