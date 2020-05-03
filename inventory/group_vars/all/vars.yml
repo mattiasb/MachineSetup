@@ -79,6 +79,7 @@ dnf_packages_present:
   - gtk3-devel-docs
   - hdparm
   - httpie
+  - htop
   - hunspell-sv
   - intltool
   - jq
