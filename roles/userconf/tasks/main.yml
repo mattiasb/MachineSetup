@@ -12,22 +12,29 @@
   when: _userconf_config_repo_gitdir.stat.exists == false
   register: userconf_clone
 
-- name: "userconf : Remove bare status of config repository"
+- name: "userconf : Set default settings for config repository"
   git_config:
     scope: local
     repo: "{{ ansible_user_dir }}/.config/"
-    name: core.bare
-    value: false
-  register: userconf_unbare
+    name: "{{ item.key }}"
+    value: "{{ item.value }}"
+  with_dict:
+    # Remove 'bare' status
+    core.bare: 'false'
+    # Enable reflog
+    core.logallrefupdates: 'true'
+    # Fetch from origin
+    remote.origin.fetch: '+refs/heads/*:refs/remotes/origin/*'
+  register: userconf_gitconfig
 
 - name: "userconf : Reset config repository"
   command: git -C {{ ansible_user_dir }}/.config/ reset HEAD --hard
   args:
     creates: "{{ ansible_user_dir }}/.config/.gitignore"
   when: >-
-    userconf_clone  is changed
+    userconf_clone     is changed
     and
-    userconf_unbare is changed
+    userconf_gitconfig is changed
 
 - name: "userconf : Reload systemd"
   systemd:
