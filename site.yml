@@ -19,11 +19,17 @@
     - name: dnf
       include_role:
         name: dnf
+        apply:
+          tags:
+            - dnf
       tags: dnf
 
     - name: sysconf
       include_role:
         name: sysconf
+        apply:
+          tags:
+            - sysconf
       tags: sysconf
 
 - hosts: "{{ lookup('pipe', 'hostname') }}"
@@ -31,44 +37,71 @@
     - name: gnome
       include_role:
         name: gnome
+        apply:
+          tags:
+            - gnome
       tags: gnome
 
     - name: lastpass
       include_role:
         name: lastpass
+        apply:
+          tags:
+            - lastpass
       tags: lastpass
 
     - name: ssh
       include_role:
         name: ssh
+        apply:
+          tags:
+            - ssh
       tags: ssh
 
     - name: userconf
       include_role:
         name: userconf
+        apply:
+          tags:
+            - userconf
       tags: userconf
 
     - name: git
       include_role:
         name: git
+        apply:
+          tags:
+            - git
       tags: git
 
     - name: flatpak
       include_role:
         name: flatpak
+        apply:
+          tags:
+            - flatpak
       tags: flatpak
 
     - name: languages
       include_role:
         name: languages
+        apply:
+          tags:
+            - languages
       tags: languages
 
     - name: bashcomp
       include_role:
         name: bashcomp
+        apply:
+          tags:
+            - bashcomp
       tags: bashcomp
 
     - name: git-install
       include_role:
         name: git-install
+        apply:
+          tags:
+            - git-install
       tags: git-install
