@@ -359,10 +359,7 @@ languages_rust: []
 languages_lua:
   - luacheck
 languages_go:
-  - github.com/dougm/goflymake
   - github.com/jmespath/jp
-  - github.com/nsf/gocode
-  - github.com/rogpeppe/godef
 
 
 ## GIT Install
