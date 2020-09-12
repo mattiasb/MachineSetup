@@ -2,14 +2,14 @@
 - name: "gnome : Set GSettings"
   dconf:
     key: "{{ item.key }}"
-    value: "{{ item.value }}"
+    value: "{{ item.value | string }}"
     state: present
   with_dict: "{{ gnome_settings }}"
 
 - name: "gnome : Set keybindings"
   dconf:
     key: /org/gnome/desktop/wm/keybindings/{{ item.key }}
-    value: "['{{ item.value }}']"
+    value: "['{{ item.value | string }}']"
     state: present
   with_dict: "{{ gnome_keybindings }}"
 
@@ -21,14 +21,15 @@
   with_dict: "{{ gnome_mediakeys }}"
 
 - name: "gnome : Set custom keybindings"
-  dconf:
-    key: "{{ gnome_ckb_path }}"
+  vars:
     value: >-
       {{ range(0, gnome_custom_keybindings | length)
        | map('regex_replace', '^(.*)$', gnome_ckb_path + '/custom\1/')
        | list
-       | to_json
       }}
+  dconf:
+    key: "{{ gnome_ckb_path }}"
+    value: "{{ value | string }}"
 
 - name: "gnome : Set custom keybindings"
   vars:
