@@ -2,6 +2,11 @@
 ---
 - hosts: "{{ lookup('pipe', 'hostname') }}"
   become: true
+  tags:
+    - prerequisites
+    - dnf
+    - sysconf
+    - system
   tasks:
     - name: "Install prerequisites"
       vars:
@@ -33,6 +38,8 @@
       tags: sysconf
 
 - hosts: "{{ lookup('pipe', 'hostname') }}"
+  tags:
+    - user
   tasks:
     - name: gnome
       include_role:
