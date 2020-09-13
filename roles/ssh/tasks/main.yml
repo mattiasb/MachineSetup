@@ -19,7 +19,12 @@
   no_log: true
   copy:
     dest: "{{ ssh_privkey_path }}"
-    content: "{{ ssh_privkey }}"
+    content: >-
+      {{ ssh_lastpass
+       | ternary( lookup('lastpass', ssh_lastpass_key, field='Private Key')
+                , ssh_privkey
+                )
+      }}
     mode: '0600'
     backup: true
     force: false
@@ -28,7 +33,12 @@
 - name: "ssh : Create ssh public key"
   copy:
     dest: "{{ ssh_pubkey_path }}"
-    content: "{{ ssh_pubkey }}"
+    content: >-
+      {{ ssh_lastpass
+       | ternary( lookup('lastpass', ssh_lastpass_key, field='Public Key')
+                , ssh_pubkey
+                )
+      }}
     mode: '0600'
     backup: true
     force: false

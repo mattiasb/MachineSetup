@@ -251,10 +251,8 @@ lastpass_username: "mattias.jc.bengtsson@gmail.com"
 
 ## SSH
 
-ssh_privkey: >-
-  {{ lookup('lastpass', 'Keys/ssh-' + ansible_hostname, field='Private Key') }}
-ssh_pubkey: >-
-  {{ lookup('lastpass', 'Keys/ssh-' + ansible_hostname, field='Public Key') }}
+ssh_lastpass: true
+ssh_lastpass_key: Keys/ssh-{{ ansible_hostname }}
 
 ssh_known_hosts:
   github.com: "ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAq2A7hRGmdnm9tUDbO9IDSwBK6TbQ\
