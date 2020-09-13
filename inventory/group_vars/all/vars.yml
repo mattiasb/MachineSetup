@@ -171,14 +171,7 @@ sysconf_groups:
 gnome_settings:
   /org/gnome/Terminal/Legacy/Settings/default-show-menubar: "false"
   /org/gnome/Terminal/Legacy/Settings/theme-variant: "'system'"
-  /org/gnome/Weather/locations: >-
-    [<(uint32 2, <('Göteborg-Landvetter Airport',
-                   'ESGG',
-                   false,
-                   [(1.0064732078011609, 0.21467549799530256)],
-                   @a(dd) [])>
-    )>]
-  /org/gnome/Weather/automatic-location: "false"
+  /org/gnome/Weather/automatic-location: "true"
   /org/gnome/desktop/datetime/automatic-timezone: "true"
   /org/gnome/desktop/interface/gtk-key-theme: "'Emacs'"
   /org/gnome/desktop/peripherals/touchpad/tap-to-click: "true"
