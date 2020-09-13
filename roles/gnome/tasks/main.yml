@@ -16,7 +16,7 @@
 - name: "gnome : Set media key keybindings"
   dconf:
     key: "{{ gnome_mediakeys_path }}/{{ item.key }}"
-    value: "'{{ item.value }}'"
+    value: "['{{ item.value | string }}']"
     state: present
   with_dict: "{{ gnome_mediakeys }}"
 
