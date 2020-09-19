@@ -183,7 +183,6 @@ gnome_settings:
        'org.gnome.Nautilus.desktop',
        'org.gnome.Calendar.desktop',
        'org.gnome.Maps.desktop',
-       'org.gnome.Games.desktop',
        'org.gnome.Terminal.desktop']
   /org/gnome/software/show-upgrade-prerelease: "true"
   /org/gnome/system/locale/region: "'sv_SE.UTF-8'"

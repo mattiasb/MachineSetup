@@ -34,6 +34,7 @@ private:
        'org.gnome.Calendar.desktop',
        'org.gnome.Maps.desktop',
        'org.gnome.Books.desktop',
+       'org.gnome.Games.desktop',
        'transmission-remote-gtk.desktop',
        'org.gnome.Terminal.desktop']
 
