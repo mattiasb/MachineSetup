@@ -52,7 +52,6 @@ dnf_packages_present:
   - evolution
   - evolution-ews
   - fedpkg
-  - ffsend
   - flatpak
   - flatpak-builder
   - flex
