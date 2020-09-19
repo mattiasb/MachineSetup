@@ -13,6 +13,10 @@ private:
       gtk: true
     - name: com.valvesoftware.Steam
       remote: flathub
+    - name: com.github.Anuken.Mindustry
+      remote: flathub
+    - name: com.discordapp.Discord
+      remote: flathub
     # Apps Nightly
     - name: org.gnome.Builder
       remote: gnome-apps-nightly

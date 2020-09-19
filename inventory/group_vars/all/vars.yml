@@ -315,6 +315,12 @@ flatpak_apps:
   - name: org.gnome.Fractal
     remote: flathub
     gtk: true
+  - name: com.microsoft.Teams
+    remote: flathub
+  - name: org.gnome.Podcasts
+    remote: flathub
+  - name: org.signal.Signal
+    remote: flathub
 
 ## Languages
 

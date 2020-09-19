@@ -7,9 +7,7 @@ Dv8/oQT2y60m298zJXRU2voVCJGFdcjYDfPsaaAJ3ICRaUf1wivdzCvT+V8/cPwCMIPgefUZMW0E1xW
 W6IOvY/QHUzxzguouQLwP5BU+H6UDqpJEodNvYFuDZ248JpL4HB5mx8t41R//6i6aVnpJ5teq3dbNtI
 79wzz3ijxh9g+pKpL89J8LrfQvePL8DBIqk/6R6bAkdrAQrtQ6dnU5DGgA6t8fpH+orXXGXmQUxCmLq
 Z3+WQ=='
-  flatpak_apps:
-    - name: com.mattermost.Desktop
-      remote: flathub
+  flatpak_apps: []
   dnf_packages_present:
     - icedtea-web
 
