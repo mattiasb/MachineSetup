@@ -68,7 +68,6 @@ dnf_packages_present:
   - golang-godoc
   - google-chrome-stable
   - gperf
-  - groovy
   - gstreamer1-libav
   - gstreamer1-plugins-bad-freeworld
   - gstreamer1-plugins-ugly
