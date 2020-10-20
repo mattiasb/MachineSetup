@@ -146,7 +146,6 @@ sysconf_services:
   dmraid-activation: false
   firewalld: false
   livesys: false
-  multipathd: false
 
 sysconf_timers:
   fstrim: true
