@@ -19,3 +19,5 @@ flatpak_apps: >-
 
 dnf_packages_present: >-
   {{ groupvars.all.dnf_packages_present | union(work.dnf_packages_present) }}
+
+ssh_lastpass_key: Keys/ssh-mattiasb-work
