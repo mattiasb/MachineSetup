@@ -32,6 +32,9 @@ else
         4c4c4544-0054-4e10-8043-c7c04f565a31)
             sudo hostnamectl set-hostname mattiasb-dell-E6540
             ;;
+        4c4c4544-005a-3210-8057-b8c04f305a32)
+            sudo hostnamectl set-hostname mattiasb-dell-5401
+            ;;
         4c4c4544-0043-4c10-8042-c8c04f4a4332)
             sudo hostnamectl set-hostname mattiasb-dell-ES470
             ;;
