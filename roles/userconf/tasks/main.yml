@@ -36,6 +36,16 @@
     and
     userconf_gitconfig is changed
 
+- name: "userconf : Initialize submodules"
+  command: >-
+    git -C {{ ansible_user_dir }}/.config/ submodule update --init --recursive
+  args:
+    creates: "{{ ansible_user_dir }}/.config/emacs/init.el"
+  when: >-
+    userconf_clone     is changed
+    and
+    userconf_gitconfig is changed
+
 - name: "userconf : Reload systemd"
   systemd:
     daemon_reload: true
