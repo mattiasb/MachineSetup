@@ -10,6 +10,7 @@ Z3+WQ=='
   flatpak_apps: []
   dnf_packages_present:
     - icedtea-web
+    - python3.6
 
 ssh_known_hosts: >-
   {{ groupvars.all.ssh_known_hosts | combine(work.ssh_known_hosts) }}
