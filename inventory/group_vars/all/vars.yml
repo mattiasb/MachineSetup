@@ -105,6 +105,7 @@ dnf_packages_present:
   - perl-Errno
   - perl-open
   - podman
+  - podman-compose
   - powerline
   - python-devel
   - python-pip
@@ -146,6 +147,7 @@ sysconf_services:
   dmraid-activation: false
   firewalld: false
   livesys: false
+  multipathd: false
 
 sysconf_groups:
   mattiasb:
