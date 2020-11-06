@@ -46,7 +46,6 @@ dnf_packages_present:
   - ctags-etags
   - docbook-dtds
   - docbook-style-xsl
-  - docker-compose
   - emacs
   - epiphany
   - evolution
