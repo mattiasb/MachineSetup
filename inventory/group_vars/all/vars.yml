@@ -99,6 +99,7 @@ dnf_packages_present:
   - nautilus-open-terminal
   - ncurses-devel
   - npm
+  - openldap-clients
   - p7zip-plugins
   - pandoc
   - perl-Errno
