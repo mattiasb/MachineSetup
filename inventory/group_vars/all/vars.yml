@@ -280,6 +280,8 @@ git_repos:
   github.com:
     - repo: mattiasb/MachineSetup
     - repo: mattiasb/mtg-deck-mode
+    - repo: mattiasb/.emacs.d
+      dest: "{{ ansible_user_dir }}/.config/emacs"
     - repo: mattiasb/.local-bin
       dest: "{{ ansible_user_dir }}/.local/bin"
 
