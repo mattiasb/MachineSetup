@@ -36,6 +36,11 @@
   tags:
     - user
   tasks:
+    - name: Get users homedir
+      set_fact:
+        homedir: "{{ lookup('pipe', 'command echo ~') }}"
+      tags: always
+
     - name: gnome
       include_role:
         name: gnome

@@ -5,7 +5,7 @@
     global: true
   with_items: "{{ languages_nodejs }}"
   environment:
-    NPM_CONFIG_USERCONFIG: "{{ ansible_user_dir }}/.config/npm/config"
+    NPM_CONFIG_USERCONFIG: "{{ homedir }}/.config/npm/config"
 
 - name: "Languages : Python 2"
   pip:
@@ -27,33 +27,33 @@
     user_install: true
   with_items: "{{ languages_ruby }}"
   environment:
-    GEMRC: "{{ ansible_user_dir }}/.config/ruby/gemrc"
-    GEM_HOME: "{{ ansible_user_dir }}/.local/share/gem"
-    GEM_CACHE: "{{ ansible_user_dir }}/.cache/gem.cache"
-    GEMCACHE: "{{ ansible_user_dir }}/.local/share/gem"
+    GEMRC: "{{ homedir }}/.config/ruby/gemrc"
+    GEM_HOME: "{{ homedir }}/.local/share/gem"
+    GEM_CACHE: "{{ homedir }}/.cache/gem.cache"
+    GEMCACHE: "{{ homedir }}/.local/share/gem"
 
 - name: "Languages : Rust"
   command: cargo install {{ item.pkg }}
   with_items: "{{ languages_rust }}"
   args:
-    creates: "{{ ansible_user_dir }}/.local/bin/{{ item }}"
+    creates: "{{ homedir }}/.local/bin/{{ item }}"
   environment:
-    CARGO_HOME: "{{ ansible_user_dir }}/.local/share/cargo"
-    CARGO_INSTALL_ROOT: "{{ ansible_user_dir }}/.local/"
+    CARGO_HOME: "{{ homedir }}/.local/share/cargo"
+    CARGO_INSTALL_ROOT: "{{ homedir }}/.local/"
 
 - name: "Languages : Lua"
   command: "luarocks install {{ item }}"
   environment:
-    LUAROCKS_CONFIG: "{{ ansible_user_dir }}/.config/luarocks/config.lua"
+    LUAROCKS_CONFIG: "{{ homedir }}/.config/luarocks/config.lua"
   with_items: "{{ languages_lua }}"
   args:
-    creates: "{{ ansible_user_dir }}/.local/bin/{{ item }}"
+    creates: "{{ homedir }}/.local/bin/{{ item }}"
 
 - name: "Languages : Go"
   command: go get -u {{ item }}
   with_items: "{{ languages_go }}"
   environment:
-    GOBIN: "{{ ansible_user_dir }}/.local/bin"
-    GOPATH: "{{ ansible_user_dir }}/Code/go:/usr/share/gocode"
+    GOBIN: "{{ homedir }}/.local/bin"
+    GOPATH: "{{ homedir }}/Code/go:/usr/share/gocode"
   args:
-    creates: "{{ ansible_user_dir }}/.local/bin/{{ item | basename }}"
+    creates: "{{ homedir }}/.local/bin/{{ item | basename }}"

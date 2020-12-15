@@ -1,6 +1,6 @@
 ---
 ssh_key_format: rsa
-ssh_privkey_path: "{{ ansible_user_dir }}/.ssh/id_{{ ssh_key_format }}"
+ssh_privkey_path: "{{ homedir }}/.ssh/id_{{ ssh_key_format }}"
 ssh_pubkey_path: "{{ ssh_privkey_path }}.pub"
 
 ssh_lastpass: false

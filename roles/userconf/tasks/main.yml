@@ -1,13 +1,13 @@
 ---
 - name: "userconf : Check if .config is a repository"
   stat:
-    path: "{{ ansible_user_dir }}/.config/.git"
+    path: "{{ homedir }}/.config/.git"
   register: _userconf_config_repo_gitdir
 
 - name: "userconf : Bare clone of config repository"
   git:
     repo: "{{ userconf_config_repo_url }}"
-    dest: "{{ ansible_user_dir }}/.config/.git"
+    dest: "{{ homedir }}/.config/.git"
     bare: true
   when: _userconf_config_repo_gitdir.stat.exists == false
   register: userconf_clone
@@ -15,7 +15,7 @@
 - name: "userconf : Set default settings for config repository"
   git_config:
     scope: local
-    repo: "{{ ansible_user_dir }}/.config/"
+    repo: "{{ homedir }}/.config/"
     name: "{{ item.key }}"
     value: "{{ item.value }}"
   with_dict:
@@ -28,9 +28,9 @@
   register: userconf_gitconfig
 
 - name: "userconf : Reset config repository"
-  command: git -C {{ ansible_user_dir }}/.config/ reset HEAD --hard
+  command: git -C {{ homedir }}/.config/ reset HEAD --hard
   args:
-    creates: "{{ ansible_user_dir }}/.config/.gitignore"
+    creates: "{{ homedir }}/.config/.gitignore"
   when: >-
     userconf_clone     is changed
     and
@@ -38,9 +38,9 @@
 
 - name: "userconf : Initialize submodules"
   command: >-
-    git -C {{ ansible_user_dir }}/.config/ submodule update --init --recursive
+    git -C {{ homedir }}/.config/ submodule update --init --recursive
   args:
-    creates: "{{ ansible_user_dir }}/.config/emacs/init.el"
+    creates: "{{ homedir }}/.config/emacs/init.el"
   when: >-
     userconf_clone     is changed
     and
@@ -62,8 +62,8 @@
 
 - name: Link Configuration files
   file:
-    src: "{{ ansible_user_dir }}/.config/{{ item.src | default(omit) }}"
-    dest: "{{ ansible_user_dir }}/{{ item.dest }}"
+    src: "{{ homedir }}/.config/{{ item.src | default(omit) }}"
+    dest: "{{ homedir }}/{{ item.dest }}"
     state: link
     force: true
   with_items: "{{ userconf_dotfiles }}"

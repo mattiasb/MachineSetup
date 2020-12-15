@@ -276,14 +276,14 @@ userconf_dotfiles:
 git_repos:
   gitlab.com:
     - repo: mattiasb/mtg-decks
-      dest: "{{ ansible_user_dir }}/Documents/Magic/decks"
+      dest: "{{ homedir }}/Documents/Magic/decks"
   github.com:
     - repo: mattiasb/MachineSetup
     - repo: mattiasb/mtg-deck-mode
     - repo: mattiasb/.emacs.d
-      dest: "{{ ansible_user_dir }}/.config/emacs"
+      dest: "{{ homedir }}/.config/emacs"
     - repo: mattiasb/.local-bin
-      dest: "{{ ansible_user_dir }}/.local/bin"
+      dest: "{{ homedir }}/.local/bin"
 
 
 ## Bash-completion
@@ -398,6 +398,6 @@ git_install:
       version: master
       files:
         - src: fonts/
-          dest: "{{ ansible_user_dir }}/.local/share/fonts/"
+          dest: "{{ homedir }}/.local/share/fonts/"
       commands:
         - fc-cache -f -v
