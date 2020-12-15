@@ -344,6 +344,8 @@ languages_python3:
   - yasha
 
 languages_rust: []
+languages_ruby:
+  - rubocop
 languages_lua:
   - luacheck
 languages_go:
