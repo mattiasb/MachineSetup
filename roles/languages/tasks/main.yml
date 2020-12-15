@@ -21,6 +21,17 @@
     executable: pip3
   when: languages_python3 | length > 0
 
+- name: "Languages : Ruby"
+  command: gem install --user-install {{ item }}
+  with_items: "{{ languages_ruby }}"
+  args:
+    creates: "{{ ansible_user_dir }}/.local/bin/{{ item }}"
+  environment:
+    GEMRC: "{{ ansible_user_dir }}/.config/ruby/gemrc"
+    GEM_HOME: "{{ ansible_user_dir }}/.local/share/gem"
+    GEM_CACHE: "{{ ansible_user_dir }}/.cache/gem.cache"
+    GEMCACHE: "{{ ansible_user_dir }}/.local/share/gem"
+
 - name: "Languages : Rust"
   command: cargo install {{ item.pkg }}
   with_items: "{{ languages_rust }}"
