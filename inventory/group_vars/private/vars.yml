@@ -28,8 +28,10 @@ private:
        'org.gnome.Maps.desktop',
        'org.gnome.Books.desktop',
        'org.gnome.Games.desktop',
-       'transmission-remote-gtk.desktop',
-       'org.gnome.Terminal.desktop']
+       'org.gnome.Terminal.desktop',
+       'com.discordapp.Discord.desktop',
+       'org.gnome.Fractal.desktop',
+       'io.github.TransmissionRemoteGtk.desktop']
 
 flatpak_remotes: >-
   {{ groupvars.all.flatpak_remotes
