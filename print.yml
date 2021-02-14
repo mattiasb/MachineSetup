@@ -6,6 +6,7 @@
      | default(lookup('pipe', 'hostname'))
     }}
   become: false
+  gather_facts: false
   tasks:
     - debug:
         var: >-
