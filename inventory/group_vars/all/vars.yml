@@ -331,6 +331,8 @@ flatpak_apps:
     gtk: true
   - name: org.signal.Signal
     remote: flathub
+  - name: com.github.tchx84.Flatseal
+    remote: flathub
 
 ## Languages
 
