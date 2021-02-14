@@ -6,12 +6,31 @@
     state: present
   with_dict: "{{ gnome_settings }}"
 
+- name: "gnome : Unset keybindings"
+  dconf:
+    key: /org/gnome/desktop/wm/keybindings/{{ item.key }}
+    value: "@as []"
+    state: present
+  with_dict: >-
+    {{ gnome_keybindings
+     | dict2items
+     | selectattr("value", "equalto", None)
+     | list
+     | items2dict
+    }}
+
 - name: "gnome : Set keybindings"
   dconf:
     key: /org/gnome/desktop/wm/keybindings/{{ item.key }}
     value: "['{{ item.value | string }}']"
     state: present
-  with_dict: "{{ gnome_keybindings }}"
+  with_dict: >-
+    {{ gnome_keybindings
+     | dict2items
+     | rejectattr("value", "equalto", None)
+     | list
+     | items2dict
+    }}
 
 - name: "gnome : Set media key keybindings"
   dconf:
