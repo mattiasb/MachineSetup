@@ -225,6 +225,9 @@ gnome_custom_keybindings:
   - name: Terminal
     binding: <Super>e
     command: /bin/gnome-terminal
+  - name: Screenshot
+    binding: <Super>Print
+    command: /bin/gnome-screenshot -i
 
 
 ## Lastpass
