@@ -12,6 +12,18 @@ Z3+WQ=='
     - icedtea-web
     - python3.8
 
+  gnome_settings:
+    /org/gnome/shell/favorite-apps: >-
+      ['firefox.desktop',
+       'com.spotify.Client.desktop',
+       'org.gnome.Nautilus.desktop',
+       'org.gnome.Calendar.desktop',
+       'org.gnome.Fractal.desktop',
+       'com.microsoft.Teams.desktop',
+       'org.remmina.Remmina.desktop',
+       'org.gnome.Boxes.desktop',
+       'org.gnome.Terminal.desktop']
+
 ssh_known_hosts: >-
   {{ groupvars.all.ssh_known_hosts | combine(work.ssh_known_hosts) }}
 
@@ -20,5 +32,10 @@ flatpak_apps: >-
 
 dnf_packages_present: >-
   {{ groupvars.all.dnf_packages_present | union(work.dnf_packages_present) }}
+
+gnome_settings: >-
+  {{ groupvars.all.gnome_settings
+   | combine(work.gnome_settings)
+  }}
 
 ssh_lastpass_key: Keys/ssh-mattiasb-work
