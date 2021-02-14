@@ -1,0 +1,10 @@
+---
+mattiasb_dell_5401:
+  gnome_settings:
+    /org/gnome/desktop/wm/keybindings/close: "['AudioMicMute']"
+
+gnome_settings: >-
+  {{ groupvars.all.gnome_settings
+   | combine(private.gnome_settings)
+   | combine(mattiasb_dell_5401.gnome_settings)
+  }}
