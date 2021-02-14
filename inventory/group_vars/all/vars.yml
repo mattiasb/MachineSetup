@@ -319,6 +319,7 @@ flatpak_apps:
     remote: flathub
   - name: org.gnome.Podcasts
     remote: flathub
+    gtk: true
   - name: org.signal.Signal
     remote: flathub
 
