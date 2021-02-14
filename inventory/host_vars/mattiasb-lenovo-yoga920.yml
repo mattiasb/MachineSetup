@@ -5,5 +5,6 @@ mattiasb_lenovo_yoga920:
 
 gnome_settings: >-
   {{ groupvars.all.gnome_settings
+   | combine(private.gnome_settings)
    | combine(mattiasb_lenovo_yoga920.gnome_settings)
   }}
