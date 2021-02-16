@@ -12,6 +12,8 @@ private:
       gtk: true
     - name: com.valvesoftware.Steam
       remote: flathub
+    - name: com.valvesoftware.Steam.CompatibilityTool.Proton
+      remote: flathub
     - name: com.github.Anuken.Mindustry
       remote: flathub
     - name: com.discordapp.Discord
