@@ -86,6 +86,7 @@ dnf_packages_present:
   - libva-intel-driver
   - llvm-devel
   - llvm-static
+  - lshw
   - lua-devel
   - lua-filesystem
   - luarocks
