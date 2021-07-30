@@ -1,7 +1,7 @@
 ---
 mattiasb_lenovo_yoga920:
-  gnome_settings:
-    /org/gnome/desktop/wm/keybindings/close: "['AudioMicMute']"
+  gnome_settings: {}
+#     /org/gnome/desktop/wm/keybindings/close: "['AudioMicMute']"
 
 gnome_settings: >-
   {{ groupvars.all.gnome_settings
