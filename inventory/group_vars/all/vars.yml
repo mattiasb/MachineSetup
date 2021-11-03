@@ -43,7 +43,6 @@ dnf_packages_present:
   - clang-devel
   - cloc
   - cmake
-  - ctags-etags
   - docbook-dtds
   - docbook-style-xsl
   - emacs
