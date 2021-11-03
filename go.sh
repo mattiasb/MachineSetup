@@ -7,7 +7,9 @@ BRANCH=master
 REPO_DIR="/tmp/MachineSetup"
 
 # Install ansible
-sudo dnf install -y ansible
+if ! command -v ansible >/dev/null; then
+    sudo dnf install -y ansible
+fi
 
 # Clone the code
 if [ ! -d "${REPO_DIR}" ]; then
