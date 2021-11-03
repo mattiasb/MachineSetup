@@ -2,6 +2,8 @@
 
 set -e
 
+cd "${0%/*}"
+
 URL=https://github.com/mattiasb/MachineSetup.git
 BRANCH=master
 REPO_DIR="/tmp/MachineSetup"
