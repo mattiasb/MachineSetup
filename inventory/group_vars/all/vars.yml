@@ -34,6 +34,9 @@ dnf_packages_absent:
 dnf_packages_present:
   - "@Development tools"
   - "@Virtualization"
+  - "@c-development"
+  - "@development-libs"
+  - "@development-tools"
   - ShellCheck
   - asciidoc
   - avahi-tools
@@ -54,6 +57,8 @@ dnf_packages_present:
   - flatpak-builder
   - flex
   - fzf
+  - gawk
+  - gettext
   - gimp
   - git
   - glade
@@ -73,8 +78,8 @@ dnf_packages_present:
   - gtk-doc
   - gtk3-devel-docs
   - hdparm
-  - httpie
   - htop
+  - httpie
   - hunspell-sv
   - intltool
   - jq
@@ -83,6 +88,7 @@ dnf_packages_present:
   - libatomic
   - libcurl-devel
   - libva-intel-driver
+  - libxslt
   - llvm-devel
   - llvm-static
   - lshw
@@ -100,6 +106,7 @@ dnf_packages_present:
   - ncurses-devel
   - npm
   - openldap-clients
+  - openssl-devel
   - p7zip-plugins
   - pandoc
   - perl-Errno
@@ -131,6 +138,8 @@ dnf_packages_present:
   - xorriso
   - yamllint
   - yelp-tools
+  - zlib-devel
+  - zlib-static
 
 ## Containers
 
