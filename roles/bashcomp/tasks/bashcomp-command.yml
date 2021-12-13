@@ -1,11 +1,13 @@
 ---
 - name: "{{ command }} : Get completion script"
-  command: "{{ command }} {{ arguments }}"
+  command: "{{ command }} {{ arguments | default('') }}"
   changed_when: false
   register: result
   check_mode: false
   environment:
-    PIPENV_SHELL: /bin/bash
+    # TODO: Make this a bit more general instead of having a workaround
+    #       specifically for pipenv.
+    _PIPENV_COMPLETE: bash_source
 
 - name: "{{ command }} : Write completion script"
   copy:

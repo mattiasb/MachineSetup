@@ -312,7 +312,7 @@ git_repos:
 bashcomp_commands:
   npm: completion
   pandoc: --bash-completion
-  pipenv: --completion
+  pipenv:
 
 
 ## Flatpak
