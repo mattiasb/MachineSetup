@@ -404,6 +404,12 @@ git_install:
         - src: virsh_bash_completion
           dest: "{{ bashcomp_directory }}/virsh"
 
+    - repo: cykerway/complete-alias
+      version: 4fcd018faa9413e60ee4ec9f48ebeac933c8c372
+      files:
+        - src: complete_alias
+          dest: "{{ homedir }}/.config/bash_completion.d/complete_alias"
+
     - repo: dysosmus/ansible-completion
       version: ad00a6d7850a50420b3febc6a4cc387184a1a5cc
       files:
