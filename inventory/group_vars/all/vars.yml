@@ -425,3 +425,9 @@ git_install:
           dest: "{{ homedir }}/.local/share/fonts/"
       commands:
         - fc-cache -f -v
+
+    - repo: cykerway/complete-alias
+      version: 4fcd018faa9413e60ee4ec9f48ebeac933c8c372
+      files:
+        - src: complete_alias
+          dest: "{{ homedir }}/.config/bash_completion.d/complete_alias"
