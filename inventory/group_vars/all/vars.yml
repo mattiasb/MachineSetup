@@ -203,6 +203,17 @@ gnome_mediakeys:
   home: <Super>f
   www: <Super>w
 
+gnome_shell_keybindings:
+  switch-to-application-1:
+  switch-to-application-2:
+  switch-to-application-3:
+  switch-to-application-4:
+  switch-to-application-5:
+  switch-to-application-6:
+  switch-to-application-7:
+  switch-to-application-8:
+  switch-to-application-9:
+
 gnome_keybindings:
   move-to-workspace-1: <Super>F1
   move-to-workspace-2: <Super>F2
@@ -214,15 +225,6 @@ gnome_keybindings:
   move-to-workspace-8: <Super>F8
   move-to-workspace-9: <Super>F9
   panel-run-dialog: <Super>r
-  switch-to-application-1:
-  switch-to-application-2:
-  switch-to-application-3:
-  switch-to-application-4:
-  switch-to-application-5:
-  switch-to-application-6:
-  switch-to-application-7:
-  switch-to-application-8:
-  switch-to-application-9:
   switch-to-workspace-1: <Super>1
   switch-to-workspace-2: <Super>2
   switch-to-workspace-3: <Super>3
