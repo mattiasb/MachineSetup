@@ -18,7 +18,7 @@ private:
       remote: flathub
     - name: com.discordapp.Discord
       remote: flathub
-    - name: com.obsproject.Studio
+    - name: de.haeckerfelix.Fragments
       remote: flathub-beta
 
   gnome_settings:
