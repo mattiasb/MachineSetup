@@ -28,6 +28,7 @@ dnf_repos_custom: []
 dnf_packages_absent:
   - docker
   - docker-common
+  - gedit
   - rhythmbox
   - shotwell
 
@@ -65,6 +66,8 @@ dnf_packages_present:
   - glade
   - gnome-calendar
   - gnome-common
+  - gnome-console
+  - gnome-console-nautilus
   - gnome-maps
   - gnome-photos
   - gnome-tweak-tool
@@ -245,10 +248,10 @@ gnome_custom_keybindings:
     command: /bin/emacsclient -c -s main
   - name: Terminal
     binding: <Super>e
-    command: /bin/gnome-terminal
   - name: Screenshot
     binding: <Super>Print
     command: /bin/gnome-screenshot -i
+    command: /bin/kgx
 
 
 ## Lastpass
