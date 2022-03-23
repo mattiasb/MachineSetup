@@ -20,6 +20,7 @@ private:
       remote: flathub
     - name: de.haeckerfelix.Fragments
       remote: flathub-beta
+      gtk: true
 
   gnome_settings:
     /org/gnome/shell/favorite-apps: >-
