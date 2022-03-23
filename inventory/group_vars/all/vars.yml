@@ -345,6 +345,9 @@ flatpak_apps:
     remote: flathub
   - name: com.github.tchx84.Flatseal
     remote: flathub
+  - name: com.belmoussaoui.Obfuscate
+    remote: flathub
+    gtk: true
 
 ## Languages
 
