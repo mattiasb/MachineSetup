@@ -248,9 +248,6 @@ gnome_custom_keybindings:
     command: /bin/emacsclient -c -s main
   - name: Terminal
     binding: <Super>e
-  - name: Screenshot
-    binding: <Super>Print
-    command: /bin/gnome-screenshot -i
     command: /bin/kgx
 
 
