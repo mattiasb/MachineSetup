@@ -349,6 +349,9 @@ flatpak_apps:
   - name: com.belmoussaoui.Obfuscate
     remote: flathub
     gtk: true
+  - name: org.gnome.gitlab.YaLTeR.VideoTrimmer
+    remote: flathub
+    gtk: true
 
 ## Languages
 
