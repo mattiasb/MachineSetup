@@ -93,6 +93,7 @@ dnf_packages_present:
   - libcurl-devel
   - libva-intel-driver
   - libxslt
+  - livecd-tools
   - llvm-devel
   - llvm-static
   - lshw
@@ -108,6 +109,7 @@ dnf_packages_present:
   - nautilus-dropbox
   - nautilus-open-terminal
   - ncurses-devel
+  - nmap
   - npm
   - openldap-clients
   - openssl-devel
@@ -129,6 +131,7 @@ dnf_packages_present:
   - ruby
   - ruby-irb
   - rust
+  - spin-kickstarts
   - systemd-container
   - tig
   - tmux
