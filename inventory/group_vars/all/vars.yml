@@ -158,12 +158,9 @@ sysconf_selinux: false
 sysconf_coredumps: false
 
 sysconf_services:
-  atd: false
-  crond: false
   dmraid-activation: false
   firewalld: false
   livesys: false
-  multipathd: false
 
 sysconf_groups:
   mattiasb:
