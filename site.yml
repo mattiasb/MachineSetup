@@ -79,6 +79,12 @@
             name: languages
       tags: languages
 
+    - name: url-install
+      block:
+        - include_role:
+            name: url-install
+      tags: url-install
+
     - name: bashcomp
       block:
         - include_role:
