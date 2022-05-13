@@ -8,6 +8,7 @@ groupvars:
   test: "{{ hostvars['group-test'] }}"
   work: "{{ hostvars['group-work'] }}"
 
+
 ## Ansible
 
 ansible_connection: local
@@ -148,9 +149,11 @@ dnf_packages_present:
   - zlib-devel
   - zlib-static
 
+
 ## Containers
 
 # Create containers_conf role that lets me edit stuff in `/etc/containers`
+
 
 ## SysConf
 
@@ -275,6 +278,7 @@ jTDTdDkoohFzgbEY="
 lzdHAyNTYAAABBBOfWUbO2WB8qArojiGnj+Ad51kDIza+4M7VL3VCXAt//fhqHKvbYQBcWaVw2mLg1+\
 wRIxM5zDl9ssDhNrvkEN10="
 
+
 ## Userconf
 
 userconf_config_repo_url: git@github.com:mattiasb/.config.git
@@ -294,6 +298,7 @@ userconf_dotfiles:
     dest: .inputrc
   - src: gtk-3.0/Compose
     dest: .XCompose
+
 
 ## git
 
@@ -354,6 +359,7 @@ flatpak_apps:
     remote: flathub
     gtk: true
 
+
 ## Languages
 
 languages_nodejs:
@@ -388,7 +394,6 @@ languages_go:
 
 
 ## GIT Install
-
 
 git_install:
   github.com:
