@@ -19,7 +19,7 @@
   no_log: true
   copy:
     dest: "{{ ssh_privkey_path }}"
-    content: >-
+    content: >
       {{ ssh_lastpass
        | ternary( lookup('lastpass', ssh_lastpass_key, field='Private Key')
                 , ssh_privkey
