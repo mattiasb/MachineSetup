@@ -334,31 +334,24 @@ flatpak_apps:
   # Apps
   - name: org.gnome.Builder
     remote: flathub
-    gtk: true
   - name: org.gnome.Maps
     remote: flathub
-    gtk: true
   - name: com.spotify.Client
     remote: flathub
   - name: org.gnome.Fractal
     remote: flathub
-    gtk: true
   - name: com.microsoft.Teams
     remote: flathub
   - name: org.gnome.Podcasts
     remote: flathub
-    gtk: true
   - name: org.signal.Signal
     remote: flathub
   - name: com.github.tchx84.Flatseal
     remote: flathub
-    gtk: true
   - name: com.belmoussaoui.Obfuscate
     remote: flathub
-    gtk: true
   - name: org.gnome.gitlab.YaLTeR.VideoTrimmer
     remote: flathub
-    gtk: true
 
 
 ## Languages

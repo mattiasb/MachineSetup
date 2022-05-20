@@ -13,15 +13,3 @@
     name: "{{ item.name }}"
     remote: "{{ item.remote }}"
   with_items: "{{ flatpak_apps }}"
-
-- name: "Enable compose key for Flatpaks using GTK 3"
-  include_tasks: flatpak_copy_compose.yml
-  loop_control:
-    loop_var: app
-  with_items: >-
-    {{ flatpak_apps
-     | selectattr('gtk', 'defined')
-     | selectattr('gtk', 'equalto', True)
-     | map(attribute='name')
-     | list
-    }}

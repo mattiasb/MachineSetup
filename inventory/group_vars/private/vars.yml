@@ -6,10 +6,8 @@ private:
     # Apps
     - name: org.gnome.Books
       remote: flathub
-      gtk: true
     - name: org.gnome.Games
       remote: flathub
-      gtk: true
     - name: com.valvesoftware.Steam
       remote: flathub
     - name: com.valvesoftware.Steam.CompatibilityTool.Proton
@@ -20,7 +18,6 @@ private:
       remote: flathub
     - name: de.haeckerfelix.Fragments
       remote: flathub-beta
-      gtk: true
 
   gnome_settings:
     /org/gnome/shell/favorite-apps: >-
