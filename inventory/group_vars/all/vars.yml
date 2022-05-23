@@ -358,7 +358,6 @@ flatpak_apps:
 
 languages_nodejs:
   - eslint
-  - yasel
 
 languages_python3:
   - autopep8
