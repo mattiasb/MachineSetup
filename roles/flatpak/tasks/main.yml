@@ -1,5 +1,8 @@
 ---
 
+# Make it possible to run this:
+# $ flatpak remote-modify --enable --no-filter flathub
+
 - name: "Flatpak : Add remotes"
   become: true
   flatpak_remote:
