@@ -361,16 +361,12 @@ languages_nodejs:
   - yasel
 
 languages_python3:
-  - BuildStream
   - autopep8
   - black
-  - epc
   - flake8
   - git-spindle
   - importmagic
-  - ipdb
   - ipython
-  - isort
   - jedi
   - jmespath-terminal
   - mypy
