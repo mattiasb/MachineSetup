@@ -74,6 +74,7 @@ dnf_packages_present:
   - gnome-tweak-tool
   - golang
   - golang-godoc
+  - golang-x-tools-gopls
   - google-chrome-stable
   - gperf
   - gstreamer1-libav
@@ -358,6 +359,7 @@ flatpak_apps:
 
 languages_nodejs:
   - eslint
+  - bash-language-server
 
 languages_python3:
   - autopep8
@@ -370,6 +372,7 @@ languages_python3:
   - jmespath-terminal
   - mypy
   - pipenv
+  - pyright
   - remarshal
   - yasha
 
