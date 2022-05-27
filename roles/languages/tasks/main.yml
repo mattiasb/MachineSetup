@@ -33,13 +33,12 @@
     GEMCACHE: "{{ homedir }}/.local/share/gem"
 
 - name: "Languages : Rust"
-  command: cargo install {{ item.pkg }}
+  community.general.cargo:
+    name: "{{ item }}"
+    path: "{{ homedir }}/.local/"
   with_items: "{{ languages_rust }}"
-  args:
-    creates: "{{ homedir }}/.local/bin/{{ item }}"
   environment:
     CARGO_HOME: "{{ homedir }}/.local/share/cargo"
-    CARGO_INSTALL_ROOT: "{{ homedir }}/.local/"
 
 - name: "Languages : Lua"
   command: "luarocks install {{ item }}"
