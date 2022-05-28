@@ -381,7 +381,7 @@ languages_ruby:
 languages_lua:
   - luacheck
 languages_go:
-  - github.com/jmespath/jp
+  - github.com/jmespath/jp@latest
 
 
 ## URL Install

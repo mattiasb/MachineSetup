@@ -49,7 +49,7 @@
     creates: "{{ homedir }}/.local/bin/{{ item }}"
 
 - name: "Languages : Go"
-  command: go get -u {{ item }}
+  command: go install -u {{ item }}
   with_items: "{{ languages_go }}"
   environment:
     GOBIN: "{{ homedir }}/.local/bin"
