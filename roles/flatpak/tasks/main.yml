@@ -8,6 +8,7 @@
   flatpak_remote:
     name: "{{ item.key }}"
     flatpakrepo_url: "{{ item.value }}"
+    method: user
   with_dict: "{{ flatpak_remotes }}"
 
 - name: "Install apps"
@@ -15,4 +16,5 @@
   flatpak:
     name: "{{ item.name }}"
     remote: "{{ item.remote }}"
+    method: user
   with_items: "{{ flatpak_apps }}"
