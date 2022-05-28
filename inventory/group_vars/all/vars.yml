@@ -369,7 +369,6 @@ languages_python3:
   - importmagic
   - ipython
   - jedi
-  - jmespath-terminal
   - mypy
   - pipenv
   - pyright
