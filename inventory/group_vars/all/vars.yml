@@ -365,7 +365,6 @@ languages_python3:
   - autopep8
   - black
   - flake8
-  - git-spindle
   - importmagic
   - ipython
   - jedi
