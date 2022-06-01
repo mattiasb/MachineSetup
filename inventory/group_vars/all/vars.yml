@@ -190,13 +190,6 @@ gnome_settings:
   /org/gnome/settings-daemon/plugins/color/night-light-enabled: "true"
   /org/gnome/shell/app-switcher/current-workspace-only: "true"
   /org/gnome/shell/keybindings/toggle-overview: '@as []'
-  /org/gnome/shell/favorite-apps: >-
-      ['firefox.desktop',
-       'com.spotify.Client.desktop',
-       'org.gnome.Nautilus.desktop',
-       'org.gnome.Calendar.desktop',
-       'org.gnome.Maps.desktop',
-       'org.gnome.Terminal.desktop']
   /org/gnome/software/show-upgrade-prerelease: "true"
   /org/gnome/system/locale/region: "'sv_SE.UTF-8'"
   /org/gnome/desktop/input-sources/xkb-options: "['compose:caps']"
@@ -205,6 +198,14 @@ gnome_settings:
   /org/gnome/evolution/shell/show-to-do-bar: "false"
   /org/gnome/desktop/calendar/show-weekdate: "true"
   /org/gtk/settings/file-chooser/sort-directories-first: "true"
+
+gnome_favorite_apps:
+  - firefox
+  - com.spotify.Client
+  - org.gnome.Nautilus
+  - org.gnome.Calendar
+  - org.gnome.Console
+  - org.gnome.Maps
 
 gnome_mediakeys:
   home: <Super>f

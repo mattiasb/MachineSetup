@@ -19,19 +19,12 @@ private:
     - name: de.haeckerfelix.Fragments
       remote: flathub-beta
 
-  gnome_settings:
-    /org/gnome/shell/favorite-apps: >-
-      ['firefox.desktop',
-       'com.spotify.Client.desktop',
-       'org.gnome.Nautilus.desktop',
-       'org.gnome.Calendar.desktop',
-       'org.gnome.Maps.desktop',
-       'org.gnome.Books.desktop',
-       'org.gnome.Games.desktop',
-       'org.gnome.Terminal.desktop',
-       'com.discordapp.Discord.desktop',
-       'org.gnome.Fractal.desktop',
-       'de.haeckerfelix.Fragments.desktop']
+  gnome_favorite_apps:
+    - org.gnome.Books
+    - org.gnome.Games
+    - com.discordapp.Discord
+    - org.gnome.Fractal
+    - de.haeckerfelix.Fragments
 
 flatpak_remotes: >-
   {{ groupvars.all.flatpak_remotes
@@ -43,7 +36,7 @@ flatpak_apps: >-
    | union(private.flatpak_apps)
   }}
 
-gnome_settings: >-
-  {{ groupvars.all.gnome_settings
-   | combine(private.gnome_settings)
+gnome_favorite_apps: >-
+  {{ groupvars.all.gnome_favorite_apps
+   | union(work.gnome_favorite_apps)
   }}

@@ -1,2 +1,6 @@
 ---
 gnome_gsettings: {}
+gnome_favorite_apps:
+  - firefox
+  - org.gnome.Nautilus
+  - org.gnome.Calendar

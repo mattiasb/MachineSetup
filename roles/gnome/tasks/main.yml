@@ -6,6 +6,18 @@
     state: present
   with_dict: "{{ gnome_settings }}"
 
+- name: "gnome : Set Favorite apps"
+  dconf:
+    key: "/org/gnome/shell/favorite-apps"
+    value: >-
+      ['{{ gnome_favorite_apps
+         | product(['desktop'])
+         | map('join', '.')
+         | list
+         | join("', '")
+        }}']
+    state: present
+
 - name: "gnome : Unset Shell keybindings"
   dconf:
     key: /org/gnome/shell/keybindings/{{ item.key }}
