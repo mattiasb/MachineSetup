@@ -9,7 +9,6 @@ W6IOvY/QHUzxzguouQLwP5BU+H6UDqpJEodNvYFuDZ248JpL4HB5mx8t41R//6i6aVnpJ5teq3dbNtI
 Z3+WQ=='
   flatpak_apps: []
   dnf_packages_present:
-    - icedtea-web
     - python3.8
 
   gnome_settings:
