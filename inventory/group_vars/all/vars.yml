@@ -179,8 +179,6 @@ sysconf_groups:
 ## GNOME
 
 gnome_settings:
-  /org/gnome/Terminal/Legacy/Settings/default-show-menubar: "false"
-  /org/gnome/Terminal/Legacy/Settings/theme-variant: "'system'"
   /org/gnome/Weather/automatic-location: "true"
   /org/gnome/desktop/datetime/automatic-timezone: "true"
   /org/gnome/desktop/interface/gtk-key-theme: "'Emacs'"
