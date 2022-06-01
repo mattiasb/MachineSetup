@@ -343,15 +343,9 @@ flatpak_apps:
     remote: flathub
   - name: com.microsoft.Teams
     remote: flathub
-  - name: org.gnome.Podcasts
-    remote: flathub
   - name: org.signal.Signal
     remote: flathub
   - name: com.github.tchx84.Flatseal
-    remote: flathub
-  - name: com.belmoussaoui.Obfuscate
-    remote: flathub
-  - name: org.gnome.gitlab.YaLTeR.VideoTrimmer
     remote: flathub
 
 

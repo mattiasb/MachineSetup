@@ -18,6 +18,12 @@ private:
       remote: flathub
     - name: de.haeckerfelix.Fragments
       remote: flathub-beta
+    - name: org.gnome.Podcasts
+      remote: flathub
+    - name: com.belmoussaoui.Obfuscate
+      remote: flathub
+    - name: org.gnome.gitlab.YaLTeR.VideoTrimmer
+      remote: flathub
 
   gnome_favorite_apps:
     - org.gnome.Books
