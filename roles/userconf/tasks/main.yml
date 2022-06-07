@@ -25,6 +25,8 @@
     core.logallrefupdates: 'true'
     # Fetch from origin
     remote.origin.fetch: '+refs/heads/*:refs/remotes/origin/*'
+    branch.master.remote: origin
+    branch.master.merge: refs/heads/master
   register: userconf_gitconfig
 
 - name: "userconf : Reset config repository"
