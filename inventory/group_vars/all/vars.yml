@@ -158,6 +158,14 @@ dnf_packages_present:
 # Create containers_conf role that lets me edit stuff in `/etc/containers`
 
 
+## Udev
+
+# Create udev role (or files role?) that lets me edit udev rules.
+# Specifically to add this:
+# /usr/lib/udev/rules.d/61-mutter-primary-gpu.rules:
+# ENV{DEVNAME}=="/dev/dri/card0", TAG+="mutter-device-preferred-primary"
+
+
 ## SysConf
 
 sysconf_selinux: false
