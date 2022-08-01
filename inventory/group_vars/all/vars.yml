@@ -30,6 +30,7 @@ dnf_packages_absent:
   - docker
   - docker-common
   - gedit
+  - podman-docker
   - rhythmbox
   - shotwell
 

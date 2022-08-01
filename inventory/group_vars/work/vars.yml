@@ -1,5 +1,4 @@
 ---
-# TODO: Install moby-engine and remove podman-docker!
 work:
   ssh_known_hosts:
     git.smarteye.se: 'ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAwp+mYqOm2QCwU3t9aO0dM
@@ -11,6 +10,7 @@ Z3+WQ=='
   flatpak_apps: []
   dnf_packages_present:
     - python3.8
+    - moby-engine
 
   gnome_favorite_apps:
     - org.gnome.Fractal
