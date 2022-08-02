@@ -62,6 +62,7 @@ dnf_packages_present:
   - fzf
   - gawk
   - gettext
+  - ghc-compiler
   - gimp
   - git
   - git-delta
