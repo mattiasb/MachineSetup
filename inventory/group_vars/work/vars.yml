@@ -18,6 +18,11 @@ Z3+WQ=='
     - org.remmina.Remmina
     - org.gnome.Boxes
 
+  url_install:
+    executables:
+      - url: https://dl.k8s.io/release/v1.19.9/bin/linux/amd64/kubectl
+        sha: 7128c9e38ab9c445a3b02d3d0b3f0f15fe7fbca56fd87b84e575d7b29e999ad9
+
 ssh_known_hosts: >-
   {{ groupvars.all.ssh_known_hosts | combine(work.ssh_known_hosts) }}
 
@@ -30,6 +35,11 @@ dnf_packages_present: >-
 gnome_favorite_apps: >-
   {{ groupvars.all.gnome_favorite_apps
    | union(work.gnome_favorite_apps)
+  }}
+
+url_install: >-
+  {{ groupvars.all.url_install
+   | combine(work.url_install, recursive=True)
   }}
 
 ssh_lastpass_key: Keys/ssh-mattiasb-work
