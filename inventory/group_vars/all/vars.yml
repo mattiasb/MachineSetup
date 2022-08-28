@@ -46,6 +46,7 @@ dnf_packages_present:
   - bison
   - cabal-install
   - cargo
+  - cascadia-fonts-all-all
   - clang-devel
   - cloc
   - cmake
@@ -90,6 +91,7 @@ dnf_packages_present:
   - httpie
   - hunspell-sv
   - intltool
+  - jetbrains-mono-fonts
   - jq
   - lastpass-cli
   - lftp
