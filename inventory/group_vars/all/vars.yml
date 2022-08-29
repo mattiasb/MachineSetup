@@ -150,6 +150,7 @@ dnf_packages_present:
   - wireshark
   - xmlto
   - xorriso
+  - xprop
   - yamllint
   - yelp-tools
   - zlib-devel
