@@ -385,6 +385,7 @@ languages_python3:
 languages_rust: []
 languages_ruby:
   - rubocop
+  - solargraph
 languages_lua:
   - luacheck
 languages_go:
