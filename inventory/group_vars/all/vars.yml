@@ -220,6 +220,7 @@ gnome_favorite_apps:
   - org.gnome.Calendar
   - org.gnome.Console
   - org.gnome.Maps
+  - org.gnome.Software
 
 gnome_mediakeys:
   home: <Super>f
