@@ -71,7 +71,6 @@ dnf_packages_present:
   - gnome-calendar
   - gnome-common
   - gnome-console
-  - gnome-console-nautilus
   - gnome-maps
   - gnome-photos
   - gnome-tweak-tool
