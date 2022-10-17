@@ -11,6 +11,10 @@ Z3+WQ=='
   dnf_packages_present:
     - python3.8
     - moby-engine
+    - >-
+      {{ 'https://github.com/vmware-tanzu/octant/releases/download/v0.25.1/'
+       + 'octant_0.25.1_Linux-64bit.rpm'
+      }}
 
   gnome_favorite_apps:
     - org.gnome.Fractal
