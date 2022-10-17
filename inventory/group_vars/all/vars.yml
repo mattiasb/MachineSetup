@@ -27,8 +27,6 @@ dnf_repos_rpmfusion:
 dnf_repos_custom: []
 
 dnf_packages_absent:
-  - docker
-  - docker-common
   - gedit
   - podman-docker
   - rhythmbox

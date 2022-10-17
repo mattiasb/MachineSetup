@@ -31,6 +31,9 @@ private:
     - com.discordapp.Discord
     - org.gnome.Fractal
     - de.haeckerfelix.Fragments
+  dnf_packages_absent:
+    - docker
+    - docker-common
 
 flatpak_remotes: >-
   {{ groupvars.all.flatpak_remotes
@@ -46,3 +49,6 @@ gnome_favorite_apps: >-
   {{ groupvars.all.gnome_favorite_apps
    | union(work.gnome_favorite_apps)
   }}
+
+dnf_packages_absent: >-
+  {{ groupvars.all.dnf_packages_absent | union(work.dnf_packages_absent) }}
