@@ -267,6 +267,9 @@ gnome_custom_keybindings:
   - name: Console
     binding: <Super>e
     command: /bin/kgx
+  - name: Tootle
+    binding: <Super>t
+    command: flatpak run com.github.bleakgrey.tootle
 
 
 ## Lastpass
@@ -355,6 +358,8 @@ flatpak_apps:
   - name: org.gnome.Fractal
     remote: flathub
   - name: com.microsoft.Teams
+    remote: flathub
+  - name: com.github.bleakgrey.tootle
     remote: flathub
   - name: org.signal.Signal
     remote: flathub
