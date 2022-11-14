@@ -47,8 +47,8 @@ flatpak_apps: >-
 
 gnome_favorite_apps: >-
   {{ groupvars.all.gnome_favorite_apps
-   | union(work.gnome_favorite_apps)
+   | union(private.gnome_favorite_apps)
   }}
 
 dnf_packages_absent: >-
-  {{ groupvars.all.dnf_packages_absent | union(work.dnf_packages_absent) }}
+  {{ groupvars.all.dnf_packages_absent | union(private.dnf_packages_absent) }}
