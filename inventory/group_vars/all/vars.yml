@@ -394,6 +394,7 @@ languages_lua:
   - luacheck
 languages_go:
   - github.com/jmespath/jp@latest
+  - github.com/noahgorstein/jqp@latest
 
 
 ## URL Install
