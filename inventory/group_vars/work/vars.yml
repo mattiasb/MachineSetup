@@ -21,7 +21,8 @@ Z3+WQ=='
   url_install:
     executables:
       - url: https://dl.k8s.io/release/v1.19.9/bin/linux/amd64/kubectl
-        sha: 7128c9e38ab9c445a3b02d3d0b3f0f15fe7fbca56fd87b84e575d7b29e999ad9
+        sha: "sha256:7128c9e38ab9c445a3b02d3d0b3f0f15fe7fbca56fd87b84e575d7b29e\
+999ad9"
 
   bashcomp_commands:
     kubectl: completion bash
