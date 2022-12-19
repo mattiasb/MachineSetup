@@ -370,6 +370,8 @@ flatpak_apps:
     remote: flathub
   - name: com.github.tchx84.Flatseal
     remote: flathub
+  - name: com.slack.Slack
+    remote: flathub
 
 
 ## Languages
