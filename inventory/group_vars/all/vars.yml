@@ -157,6 +157,10 @@ dnf_packages_present:
   - zlib-static
 
 
+## Flatpak System Clean
+flatpak_system_clean: true
+
+
 ## Containers
 
 # Create containers_conf role that lets me edit stuff in `/etc/containers`

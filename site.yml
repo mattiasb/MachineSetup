@@ -22,6 +22,12 @@
             name: dnf
       tags: dnf
 
+    - name: flatpak-system-clean
+      block:
+        - include_role:
+            name: flatpak-system-clean
+      tags: flatpak-system-clean
+
     - name: sysconf
       block:
         - include_role:

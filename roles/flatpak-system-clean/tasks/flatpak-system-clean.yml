@@ -1,0 +1,28 @@
+---
+- name: "Delete all applications"
+  command: flatpak uninstall --system --all --assumeyes --noninteractive
+  register: result
+  changed_when: result.stdout is search('Uninstalling')
+
+- name: "Get system remotes"
+  command: flatpak remotes --system --columns=name --show-disabled
+  changed_when: false
+  register: result
+
+- name: "Set facts"
+  set_fact:
+    flatpak_system_clean_remotes: "{{ result.stdout_lines }}"
+
+# This is needed since the flatpak_remote module doesn't remove disabled
+# remotes.
+- name: "Enable all remotes"
+  command: flatpak --system remote-modify --enable {{ item }}
+  changed_when: false
+  with_items: "{{ flatpak_system_clean_remotes }}"
+
+- name: "Delete all remotes"
+  flatpak_remote:
+    name: "{{ item }}"
+    state: absent
+    method: system
+  with_items: "{{ flatpak_system_clean_remotes }}"

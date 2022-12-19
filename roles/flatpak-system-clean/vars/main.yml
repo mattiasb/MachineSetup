@@ -1,0 +1,8 @@
+---
+flatpak_gtk_apps: >-
+  {{ flatpak_apps
+   | selectattr('gtk', 'defined')
+   | selectattr('gtk', 'equalto', True)
+   | map(attribute='name')
+   | list
+  }}

@@ -1,0 +1,3 @@
+---
+# Whether to remove all system flatpaks
+flatpak_system_clean: false

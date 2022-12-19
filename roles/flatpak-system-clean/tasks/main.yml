@@ -1,0 +1,3 @@
+---
+- import_tasks: flatpak-system-clean.yml
+  when: flatpak_system_clean
