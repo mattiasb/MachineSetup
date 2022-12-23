@@ -49,4 +49,4 @@ else
     esac
 fi
 
-./site.yml -v -K
+./site.yml -v

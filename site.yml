@@ -7,6 +7,10 @@
     - dnf
     - sysconf
     - system
+  vars_prompt:
+    - name: "ansible_become_pass"
+      prompt: "Sudo password"
+      private: true
   tasks:
     - name: "Install prerequisites"
       dnf:
