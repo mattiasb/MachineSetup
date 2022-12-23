@@ -7,11 +7,17 @@
     - dnf
     - sysconf
     - system
-  vars_prompt:
-    - name: "ansible_become_pass"
-      prompt: "Sudo password"
-      private: true
   tasks:
+    - name: "Sudo password"
+      block:
+        - pause:
+            prompt: "Sudo password"
+            echo: false
+          register: result
+        - set_fact:
+            ansible_become_pass: "{{ result.user_input }}"
+      tags: always
+
     - name: "Install prerequisites"
       dnf:
         state: present
