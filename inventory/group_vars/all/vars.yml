@@ -133,6 +133,7 @@ dnf_packages_present:
   - remmina
   - remmina-plugins-rdp
   - remmina-plugins-vnc
+  - reuse
   - ripgrep
   - ruby
   - ruby-devel
