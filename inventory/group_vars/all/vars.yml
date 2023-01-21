@@ -355,6 +355,8 @@ flatpak_remotes:
 
 flatpak_apps:
   # Apps
+  - name: im.bernard.Nostalgia
+    remote: flathub
   - name: org.gnome.Builder
     remote: flathub
   - name: org.gnome.Maps
