@@ -18,6 +18,8 @@ private:
       remote: flathub
     - name: de.haeckerfelix.Fragments
       remote: flathub-beta
+    - name: net.kirgroup.confy
+      remote: flathub
     - name: org.gnome.Podcasts
       remote: flathub
     - name: com.belmoussaoui.Obfuscate
