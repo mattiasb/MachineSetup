@@ -333,6 +333,8 @@ git_repos:
   github.com:
     - repo: mattiasb/MachineSetup
     - repo: mattiasb/mtg-deck-mode
+    - repo: mattiasb/Code-Test
+      dest: "{{ homedir }}/Code/Test"
     - repo: mattiasb/.emacs.d
       dest: "{{ homedir }}/.config/emacs"
     - repo: mattiasb/.local-bin
