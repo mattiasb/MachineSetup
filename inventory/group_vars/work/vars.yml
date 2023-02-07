@@ -12,6 +12,9 @@ Z3+WQ=='
     - python3.8
     - moby-engine
 
+  gnome_settings:
+    /org/gnome/desktop/interface/monospace-font-name: "'JetBrains Mono 11'"
+
   gnome_favorite_apps:
     - org.gnome.Fractal
     - com.microsoft.Teams
@@ -49,6 +52,11 @@ bashcomp_commands: >-
 url_install: >-
   {{ groupvars.all.url_install
    | combine(work.url_install, recursive=True)
+  }}
+
+gnome_settings: >-
+  {{ groupvars.all.gnome_settings
+   | combine(work.gnome_settings, recursive=True)
   }}
 
 ssh_lastpass_key: Keys/ssh-mattiasb-work
