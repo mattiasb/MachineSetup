@@ -200,7 +200,7 @@ gnome_settings:
   /org/gnome/Weather/automatic-location: "true"
   /org/gnome/desktop/datetime/automatic-timezone: "true"
   /org/gnome/desktop/interface/gtk-key-theme: "'Emacs'"
-  /org/gnome/desktop/interface/monospace-font-name: "'JetBrains Mono 10'"
+  /org/gnome/desktop/interface/monospace-font-name: "'JetBrains Mono 12'"
   /org/gnome/desktop/peripherals/touchpad/tap-to-click: "true"
   /org/gnome/desktop/search-providers/disable-external: "true"
   /org/gnome/desktop/wm/preferences/action-middle-click-titlebar: "'lower'"
