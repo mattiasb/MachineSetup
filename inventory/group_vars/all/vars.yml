@@ -335,6 +335,7 @@ git_repos:
     - repo: mattiasb/mtg-deck-mode
     - repo: mattiasb/Code-Test
       dest: "{{ homedir }}/Code/Test"
+      version: main
     - repo: mattiasb/.emacs.d
       dest: "{{ homedir }}/.config/emacs"
     - repo: mattiasb/.local-bin

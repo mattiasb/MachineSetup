@@ -5,4 +5,5 @@
     repositories: "{{ item.value }}"
     domain: "{{ item.key }}"
     user: "git"
+    version: "{{ item.version | default('master') }}"
   with_dict: "{{ git_repos }}"
