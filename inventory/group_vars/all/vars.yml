@@ -366,8 +366,8 @@ flatpak_apps:
     remote: flathub
   - name: com.spotify.Client
     remote: flathub
-  - name: org.gnome.Fractal
-    remote: flathub
+  - name: org.gnome.Fractal.Devel
+    remote: gnome-nightly
   - name: com.microsoft.Teams
     remote: flathub
   - name: com.github.bleakgrey.tootle
