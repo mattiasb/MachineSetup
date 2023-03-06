@@ -9,17 +9,17 @@ W6IOvY/QHUzxzguouQLwP5BU+H6UDqpJEodNvYFuDZ248JpL4HB5mx8t41R//6i6aVnpJ5teq3dbNtI
 Z3+WQ=='
   flatpak_apps: []
   dnf_packages_present:
-    - python3.8
     - moby-engine
+    - python3.8
 
   gnome_settings:
     /org/gnome/desktop/interface/monospace-font-name: "'JetBrains Mono 11'"
 
   gnome_favorite_apps:
-    - org.gnome.Fractal
     - com.microsoft.Teams
-    - org.remmina.Remmina
     - org.gnome.Boxes
+    - org.gnome.Fractal
+    - org.remmina.Remmina
 
   url_install:
     executables:

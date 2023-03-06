@@ -187,8 +187,8 @@ sysconf_services:
 
 sysconf_groups:
   mattiasb:
-    - wheel
     - libvirt
+    - wheel
     - wireshark
 
 
@@ -198,24 +198,24 @@ sysconf_groups:
 
 gnome_settings:
   /org/gnome/Weather/automatic-location: "true"
+  /org/gnome/desktop/calendar/show-weekdate: "true"
   /org/gnome/desktop/datetime/automatic-timezone: "true"
+  /org/gnome/desktop/input-sources/xkb-options: "['compose:caps']"
   /org/gnome/desktop/interface/gtk-key-theme: "'Emacs'"
   /org/gnome/desktop/interface/monospace-font-name: "'JetBrains Mono 12'"
   /org/gnome/desktop/peripherals/touchpad/tap-to-click: "true"
   /org/gnome/desktop/search-providers/disable-external: "true"
+  /org/gnome/desktop/wm/keybindings/close: "['<Super>q']"
   /org/gnome/desktop/wm/preferences/action-middle-click-titlebar: "'lower'"
-  /org/gnome/nautilus/preferences/click-policy: "'single'"
+  /org/gnome/evolution/shell/buttons-visible: "false"
+  /org/gnome/evolution/shell/show-to-do-bar: "false"
   /org/gnome/nautilus/icon-view/default-zoom-level: "'standard'"
+  /org/gnome/nautilus/preferences/click-policy: "'single'"
   /org/gnome/settings-daemon/plugins/color/night-light-enabled: "true"
   /org/gnome/shell/app-switcher/current-workspace-only: "true"
   /org/gnome/shell/keybindings/toggle-overview: '@as []'
   /org/gnome/software/show-upgrade-prerelease: "true"
   /org/gnome/system/locale/region: "'sv_SE.UTF-8'"
-  /org/gnome/desktop/input-sources/xkb-options: "['compose:caps']"
-  /org/gnome/desktop/wm/keybindings/close: "['<Super>q']"
-  /org/gnome/evolution/shell/buttons-visible: "false"
-  /org/gnome/evolution/shell/show-to-do-bar: "false"
-  /org/gnome/desktop/calendar/show-weekdate: "true"
   /org/gtk/settings/file-chooser/sort-directories-first: "true"
 
 gnome_favorite_apps:
@@ -267,12 +267,12 @@ gnome_custom_keybindings:
   - name: Calendar
     binding: <Super>c
     command: /bin/gnome-calendar
-  - name: Emacs
-    binding: <Super>s
-    command: /bin/emacsclient -c -s main
   - name: Console
     binding: <Super>e
     command: /bin/kgx
+  - name: Emacs
+    binding: <Super>s
+    command: /bin/emacsclient -c -s main
   - name: Tootle
     binding: <Super>t
     command: flatpak run com.github.bleakgrey.tootle
@@ -312,16 +312,16 @@ userconf_services:
   powerline: true
 
 userconf_dotfiles:
-  - src: bash/rc
-    dest: .bashrc
-  - src: bash/profile
-    dest: .bash_profile
   - src: bash/logout
     dest: .bash_logout
-  - src: inputrc
-    dest: .inputrc
+  - src: bash/profile
+    dest: .bash_profile
+  - src: bash/rc
+    dest: .bashrc
   - src: gtk-3.0/Compose
     dest: .XCompose
+  - src: inputrc
+    dest: .inputrc
 
 
 ## git
@@ -331,15 +331,15 @@ git_repos:
     - repo: mattiasb/mtg-decks
       dest: "{{ homedir }}/Documents/Magic/decks"
   github.com:
-    - repo: mattiasb/MachineSetup
-    - repo: mattiasb/mtg-deck-mode
+    - repo: mattiasb/.emacs.d
+    - repo: mattiasb/.local-bin
+      dest: "{{ homedir }}/.local/bin"
     - repo: mattiasb/Code-Test
       dest: "{{ homedir }}/Code/Test"
       version: main
-    - repo: mattiasb/.emacs.d
+    - repo: mattiasb/MachineSetup
+    - repo: mattiasb/mtg-deck-mode
       dest: "{{ homedir }}/.config/emacs"
-    - repo: mattiasb/.local-bin
-      dest: "{{ homedir }}/.local/bin"
 
 
 ## Bash-completion
@@ -358,33 +358,33 @@ flatpak_remotes:
 
 flatpak_apps:
   # Apps
+  - name: com.github.bleakgrey.tootle
+    remote: flathub
+  - name: com.github.tchx84.Flatseal
+    remote: flathub
+  - name: com.microsoft.Teams
+    remote: flathub
+  - name: com.slack.Slack
+    remote: flathub
+  - name: com.spotify.Client
+    remote: flathub
   - name: im.bernard.Nostalgia
     remote: flathub
   - name: org.gnome.Builder
     remote: flathub
-  - name: org.gnome.Maps
-    remote: flathub
-  - name: com.spotify.Client
-    remote: flathub
   - name: org.gnome.Fractal.Devel
     remote: gnome-nightly
-  - name: com.microsoft.Teams
-    remote: flathub
-  - name: com.github.bleakgrey.tootle
+  - name: org.gnome.Maps
     remote: flathub
   - name: org.signal.Signal
-    remote: flathub
-  - name: com.github.tchx84.Flatseal
-    remote: flathub
-  - name: com.slack.Slack
     remote: flathub
 
 
 ## Languages
 
 languages_nodejs:
-  - eslint
   - bash-language-server
+  - eslint
 
 languages_python3:
   - autopep8

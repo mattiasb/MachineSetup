@@ -4,35 +4,35 @@ private:
     flathub-beta: https://flathub.org/beta-repo/flathub-beta.flatpakrepo
   flatpak_apps:
     # Apps
-    - name: org.gnome.Books
+    - name: com.belmoussaoui.Obfuscate
       remote: flathub
-    - name: org.gnome.Games
+    - name: com.discordapp.Discord
+      remote: flathub
+    - name: com.github.Anuken.Mindustry
       remote: flathub
     - name: com.valvesoftware.Steam
       remote: flathub
     - name: com.valvesoftware.Steam.CompatibilityTool.Proton
       remote: flathub
-    - name: com.github.Anuken.Mindustry
-      remote: flathub
-    - name: com.discordapp.Discord
-      remote: flathub
     - name: de.haeckerfelix.Fragments
       remote: flathub-beta
     - name: net.kirgroup.confy
       remote: flathub
-    - name: org.gnome.Podcasts
+    - name: org.gnome.Books
       remote: flathub
-    - name: com.belmoussaoui.Obfuscate
+    - name: org.gnome.Games
+      remote: flathub
+    - name: org.gnome.Podcasts
       remote: flathub
     - name: org.gnome.gitlab.YaLTeR.VideoTrimmer
       remote: flathub
 
   gnome_favorite_apps:
-    - org.gnome.Books
-    - org.gnome.Games
     - com.discordapp.Discord
-    - org.gnome.Fractal
     - de.haeckerfelix.Fragments
+    - org.gnome.Books
+    - org.gnome.Fractal
+    - org.gnome.Games
   dnf_packages_absent:
     - docker
     - docker-common
