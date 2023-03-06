@@ -273,9 +273,6 @@ gnome_custom_keybindings:
   - name: Emacs
     binding: <Super>s
     command: /bin/emacsclient -c -s main
-  - name: Tootle
-    binding: <Super>t
-    command: flatpak run com.github.bleakgrey.tootle
 
 
 ## Lastpass
