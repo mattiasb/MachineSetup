@@ -382,6 +382,7 @@ flatpak_apps:
 languages_nodejs:
   - bash-language-server
   - eslint
+  - resume-cli
 
 languages_python3:
   - autopep8
