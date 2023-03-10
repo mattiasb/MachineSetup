@@ -351,6 +351,7 @@ bashcomp_commands:
 
 flatpak_remotes:
   flathub: https://flathub.org/repo/flathub.flatpakrepo
+  gnome-nightly: https://nightly.gnome.org/gnome-nightly.flatpakrepo
 
 flatpak_apps:
   # Apps
