@@ -33,7 +33,7 @@
     GEMCACHE: "{{ homedir }}/.local/share/gem"
 
 - name: "Languages : Rust"
-  community.general.cargo:
+  cargo:
     name: "{{ item }}"
     path: "{{ homedir }}/.local/"
   with_items: "{{ languages_rust }}"
