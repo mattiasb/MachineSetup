@@ -15,7 +15,7 @@ private:
     - name: com.valvesoftware.Steam.CompatibilityTool.Proton
       remote: flathub
     - name: de.haeckerfelix.Fragments
-      remote: flathub-beta
+      remote: flathub
     - name: net.kirgroup.confy
       remote: flathub
     - name: org.gnome.Books
