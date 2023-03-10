@@ -351,7 +351,6 @@ bashcomp_commands:
 
 flatpak_remotes:
   flathub: https://flathub.org/repo/flathub.flatpakrepo
-  flathub-beta: https://flathub.org/beta-repo/flathub-beta.flatpakrepo
 
 flatpak_apps:
   # Apps
