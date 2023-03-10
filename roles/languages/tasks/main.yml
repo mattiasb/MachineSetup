@@ -40,10 +40,10 @@
     creates: "{{ homedir }}/.local/bin/{{ item }}"
 
 - name: "Languages : Go"
-  command: go install {{ item }}
-  with_items: "{{ languages_go }}"
+  command: go install {{ item.key }}@{{ item.value | default('latest') }}
+  with_dict: "{{ languages_go }}"
   environment:
     GOBIN: "{{ homedir }}/.local/bin"
     GOPATH: "{{ homedir }}/Code/go:/usr/share/gocode"
   args:
-    creates: "{{ homedir }}/.local/bin/{{ item | basename }}"
+    creates: "{{ homedir }}/.local/bin/{{ item.key | basename }}"

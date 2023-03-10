@@ -401,8 +401,8 @@ languages_ruby:
 languages_lua:
   - luacheck
 languages_go:
-  - github.com/jmespath/jp@latest
-  - github.com/noahgorstein/jqp@latest
+  github.com/jmespath/jp: f4ee7271599705d3a55d369ef131b68d99daf2c7
+  github.com/noahgorstein/jqp: fe7b5c27089180e1b2848ccf0ef8b3d24a883966
 
 
 ## URL Install

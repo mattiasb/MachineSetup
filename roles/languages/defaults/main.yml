@@ -5,4 +5,6 @@ languages_python3: []
 languages_rust: []
 languages_ruby: []
 languages_lua: []
-languages_go: []
+
+# package → version (default: latest)
+languages_go: {}
