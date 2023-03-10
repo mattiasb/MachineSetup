@@ -385,12 +385,9 @@ languages_nodejs:
   - resume-cli
 
 languages_python3:
-  - autopep8
   - black
   - flake8
-  - importmagic
   - ipython
-  - jedi
   - mypy
   - pipenv
   - pyright
