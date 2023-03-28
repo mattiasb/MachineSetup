@@ -52,6 +52,7 @@ dnf_packages_present:
   - docbook-dtds
   - docbook-style-xsl
   - emacs
+  - enchant2-devel
   - epiphany
   - evolution
   - evolution-ews
