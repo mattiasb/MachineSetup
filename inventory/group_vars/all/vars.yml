@@ -335,6 +335,7 @@ git_repos:
       dest: "{{ homedir }}/Documents/Magic/decks"
   github.com:
     - repo: mattiasb/.emacs.d
+      dest: "{{ homedir }}/.config/emacs"
     - repo: mattiasb/.local-bin
       dest: "{{ homedir }}/.local/bin"
     - repo: mattiasb/Code-Test
@@ -342,7 +343,6 @@ git_repos:
       version: main
     - repo: mattiasb/MachineSetup
     - repo: mattiasb/mtg-deck-mode
-      dest: "{{ homedir }}/.config/emacs"
 
 
 ## Bash-completion
