@@ -33,20 +33,15 @@ if [[ "$(systemd-detect-virt)" == kvm ]]; then
     sudo systemctl restart avahi-daemon
 else
     case "$(sudo cat /sys/devices/virtual/dmi/id/product_uuid)" in
-        4c4c4544-0054-4e10-8043-c7c04f565a31)
-            sudo hostnamectl set-hostname mattiasb-dell-E6540
-            ;;
-        4c4c4544-005a-3210-8057-b8c04f305a32)
-            sudo hostnamectl set-hostname mattiasb-dell-5401
+        94a01d4c-2baa-11b2-a85c-cbb86a8dd428)
+            sudo hostnamectl set-hostname mattiasb-lenovo-x13
             ;;
         1afaa71f-393e-11e8-9379-8c164560bb35)
             sudo hostnamectl set-hostname mattiasb-lenovo-yoga920
             ;;
-
         *)
             echo Unknown hardware!
             exit 3
     esac
 fi
-
 ./site.yml -v
