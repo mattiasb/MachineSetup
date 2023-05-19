@@ -1,16 +1,8 @@
 ---
 work:
-  ssh_known_hosts:
-    git.smarteye.se: 'ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAwp+mYqOm2QCwU3t9aO0dM
-jeroCPlFNUNHsdFXKGb9DWRuN2m4OPQPioEgIIaE91gHZ89OIi4lcGqDeGISIEZpVGLQXlnG0RVfrGg
-Dv8/oQT2y60m298zJXRU2voVCJGFdcjYDfPsaaAJ3ICRaUf1wivdzCvT+V8/cPwCMIPgefUZMW0E1xW
-W6IOvY/QHUzxzguouQLwP5BU+H6UDqpJEodNvYFuDZ248JpL4HB5mx8t41R//6i6aVnpJ5teq3dbNtI
-79wzz3ijxh9g+pKpL89J8LrfQvePL8DBIqk/6R6bAkdrAQrtQ6dnU5DGgA6t8fpH+orXXGXmQUxCmLq
-Z3+WQ=='
+  ssh_known_hosts: {}
   flatpak_apps: []
-  dnf_packages_present:
-    - moby-engine
-    - python3.8
+  dnf_packages_present: []
 
   gnome_settings:
     /org/gnome/desktop/interface/monospace-font-name: "'JetBrains Mono 11'"
@@ -19,16 +11,10 @@ Z3+WQ=='
     - com.microsoft.Teams
     - org.gnome.Boxes
     - org.gnome.Fractal
-    - org.remmina.Remmina
 
-  url_install:
-    executables:
-      - url: https://dl.k8s.io/release/v1.19.9/bin/linux/amd64/kubectl
-        sha: "sha256:7128c9e38ab9c445a3b02d3d0b3f0f15fe7fbca56fd87b84e575d7b29e\
-999ad9"
+  url_install: {}
 
-  bashcomp_commands:
-    kubectl: completion bash
+  bashcomp_commands: {}
 
 ssh_known_hosts: >-
   {{ groupvars.all.ssh_known_hosts | combine(work.ssh_known_hosts) }}
