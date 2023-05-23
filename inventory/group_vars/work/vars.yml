@@ -5,7 +5,11 @@ work:
   dnf_packages_present: []
 
   gnome_settings:
-    /org/gnome/desktop/interface/monospace-font-name: "'JetBrains Mono 11'"
+    /org/gnome/desktop/interface/document-font-name: "'Cantarell 14'"
+    /org/gnome/desktop/interface/font-name: "'Cantarell 14'"
+    /org/gnome/desktop/wm/preferences/titlebar-font: "'Cantarell Bold 14'"
+    /org/gnome/desktop/interface/monospace-font-name: >-
+      'JetBrains Mono Medium 15'
 
   gnome_favorite_apps:
     - com.microsoft.Teams
