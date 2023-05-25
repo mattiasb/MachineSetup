@@ -20,6 +20,9 @@ work:
 
   bashcomp_commands: {}
 
+  languages_python3:
+    - pre-commit==3.1.0
+
 ssh_known_hosts: >-
   {{ groupvars.all.ssh_known_hosts | combine(work.ssh_known_hosts) }}
 
@@ -38,6 +41,9 @@ bashcomp_commands: >-
   {{ groupvars.all.bashcomp_commands
    | combine(work.bashcomp_commands, recursive=True)
   }}
+
+languages_python3: >-
+  {{ groupvars.all.languages_python3 | union(work.languages_python3) }}
 
 url_install: >-
   {{ groupvars.all.url_install
