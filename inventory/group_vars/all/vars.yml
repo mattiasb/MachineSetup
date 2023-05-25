@@ -361,7 +361,7 @@ flatpak_remotes:
 
 flatpak_apps:
   # Apps
-  - name: com.github.bleakgrey.tootle
+  - name: dev.geopjr.Tuba
     remote: flathub
   - name: com.github.tchx84.Flatseal
     remote: flathub
