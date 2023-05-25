@@ -23,6 +23,10 @@ work:
   languages_python3:
     - pre-commit==3.1.0
 
+  languages_go:
+    github.com/hashicorp/terraform-ls: 4dd5df0a1dbed653f473be15b2d872528f98db09
+    github.com/hashicorp/terraform: 6c2c6cfa1b55bd6ff4cf4e26ef86d8d7ab0465ec
+
 ssh_known_hosts: >-
   {{ groupvars.all.ssh_known_hosts | combine(work.ssh_known_hosts) }}
 
@@ -44,6 +48,9 @@ bashcomp_commands: >-
 
 languages_python3: >-
   {{ groupvars.all.languages_python3 | union(work.languages_python3) }}
+
+languages_go: >-
+  {{ groupvars.all.languages_go | combine(work.languages_go) }}
 
 url_install: >-
   {{ groupvars.all.url_install
