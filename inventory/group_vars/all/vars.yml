@@ -157,6 +157,8 @@ dnf_packages_present:
   - xprop
   - yamllint
   - yelp-tools
+  - yubikey-manager
+  - yubikey-manager-qt
   - zlib-devel
   - zlib-static
 
