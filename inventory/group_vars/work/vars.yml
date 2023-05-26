@@ -2,7 +2,9 @@
 work:
   ssh_known_hosts: {}
   flatpak_apps: []
-  dnf_packages_present: []
+  dnf_packages_present:
+    - libxslt-devel
+    - libpq-devel
 
   gnome_settings:
     /org/gnome/desktop/interface/document-font-name: "'Cantarell 14'"
