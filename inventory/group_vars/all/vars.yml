@@ -416,8 +416,10 @@ languages_go:
 ## URL Install
 
 url_install:
-  executables: {}
-
+  executables:
+    - url: https://dl.k8s.io/release/v1.26.3/bin/linux/amd64/kubectl
+      sha: >-
+        sha256:026c8412d373064ab0359ed0d1a25c975e9ce803a093d76c8b30c5996ad73e75
 
 ## GIT Install
 
