@@ -26,8 +26,8 @@ work:
     - pre-commit==3.1.0
 
   languages_go:
-    github.com/hashicorp/terraform-ls: 4dd5df0a1dbed653f473be15b2d872528f98db09
-    github.com/hashicorp/terraform: 6c2c6cfa1b55bd6ff4cf4e26ef86d8d7ab0465ec
+    github.com/hashicorp/terraform-ls: fc585857982fa3ec5898b02db3317f1590116fe8
+    github.com/hashicorp/terraform: d1c116a96e150aa1dd2e11f53fc988c77424d2d9
 
 ssh_known_hosts: >-
   {{ groupvars.all.ssh_known_hosts | combine(work.ssh_known_hosts) }}
