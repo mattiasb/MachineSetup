@@ -6,10 +6,7 @@
   check_mode: false
   # This just becomes too much
   no_log: true
-  environment:
-    # TODO: Make this a bit more general instead of having a workaround
-    #       specifically for pipenv.
-    _PIPENV_COMPLETE: bash_source
+  environment: "{{ environment }}"
 
 - name: "{{ command }} : Write completion script"
   copy:

@@ -12,5 +12,9 @@
   include_tasks: bashcomp-command.yml
   vars:
     command: "{{ item.key }}"
-    arguments: "{{ item.value }}"
+    arguments: >-
+      {{ item.value is mapping
+       | ternary(item.value.arguments | d(''), item.value)
+      }}
+    environment: "{{ item.value.env | d({}) }}"
   with_dict: "{{ bashcomp_commands }}"

@@ -353,6 +353,8 @@ bashcomp_commands:
   npm: completion
   pandoc: --bash-completion
   pipenv:
+    env:
+      _PIPENV_COMPLETE: bash_source
 
 
 ## Flatpak
