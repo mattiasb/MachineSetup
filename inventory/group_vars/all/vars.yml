@@ -352,6 +352,7 @@ git_repos:
 bashcomp_commands:
   npm: completion
   pandoc: --bash-completion
+  talosctl: completion bash
   pipenv:
     env:
       _PIPENV_COMPLETE: bash_source
@@ -422,6 +423,11 @@ url_install:
     - url: https://dl.k8s.io/release/v1.26.3/bin/linux/amd64/kubectl
       sha: >-
         sha256:026c8412d373064ab0359ed0d1a25c975e9ce803a093d76c8b30c5996ad73e75
+    - name: talosctl
+      url: "https://github.com/siderolabs/talos/releases/download/v1.4.5/\
+           talosctl-linux-amd64"
+      sha: >-
+        sha256:cdf9e6f753da911763ca70f377db1b47f1ce8d0448921179035364d7a05fb8eb
 
 ## GIT Install
 
