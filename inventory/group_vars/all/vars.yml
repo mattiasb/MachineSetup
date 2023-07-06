@@ -483,3 +483,11 @@ git_install:
           dest: "{{ homedir }}/.local/share/fonts/"
       commands:
         - fc-cache -f -v
+
+    - repo: rainstormstudio/nerd-icons.el
+      version: main
+      files:
+        - src: fonts/
+          dest: "{{ homedir }}/.local/share/fonts/"
+      commands:
+        - fc-cache -f -v
