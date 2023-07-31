@@ -127,6 +127,7 @@ dnf_packages_present:
   - podman
   - podman-compose
   - powerline
+  - powerline-go
   - python-devel
   - python-pip
   - python-pipenv
@@ -314,7 +315,7 @@ userconf_config_repo_url: git@github.com:mattiasb/.config.git
 userconf_services:
   emacs: true
   lockmon: true
-  powerline: true
+  powerline: false
 
 userconf_dotfiles:
   - src: bash/logout
