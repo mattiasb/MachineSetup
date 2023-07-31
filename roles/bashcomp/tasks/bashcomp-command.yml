@@ -6,7 +6,7 @@
   check_mode: false
   # This just becomes too much
   no_log: true
-  environment: "{{ environment }}"
+  environment: "{{ env }}"
 
 - name: "{{ command }} : Write completion script"
   copy:

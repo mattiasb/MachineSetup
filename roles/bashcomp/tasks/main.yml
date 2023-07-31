@@ -16,5 +16,5 @@
       {{ item.value is mapping
        | ternary(item.value.arguments | d(''), item.value)
       }}
-    environment: "{{ item.value.env | d({}) }}"
+    env: "{{ item.value.env | d({}) }}"
   with_dict: "{{ bashcomp_commands }}"
