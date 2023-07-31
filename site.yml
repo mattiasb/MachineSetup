@@ -7,8 +7,8 @@
   gather_facts: false
   tasks:
     - name: "Sudo password"
-      # Need to list all tags instead of using `always` since otherwise Ansible
-      # will run this even when setting the `user` tag.
+      # Need to list all tags in this play instead of using `always` since
+      # otherwise Ansible will run this even when *only* setting the `user` tag.
       tags:
         - system
         - prerequisites
