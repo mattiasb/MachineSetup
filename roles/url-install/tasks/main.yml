@@ -4,7 +4,7 @@
     url: "{{ item.url }}"
     dest: "{{ homedir }}/.local/bin/{{ item.name | d('') }}"
     mode: 0755
-    checksum: "{{ item.sha }}"
+    checksum: "sha256:{{ item.sha256 }}"
   with_items: "{{ url_install.executables | d([]) }}"
 
 - name: "Install other files"
