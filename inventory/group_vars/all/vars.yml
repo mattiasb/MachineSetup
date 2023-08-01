@@ -18,7 +18,7 @@ ansible_python_interpreter: /usr/bin/python3
 ## DNF
 
 dnf_repos:
-  google-chrome: true
+  google-chrome: false
 
 dnf_repos_rpmfusion:
   free: true
@@ -79,7 +79,6 @@ dnf_packages_present:
   - golang
   - golang-godoc
   - golang-x-tools-gopls
-  - google-chrome-stable
   - gperf
   - gstreamer1-libav
   - gstreamer1-plugins-bad-freeworld
