@@ -385,6 +385,8 @@ flatpak_apps:
     remote: gnome-nightly
   - name: org.gnome.Maps
     remote: flathub
+  - name: org.nickvision.tubeconverter
+    remote: flathub
   - name: org.signal.Signal
     remote: flathub
 
