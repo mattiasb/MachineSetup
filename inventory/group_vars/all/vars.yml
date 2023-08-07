@@ -404,6 +404,7 @@ languages_python3:
   - ipython
   - mypy
   - pipenv
+  - pudb
   - pyright
   - remarshal
   - yasha
