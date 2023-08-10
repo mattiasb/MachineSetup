@@ -129,6 +129,8 @@ dnf_packages_present:
   - powerline
   - powerline-go
   - python-devel
+  - python-lsp-black
+  - python-lsp-server
   - python-pip
   - python-pipenv
   - python3-devel
@@ -405,7 +407,6 @@ languages_python3:
   - mypy
   - pipenv
   - pudb
-  - pyright
   - remarshal
   - yasha
 
