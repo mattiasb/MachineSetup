@@ -23,6 +23,7 @@ work:
   bashcomp_commands: {}
 
   languages_python3:
+    - azure-cli
     - pre-commit==3.1.0
 
   languages_go:
