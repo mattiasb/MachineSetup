@@ -357,6 +357,7 @@ bashcomp_commands:
   npm: completion
   pandoc: --bash-completion
   talosctl: completion bash
+  pip: completion --bash
   pipenv:
     env:
       _PIPENV_COMPLETE: bash_source
