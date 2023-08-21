@@ -155,6 +155,7 @@ dnf_packages_present:
   - vagrant
   - webkitgtk4-devel
   - wireshark
+  - xxd
   - xmlto
   - xorriso
   - xprop
