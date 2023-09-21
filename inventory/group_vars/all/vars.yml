@@ -101,6 +101,7 @@ dnf_packages_present:
   - lftp
   - libatomic
   - libcurl-devel
+  - librsvg2-tools
   - libva-intel-driver
   - libxslt
   - livecd-tools
@@ -149,6 +150,7 @@ dnf_packages_present:
   - rust
   - spin-kickstarts
   - systemd-container
+  - texlive-beamer
   - tig
   - tmux
   - tmux-powerline
