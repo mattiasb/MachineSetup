@@ -388,6 +388,8 @@ flatpak_apps:
     remote: flathub
   - name: im.bernard.Nostalgia
     remote: flathub
+  - name: io.gitlab.news_flash.NewsFlash
+    remote: flathub
   - name: org.gnome.Builder
     remote: flathub
   - name: org.gnome.Fractal.Devel
