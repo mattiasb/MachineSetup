@@ -15,6 +15,7 @@
         - dnf
         - flatpak-system-clean
         - sysconf
+      no_log: true
       block:
         - pause:
             prompt: "Sudo password"
@@ -22,7 +23,6 @@
           register: result
         - set_fact:
             ansible_become_pass: "{{ result.user_input }}"
-          no_log: true
 
         # Need this since Ansible otherwise won't gather_facts on tagged runs.
         - name: "Gather facts"
