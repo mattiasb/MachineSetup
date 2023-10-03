@@ -287,6 +287,9 @@ gnome_custom_keybindings:
   - name: Emacs
     binding: <Super>s
     command: /bin/emacsclient -c -s main
+  - name: NewsFlash
+    binding: <Super>n
+    command: /bin/flatpak run io.gitlab.news_flash.NewsFlash
 
 
 ## Lastpass
