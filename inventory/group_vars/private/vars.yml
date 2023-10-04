@@ -18,13 +18,13 @@ private:
       remote: flathub
     - name: net.kirgroup.confy
       remote: flathub
-    - name: org.gnome.Books
-      remote: flathub
     - name: org.gnome.Games
       remote: flathub
     - name: org.gnome.Podcasts
       remote: flathub
     - name: org.gnome.gitlab.YaLTeR.VideoTrimmer
+      remote: flathub
+    - name: org.nickvision.tubeconverter
       remote: flathub
 
   gnome_favorite_apps:
