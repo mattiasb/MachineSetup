@@ -30,8 +30,6 @@ private:
   gnome_favorite_apps:
     - com.discordapp.Discord
     - de.haeckerfelix.Fragments
-    - org.gnome.Books
-    - org.gnome.Fractal
     - org.gnome.Games
   dnf_packages_absent:
     - docker

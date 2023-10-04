@@ -234,6 +234,8 @@ gnome_settings:
 
 gnome_favorite_apps:
   - firefox
+  - io.gitlab.news_flash.NewsFlash
+  - org.gnome.Fractal.Devel
   - com.spotify.Client
   - org.gnome.Nautilus
   - org.gnome.Calendar
