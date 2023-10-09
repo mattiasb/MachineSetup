@@ -425,6 +425,10 @@ languages_nodejs:
 #       inject:
 #         - pylsp-mypy
 
+# Manual:
+# $ pipx inject python-lsp-server pylsp-mypy
+# $ pipx inject python-lsp-server python-lsp-black
+
 languages_python3:
   - black
   - flake8
