@@ -46,6 +46,7 @@ dnf_packages_present:
   - avahi-tools
   - bat
   - bison
+  - btop
   - cabal-install
   - cargo
   - cascadia-fonts-all
