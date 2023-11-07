@@ -138,7 +138,6 @@ dnf_packages_present:
   - python-pip
   - python-pipenv
   - python3-devel
-  - python3.10-devel
   - ragel
   - remmina
   - remmina-plugins-rdp
