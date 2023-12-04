@@ -3,6 +3,7 @@ work:
   ssh_known_hosts: {}
   flatpak_apps: []
   dnf_packages_present:
+    - azure-cli
     - libxslt-devel
     - libpq-devel
     - python3.11-devel
@@ -24,7 +25,6 @@ work:
   bashcomp_commands: {}
 
   languages_python3:
-    - azure-cli
     - pre-commit==3.5.0
 
   languages_go: {}
