@@ -447,8 +447,8 @@ languages_ruby:
 languages_lua:
   - luacheck
 languages_go:
-  github.com/hashicorp/terraform-ls: c2f4648042a56f74f6dc619e156f61c274cc5560
-  github.com/hashicorp/terraform: 74adf9bc608ae5a9506a369c57eecb9973ed166d
+  github.com/hashicorp/terraform: eba3240dae80b8bdd14d747cc43d056ea22573f4
+  github.com/hashicorp/terraform-ls: 3e4b0e4f6e51fe0cd3be399c6cffbfc98f072c6c
   github.com/jmespath/jp: f4ee7271599705d3a55d369ef131b68d99daf2c7
   github.com/noahgorstein/jqp: fe7b5c27089180e1b2848ccf0ef8b3d24a883966
 
