@@ -19,7 +19,10 @@
 - name: "{{ repo | basename }} : Files : Copy files"
   copy:
     src: "{{ repo }}/{{ file.src }}"
-    dest: "{{ file.dest }}"
+    dest: "{{  file.dest }}"
+    mode: "{{  file.mode  | d(omit) }}"
+    owner: "{{ file.owner | d(omit) }}"
+    group: "{{ file.group | d(omit) }}"
   with_items: "{{ files }}"
   loop_control:
     loop_var: file
