@@ -527,3 +527,10 @@ git_install:
           dest: "{{ homedir }}/.local/share/fonts/"
       commands:
         - fc-cache -f -v
+
+    - repo: emacs-eldev/eldev
+      version: 65e00433b5673f18328fc824cbdb54e6f7b872bc
+      files:
+        - src: /bin/eldev
+          dest: "{{ homedir }}/.local/bin/eldev"
+          mode: '0755'
