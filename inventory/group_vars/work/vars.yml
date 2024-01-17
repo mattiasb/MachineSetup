@@ -2,11 +2,24 @@
 work:
   ssh_known_hosts: {}
   flatpak_apps: []
+
+  dnf_repos_custom:
+    - repo: https://download.docker.com/linux/fedora/docker-ce.repo
+
   dnf_packages_present:
     - azure-cli
-    - libxslt-devel
+    - containerd.io
+    - docker-buildx-plugin
+    - docker-ce
+    - docker-ce-cli
+    - docker-compose-plugin
     - libpq-devel
+    - libxslt-devel
     - python3.11-devel
+
+  sysconf_groups:
+    mattiasb:
+      - docker
 
   gnome_settings:
     /org/gnome/desktop/interface/document-font-name: "'Cantarell 14'"
@@ -35,6 +48,9 @@ ssh_known_hosts: >-
 flatpak_apps: >-
   {{ groupvars.all.flatpak_apps | union(work.flatpak_apps) }}
 
+dnf_repos_custom: >-
+  {{ groupvars.all.dnf_repos_custom | union(work.dnf_repos_custom) }}
+
 dnf_packages_present: >-
   {{ groupvars.all.dnf_packages_present | union(work.dnf_packages_present) }}
 
@@ -62,6 +78,11 @@ url_install: >-
 gnome_settings: >-
   {{ groupvars.all.gnome_settings
    | combine(work.gnome_settings, recursive=True)
+  }}
+
+sysconf_groups: >-
+  {{ groupvars.all.sysconf_groups
+   | combine(work.sysconf_groups, recursive=True, list_merge="append_rp")
   }}
 
 ssh_lastpass_key: Keys/ssh-mattiasb-work
