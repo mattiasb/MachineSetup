@@ -119,7 +119,6 @@ dnf_packages_present:
   - meson
   - moreutils
   - nautilus-dropbox
-  - nautilus-open-terminal
   - ncurses-devel
   - nmap
   - npm
