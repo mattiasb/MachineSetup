@@ -9,10 +9,9 @@
 
 - name: "Languages : Python"
   vars:
-    with_value: "{{ item.value['with'] | d([]) | join(',') }}"
-    with_formatted: "{{ with_value | ternary('[' + with_value + ']', '') }}"
+    features: "{{ item.value['features'] | d([]) }}"
   pipx:
-    name: "{{ item.key }}{{ with_formatted }}"
+    name: "{{ item.key }}[{{ features | join(',') }}]"
     state: present
   with_dict: "{{ languages_python3 }}"
 

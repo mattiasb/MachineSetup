@@ -420,7 +420,7 @@ languages_python3:
   pipenv:
   pudb:
   python-lsp-server:
-    with:
+    features:
       - all
     inject:
       - pylsp-mypy
