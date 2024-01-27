@@ -412,34 +412,22 @@ languages_nodejs:
   - eslint
   - resume-cli
 
-# Make it possible to inject pipx stuff
-# (like: pipx inject python-lsp-server pylsp-mypy).
-# Something like:
-#   languages_python3:
-#     black:
-#     ...
-#     pudb:
-#     python-lsp-server:
-#       with:
-#         - all
-#       inject:
-#         - pylsp-mypy
-
-# Manual:
-# $ pipx inject python-lsp-server pylsp-mypy
-# $ pipx inject python-lsp-server python-lsp-black
-
 languages_python3:
-  - black
-  - flake8
-  - ipython
-  - mypy
-  - pipenv
-  - pudb
-  - 'python-lsp-server[all]'
-  - remarshal
-  - yamlfix
-  - yasha
+  black:
+  flake8:
+  ipython:
+  mypy:
+  pipenv:
+  pudb:
+  python-lsp-server:
+    with:
+      - all
+    inject:
+      - pylsp-mypy
+      - python-lsp-black
+  remarshal:
+  yamlfix:
+  yasha:
 
 languages_rust: []
 languages_ruby:

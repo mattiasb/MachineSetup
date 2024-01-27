@@ -8,9 +8,25 @@
     NPM_CONFIG_USERCONFIG: "{{ homedir }}/.config/npm/config"
 
 - name: "Languages : Python"
+  vars:
+    with_value: "{{ item.value['with'] | d([]) | join(',') }}"
+    with_formatted: "{{ with_value | ternary('[' + with_value + ']', '') }}"
   pipx:
-    name: "{{ item }}"
-  with_items: "{{ languages_python3 }}"
+    name: "{{ item.key }}{{ with_formatted }}"
+    state: present
+  with_dict: "{{ languages_python3 }}"
+
+- name: "Languages : Python — Inject"
+  pipx:
+    name: "{{ item.key }}"
+    state: inject
+    inject_packages: "{{ item.value['inject'] }}"
+  with_items: >-
+    {{ languages_python3
+     | dict2items
+     | selectattr("value")
+     | list
+    }}
 
 - name: "Languages : Ruby"
   gem:
