@@ -13,7 +13,7 @@
   pipx:
     name: "{{ item.key }}[{{ features | join(',') }}]"
     state: present
-  with_dict: "{{ languages_python3 }}"
+  with_dict: "{{ languages_python }}"
 
 - name: "Languages : Python — Inject"
   pipx:
@@ -21,7 +21,7 @@
     state: inject
     inject_packages: "{{ item.value['inject'] }}"
   with_items: >-
-    {{ languages_python3
+    {{ languages_python
      | dict2items
      | selectattr("value")
      | list

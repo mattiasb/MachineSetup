@@ -37,7 +37,7 @@ work:
 
   bashcomp_commands: {}
 
-  languages_python3:
+  languages_python:
     - pre-commit==3.5.0
 
   languages_go: {}
@@ -64,8 +64,8 @@ bashcomp_commands: >-
    | combine(work.bashcomp_commands, recursive=True)
   }}
 
-languages_python3: >-
-  {{ groupvars.all.languages_python3 | union(work.languages_python3) }}
+languages_python: >-
+  {{ groupvars.all.languages_python | union(work.languages_python) }}
 
 languages_go: >-
   {{ groupvars.all.languages_go | combine(work.languages_go) }}

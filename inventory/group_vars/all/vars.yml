@@ -412,7 +412,7 @@ languages_nodejs:
   - eslint
   - resume-cli
 
-languages_python3:
+languages_python:
   black:
   flake8:
   ipython:
