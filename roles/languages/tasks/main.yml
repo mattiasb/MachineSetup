@@ -9,9 +9,18 @@
 
 - name: "Languages : Python"
   vars:
-    features: "{{ item.value['features'] | d([]) }}"
+    features: >-
+      {{ item.value['features']
+       | d(False)
+       | ternary("[" + (item.value['features'] | d([]) | join(',')) + "]", "")
+      }}
+    version: >-
+      {{ item.value['version']
+       | d(False)
+       | ternary("==" + (item.value['version'] | d("")), "")
+      }}
   pipx:
-    name: "{{ item.key }}[{{ features | join(',') }}]"
+    name: "{{ item.key }}{{ features }}{{ version }}"
     state: present
   with_dict: "{{ languages_python }}"
 
@@ -20,6 +29,8 @@
     name: "{{ item.key }}"
     state: inject
     inject_packages: "{{ item.value['inject'] }}"
+  # TODO(mattiasb): Filter out these instead ↓
+  when: '"inject" in item.value and (item.value.inject | length) > 0'
   with_items: >-
     {{ languages_python
      | dict2items
