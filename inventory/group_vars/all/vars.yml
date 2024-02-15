@@ -424,6 +424,7 @@ languages_python:
       - all
     inject:
       - pylsp-mypy
+      - python-lsp-ruff
       - python-lsp-black
   remarshal:
   yamlfix:
