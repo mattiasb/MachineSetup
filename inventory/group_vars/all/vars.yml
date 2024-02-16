@@ -43,7 +43,6 @@ dnf_packages_present:
   - "@development-tools"
   - ShellCheck
   - asciidoc
-  - avahi-tools
   - bat
   - bison
   - btop
@@ -63,7 +62,6 @@ dnf_packages_present:
   - epiphany
   - evolution
   - evolution-ews
-  - fedpkg
   - flatpak
   - flatpak-builder
   - flex
@@ -74,7 +72,6 @@ dnf_packages_present:
   - gimp
   - git
   - git-delta
-  - glade
   - gnome-calendar
   - gnome-common
   - gnome-console
@@ -89,8 +86,6 @@ dnf_packages_present:
   - gstreamer1-plugins-bad-freeworld
   - gstreamer1-plugins-ugly
   - gstreamer1-vaapi
-  - gtk-doc
-  - gtk3-devel-docs
   - hdparm
   - htop
   - httpie
@@ -99,7 +94,6 @@ dnf_packages_present:
   - jetbrains-mono-fonts
   - jq
   - lastpass-cli
-  - lftp
   - libatomic
   - libcurl-devel
   - librsvg2-tools
@@ -109,13 +103,8 @@ dnf_packages_present:
   - llvm-devel
   - llvm-static
   - lshw
-  - lua-devel
-  - lua-filesystem
-  - luarocks
   - makepasswd
-  - maven
   - meld
-  - mercurial
   - meson
   - moreutils
   - nautilus-dropbox
