@@ -42,12 +42,8 @@
   gem:
     name: "{{ item }}"
     user_install: true
+    norc: false
   with_items: "{{ languages_ruby }}"
-  environment:
-    GEMRC: "{{ homedir }}/.config/ruby/gemrc"
-    GEM_HOME: "{{ homedir }}/.local/share/gem"
-    GEM_CACHE: "{{ homedir }}/.cache/gem.cache"
-    GEMCACHE: "{{ homedir }}/.local/share/gem"
 
 - name: "Languages : Rust"
   cargo:
