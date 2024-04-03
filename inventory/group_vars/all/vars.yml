@@ -415,7 +415,8 @@ languages_python:
       - all
     inject:
       - pylsp-mypy
-      - pylsp-rope
+      # Doesn't play nice with eglot
+      # - pylsp-rope
       - python-lsp-ruff
       - python-lsp-black
   remarshal:
