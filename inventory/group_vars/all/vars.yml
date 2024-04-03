@@ -326,10 +326,6 @@ userconf_dotfiles:
     dest: .bash_profile
   - src: bash/rc
     dest: .bashrc
-  - src: gtk-3.0/Compose
-    dest: .XCompose
-  - src: inputrc
-    dest: .inputrc
 
 
 ## git
