@@ -30,8 +30,6 @@ work:
 
   gnome_favorite_apps:
     - com.microsoft.Teams
-    - org.gnome.Boxes
-    - org.gnome.Fractal
 
   url_install: {}
 

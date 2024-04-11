@@ -223,13 +223,15 @@ gnome_settings:
 
 gnome_favorite_apps:
   - firefox
+  - org.gnome.Maps
   - io.gitlab.news_flash.NewsFlash
-  - org.gnome.Fractal.Devel
+  - dev.geopjr.Tuba
+  - org.gnome.Fractal
   - com.spotify.Client
   - org.gnome.Nautilus
+  - org.gnome.Evolution
   - org.gnome.Calendar
   - org.gnome.Console
-  - org.gnome.Maps
   - org.gnome.Software
 
 gnome_mediakeys:
@@ -365,7 +367,7 @@ flatpak_remotes:
   gnome-nightly: https://nightly.gnome.org/gnome-nightly.flatpakrepo
 
 flatpak_apps:
-  # Apps
+  # Flathub
   - name: dev.geopjr.Tuba
     remote: flathub
   - name: com.github.tchx84.Flatseal
@@ -382,13 +384,18 @@ flatpak_apps:
     remote: flathub
   - name: org.gnome.Builder
     remote: flathub
-  - name: org.gnome.Fractal.Devel
-    remote: gnome-nightly
+  - name: org.gnome.Fractal
+    remote: flathub
   - name: org.gnome.Maps
     remote: flathub
   - name: org.signal.Signal
     remote: flathub
 
+  # GNOME Nightly
+  - name: org.gnome.Fractal.Devel
+    remote: gnome-nightly
+  - name: org.gnome.Maps.Devel
+    remote: gnome-nightly
 
 ## Languages
 
