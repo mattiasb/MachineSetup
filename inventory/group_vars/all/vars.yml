@@ -317,7 +317,6 @@ wRIxM5zDl9ssDhNrvkEN10="
 
 userconf_config_repo_url: git@github.com:mattiasb/.config.git
 userconf_services:
-  emacs: true
   lockmon: true
   powerline: false
 
@@ -337,8 +336,6 @@ git_repos:
     - repo: mattiasb/mtg-decks
       dest: "{{ homedir }}/Documents/Magic/decks"
   github.com:
-    - repo: mattiasb/.emacs.d
-      dest: "{{ homedir }}/.config/emacs"
     - repo: mattiasb/.local-bin
       dest: "{{ homedir }}/.local/bin"
     - repo: mattiasb/Code-Test
@@ -454,6 +451,11 @@ url_install:
 
 git_install:
   github.com:
+    - repo: mattiasb/emacs-2.0
+      version: main
+      make:
+        - install
+
     - repo: mattiasb/git-fpaste
       version: master
       make:
