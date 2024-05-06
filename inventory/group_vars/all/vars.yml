@@ -317,6 +317,7 @@ wRIxM5zDl9ssDhNrvkEN10="
 
 userconf_config_repo_url: git@github.com:mattiasb/.config.git
 userconf_services:
+  gtk3-color-scheme: true
   lockmon: true
   powerline: false
 
