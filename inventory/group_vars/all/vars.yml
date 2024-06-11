@@ -124,7 +124,6 @@ dnf_packages_present:
   - powerline-go
   - python-devel
   - python-pip
-  - python-pipenv
   - python3-devel
   - ragel
   - remmina
@@ -136,7 +135,6 @@ dnf_packages_present:
   - ruby-devel
   - ruby-irb
   - rust
-  - spin-kickstarts
   - systemd-container
   - texlive-beamer
   - tig
