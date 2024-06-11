@@ -53,14 +53,6 @@
   environment:
     CARGO_HOME: "{{ homedir }}/.local/share/cargo"
 
-- name: "Languages : Lua"
-  command: "luarocks install {{ item }}"
-  environment:
-    LUAROCKS_CONFIG: "{{ homedir }}/.config/luarocks/config.lua"
-  with_items: "{{ languages_lua }}"
-  args:
-    creates: "{{ homedir }}/.local/bin/{{ item }}"
-
 - name: "Languages : Go"
   command: go install {{ item.key }}@{{ item.value | default('latest') }}
   with_dict: "{{ languages_go }}"

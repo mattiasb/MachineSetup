@@ -428,8 +428,6 @@ languages_rust: []
 languages_ruby:
   - rubocop
   - solargraph
-languages_lua:
-  - luacheck
 languages_go:
   github.com/hashicorp/terraform: eba3240dae80b8bdd14d747cc43d056ea22573f4
   github.com/hashicorp/terraform-ls: 3e4b0e4f6e51fe0cd3be399c6cffbfc98f072c6c
