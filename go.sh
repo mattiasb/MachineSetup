@@ -36,6 +36,9 @@ else
         94a01d4c-2baa-11b2-a85c-cbb86a8dd428)
             sudo hostnamectl set-hostname mattiasb-lenovo-x13
             ;;
+        5403a9cc-1fd7-11b2-a85c-8f21df61ca6a)
+            sudo hostnamectl set-hostname mattiasb-lenovo-l15
+            ;;
         1afaa71f-393e-11e8-9379-8c164560bb35)
             sudo hostnamectl set-hostname mattiasb-lenovo-yoga920
             ;;
