@@ -429,8 +429,8 @@ languages_ruby:
   - rubocop
   - solargraph
 languages_go:
-  github.com/hashicorp/terraform: eba3240dae80b8bdd14d747cc43d056ea22573f4
-  github.com/hashicorp/terraform-ls: 3e4b0e4f6e51fe0cd3be399c6cffbfc98f072c6c
+  github.com/hashicorp/terraform: 8f2d640b719872f9661d46deb628d1f14d0fc135
+  github.com/hashicorp/terraform-ls: fe633cdca8e57a6db4a0e0fbecaf45608275823d
   github.com/jmespath/jp: f4ee7271599705d3a55d369ef131b68d99daf2c7
   github.com/noahgorstein/jqp: fe7b5c27089180e1b2848ccf0ef8b3d24a883966
 
