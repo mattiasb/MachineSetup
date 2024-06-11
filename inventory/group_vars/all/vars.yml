@@ -182,7 +182,6 @@ sysconf_selinux: false
 sysconf_coredumps: false
 
 sysconf_services:
-  dmraid-activation: false
   firewalld: false
   livesys: false
 
