@@ -433,6 +433,7 @@ languages_go:
   github.com/hashicorp/terraform-ls: fe633cdca8e57a6db4a0e0fbecaf45608275823d
   github.com/jmespath/jp: f4ee7271599705d3a55d369ef131b68d99daf2c7
   github.com/noahgorstein/jqp: fe7b5c27089180e1b2848ccf0ef8b3d24a883966
+  github.com/tmccombs/hcl2json: cd307a2a9ab8a2482a1f00e65a8337aeff5521ba
 
 
 ## URL Install
