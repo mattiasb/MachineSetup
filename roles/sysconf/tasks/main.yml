@@ -28,3 +28,32 @@
     enabled: "{{ item.value }}"
     state: "{{ item.value | ternary('started', 'stopped') }}"
   with_dict: "{{ sysconf_timers }}"
+
+- name: "sysconf : Shells"
+  become: true
+  lineinfile:
+    path: "/etc/shells"
+    line: "{{ item }}"
+  loop: "{{ sysconf_shells }}"
+
+- name: "sysconf : Add directories"
+  become: true
+  file:
+    state: directory
+    path: "/{{ item.path }}"
+  loop: >-
+    {{ lookup('filetree', '.')
+     | selectattr('state', 'equalto', 'directory')
+    }}
+
+- name: "sysconf : Add files"
+  become: true
+  copy:
+    src: "{{ item.path }}"
+    dest: "/{{ item.path }}"
+    mode: "{{ item.mode }}"
+  loop: >-
+    {{ lookup('filetree', '.')
+     | selectattr('state', 'equalto', 'file')
+     | selectattr('path', 'regex', '[^~#]$')
+    }}

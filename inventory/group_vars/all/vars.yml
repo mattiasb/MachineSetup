@@ -190,6 +190,7 @@ sysconf_services:
 
 users:
   mattiasb:
+    shell: /usr/local/bin/bash
     groups:
       - libvirt
       - wheel
