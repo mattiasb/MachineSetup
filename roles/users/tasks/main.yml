@@ -1,0 +1,8 @@
+---
+- name: "users : Setup users"
+  become: true
+  user:
+    name: "{{ item.key }}"
+    groups: "{{ item.value.groups | default(omit) }}"
+    shell: "{{ item.value.shell | default(omit) }}"
+  with_dict: "{{ users }}"

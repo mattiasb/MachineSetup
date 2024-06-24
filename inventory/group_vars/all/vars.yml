@@ -185,11 +185,15 @@ sysconf_services:
   firewalld: false
   livesys: false
 
-sysconf_groups:
+
+## Users
+
+users:
   mattiasb:
-    - libvirt
-    - wheel
-    - wireshark
+    groups:
+      - libvirt
+      - wheel
+      - wireshark
 
 
 ######################

@@ -17,9 +17,10 @@ work:
     - libxslt-devel
     - python3.11-devel
 
-  sysconf_groups:
+  users:
     mattiasb:
-      - docker
+      groups:
+        - docker
 
   gnome_settings:
     /org/gnome/desktop/interface/document-font-name: "'Cantarell 14'"
@@ -81,9 +82,9 @@ gnome_settings: >-
    | combine(work.gnome_settings, recursive=True)
   }}
 
-sysconf_groups: >-
-  {{ groupvars.all.sysconf_groups
-   | combine(work.sysconf_groups, recursive=True, list_merge="append_rp")
+users: >-
+  {{ groupvars.all.users
+   | combine(work.users, recursive=True, list_merge="append_rp")
   }}
 
 ssh_lastpass_key: Keys/ssh-mattiasb-work

@@ -28,10 +28,3 @@
     enabled: "{{ item.value }}"
     state: "{{ item.value | ternary('started', 'stopped') }}"
   with_dict: "{{ sysconf_timers }}"
-
-- name: "sysconf : Setup groups"
-  become: true
-  user:
-    name: "{{ item.key }}"
-    groups: "{{ item.value }}"
-  with_dict: "{{ sysconf_groups }}"
