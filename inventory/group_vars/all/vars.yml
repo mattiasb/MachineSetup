@@ -338,10 +338,9 @@ userconf_dotfiles:
 ## git
 
 git_repos:
-  gitlab.com:
+  github.com:
     - repo: mattiasb/mtg-decks
       dest: "{{ homedir }}/Documents/Magic/decks"
-  github.com:
     - repo: mattiasb/.local-bin
       dest: "{{ homedir }}/.local/bin"
     - repo: mattiasb/Code-Test
