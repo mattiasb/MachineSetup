@@ -58,6 +58,7 @@ dnf_packages_present:
   - direnv
   - docbook-dtds
   - docbook-style-xsl
+  - dotnet-sdk-8.0
   - emacs
   - enchant2-devel
   - epiphany
@@ -526,3 +527,8 @@ git_install:
         - src: /bin/eldev
           dest: "{{ homedir }}/.local/bin/eldev"
           mode: '0755'
+
+    - repo: artempyanykh/marksman
+      version: f124c5616cf38241e1a5e58808ed78e2d9a1d385
+      make:
+        - install
