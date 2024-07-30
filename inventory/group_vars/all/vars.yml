@@ -219,6 +219,7 @@ gnome_settings:
   /org/gnome/nautilus/icon-view/default-zoom-level: "'standard'"
   /org/gnome/nautilus/preferences/click-policy: "'single'"
   /org/gnome/settings-daemon/plugins/color/night-light-enabled: "true"
+  /org/gnome/settings-daemon/plugins/media-keys/logout: '@as []'
   /org/gnome/shell/app-switcher/current-workspace-only: "true"
   /org/gnome/shell/keybindings/toggle-overview: '@as []'
   /org/gnome/software/show-upgrade-prerelease: "true"
@@ -243,6 +244,9 @@ gnome_mediakeys:
   www: <Super>w
 
 gnome_shell_keybindings:
+  screenshot-window:
+  screenshot:
+  show-screen-recording-ui:
   switch-to-application-1:
   switch-to-application-2:
   switch-to-application-3:
@@ -263,7 +267,17 @@ gnome_keybindings:
   move-to-workspace-7: <Super>F7
   move-to-workspace-8: <Super>F8
   move-to-workspace-9: <Super>F9
+  move-to-workspace-left: <Super><Shift>Page_Up
+  move-to-workspace-right: <Super><Shift>Page_Down
   panel-run-dialog: <Super>r
+  switch-applications-backward: <Alt><Super>Tab
+  switch-applications: <Alt>Tab
+  switch-group-backward: <Shift><Alt>Above_Tab
+  switch-group: <Alt>Above_Tab
+  cycle-windows-backward: <Shift><Super>Tab
+  cycle-windows: <Super>Tab
+  cycle-group-backward: <Shift><Super>Above_Tab
+  cycle-group: <Super>Above_Tab
   switch-to-workspace-1: <Super>1
   switch-to-workspace-2: <Super>2
   switch-to-workspace-3: <Super>3
@@ -275,6 +289,22 @@ gnome_keybindings:
   switch-to-workspace-9: <Super>9
   switch-to-workspace-left: <Super>Page_Up
   switch-to-workspace-right: <Super>Page_Down
+  unmaximize: <Super>Down
+
+  activate-window-menu:
+  begin-move:
+  begin-resize:
+  cycle-panels-backward:
+  cycle-panels:
+  # cycle-group-backward:
+  # cycle-group:
+  # cycle-windows-backward:
+  # cycle-windows:
+  switch-panels-backward:
+  switch-panels:
+  switch-to-workspace-down:
+  switch-to-workspace-up:
+  toggle-maximized:
 
 gnome_custom_keybindings:
   - name: Calendar
