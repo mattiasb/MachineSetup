@@ -457,6 +457,7 @@ languages_python:
       - python-lsp-ruff
       - python-lsp-black
   remarshal:
+  sqlparse:
   yamlfix:
   yasha:
 
