@@ -296,10 +296,6 @@ gnome_keybindings:
   begin-resize:
   cycle-panels-backward:
   cycle-panels:
-  # cycle-group-backward:
-  # cycle-group:
-  # cycle-windows-backward:
-  # cycle-windows:
   switch-panels-backward:
   switch-panels:
   switch-to-workspace-down:
