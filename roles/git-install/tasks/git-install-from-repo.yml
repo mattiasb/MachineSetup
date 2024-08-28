@@ -29,6 +29,8 @@
 
 - name: "{{ repo | basename }} : Run commands"
   command: "{{ command }}"
+  args:
+    chdir: "{{ repo }}"
   changed_when: false
   with_items: "{{ commands }}"
   loop_control:
