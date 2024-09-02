@@ -54,6 +54,7 @@ dnf_packages_present:
   - cmake
   - codespell
   - colorized-logs
+  - ddcutil
   - difftastic
   - direnv
   - docbook-dtds
