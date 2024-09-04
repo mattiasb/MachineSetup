@@ -27,15 +27,12 @@ dnf_repos_rpmfusion:
 dnf_repos_custom: []
 
 dnf_packages_absent:
-  # sort-start
   - gedit
   - podman-docker
   - rhythmbox
   - shotwell
-  # sort-end
 
 dnf_packages_present:
-  # sort-start
   - "@Development tools"
   - "@Virtualization"
   - "@c-development"
@@ -159,7 +156,6 @@ dnf_packages_present:
   - yubikey-manager-qt
   - zlib-devel
   - zlib-static
-  # sort-end
 
 
 ## Flatpak System Clean
