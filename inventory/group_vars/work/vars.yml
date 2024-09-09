@@ -23,13 +23,13 @@ work:
         - docker
 
   gnome_settings:
-  # # Work monitor
-  # /org/gnome/desktop/interface/document-font-name: "'Cantarell 14'"
-  # /org/gnome/desktop/interface/font-name: "'Cantarell 14'"
-  # /org/gnome/desktop/wm/preferences/titlebar-font: "'Cantarell Bold 14'"
-  # /org/gnome/desktop/interface/monospace-font-name: >-
-  #   'JetBrains Mono Medium 15'
-  #
+    # Work monitor
+    /org/gnome/desktop/interface/document-font-name: "'Cantarell 14'"
+    /org/gnome/desktop/interface/font-name: "'Cantarell 14'"
+    /org/gnome/desktop/wm/preferences/titlebar-font: "'Cantarell Bold 14'"
+    /org/gnome/desktop/interface/monospace-font-name: >-
+      'JetBrains Mono Medium 15'
+
   # # Home monitor:
   #   /org/gnome/desktop/interface/document-font-name: "'Cantarell 10'"
   #   /org/gnome/desktop/interface/font-name: "'Cantarell 10'"
