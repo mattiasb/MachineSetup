@@ -38,8 +38,7 @@ work:
   #     'JetBrains Mono Medium 11'
 
 
-  gnome_favorite_apps:
-    - com.microsoft.Teams
+  gnome_favorite_apps: []
 
   url_install: {}
 
