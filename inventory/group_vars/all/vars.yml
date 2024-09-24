@@ -142,6 +142,7 @@ dnf_packages_present:
   - tmux-powerline
   - transmission-remote-gtk
   - unrar
+  - uv
   - vagrant
   - webkitgtk4-devel
   - wireshark
@@ -450,7 +451,6 @@ languages_python:
       - python-lsp-black
   remarshal:
   sqlparse:
-  uv:
   yamlfix:
   yasha:
 
