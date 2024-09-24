@@ -212,6 +212,9 @@ gnome_settings:
   /org/gnome/desktop/search-providers/disable-external: "true"
   /org/gnome/desktop/wm/keybindings/close: "['<Super>q']"
   /org/gnome/desktop/wm/preferences/action-middle-click-titlebar: "'lower'"
+  # See:
+  # https://blogs.gnome.org/shell-dev/2024/09/20/understanding-gnome-shells-focus-stealing-prevention/
+  /org/gnome/desktop/wm/preferences/focus-new-windows: "'strict'"
   /org/gnome/evolution/shell/buttons-visible: "false"
   /org/gnome/evolution/shell/show-to-do-bar: "false"
   /org/gnome/nautilus/icon-view/default-zoom-level: "'standard'"
