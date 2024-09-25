@@ -7,7 +7,6 @@ work:
     - repo: https://download.docker.com/linux/fedora/docker-ce.repo
 
   dnf_packages_present:
-    - azure-cli
     - containerd.io
     - docker-buildx-plugin
     - docker-ce
@@ -45,6 +44,7 @@ work:
   bashcomp_commands: {}
 
   languages_python:
+    azure-cli:
     pre-commit:
       version: 3.5.0
 
