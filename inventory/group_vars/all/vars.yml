@@ -482,6 +482,15 @@ url_install:
       url: "https://github.com/siderolabs/talos/releases/download/v1.5.4/\
            talosctl-linux-amd64"
       sha256: 98d28410f27028ee7e23335e1901da00accc071e262fcb343c892e18fa6ec9af
+  other:
+    - url: >-
+        https://docs.python.org/3.12/archives/python-3.12-docs-texinfo.tar.bz2
+      dest: "{{ homedir }}/Downloads/"
+      # TODO: Support extracting and installing the info file.
+      #       Manual commands:
+      #       $ curl -O https://url.to/python-3.12-docs-texinfo.tar.bz2
+      #       $ tar -jxvf python-3.12-docs-texinfo.tar.bz2
+      #       $ make infodir=/home/mattiasb/.local/share/info/ install-info
 
 ## GIT Install
 
