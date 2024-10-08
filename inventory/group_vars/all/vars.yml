@@ -489,6 +489,7 @@ url_install:
   other:
     - url: >-
         https://docs.python.org/3.12/archives/python-3.12-docs-texinfo.tar.bz2
+      sha256: 70b337654087f068abfc19db53d1cca7effe45679fec2684ad433880b15aa656
       dest: "{{ homedir }}/Downloads/"
       # TODO: Support extracting and installing the info file.
       #       Manual commands:
