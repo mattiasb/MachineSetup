@@ -356,14 +356,6 @@ userconf_services:
   lockmon: true
   powerline: false
 
-userconf_dotfiles:
-  - src: bash/logout
-    dest: .bash_logout
-  - src: bash/profile
-    dest: .bash_profile
-  - src: bash/rc
-    dest: .bashrc
-
 
 ## git
 
