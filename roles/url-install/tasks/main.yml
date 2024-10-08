@@ -12,5 +12,5 @@
     url: "{{ item.url }}"
     dest: "{{ item.dest }}"
     mode: 0644
-    checksum: "{{ item.sha }}"
+    checksum: "sha256:{{ item.sha256 }}"
   with_items: "{{ url_install.other | d([]) }}"
