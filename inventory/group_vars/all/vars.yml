@@ -423,6 +423,7 @@ flatpak_apps:
 ## Languages
 
 languages_nodejs:
+  - "@devcontainers/cli"
   - bash-language-server
   - eslint
   - resume-cli
