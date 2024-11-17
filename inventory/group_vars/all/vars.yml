@@ -115,7 +115,6 @@ dnf_packages_present:
   - openssl-devel
   - p7zip-plugins
   - pandoc
-  - parallel
   - perl-Errno
   - perl-open
   - pipx
