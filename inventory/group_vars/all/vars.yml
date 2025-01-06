@@ -247,7 +247,8 @@ gnome_mediakeys:
   www: <Super>w
 
 gnome_shell_keybindings:
-  screenshot-window:
+  screenshot-window: <Super>Print
+
   screenshot:
   show-screen-recording-ui:
   switch-to-application-1:
