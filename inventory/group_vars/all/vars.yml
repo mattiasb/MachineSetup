@@ -28,6 +28,7 @@ dnf_repos_custom: []
 
 dnf_packages_absent:
   - gedit
+  - gnome-terminal
   - podman-docker
   - rhythmbox
   - shotwell
@@ -122,6 +123,7 @@ dnf_packages_present:
   - podman-compose
   - powerline
   - powerline-go
+  - ptyxis
   - python-devel
   - python-pip
   - python3-devel
@@ -240,7 +242,7 @@ gnome_favorite_apps:
   - org.gnome.Nautilus
   - org.gnome.Evolution
   - org.gnome.Calendar
-  - org.gnome.Console
+  - org.gnome.Ptyxis
   - org.gnome.Software
 
 gnome_mediakeys:
@@ -311,9 +313,9 @@ gnome_custom_keybindings:
   - name: Calendar
     binding: <Super>c
     command: /bin/gnome-calendar
-  - name: Console
+  - name: Ptyxis
     binding: <Super>e
-    command: /bin/kgx
+    command: /bin/ptyxis
   - name: Emacs
     binding: <Super>s
     command: /bin/emacsclient -c -s main
