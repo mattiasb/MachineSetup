@@ -33,7 +33,7 @@ dnf_packages_absent:
   - shotwell
 
 dnf_packages_present:
-  - "@Development tools"
+  - "@development-tools"
   - "@Virtualization"
   - "@c-development"
   - "@development-libs"
@@ -146,7 +146,6 @@ dnf_packages_present:
   - unrar
   - uv
   - vagrant
-  - webkitgtk4-devel
   - wireshark
   - wl-clipboard
   - xmlto
