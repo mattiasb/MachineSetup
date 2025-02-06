@@ -135,8 +135,8 @@ dnf_packages_present:
   - ruby-devel
   - ruby-irb
   - rust
-  - rustfmt
   - rust-analyzer
+  - rustfmt
   - systemd-container
   - texlive-beamer
   - tig
