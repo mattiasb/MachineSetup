@@ -454,9 +454,7 @@ languages_python:
   yamlfix:
   yasha:
 
-languages_rust:
-  # See: https://bugzilla.redhat.com/show_bug.cgi?id=2316529
-  - rust-analyzer
+languages_rust: []
 languages_ruby:
   - rubocop
   - solargraph
