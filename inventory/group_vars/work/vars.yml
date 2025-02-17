@@ -12,6 +12,7 @@ work:
     - docker-ce
     - docker-ce-cli
     - docker-compose-plugin
+    - git-review
     - libpq-devel
     - libxslt-devel
     - python3.11-devel
