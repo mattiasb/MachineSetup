@@ -315,7 +315,7 @@ gnome_custom_keybindings:
     command: /bin/gnome-calendar
   - name: Ptyxis
     binding: <Super>e
-    command: /bin/ptyxis
+    command: /bin/ptyxis --new-window
   - name: Emacs
     binding: <Super>s
     command: /bin/emacsclient -c -s main
