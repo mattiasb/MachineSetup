@@ -3,32 +3,15 @@ work:
   ssh_known_hosts: {}
   flatpak_apps: []
 
-  dnf_repos_custom:
-    - repo: https://download.docker.com/linux/fedora/docker-ce.repo
+  dnf_repos_custom: {}
 
-  dnf_packages_present:
-    - containerd.io
-    - docker-buildx-plugin
-    - docker-ce
-    - docker-ce-cli
-    - docker-compose-plugin
-    - git-review
-    - libpq-devel
-    - libxslt-devel
-    - python3.11-devel
+  dnf_packages_present: {}
 
   users:
     mattiasb:
-      groups:
-        - docker
+      groups: []
 
-  gnome_settings:
-    # Work monitor
-    /org/gnome/desktop/interface/document-font-name: "'Cantarell 14'"
-    /org/gnome/desktop/interface/font-name: "'Cantarell 14'"
-    /org/gnome/desktop/wm/preferences/titlebar-font: "'Cantarell Bold 14'"
-    /org/gnome/desktop/interface/monospace-font-name: >-
-      'JetBrains Mono Medium 15'
+  gnome_settings: {}
 
   gnome_favorite_apps: []
 
@@ -36,10 +19,7 @@ work:
 
   bashcomp_commands: {}
 
-  languages_python:
-    azure-cli:
-    pre-commit:
-      version: 3.5.0
+  languages_python: {}
 
   languages_go: {}
 
