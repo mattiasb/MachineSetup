@@ -212,6 +212,7 @@ gnome_settings:
   /org/gnome/desktop/datetime/automatic-timezone: "true"
   /org/gnome/desktop/input-sources/xkb-options: "['compose:caps']"
   /org/gnome/desktop/interface/gtk-key-theme: "'Emacs'"
+  /org/gnome/desktop/interface/monospace-font-name: "'JetBrains Mono Medium 11'"
   /org/gnome/desktop/peripherals/touchpad/tap-to-click: "true"
   /org/gnome/desktop/search-providers/disable-external: "true"
   /org/gnome/desktop/wm/keybindings/close: "['<Super>q']"
