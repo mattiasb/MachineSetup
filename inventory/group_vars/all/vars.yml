@@ -188,8 +188,6 @@ sysconf_services:
   firewalld: false
   livesys: false
 
-# # TODO: Make a task to set:
-# sysconf_keymap: sv-latin1
 
 ## Users
 
@@ -480,7 +478,7 @@ url_install:
            talosctl-linux-amd64"
       sha256: 98d28410f27028ee7e23335e1901da00accc071e262fcb343c892e18fa6ec9af
   other: []
-  #   # TODO: 0Find out why "{{ homedir }}" doesn't work here for some reason.
+  #   # TODO: Find out why "{{ homedir }}" doesn't work here for some reason.
   #   # TODO: Support extracting and installing the info file.
   #   #       Manual commands:
   #   #       $ curl -O https://url.to/python-3.12-docs-texinfo.tar.bz2
