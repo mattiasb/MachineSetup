@@ -26,6 +26,8 @@
        | join('')
       }}
   command: uv tool install {{ _with }}{{ item.key }}{{ features }}{{ version }}
+  register: result
+  changed_when: '"is already installed" not in result.stderr'
   with_dict: "{{ languages_python }}"
 
 - name: "Languages : Ruby"
