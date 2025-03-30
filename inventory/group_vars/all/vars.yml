@@ -438,7 +438,6 @@ languages_python:
   ipython:
   mypy:
   pipenv:
-  pudb:
   python-lsp-server:
     features:
       - all
@@ -450,7 +449,6 @@ languages_python:
   remarshal:
   sqlparse:
   yamlfix:
-  yasha:
 
 languages_rust: []
 languages_ruby:
