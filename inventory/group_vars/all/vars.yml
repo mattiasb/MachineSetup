@@ -118,7 +118,6 @@ dnf_packages_present:
   - pandoc
   - perl-Errno
   - perl-open
-  - pipx
   - podman
   - podman-compose
   - powerline
