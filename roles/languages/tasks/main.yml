@@ -19,24 +19,14 @@
        | d(False)
        | ternary("==" + (item.value['version'] | d("")), "")
       }}
-  pipx:
-    name: "{{ item.key }}{{ features }}{{ version }}"
-    state: present
+    _with: >-
+      {{ item.value['with']
+       | d([])
+       | map('with_format', "--with={} ")
+       | join('')
+      }}
+  command: uv tool install {{ _with }}{{ item.key }}{{ features }}{{ version }}
   with_dict: "{{ languages_python }}"
-
-- name: "Languages : Python — Inject"
-  pipx:
-    name: "{{ item.key }}"
-    state: inject
-    inject_packages: "{{ item.value['inject'] }}"
-  # TODO(mattiasb): Filter out these instead ↓
-  when: '"inject" in item.value and (item.value.inject | length) > 0'
-  with_items: >-
-    {{ languages_python
-     | dict2items
-     | selectattr("value")
-     | list
-    }}
 
 - name: "Languages : Ruby"
   gem:

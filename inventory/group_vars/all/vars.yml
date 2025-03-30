@@ -442,7 +442,7 @@ languages_python:
   python-lsp-server:
     features:
       - all
-    inject:
+    with:
       - pylsp-mypy
       - pylsp-rope
       - python-lsp-ruff
