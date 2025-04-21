@@ -230,15 +230,18 @@ gnome_settings:
   /org/gtk/settings/file-chooser/sort-directories-first: "true"
 
 gnome_favorite_apps:
-  - firefox
-  - org.gnome.Maps
   - io.gitlab.news_flash.NewsFlash
   - dev.geopjr.Tuba
-  - org.gnome.Fractal
+  - org.mozilla.firefox
   - com.spotify.Client
-  - org.gnome.Nautilus
+  - org.gnome.Fractal
+  - org.signal.Signal
+  - com.discordapp.Discord
+  - org.gnome.Maps
   - org.gnome.Evolution
   - org.gnome.Calendar
+  - org.gnome.Nautilus
+  - emacs
   - org.gnome.Ptyxis
   - org.gnome.Software
 

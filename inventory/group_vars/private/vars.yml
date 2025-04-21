@@ -25,9 +25,8 @@ private:
     - name: org.nickvision.tubeconverter
       remote: flathub
 
-  gnome_favorite_apps:
-    - com.discordapp.Discord
-    - de.haeckerfelix.Fragments
+  gnome_favorite_apps: []
+
   dnf_packages_absent:
     - docker
     - docker-common
