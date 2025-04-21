@@ -3,8 +3,9 @@ mattiasb_lenovo_yoga920:
   gnome_favorite_apps: []
 #     /org/gnome/desktop/wm/keybindings/close: "['AudioMicMute']"
 
+# Use `lists_union` since order is important!
 gnome_favorite_apps: >-
   {{ groupvars.all.gnome_favorite_apps
-   | union(private.gnome_favorite_apps)
-   | union(mattiasb_lenovo_yoga920.gnome_favorite_apps)
+   | community.general.lists_union(private.gnome_favorite_apps)
+   | community.general.lists_union(mattiasb_lenovo_yoga920.gnome_favorite_apps)
   }}

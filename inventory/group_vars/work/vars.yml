@@ -35,9 +35,10 @@ dnf_repos_custom: >-
 dnf_packages_present: >-
   {{ groupvars.all.dnf_packages_present | union(work.dnf_packages_present) }}
 
+# Use `lists_union` since order is important!
 gnome_favorite_apps: >-
   {{ groupvars.all.gnome_favorite_apps
-   | union(work.gnome_favorite_apps)
+   | community.general.lists_union(work.gnome_favorite_apps)
   }}
 
 bashcomp_commands: >-

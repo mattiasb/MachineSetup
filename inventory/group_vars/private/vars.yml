@@ -42,9 +42,10 @@ flatpak_apps: >-
    | union(private.flatpak_apps)
   }}
 
+# Use `lists_union` since order is important!
 gnome_favorite_apps: >-
   {{ groupvars.all.gnome_favorite_apps
-   | union(private.gnome_favorite_apps)
+   | community.general.lists_union(private.gnome_favorite_apps)
   }}
 
 dnf_packages_absent: >-
