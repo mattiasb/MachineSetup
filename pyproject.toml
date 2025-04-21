@@ -1,0 +1,9 @@
+[project]
+name = "MachineSetup"
+version = "0"
+description = "Ansible configuration for my Fedora machines."
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "ansible>=11.4.0",
+]
