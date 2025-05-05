@@ -212,6 +212,7 @@ gnome_settings:
   /org/gnome/desktop/interface/monospace-font-name: "'JetBrains Mono Medium 11'"
   /org/gnome/desktop/peripherals/touchpad/tap-to-click: "true"
   /org/gnome/desktop/search-providers/disable-external: "true"
+  /org/gnome/desktop/sound/event-sounds: "false"
   /org/gnome/desktop/wm/keybindings/close: "['<Super>q']"
   /org/gnome/desktop/wm/preferences/action-middle-click-titlebar: "'lower'"
   # See:
