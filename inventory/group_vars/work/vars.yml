@@ -70,3 +70,4 @@ users: >-
   }}
 
 ssh_lastpass_key: Keys/ssh-mattiasb-work
+ssh_key_format: ed25519
