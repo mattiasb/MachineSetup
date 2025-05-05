@@ -225,6 +225,7 @@ gnome_settings:
   /org/gnome/settings-daemon/plugins/media-keys/logout: '@as []'
   /org/gnome/shell/app-switcher/current-workspace-only: "true"
   /org/gnome/shell/keybindings/toggle-overview: '@as []'
+  /org/gnome/shell/keybindings/toggle-quick-settings: '@as []'
   /org/gnome/software/show-upgrade-prerelease: "true"
   /org/gnome/system/locale/region: "'sv_SE.UTF-8'"
   /org/gtk/settings/file-chooser/sort-directories-first: "true"
