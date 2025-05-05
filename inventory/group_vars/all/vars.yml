@@ -457,14 +457,8 @@ languages_ruby:
   - rubocop
   - solargraph
 languages_go:
-  # v1.9.5
-  # Doesn't install. See: https://github.com/hashicorp/terraform/issues/30356 .
-  # github.com/hashicorp/terraform: 2770cb376c53a9ef6ea63482d7eaf83c0bfe887e
-  # v0.34.2
-  github.com/hashicorp/terraform-ls: a664b9919c670f90e2a5539e2e73b3860f06d8aa
   github.com/jmespath/jp: f4ee7271599705d3a55d369ef131b68d99daf2c7
   github.com/noahgorstein/jqp: fe7b5c27089180e1b2848ccf0ef8b3d24a883966
-  github.com/tmccombs/hcl2json: cd307a2a9ab8a2482a1f00e65a8337aeff5521ba
 
 
 ## URL Install
@@ -512,12 +506,6 @@ git_install:
       version: master
       make:
         - user-install
-
-    # Manual workaround since terraform doesn't install via regular `go install`
-    - repo: hashicorp/terraform
-      version: 2770cb376c53a9ef6ea63482d7eaf83c0bfe887e
-      commands:
-        - go install
 
     - repo: LuyaoHuang/virsh-bash-completion
       version: 87a81d7e7d2c9518d18a8a266153e09ef9b69d6c
