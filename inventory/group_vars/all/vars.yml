@@ -224,6 +224,7 @@ gnome_settings:
   /org/gnome/nautilus/preferences/click-policy: "'single'"
   /org/gnome/settings-daemon/plugins/color/night-light-enabled: "true"
   /org/gnome/settings-daemon/plugins/media-keys/logout: '@as []'
+  /org/gnome/settings-daemon/plugins/power/idle-dim: "false"
   /org/gnome/shell/app-switcher/current-workspace-only: "true"
   /org/gnome/shell/keybindings/toggle-overview: '@as []'
   /org/gnome/shell/keybindings/toggle-quick-settings: '@as []'
