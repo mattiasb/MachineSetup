@@ -411,6 +411,8 @@ flatpak_apps:
     remote: flathub
   - name: io.gitlab.news_flash.NewsFlash
     remote: flathub
+  - name: org.chromium.Chromium
+    remote: flathub
   - name: org.gnome.Builder
     remote: flathub
   - name: org.gnome.Fractal
