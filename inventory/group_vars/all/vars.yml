@@ -40,6 +40,7 @@ dnf_packages_present:
   - "@development-libs"
   - "@development-tools"
   - ShellCheck
+  - adw-gtk3-theme
   - asciidoc
   - bat
   - bison
