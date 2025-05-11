@@ -436,7 +436,6 @@ languages_nodejs:
   - "@devcontainers/cli"
   - bash-language-server
   - eslint
-  - resume-cli
   - typescript
   - typescript-language-server
 
