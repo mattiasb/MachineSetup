@@ -5,7 +5,9 @@ work:
 
   dnf_repos_custom: {}
 
-  dnf_packages_present: {}
+  dnf_packages_present:
+    - moby-engine
+    - docker-compose
 
   users:
     mattiasb:
