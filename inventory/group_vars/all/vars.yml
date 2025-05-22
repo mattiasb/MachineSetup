@@ -424,6 +424,8 @@ flatpak_apps:
     remote: flathub
   - name: org.signal.Signal
     remote: flathub
+  - name: com.github.cassidyjames.dippi
+    remote: flathub
 
   # GNOME Nightly
   - name: org.gnome.Fractal.Devel
