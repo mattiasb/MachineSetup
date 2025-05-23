@@ -341,6 +341,12 @@ gnome_custom_keybindings:
 # See: https://support.mozilla.org/en-US/questions/1258193 for the above.
 
 
+## NewsFlash
+
+# TODO: Make a role that configures NewsFlash like I want it.
+#       This is needed since NewsFlash doesn't use regular gsettings.
+
+
 ## Lastpass
 
 lastpass_login: true
