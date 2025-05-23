@@ -329,6 +329,18 @@ gnome_custom_keybindings:
     command: /bin/flatpak run io.gitlab.news_flash.NewsFlash
 
 
+## Firefox
+
+# TODO: Make a role to set those configuration variables for Firefox that
+#       doesn't seem to sync through the regular channels.
+#
+# Specifically:
+#  - browser.link.open_newwindow = 1
+#  - browser.link.open_newwindow.override.external = 2
+#
+# See: https://support.mozilla.org/en-US/questions/1258193 for the above.
+
+
 ## Lastpass
 
 lastpass_login: true
