@@ -343,8 +343,67 @@ gnome_custom_keybindings:
 
 ## NewsFlash
 
-# TODO: Make a role that configures NewsFlash like I want it.
-#       This is needed since NewsFlash doesn't use regular gsettings.
+news_flash_config:
+  general:
+    keep_running_in_background: false
+    autostart: false
+    sync_on_startup: true
+    sync_on_metered: true
+    sync_every:
+      Custom: 600
+  advanced:
+    proxy: []
+    accept_invalid_certs: false
+    accept_invalid_hostnames: false
+    inspect_article_view: false
+    article_view_load_images: true
+    ping_url:
+      - http://example.com/
+      - https://google.com/
+  feed_list:
+    order: Alphabetical
+    only_show_relevant: true
+  article_list:
+    order: OldestFirst
+    show_thumbnails: true
+    hide_future_articles: false
+  article_view:
+    theme: Default
+    font: Sans 10
+    content_width: 55
+    line_height: 1.8
+  keybindings:
+    general:
+      refresh: F5
+      search: <Control>f
+      quit: <Control>q
+    article_view:
+      scroll_up: Page_Up
+      scroll_down: Page_Down
+      scrap_content: c
+      fullscreen: f
+    article_list:
+      next: n
+      prev: p
+      read: R
+      mark: M
+      open: O
+    feed_list:
+      next: <Control>Down
+      prev: <Control>Up
+      toggle_expanded: Return
+  share:
+    pocket_enabled: true
+    instapaper_enabled: false
+    twitter_enabled: false
+    mastodon_enabled: false
+    reddit_enabled: false
+    telegram_enabled: false
+    clipboard_enabled: true
+    custom_enabled: false
+    custom_name:
+    custom_url:
+  feeds: {}
 
 
 ## Lastpass

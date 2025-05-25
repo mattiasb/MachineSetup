@@ -75,6 +75,12 @@
         - include_role:
             name: gnome
 
+    - name: news-flash
+      tags: news-flash
+      block:
+        - include_role:
+            name: news-flash
+
     - name: lastpass
       tags: lastpass
       block:

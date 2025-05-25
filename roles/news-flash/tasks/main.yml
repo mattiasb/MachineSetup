@@ -1,0 +1,6 @@
+---
+# TODO: Make sure NewsFlash isn't running!
+- name: "Write config"
+  template:
+    src: templates/newsflash_gtk.json.j2
+    dest: "{{ news_flash_config_path }}"

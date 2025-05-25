@@ -1,0 +1,13 @@
+---
+news_flash_flatpak: true
+news_flash_config_path: >-
+  {{ [ lookup('env', 'HOME')
+     , ( news_flash_flatpak
+       | ternary( '.var/app/io.gitlab.news_flash.NewsFlash/config', '.config')
+       )
+     , 'news-flash'
+     , 'newsflash_gtk.json'
+     ] | join('/')
+  }}
+
+news_flash_config: {}

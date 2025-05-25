@@ -1,0 +1,6 @@
+{# Keep the missing newline to match *actual* config!
+   To remove trailing newline if needed use:
+
+     M-! truncate -s -1 newsflash_gtk.json.j2
+#}
+{{- news_flash_config | to_nice_json(indent=2, sort_keys=False) -}}
