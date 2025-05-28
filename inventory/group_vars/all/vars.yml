@@ -206,6 +206,9 @@ users:
 ## GNOME
 
 gnome_settings:
+  /org/freedesktop/ibus/panel/emoji/hotkey: '@as []'
+  /org/freedesktop/ibus/panel/emoji/unicode-hotkey: '@as []'
+  /org/freedesktop/ibus/panel/show-icon-on-systray: "false"
   /org/gnome/Weather/automatic-location: "true"
   /org/gnome/desktop/calendar/show-weekdate: "true"
   /org/gnome/desktop/datetime/automatic-timezone: "true"
