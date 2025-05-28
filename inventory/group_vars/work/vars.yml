@@ -13,7 +13,9 @@ work:
     mattiasb:
       groups: []
 
-  gnome_settings: {}
+  gnome_settings:
+    /org/gnome/settings-daemon/plugins/media-keys/control-center-static: >-
+      @as []
 
   gnome_favorite_apps: []
 
