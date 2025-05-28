@@ -232,6 +232,7 @@ gnome_settings:
   /org/gnome/shell/keybindings/toggle-quick-settings: '@as []'
   /org/gnome/software/show-upgrade-prerelease: "true"
   /org/gnome/system/locale/region: "'sv_SE.UTF-8'"
+  /org/gtk/gtk4/Settings/FileChooser/sort-directories-first: "true"
   /org/gtk/settings/file-chooser/sort-directories-first: "true"
 
 gnome_favorite_apps:
