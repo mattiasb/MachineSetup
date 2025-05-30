@@ -113,6 +113,7 @@ dnf_packages_present:
   - nautilus-dropbox
   - ncurses-devel
   - nmap
+  - nodejs-bash-language-server
   - npm
   - openldap-clients
   - openssl-devel
@@ -147,6 +148,7 @@ dnf_packages_present:
   - tmux
   - tmux-powerline
   - transmission-remote-gtk
+  - typescript
   - unrar
   - uv
   - vagrant
@@ -519,9 +521,7 @@ flatpak_apps:
 
 languages_nodejs:
   - "@devcontainers/cli"
-  - bash-language-server
   - eslint
-  - typescript
   - typescript-language-server
 
 languages_python:
