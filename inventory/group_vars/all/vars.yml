@@ -510,6 +510,8 @@ flatpak_apps:
     remote: flathub
   - name: com.github.cassidyjames.dippi
     remote: flathub
+  - name: com.github.maoschanz.drawing
+    remote: flathub
 
   # GNOME Nightly
   - name: org.gnome.Fractal.Devel
