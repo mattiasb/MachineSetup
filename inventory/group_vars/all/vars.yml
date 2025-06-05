@@ -551,7 +551,7 @@ languages_ruby:
 languages_go:
   github.com/jmespath/jp: f4ee7271599705d3a55d369ef131b68d99daf2c7
   github.com/noahgorstein/jqp: fe7b5c27089180e1b2848ccf0ef8b3d24a883966
-
+  github.com/helmfile/helmfile: fe1e51e5ef8f89758438920412658f787872dae2
 
 ## URL Install
 
