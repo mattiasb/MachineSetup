@@ -14,6 +14,7 @@ work:
       groups: []
 
   gnome_settings:
+    /org/gnome/shell/keybindings/screenshot: "['<Super>d','Print']"
     /org/gnome/settings-daemon/plugins/media-keys/control-center-static: >-
       @as []
 
