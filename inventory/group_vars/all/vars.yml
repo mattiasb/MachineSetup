@@ -532,6 +532,7 @@ languages_python:
   ipython:
   mypy:
   pipenv:
+  pre-commit:
   python-lsp-server:
     features:
       - all
