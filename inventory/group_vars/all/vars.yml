@@ -180,7 +180,13 @@ flatpak_system_clean: true
 # TODO:  Create udev role (or files role?) that lets me edit udev rules.
 # Specifically to add this:
 # /usr/lib/udev/rules.d/61-mutter-primary-gpu.rules:
-# ENV{DEVNAME}=="/dev/dri/card0", TAG+="mutter-device-preferred-primary"
+#     SUBSYSTEM=="drm"
+#   , ENV{DEVTYPE}=="drm_minor"
+#   , ENV{DEVNAME}=="/dev/dri/card[0-9]"
+#   , SUBSYSTEMS=="pci"
+#   , ATTRS{vendor}=="0x1002"
+#   , ATTRS{device}=="0x73ff"
+#   , TAG+="mutter-device-preferred-primary"
 
 
 ## SysConf
