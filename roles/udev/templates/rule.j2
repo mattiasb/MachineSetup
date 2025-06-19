@@ -1,0 +1,5 @@
+# {{ _udev_ansible_managed }}
+
+{% for rule in rules %}
+{{ rule | join(', ') }}
+{% endfor %}

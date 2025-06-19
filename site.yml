@@ -14,8 +14,9 @@
         - prerequisites
         - dnf
         - flatpak-system-clean
+        - udev
         - sysconf
-      no_log: true
+      no_log: false
       block:
         - pause:
             prompt: "Sudo password"
@@ -47,6 +48,12 @@
       block:
         - include_role:
             name: flatpak-system-clean
+
+    - name: udev
+      tags: udev
+      block:
+        - include_role:
+            name: udev
 
     - name: sysconf
       tags: sysconf

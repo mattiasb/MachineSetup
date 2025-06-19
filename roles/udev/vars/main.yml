@@ -1,0 +1,7 @@
+---
+_udev_ansible_managed: Ansible managed
+_udev_rules_files: >-
+  {{ udev_rules.keys()
+   | map('with_format', '{}.rules')
+   | list
+  }}

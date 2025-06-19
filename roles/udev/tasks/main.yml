@@ -1,0 +1,28 @@
+---
+- name: "Ensure rules directory exists"
+  file:
+    state: directory
+    path: "{{ udev_rules_dir }}"
+
+- name: "Write roles"
+  vars:
+    rulesfile: "{{ item.key }}"
+    rules: "{{ item.value }}"
+  template:
+    src: rule.j2
+    dest: "{{ udev_rules_dir }}/{{ rulesfile }}.rules"
+  with_dict: "{{ udev_rules }}"
+
+- name: Delete old rules [1/2]
+  find:
+    paths: "{{ udev_rules_dir }}"
+    file_type: file
+    excludes: "{{ udev_rules.keys() | map('with_format', '{}.rules') | list }}"
+    contains: "# {{ _udev_ansible_managed }}"
+  register: result
+
+- name: Delete old rules [2/2]
+  file:
+    path: "{{ item.path }}"
+    state: absent
+  with_items: "{{ result['files'] }}"

@@ -1,0 +1,6 @@
+---
+udev_rules_dir: /etc/udev/rules.d
+
+# A map from rules-file (sans '.rules') to a list of rules where each rule is a
+# list of key-value-pairs in udev format
+udev_rules: {}
