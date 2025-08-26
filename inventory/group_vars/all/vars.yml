@@ -402,7 +402,7 @@ news_flash_config:
     feed_list:
       next: <Control>Down
       prev: <Control>Up
-      toggle_expanded: Return
+      toggle_expanded: null
   share:
     pocket_enabled: true
     instapaper_enabled: false
