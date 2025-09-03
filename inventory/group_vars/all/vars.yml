@@ -530,6 +530,7 @@ languages_nodejs:
   - eslint
   - typescript-language-server
   - vscode-json-languageserver
+  - yaml-language-server
 
 languages_python:
   black:
