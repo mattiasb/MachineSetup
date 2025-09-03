@@ -529,6 +529,7 @@ languages_nodejs:
   - "@devcontainers/cli"
   - eslint
   - typescript-language-server
+  - vscode-json-languageserver
 
 languages_python:
   black:
