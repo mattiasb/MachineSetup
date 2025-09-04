@@ -17,6 +17,7 @@ work:
     /org/gnome/shell/keybindings/show-screenshot-ui: "['<Super>d','Print']"
     /org/gnome/settings-daemon/plugins/media-keys/control-center-static: >-
       @as []
+    /org/gnome/software/show-upgrade-prerelease: "false"
 
   gnome_favorite_apps: []
 
