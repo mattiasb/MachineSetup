@@ -129,7 +129,8 @@ dnf_packages_present:
   - python-devel
   - python-pip
   - python3-devel
-  - python3-csvkit
+  # Issue On F49 Beta. Installed with uv instead.
+  # - python3-csvkit
   - ragel
   - remmina
   - remmina-plugins-rdp
@@ -530,6 +531,7 @@ languages_nodejs:
   - yaml-language-server
 
 languages_python:
+  csvkit:
   ipython:
   mypy:
   pre-commit:
