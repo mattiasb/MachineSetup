@@ -477,9 +477,6 @@ bashcomp_commands:
   pandoc: --bash-completion
   talosctl: completion bash
   pip: completion --bash
-  pipenv:
-    env:
-      _PIPENV_COMPLETE: bash_source
 
 
 ## Flatpak
@@ -533,11 +530,8 @@ languages_nodejs:
   - yaml-language-server
 
 languages_python:
-  black:
-  flake8:
   ipython:
   mypy:
-  pipenv:
   pre-commit:
   python-lsp-server:
     features:
