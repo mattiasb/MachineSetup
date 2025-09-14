@@ -129,6 +129,7 @@ dnf_packages_present:
   - python-devel
   - python-pip
   - python3-devel
+  - python3.13
   # Issue On F49 Beta. Installed with uv instead.
   # - python3-csvkit
   - ragel
@@ -530,6 +531,7 @@ languages_nodejs:
   - vscode-json-languageserver
   - yaml-language-server
 
+languages_python_version: 3.13
 languages_python:
   csvkit:
   ipython:
