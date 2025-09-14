@@ -1,0 +1,11 @@
+---
+_languages_python_uv_python: >-
+  {{ ( ( languages_python_version is not string
+         or
+         languages_python_version | length == 0
+       )
+       and
+       languages_python_version is not float
+     )
+     | ternary("", languages_python_version | with_format("python{}"))
+  }}
