@@ -432,20 +432,23 @@ ssh_lastpass_key: Keys/ssh-{{ ansible_hostname }}
 
 ssh_known_hosts:
   github.com: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCj7ndNxQowgcQnjshcLrqPEiip\
-hnt+VTTvDP6mHBL9j1aNUkY4Ue1gvwnGLVlOhGeYrnZaMgRK6+PKCUXaDbC7qtbW8gIkhL7aGCsOr/C\
-56SJMy/BCZfxd1nWzAOxSDPgVsmerOBYfNqltV9/hWCqBywINIR+5dIg6JTJ72pcEpEjcYgXkE2YEFX\
-V1JHnsKgbLWNlhScqb2UmyRkQyytRLtL+38TGxkxCflmO+5Z8CSSNY7GidjMIZ7Q4zMjA2n1nGrlTDk\
-zwDCsw+wqFPGQA179cnfGWOWRVruj16z6XyvxvjJwbz0wQZ75XK5tKSb7FNyeIEs4TT4jk+S4dhPeAU\
-C5y+bDYirYgM4GC7uEnztnZyaVWQ7B381AK4Qdrwt51ZqExKbQpTUNn+EjqoTwvqNj4kqx5QUCI0ThS\
-/YkOxJCXmPUWZbhjpCg56i+2aB6CmK2JGhn57K5mj0MNdBXA4/WnwH6XoPWJzK5Nyu2zB3nAZp+S5hp\
-Qs+p1vN1/wsjk="
+                       hnt+VTTvDP6mHBL9j1aNUkY4Ue1gvwnGLVlOhGeYrnZaMgRK6+PKCUXa\
+                       DbC7qtbW8gIkhL7aGCsOr/C56SJMy/BCZfxd1nWzAOxSDPgVsmerOBYf\
+                       NqltV9/hWCqBywINIR+5dIg6JTJ72pcEpEjcYgXkE2YEFXV1JHnsKgbL\
+                       WNlhScqb2UmyRkQyytRLtL+38TGxkxCflmO+5Z8CSSNY7GidjMIZ7Q4z\
+                       MjA2n1nGrlTDkzwDCsw+wqFPGQA179cnfGWOWRVruj16z6XyvxvjJwbz\
+                       0wQZ75XK5tKSb7FNyeIEs4TT4jk+S4dhPeAUC5y+bDYirYgM4GC7uEnz\
+                       tnZyaVWQ7B381AK4Qdrwt51ZqExKbQpTUNn+EjqoTwvqNj4kqx5QUCI0\
+                       ThS/YkOxJCXmPUWZbhjpCg56i+2aB6CmK2JGhn57K5mj0MNdBXA4/Wnw\
+                       H6XoPWJzK5Nyu2zB3nAZp+S5hpQs+p1vN1/wsjk="
   gitlab.com: "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAy\
-NTYAAABBBFSMqzJeV9rUzU4kWitGjeR4PWSa29SPqJ1fVkhtj3Hw9xjLVXVYrU9QlYWrOLXBpQ6KWjb\
-jTDTdDkoohFzgbEY="
+                                   NTYAAABBBFSMqzJeV9rUzU4kWitGjeR4PWSa29SPqJ1f\
+                                   Vkhtj3Hw9xjLVXVYrU9QlYWrOLXBpQ6KWjbjTDTdDkoo\
+                                   hFzgbEY="
   gitlab.gnome.org: "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbm\
-lzdHAyNTYAAABBBOfWUbO2WB8qArojiGnj+Ad51kDIza+4M7VL3VCXAt//fhqHKvbYQBcWaVw2mLg1+\
-wRIxM5zDl9ssDhNrvkEN10="
-
+                                         lzdHAyNTYAAABBBOfWUbO2WB8qArojiGnj+Ad5\
+                                         1kDIza+4M7VL3VCXAt//fhqHKvbYQBcWaVw2mL\
+                                         g1+wRIxM5zDl9ssDhNrvkEN10="
 
 ## Userconf
 
