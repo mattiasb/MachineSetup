@@ -1,6 +1,6 @@
 ---
 - name: "{{ command }} : Get completion script"
-  command: "{{ command }} {{ arguments | default('') }}"
+  shell: "{{ command }} {{ arguments | default('') }}"
   changed_when: false
   register: result
   check_mode: false
