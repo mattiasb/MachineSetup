@@ -545,9 +545,7 @@ languages_python:
       - all
     with:
       - pylsp-mypy
-      - pylsp-rope
       - python-lsp-ruff
-      - python-lsp-black
   remarshal:
   sqlparse:
   yamlfix:
