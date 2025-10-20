@@ -477,7 +477,7 @@ git_repos:
 ## Bash-completion
 
 bashcomp_commands:
-  kubectl: completion bash | sed -r 's/complete -o default/complete/'
+  kubectl: completion bash
   npm: completion
   pandoc: --bash-completion
   talosctl: completion bash
