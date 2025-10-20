@@ -1,5 +1,4 @@
 ---
-
 ## Groupvars
 
 groupvars:
@@ -8,12 +7,10 @@ groupvars:
   test: "{{ hostvars['group-test'] }}"
   work: "{{ hostvars['group-work'] }}"
 
-
 ## Ansible
 
 ansible_connection: local
 ansible_python_interpreter: /usr/bin/python3
-
 
 ## DNF
 
@@ -167,15 +164,12 @@ dnf_packages_present:
   - zlib-devel
   - zlib-static
 
-
 ## Flatpak System Clean
 flatpak_system_clean: true
-
 
 ## Containers
 
 # TODO: Create containers_conf role that lets me edit stuff in `/etc/containers`
-
 
 ## Udev
 
@@ -198,7 +192,6 @@ sysconf_services:
   firewalld: false
   livesys: false
 
-
 ## Users
 
 users:
@@ -209,14 +202,13 @@ users:
       - wheel
       - wireshark
 
-
 ######################
 
 ## GNOME
 
 gnome_settings:
-  /org/freedesktop/ibus/panel/emoji/hotkey: '@as []'
-  /org/freedesktop/ibus/panel/emoji/unicode-hotkey: '@as []'
+  /org/freedesktop/ibus/panel/emoji/hotkey: "@as []"
+  /org/freedesktop/ibus/panel/emoji/unicode-hotkey: "@as []"
   /org/freedesktop/ibus/panel/show-icon-on-systray: "false"
   /org/gnome/Weather/automatic-location: "true"
   /org/gnome/desktop/calendar/show-weekdate: "true"
@@ -237,11 +229,11 @@ gnome_settings:
   /org/gnome/nautilus/icon-view/default-zoom-level: "'standard'"
   /org/gnome/nautilus/preferences/click-policy: "'single'"
   /org/gnome/settings-daemon/plugins/color/night-light-enabled: "true"
-  /org/gnome/settings-daemon/plugins/media-keys/logout: '@as []'
+  /org/gnome/settings-daemon/plugins/media-keys/logout: "@as []"
   /org/gnome/settings-daemon/plugins/power/idle-dim: "false"
   /org/gnome/shell/app-switcher/current-workspace-only: "true"
-  /org/gnome/shell/keybindings/toggle-overview: '@as []'
-  /org/gnome/shell/keybindings/toggle-quick-settings: '@as []'
+  /org/gnome/shell/keybindings/toggle-overview: "@as []"
+  /org/gnome/shell/keybindings/toggle-quick-settings: "@as []"
   /org/gnome/software/show-upgrade-prerelease: "true"
   /org/gnome/system/locale/region: "'sv_SE.UTF-8'"
   /org/gtk/gtk4/Settings/FileChooser/sort-directories-first: "true"
@@ -341,7 +333,6 @@ gnome_custom_keybindings:
     binding: <Super>n
     command: /bin/flatpak run io.gitlab.news_flash.NewsFlash
 
-
 ## Firefox
 
 # TODO: Make a role to set those configuration variables for Firefox that
@@ -352,7 +343,6 @@ gnome_custom_keybindings:
 #  - browser.link.open_newwindow.override.external = 2
 #
 # See: https://support.mozilla.org/en-US/questions/1258193 for the above.
-
 
 ## NewsFlash
 
@@ -418,12 +408,10 @@ news_flash_config:
     custom_url:
   feeds: {}
 
-
 ## Lastpass
 
 lastpass_login: true
 lastpass_username: "mattias.jc.bengtsson@gmail.com"
-
 
 ## SSH
 
@@ -432,23 +420,19 @@ ssh_lastpass_key: Keys/ssh-{{ ansible_hostname }}
 
 ssh_known_hosts:
   github.com: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCj7ndNxQowgcQnjshcLrqPEiip\
-                       hnt+VTTvDP6mHBL9j1aNUkY4Ue1gvwnGLVlOhGeYrnZaMgRK6+PKCUXa\
-                       DbC7qtbW8gIkhL7aGCsOr/C56SJMy/BCZfxd1nWzAOxSDPgVsmerOBYf\
-                       NqltV9/hWCqBywINIR+5dIg6JTJ72pcEpEjcYgXkE2YEFXV1JHnsKgbL\
-                       WNlhScqb2UmyRkQyytRLtL+38TGxkxCflmO+5Z8CSSNY7GidjMIZ7Q4z\
-                       MjA2n1nGrlTDkzwDCsw+wqFPGQA179cnfGWOWRVruj16z6XyvxvjJwbz\
-                       0wQZ75XK5tKSb7FNyeIEs4TT4jk+S4dhPeAUC5y+bDYirYgM4GC7uEnz\
-                       tnZyaVWQ7B381AK4Qdrwt51ZqExKbQpTUNn+EjqoTwvqNj4kqx5QUCI0\
-                       ThS/YkOxJCXmPUWZbhjpCg56i+2aB6CmK2JGhn57K5mj0MNdBXA4/Wnw\
-                       H6XoPWJzK5Nyu2zB3nAZp+S5hpQs+p1vN1/wsjk="
+    hnt+VTTvDP6mHBL9j1aNUkY4Ue1gvwnGLVlOhGeYrnZaMgRK6+PKCUXaDbC7qtbW8gIkhL7aGCs\
+    Or/C56SJMy/BCZfxd1nWzAOxSDPgVsmerOBYfNqltV9/hWCqBywINIR+5dIg6JTJ72pcEpEjcYg\
+    XkE2YEFXV1JHnsKgbLWNlhScqb2UmyRkQyytRLtL+38TGxkxCflmO+5Z8CSSNY7GidjMIZ7Q4zM\
+    jA2n1nGrlTDkzwDCsw+wqFPGQA179cnfGWOWRVruj16z6XyvxvjJwbz0wQZ75XK5tKSb7FNyeIE\
+    s4TT4jk+S4dhPeAUC5y+bDYirYgM4GC7uEnztnZyaVWQ7B381AK4Qdrwt51ZqExKbQpTUNn+Ejq\
+    oTwvqNj4kqx5QUCI0ThS/YkOxJCXmPUWZbhjpCg56i+2aB6CmK2JGhn57K5mj0MNdBXA4/WnwH6\
+    XoPWJzK5Nyu2zB3nAZp+S5hpQs+p1vN1/wsjk="
   gitlab.com: "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAy\
-                                   NTYAAABBBFSMqzJeV9rUzU4kWitGjeR4PWSa29SPqJ1f\
-                                   Vkhtj3Hw9xjLVXVYrU9QlYWrOLXBpQ6KWjbjTDTdDkoo\
-                                   hFzgbEY="
+    NTYAAABBBFSMqzJeV9rUzU4kWitGjeR4PWSa29SPqJ1fVkhtj3Hw9xjLVXVYrU9QlYWrOLXBpQ6\
+    KWjbjTDTdDkoohFzgbEY="
   gitlab.gnome.org: "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbm\
-                                         lzdHAyNTYAAABBBOfWUbO2WB8qArojiGnj+Ad5\
-                                         1kDIza+4M7VL3VCXAt//fhqHKvbYQBcWaVw2mL\
-                                         g1+wRIxM5zDl9ssDhNrvkEN10="
+    lzdHAyNTYAAABBBOfWUbO2WB8qArojiGnj+Ad51kDIza+4M7VL3VCXAt//fhqHKvbYQBcWaVw2m\
+    Lg1+wRIxM5zDl9ssDhNrvkEN10="
 
 ## Userconf
 
@@ -457,7 +441,6 @@ userconf_services:
   gtk3-color-scheme: true
   lockmon: true
   powerline: false
-
 
 ## git
 
@@ -473,7 +456,6 @@ git_repos:
     - repo: mattiasb/MachineSetup
     - repo: mattiasb/mtg-deck-mode
 
-
 ## Bash-completion
 
 bashcomp_commands:
@@ -482,7 +464,6 @@ bashcomp_commands:
   pandoc: --bash-completion
   talosctl: completion bash
   pip: completion --bash
-
 
 ## Flatpak
 
@@ -567,7 +548,7 @@ url_install:
       sha256: 0c680c90892c43e5ce708e918821f92445d1d244f9b3d7513023bcae9a6246d1
     - name: talosctl
       url: "https://github.com/siderolabs/talos/releases/download/v1.5.4/\
-           talosctl-linux-amd64"
+        talosctl-linux-amd64"
       sha256: 98d28410f27028ee7e23335e1901da00accc071e262fcb343c892e18fa6ec9af
   other: []
   #   # TODO: Find out why "{{ homedir }}" doesn't work here for some reason.
@@ -654,4 +635,4 @@ git_install:
       files:
         - src: /bin/eldev
           dest: "{{ homedir }}/.local/bin/eldev"
-          mode: '0755'
+          mode: "0755"
