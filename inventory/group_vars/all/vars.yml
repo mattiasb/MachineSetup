@@ -422,6 +422,7 @@ ssh_known_hosts:
   github.com: &ssh-known-host-github >-
     ssh-ed25519
     AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl
+  ssh.github.com: *ssh-known-host-github
   gitlab.com: "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAy\
     NTYAAABBBFSMqzJeV9rUzU4kWitGjeR4PWSa29SPqJ1fVkhtj3Hw9xjLVXVYrU9QlYWrOLXBpQ6\
     KWjbjTDTdDkoohFzgbEY="
