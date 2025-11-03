@@ -423,9 +423,10 @@ ssh_known_hosts:
     ssh-ed25519
     AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl
   ssh.github.com: *ssh-known-host-github
-  gitlab.com: "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAy\
-    NTYAAABBBFSMqzJeV9rUzU4kWitGjeR4PWSa29SPqJ1fVkhtj3Hw9xjLVXVYrU9QlYWrOLXBpQ6\
-    KWjbjTDTdDkoohFzgbEY="
+  gitlab.com: &ssh-known-host-gitlab >-
+    ssh-ed25519
+    AAAAC3NzaC1lZDI1NTE5AAAAIAfuCHKVTjquxvt6CM6tdG4SLp1Btn/nOeHHE5UOzRdf
+  altssh.gitlab.com: *ssh-known-host-gitlab
   gitlab.gnome.org: "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbm\
     lzdHAyNTYAAABBBOfWUbO2WB8qArojiGnj+Ad51kDIza+4M7VL3VCXAt//fhqHKvbYQBcWaVw2m\
     Lg1+wRIxM5zDl9ssDhNrvkEN10="
