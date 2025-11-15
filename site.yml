@@ -71,6 +71,11 @@
   hosts: "{{ lookup('pipe', 'hostname') }}"
   tags: user
   tasks:
+    # Need this since Ansible otherwise won't gather_facts on tagged runs.
+    - name: "Gather facts"
+      tags: always
+      setup:
+
     - name: Get users homedir
       tags: always
       set_fact:
