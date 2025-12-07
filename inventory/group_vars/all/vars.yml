@@ -192,6 +192,9 @@ sysconf_services:
   firewalld: false
   livesys: false
 
+sysconf_timers:
+  dnf-makecache: true
+
 ## Users
 
 users:
