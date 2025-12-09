@@ -159,8 +159,6 @@ dnf_packages_present:
   - xxd
   - yamllint
   - yelp-tools
-  - yubikey-manager
-  - yubikey-manager-qt
   - zlib-devel
   - zlib-static
 
