@@ -542,8 +542,8 @@ languages_go:
 
 url_install:
   executables:
-    - url: https://dl.k8s.io/release/v1.28.3/bin/linux/amd64/kubectl
-      sha256: 0c680c90892c43e5ce708e918821f92445d1d244f9b3d7513023bcae9a6246d1
+    - url: https://dl.k8s.io/release/v1.29.15/bin/linux/amd64/kubectl
+      sha256: 3473e14c7b024a6e5403c6401b273b3faff8e5b1fed022d633815eb3168e4516
     - name: talosctl
       url: "https://github.com/siderolabs/talos/releases/download/v1.5.4/\
         talosctl-linux-amd64"
