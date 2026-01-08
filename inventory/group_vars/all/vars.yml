@@ -544,10 +544,6 @@ url_install:
   executables:
     - url: https://dl.k8s.io/release/v1.29.15/bin/linux/amd64/kubectl
       sha256: 3473e14c7b024a6e5403c6401b273b3faff8e5b1fed022d633815eb3168e4516
-    - name: talosctl
-      url: "https://github.com/siderolabs/talos/releases/download/v1.5.4/\
-        talosctl-linux-amd64"
-      sha256: 98d28410f27028ee7e23335e1901da00accc071e262fcb343c892e18fa6ec9af
   other: []
   #   # TODO: Find out why "{{ homedir }}" doesn't work here for some reason.
   #   # TODO: Support extracting and installing the info file.
