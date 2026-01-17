@@ -461,7 +461,6 @@ bashcomp_commands:
   kubectl: completion bash
   npm: completion
   pandoc: --bash-completion
-  talosctl: completion bash
   pip: completion --bash
 
 ## Flatpak
