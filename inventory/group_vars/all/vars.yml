@@ -575,6 +575,11 @@ git_install:
       make:
         - user-install
 
+    - repo: mattiasb/kubectl-subcommands
+      version: main
+      make:
+        - install
+
     - repo: tobias-johansson/git-each
       version: master
       make:
