@@ -573,7 +573,7 @@ git_install:
     - repo: mattiasb/git-wip
       version: master
       make:
-        - user-install
+        - install
 
     - repo: mattiasb/kubectl-subcommands
       version: main
