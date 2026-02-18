@@ -86,6 +86,7 @@ dnf_packages_present:
   - gstreamer1-plugins-ugly
   - gstreamer1-vaapi
   - hdparm
+  - helm
   - htop
   - httpie
   - hunspell-sv
@@ -93,6 +94,7 @@ dnf_packages_present:
   - iperf3
   - jetbrains-mono-fonts
   - jq
+  - k9s
   - kubernetes1.31-client
   - lastpass-cli
   - libatomic
