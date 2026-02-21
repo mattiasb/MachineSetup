@@ -347,6 +347,10 @@ gnome_custom_keybindings:
 #  - browser.link.open_newwindow = 1
 #  - browser.link.open_newwindow.override.external = 2
 #
+# To force Firefox to sync these, set these to boolean with value true
+# - services.sync.prefs.sync.browser.link.open_newwindow
+# - services.sync.prefs.sync.browser.link.open_newwindow.override.external
+#
 # See: https://support.mozilla.org/en-US/questions/1258193 for the above.
 
 ## NewsFlash
