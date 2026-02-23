@@ -469,6 +469,7 @@ bashcomp_commands:
   npm: completion
   pandoc: --bash-completion
   pip: completion --bash
+  rbw: gen-completions bash
 
 ## Flatpak
 
