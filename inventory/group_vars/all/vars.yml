@@ -546,7 +546,11 @@ languages_go:
 ## URL Install
 
 url_install:
-  executables: []
+  executables:
+    - name: minikube
+      url: "https://github.com/kubernetes/minikube/releases/download/\
+        v1.38.1/minikube-linux-amd64"
+      sha256: 099477eaf248bcb5bcea8ce78a2898e93ac01461c35189da1848c3de82ecd22e
   other: []
   #   # TODO: Find out why "{{ homedir }}" doesn't work here for some reason.
   #   # TODO: Support extracting and installing the info file.
