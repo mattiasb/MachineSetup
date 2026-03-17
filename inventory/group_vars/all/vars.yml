@@ -92,7 +92,7 @@ dnf_packages_present:
   - jetbrains-mono-fonts
   - jq
   - k9s
-  - kubernetes1.31-client
+  - kubernetes1.32-client
   - lastpass-cli
   - libatomic
   - libcurl-devel
