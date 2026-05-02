@@ -582,6 +582,11 @@ git_install:
       make:
         - install
 
+    - repo: mattiasb/git-sync
+      version: main
+      make:
+        - install
+
     - repo: mattiasb/kubectl-subcommands
       version: main
       make:
