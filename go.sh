@@ -37,7 +37,7 @@ else
             sudo hostnamectl set-hostname mattiasb-lenovo-yoga920
             ;;
         50b42529-92af-4cc5-8a59-22a24d47107d)
-            sudo hostnamectl set-hostname mattiasb-hpeb640
+            sudo hostnamectl set-hostname W467770
             ;;
         *)
             echo Unknown hardware!
