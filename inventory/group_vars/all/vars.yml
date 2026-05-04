@@ -137,7 +137,6 @@ dnf_packages_present:
   - ripgrep
   - ruby
   - ruby-devel
-  - ruby-irb
   - rust
   - rust-analyzer
   - rustfmt
