@@ -515,7 +515,7 @@ languages_nodejs:
   - eslint
   - typescript-language-server
   - vscode-json-languageserver
-  - yaml-language-server
+  - yaml-language-server@1.22.0
 
 languages_python_version: 3.13
 languages_python:
