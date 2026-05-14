@@ -512,7 +512,6 @@ flatpak_apps:
 
 languages_nodejs:
   - "@devcontainers/cli"
-  - eslint
   - typescript-language-server
   - vscode-json-languageserver
   - yaml-language-server@1.22.0
