@@ -523,8 +523,7 @@ languages_python:
   mypy:
   pre-commit:
   python-lsp-server:
-    features:
-      - all
+    features: [all]
     with:
       - pylsp-mypy
       - python-lsp-ruff
@@ -567,33 +566,27 @@ git_install:
   github.com:
     - repo: mattiasb/emacs-2.0
       version: main
-      make:
-        - install
+      make: [install]
 
     - repo: mattiasb/git-fpaste
       version: master
-      make:
-        - user-install
+      make: [user-install]
 
     - repo: mattiasb/git-wip
       version: master
-      make:
-        - install
+      make: [install]
 
     - repo: mattiasb/git-sync
       version: main
-      make:
-        - install
+      make: [install]
 
     - repo: mattiasb/kubectl-subcommands
       version: main
-      make:
-        - install
+      make: [install]
 
     - repo: tobias-johansson/git-each
       version: master
-      make:
-        - user-install
+      make: [user-install]
 
     - repo: LuyaoHuang/virsh-bash-completion
       version: 87a81d7e7d2c9518d18a8a266153e09ef9b69d6c
@@ -628,16 +621,14 @@ git_install:
       files:
         - src: fonts/
           dest: "{{ homedir }}/.local/share/fonts/"
-      commands:
-        - fc-cache -f -v
+      commands: [fc-cache -fv]
 
     - repo: rainstormstudio/nerd-icons.el
       version: main
       files:
         - src: fonts/
           dest: "{{ homedir }}/.local/share/fonts/"
-      commands:
-        - fc-cache -f -v
+      commands: [fc-cache -fv]
 
     - repo: emacs-eldev/eldev
       version: 65e00433b5673f18328fc824cbdb54e6f7b872bc

@@ -5,5 +5,4 @@ sysconf_coredumps: true
 sysconf_services: []
 sysconf_timers: []
 
-sysconf_shells:
-  - /usr/local/bin/bash
+sysconf_shells: [/usr/local/bin/bash]
