@@ -514,7 +514,7 @@ languages_nodejs:
   - "@devcontainers/cli@0.87.0"
   - typescript-language-server@5.2.0
   - vscode-json-languageserver@1.3.4
-  - yaml-language-server@1.22.0
+  - yaml-language-server@1.23.0
 
 languages_python_version: 3.13
 languages_python:
