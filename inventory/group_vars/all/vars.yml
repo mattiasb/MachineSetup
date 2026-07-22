@@ -82,6 +82,7 @@ dnf_packages_present:
   - gstreamer1-libav
   - gstreamer1-plugins-bad-freeworld
   - gstreamer1-vaapi
+  - hadolint
   - hdparm
   - helm
   - htop
