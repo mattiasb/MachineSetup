@@ -522,6 +522,7 @@ languages_python_version: 3.13
 languages_python:
   csvkit:
   ipython:
+  mitmproxy:
   mypy:
   pre-commit:
   python-lsp-server:
