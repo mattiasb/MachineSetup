@@ -539,6 +539,7 @@ languages_ruby:
   - rubocop
   - solargraph
 languages_go:
+  github.com/bitnami/sealed-secrets/cmd/kubeseal: 195987c4987659591170  # 0.39
   github.com/evilmartians/lefthook/v2: 8d9cfec5f52367af6374             # 2.1.10
   github.com/helmfile/helmfile: 6034a54e0da2a1793cdd                    # 1.7.4
   github.com/jmespath/jp: 1331b6f3cbdbea8820b8                          # 0.2.1
