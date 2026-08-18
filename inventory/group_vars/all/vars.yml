@@ -539,11 +539,11 @@ languages_ruby:
   - rubocop
   - solargraph
 languages_go:
-  github.com/evilmartians/lefthook/v2: 8d9cfec5f52367af6374
-  github.com/helmfile/helmfile: fe1e51e5ef8f89758438
-  github.com/jmespath/jp: f4ee7271599705d3a55d
-  github.com/noahgorstein/jqp: fe7b5c27089180e1b284
-  github.com/opentofu/tofu-ls: fcf0b93ae4b1bf5739c5
+  github.com/evilmartians/lefthook/v2: 8d9cfec5f52367af6374             # 2.1.10
+  github.com/helmfile/helmfile: fe1e51e5ef8f89758438                    # 1.1.1
+  github.com/jmespath/jp: 1331b6f3cbdbea8820b8                          # 0.2.1
+  github.com/noahgorstein/jqp: fe7b5c27089180e1b284                     # 0.8.0
+  github.com/opentofu/tofu-ls: fcf0b93ae4b1bf5739c5                     # 0.5.3
 
 ## URL Install
 
