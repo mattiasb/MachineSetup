@@ -442,7 +442,7 @@ ssh_known_hosts:
 
 userconf_config_repo_url: git@github.com:mattiasb/.config.git
 userconf_services:
-  gtk3-color-scheme: true
+  color-scheme-watch: true
   lockmon: true
   powerline: false
 
