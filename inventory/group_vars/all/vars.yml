@@ -173,15 +173,16 @@ flatpak_system_clean: true
 
 ## Udev
 
-udev_rules:
-  61-mutter-primary-gpu:
-    - - SUBSYSTEM=="drm"
-      - SUBSYSTEMS=="pci"
-      - ENV{DEVTYPE}=="drm_minor"
-      - ENV{DEVNAME}=="/dev/dri/card[0-9]"
-      - ATTRS{vendor}=="0x1002"
-      - ATTRS{device}=="0x73ff"
-      - TAG+="mutter-device-preferred-primary"
+# # I don't believe this is needed anymore
+# udev_rules:
+#   61-mutter-primary-gpu:
+#     - - SUBSYSTEM=="drm"
+#       - SUBSYSTEMS=="pci"
+#       - ENV{DEVTYPE}=="drm_minor"
+#       - ENV{DEVNAME}=="/dev/dri/card[0-9]"
+#       - ATTRS{vendor}=="0x1002"
+#       - ATTRS{device}=="0x73ff"
+#       - TAG+="mutter-device-preferred-primary"
 
 ## SysConf
 
